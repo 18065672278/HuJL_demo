@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "个人中心",
+    "navigationBarBackgroundColor": "#222674",
+    "navigationBarTextStyle": "white",
+    "disableScroll": true,
+    "usingComponents": {
+      "tabbar": "../../../components/tabbar/index"
+    }
+}

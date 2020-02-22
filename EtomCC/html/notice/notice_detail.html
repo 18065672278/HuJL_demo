@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>公告管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>公告管理</a><span >/</span>
+                <a href="notice_detail.html"><cite>公告详情</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="form-content">
+                <div class="form-panel">
+                    <h1>Fly Template v3.0，基于 layui 的极简社区页面模版</h1>
+                    <div class="form-detail-info">
+                        <div class="ifo-name badge">发布人：<span>小白</span></div>
+                        <div class="ifo-date badge">发布时间：<span>2018-05-32</span></div>
+                    </div>
+                    <div class="form-panel-list">
+                        <label class="enclosure">附件:</label>
+                        <div class="form-panel-item">
+                            <a href="javascript:void(0);">日常保单单子填写</a>
+                            <i class="enc-remove"></i>
+                        </div>
+                    </div>
+                    <div class="form-panel-body">11111111</div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script>
+            $(function(){
+                var formHeight = $(window).height() - $(".fixed-tab").outerHeight() - 62;
+                $(".form-content").css("min-height",formHeight);
+
+            })
+        </script>
+    </body>
+</html>

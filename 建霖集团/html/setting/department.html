@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>系统管理</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/setting.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+    <link rel="stylesheet" href="../../js/select/select.css">
+    <link rel="stylesheet" href="../../js/page/page.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="childrenBody">
+            <div class="children-header">
+                <h3 class="title">
+                    <i class="iconfont icon-zhanghao"></i> 账号管理
+                </h3>
+            </div>
+            <div class="btn-group-content mt">
+                <div class="btn-group ">
+                    <a href="../setting/system_manage.html" class="btn " value="0">人员</a>
+                    <a href="../setting/department.html" class="btn btnactive" value="1">部门</a>
+                    <a href="../setting/factory_area.html" class="btn " value="2">厂区</a>
+                </div>
+                <div class="opaer-box">
+                    <div class="form-item">
+                        <div class="selectDiv up" id="selectDiv">
+                            <input id="beginyear" type="text" class="selectValue" readonly="true" unselectable="on"
+                                data-type="" placeholder="所属厂区">
+                            <div class="selectOption has-selectsearch">
+                                <div class="select-search">
+                                    <input class="search-input js-search-input" type="text" placeholder="搜索" />
+                                </div>
+                                <div class="select-scroll">
+                                    <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                    <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item mb10">
+                        <input style="width:170px;" class="form-item-input" id="keyWord" type="text" placeholder="请输入部门名称">
+                    </div>
+                    <a href="javascript:void(0);" id="queryBtn" class="common-btn btn-normal">查询</a>
+                    <a href="javascript:void(0);" id="addBtn" class="common-btn btn-green">新增</a>
+                </div>
+            </div>
+            <div class="table-content">
+                <table class="table">
+                    <colgroup>
+                        <col width="40">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>部门名称</th>
+                            <th>所属厂区</th>
+                            <th>率属人员</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <a href="javascript:void(0);" class="undeline">部门名称</a>
+                            </td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>
+                                <a href="edit_person.html" title="编辑" class="opear-btn editicon"></a>
+                                <a href="javascript:void(0);" title="删除" class="opear-btn deleteicon"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/select/select.js"></script>
+    <script src="../../js/layer/layer.js"></script>
+    <script>
+        // 所属厂区
+        $.divselect("#selectDiv", "#beginyear", null, null, null, true);
+   
+        $('.table').on('click', '.deleteicon', function () {
+            var layers = top.layer.confirm("确定删除该人员？", {
+                offset: 'auto',
+                closeBtn: false
+            }, function (layers) {
+
+            });
+        });
+        /* 新增部门 */
+        $("#addBtn").click(function () {
+            layer.open({
+                skin:"pop-layerBg",
+                id: 'layer-role',
+                type: 2,
+                title: false,
+                shade: 0.2,
+                shadeClose: false,
+                area: ['100%', '100%'],
+                closeBtn: 0,
+                anim: 0,
+                content: ["../setting/add_department.html"]
+            });
+        })
+    </script>
+</body>
+
+</html>

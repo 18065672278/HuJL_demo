@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>交易明细（USDT）</title>
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/wallet.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+		<link rel="stylesheet" href="css/LCalendar.css" />
+	    <link rel="stylesheet" href="css/LCalendar.min.css" />
+	</head>
+	<body>
+		<div class="detail w">
+			<div class="title">
+				<a href="wallet.html" class="back" id="back"></a>
+				<div class="logo">交易明细（USDT）</div>
+				<div class="fr back" id="select">
+					<img src="img/select.png" />
+				</div>
+				<div class="sel" style="display: none;">
+					<ul>
+						<li onclick="selcurry(this)">BTC</li>
+						<li onclick="selcurry(this)">USDT</li>
+						<li onclick="selcurry(this)">BCH</li>
+						<li onclick="selcurry(this)">LTC</li>
+						<li onclick="selcurry(this)">ETH</li>
+						<input type="hidden" name="selcurry" id="selcurry" value="USDT"/>
+					</ul>
+				</div>
+				<div class="theme-mask"></div>
+				<div class="clear"></div>
+			</div>
+			<div class="d_content">
+				<div class="d_c_t">
+					<div class="date">
+						<input type="text" name="date" id="date" value="" readonly="readonly"/>
+					</div>
+					<div class="assets">
+						<div class="assets1">
+							<span>可用资产</span><span id="assets1">U0.00000000</span>
+						</div>
+						<div class="line"></div>
+						<div class="assets2">
+							<span>冻结资产</span><span id="assets2">U0.00000000</span>
+						</div>
+					</div>
+				</div>
+				<div class="submenu">
+					<ul class="tab clearfix">
+					    <li class="on" onclick="submenu(this)" dtype="全部">全部明细<span class="rcode">USDT</span></li>
+					    <li  onclick="submenu(this)" dtype="充值">充值<span class="rcode">USDT</span></li>
+					    <li  onclick="submenu(this)" dtype="提现">提现<span class="rcode">USDT</span></li>
+					    <input type="hidden" name="dtype" id="dtype" value="全部"/>
+					    <div class="clear"></div>
+					</ul>
+				</div>
+				<div class="d_list">
+					<ul>
+						<li class="clearfix">
+							<div class="fl">
+								<div class="d_list_name">
+									充值USDT
+								</div>
+								<div class="d_list_date">
+									2018-05-13 20:37:14
+								</div>
+							</div>
+							<div class="fr">
+								<div class="d_list_sum on">
+									+50.00000000
+								</div>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="fl">
+								<div class="d_list_name">
+									提现USDT
+								</div>
+								<div class="d_list_date">
+									2018-05-13 20:37:14
+								</div>
+							</div>
+							<div class="fr">
+								<div class="d_list_sum">
+									-50.00000000
+								</div>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="fl">
+								<div class="d_list_name">
+									充值USDT
+								</div>
+								<div class="d_list_date">
+									2018-05-13 20:37:14
+								</div>
+							</div>
+							<div class="fr">
+								<div class="d_list_sum on">
+									+50.00000000
+								</div>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="fl">
+								<div class="d_list_name">
+									提现USDT
+								</div>
+								<div class="d_list_date">
+									2018-05-13 20:37:14
+								</div>
+							</div>
+							<div class="fr">
+								<div class="d_list_sum">
+									-50.00000000
+								</div>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="fl">
+								<div class="d_list_name">
+									提现USDT
+								</div>
+								<div class="d_list_date">
+									2018-05-13 20:37:14
+								</div>
+							</div>
+							<div class="fr">
+								<div class="d_list_sum">
+									-50.00000000
+								</div>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="fl">
+								<div class="d_list_name">
+									充值USDT
+								</div>
+								<div class="d_list_date">
+									2018-05-13 20:37:14
+								</div>
+							</div>
+							<div class="fr">
+								<div class="d_list_sum on">
+									+50.00000000
+								</div>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="fl">
+								<div class="d_list_name">
+									充值USDT
+								</div>
+								<div class="d_list_date">
+									2018-05-13 20:37:14
+								</div>
+							</div>
+							<div class="fr">
+								<div class="d_list_sum on">
+									+50.00000000
+								</div>
+							</div>
+						</li>
+					</ul>
+					<input type="button" id="more" value="加载更多" onclick="listmore()"/>
+					<div class="nomore">暂无更多数据</div>
+				</div>
+			</div>
+		</div>
+			
+		
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/footer.js" ></script>
+		<script type="text/javascript" src="js/LCalendar.js"></script>
+	    <script type="text/javascript" src="js/LCalendar.min.js"></script>
+		<script type="text/javascript" src="js/wallet.js"></script>
+		<script type="text/javascript" src="js/url.js"></script>
+		<script type="text/javascript">
+			//获取前一个页面的值并转换页面上的相关值
+			var currency=GetQueryString("currency")
+			console.log(currency);
+			if (currency != null){
+				$(".rcode").text(currency);
+				$("title").text("交易明细("+currency+")");
+				$(".logo").text("交易明细("+currency+")");
+				$("#selcurry").val(currency);
+			}
+			//顶部币种选择
+			$("#select").click(function(){
+				var sel = $(".sel").attr("style");
+				if (sel == "display: none;") {
+					$('.theme-mask').show();
+					$('.theme-mask').height($(document).height());
+					$('.sel').show();
+				} else{
+					$('.theme-mask').hide();
+					$('.sel').hide();
+				}
+			})
+			//点击遮幕关闭币种选择
+			$('.theme-mask').click(function(){
+				$('.theme-mask').hide();
+				$('.sel').hide();
+			})
+			//时间选择
+			var calendar = new LCalendar();
+			calendar.init({
+				'trigger': '#date', //标签id
+				'type': 'ym', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+				'minDate': (new Date().getFullYear()-3) + '-' + 1 + '-' + 1, //最小日期
+				'maxDate': (new Date().getFullYear()+0) + '-' + 12 + '-' + 31 //最大日期
+			});
+			//首次加载
+			firstdetails();
+			
+			window.onload=function(){
+			  var otxt=document.getElementById("date");
+			  if(document.all){
+			     otxt.onpropertychange=function(){
+			     	update(otxt.value);
+			     }
+			  }
+			  else{
+			    otxt.oninput=function(){
+			      	update(otxt.value);
+			    }
+			  }
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!--src/pages/fleet/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">服务项名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{serviceName}}' placeholder='请填写服务项名称' maxlength='10' bindinput='inputServiceName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">价格
+    </view>
+    <input type='digit' class="value right" style='text-align:right;' value='{{servicePrice}}' placeholder='请填写价格' maxlength='10' bindinput='inputServicePrice'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">市场价格
+    </view>
+    <input type='digit' class="value right" style='text-align:right;' value='{{marketPrice}}' placeholder='请填写市场价格' maxlength='50' bindinput='inputMarketPrice'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">成本价
+    </view>
+    <input type='digit' class="value right" type='number' style='text-align:right;' value='{{costPrice}}' placeholder='请填写成本价' maxlength='30' bindinput='inputCostPrice'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">是否为常用服务</view>
+    <switch class="value right" checked="{{serviceTag}}" bindchange="serviceTagChange" />
+  </view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{orgCode}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">组织编码
+      </view>
+      <view class="value right">{{orgCode}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">营业时间</view>
+    <view class="value right">
+      <radio-group class="radio-group" bindchange="dayTimeChange">
+        <label class="radio" wx:for="{{dayTime}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">描述</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

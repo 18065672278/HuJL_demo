@@ -1,0 +1,265 @@
+body {
+	background-color: #FFFFFF;
+}
+
+.title {
+	background: #1D2339;
+	z-index: 100001;
+	position: relative;
+}
+.nav {
+	width: 7.5rem;
+	height: 0.88rem;
+	line-height: 0.84rem;
+	text-align: center;
+	font-size: 0.36rem;
+	color: #FFFFFF;
+	background-color: #1D2339;
+}
+
+.nav li {
+	width: 50%;
+	float: left;
+}
+
+.nav li.hover {
+	color: #28CEC3;
+	border-bottom: 0.04rem solid #28CEC3;
+}
+
+.conlbox {
+	margin: 0 .3rem;
+}
+
+#conl_item_1 li {
+	line-height: 1.2rem;
+	display: flex;
+	border-bottom: .02rem solid #D7D7D7;
+}
+
+#conl_item_1 li.range {
+	line-height: 1.2rem;
+	display: block;
+	background: none;
+}
+
+#conl_item_1 li .s_t_n {
+	font-size: .3rem;
+	color: #666666;
+	display: inline-block;
+}
+
+#conl_item_1 li input {
+	font-size: .36rem;
+	color: #1D2339;
+	display: inline-block;
+	flex: 1;
+	margin: 0 0 0 .53rem;
+	background: rgba(255, 255, 255, 0);
+	background: url(../img/down.png) no-repeat right center;
+	background-size: .24rem;
+}
+
+#conl_item_1 li.range .s_t_n {
+	display: inline-block;
+	margin-right: 0.53rem;
+}
+
+#conl_item_1 li.range input {
+	width: 1.31rem;
+	height: .5rem;
+	line-height: .5rem;
+	font-size: .18rem;
+	text-align: center;
+	border: .02rem solid #D7D7D7;
+	margin: 0;
+	display: inline-block;
+	background: none;
+}
+
+#conl_item_1 li.range .hline {
+	display: inline-block;
+	width: .2rem;
+	height: .03rem;
+	background: #D7D7D7;
+	margin: 0 .1rem;
+	vertical-align: middle;
+}
+
+input#searchadv,
+input#searchuser {
+	width: 5rem;
+	height: .9rem;
+	line-height: .9rem;
+	margin: .75rem auto;
+	font-size: 0.36rem;
+	display: block;
+	color: #FFFFFF;
+	background-color: #28CEC3;
+}
+
+.searchuser {
+	line-height: 1rem;
+	margin: 1.74rem .65rem .77rem;
+	background: url(../img/user.png) no-repeat left top;
+	background-size: .3rem;
+	padding-bottom: .2rem;
+	border-bottom: .02rem solid #D7D7D7;
+}
+
+input#susername {
+	font-size: .3rem;
+	color: #999999;
+	/*line-height: 1rem;*/
+	margin: 0 0 0 .5rem;
+}
+
+#conl_item_2 -moz-placeholder {
+	color: #999999;
+	opacity: 1;
+}
+
+#conl_item_2 ::-moz-placeholder {
+	color: #999999;
+	opacity: 1;
+}
+
+#conl_item_2 input:-ms-input-placeholder {
+	color: #999999;
+	opacity: 1;
+}
+
+#conl_item_2 input::-webkit-input-placeholder {
+	color: #999999;
+	opacity: 1;
+}
+
+.theme-mask {
+	z-index: 10000;
+	position: fixed;
+	_position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	display: none;
+}
+
+.selcurlist,
+.selpaylist {
+	width: 100%;
+	height: auto;
+	z-index: 100001;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: none;
+	font-size: 0.24rem;
+	color: #7c7b7b;
+	line-height: 0.4rem;
+}
+
+#conl_item_1 .selcurlist li,
+#conl_item_1 .selpaylist li {
+	line-height: 1rem;
+	font-size: .3rem;
+	color: #1D2339;
+	background: #fff;
+	text-align: center;
+	display: block;
+	border-bottom: .02rem solid #D7D7D7;
+}
+
+.selcurlist li:last-child,
+.selpaylist li:last-child {
+	border-bottom: 0;
+}
+
+.selcurlist li:hover,
+.selpaylist li:hover {
+	color: #28CEC3;
+}
+
+.selcurlist .close,
+.selpaylist .close {
+	line-height: 1rem;
+	font-size: .36rem;
+	color: #E51E1E;
+	background: #fff;
+	text-align: center;
+	margin-top: 0.2rem;
+}
+
+
+/*selectsearch*/
+
+/*.selectsearch .title {
+	position: fixed;
+	top: 0;
+}*/
+
+input#searcharea,input#searchcurry {
+	width: 4.5rem;
+	height: .6rem;
+	line-height: .6rem;
+	font-size: .24rem;
+	text-indent: .3rem;
+	border-radius: 1rem;
+	background-image: url(../img/tsearch.png);
+	background-color: #FFFFFF;
+	background-position: 93% center;
+	background-repeat: no-repeat;
+	background-size: .35rem;
+}
+
+/*.selectsearch .content {
+	margin-top: 0.88rem;
+}*/
+
+.selectsearch .msg {
+	height: .5rem;
+	line-height: .5rem;
+	font-size: .36rem;
+	background-color: #28CEC3;
+	text-indent: .6rem;
+}
+
+.selectsearch .msg a {
+	color: #FFFFFF;
+}
+
+.selectsearch ul li {
+	height: 1rem;
+	line-height: 1rem;
+	margin: 0 .3rem;
+	text-indent: .3rem;
+	font-size: .3rem;
+	color: #1D2339;
+	border-bottom: .02rem solid #D7D7D7;
+}
+
+.selectsearch ul li:last-child {
+	/*border-bottom: 0;*/
+}
+
+.mao {
+	width: .6rem;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	/*background: rgba(255, 255, 255, 0.6);*/
+	padding: .2rem 0;
+	border-radius: .1rem;
+}
+
+.mao a {
+	display: inline-block;
+	font-size: .2rem;
+	color: #666666;
+	padding: 0 .2rem .1rem;
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>订单</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/order.css"/>
+		<link rel="stylesheet" type="text/css" href="css/record.css"/>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+		 <script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		 <!--<a href="javascript:;" class="weui_btn nextPage weui_btn_primary" style="margin: 20px auto; font-size: 14px; width: 200px;">加载更多</a>-->
+		<div class="containers">
+			<div class="conclude">
+				<div class="head">
+				</div>
+				<div class="demand">
+					<div id="holdingDiv" class="left">
+						<span>持仓中</span>
+					</div>
+					<div id="workingDiv" class="middle">
+						<span>处理中</span>
+					</div>
+					<div id="finishDiv" class="right">
+						<span>已结算</span>
+					</div>
+				</div>
+			</div>
+				
+			<!--持仓中-->
+			<div id="oneDiv" class="one">
+				
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>持仓均价</span><p id="average">1.25</p>
+						</div>
+						<div class="name">
+							<span>最新价格</span><p id="news">1.31</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>开仓日期</span><p id="open">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>
+					<div class="content_1 mark">
+						<div class="number">
+							<span>浮动盈亏</span><p id="float">2515.31</p>
+						</div>
+						<div class="name">
+							<span>实际盈亏</span><p id="actual">2515.31</p>
+						</div>
+					</div>
+					<div class="buy">
+						<span>实际买入价</span><p id="relatiybuy">555.5</p>
+					</div>
+					<div class="content_2">
+						<a href="registration.html"><button>交割单</button></a><a href="apply_exercise.html"><button>行权</button></a>
+					</div>
+				</div>
+				<!--2-->
+				<!--<div class="second another">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>持仓均价</span><p id="average">1.25</p>
+						</div>
+						<div class="name">
+							<span>最新价格</span><p id="news">1.31</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>开仓日期</span><p id="open">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>
+					<div class="content_1 mark">
+						<div class="number">
+							<span>浮动盈亏</span><p id="float">2515.31</p>
+						</div>
+						<div class="name">
+							<span>实际盈亏</span><p id="actual">2515.31</p>
+						</div>
+					</div>
+					<div class="buy">
+						<span>实际买入价</span><p id="relatiybuy">555.5</p>
+					</div>
+					<div class="content_2">
+						<button>交割单</button><button>行权</button>
+					</div>
+				</div>-->
+				<!--<hr />
+				-->
+			</div>
+			<!--处理中-->
+			<div id="twoDiv" class="two">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>持仓均价</span><p id="average">1.25</p>
+						</div>
+						<div class="name">
+							<span>最新价格</span><p id="news">1.31</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>开仓日期</span><p id="open">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>
+					<div class="content_1 mark">
+						<div class="number">
+							<span>浮动盈亏</span><p id="float">2515.31</p>
+						</div>
+						<div class="name">
+							<span>实际盈亏</span><p id="actual">2515.31</p>
+						</div>
+					</div>
+					<div class="buy">
+						<span>实际买入价</span><p id="relatiybuy">555.5</p>
+					</div>
+					<div class="content_3">
+						<span class="states">合约状态</span><span id="state">行权中</span>
+					</div>
+				</div>
+				<!--<hr />-->
+				<!--2-->
+			</div>
+			
+			<!--已结算-->
+			<div id="threeDiv" class="three">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>持仓均价</span><p id="average">1.25</p>
+						</div>
+						<div class="name">
+							<span>最新价格</span><p id="news">1.31</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>开仓日期</span><p id="open">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>
+					<div class="content_1 mark">
+						<div class="number">
+							<span>浮动盈亏</span><p id="float">2515.31</p>
+						</div>
+						<div class="name">
+							<span>实际盈亏</span><p id="actual">2515.31</p>
+						</div>
+					</div>
+					<div class="buy">
+						<span>实际买入价</span><p id="relatiybuy">555.5</p>
+					</div>
+					<div class="content_3">
+						<span class="states">合约状态</span><span id="state">已结算</span>
+					</div>
+				</div>
+				<!--<hr />-->
+				<!--2-->
+				<!--<div class="second another">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>持仓均价</span><p id="average">1.25</p>
+						</div>
+						<div class="name">
+							<span>最新价格</span><p id="news">1.31</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>开仓日期</span><p id="open">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>
+					<div class="content_1 mark">
+						<div class="number">
+							<span>浮动盈亏</span><p id="float">2515.31</p>
+						</div>
+						<div class="name">
+							<span>实际盈亏</span><p id="actual">2515.31</p>
+						</div>
+					</div>
+					<div class="buy">
+						<span>实际买入价</span><p id="relatiybuy">555.5</p>
+					</div>
+					<div class="content_3">
+						<span class="states">合约状态</span><span id="state">已结算</span>
+					</div>
+				</div>
+				<hr />	-->
+			</div>
+			<!--底部-->
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/promotion_earnings.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/order.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+	
+		<script>
+			$(function(e){
+				if(token==null||token.length==0||token==""){
+					window.location.href = "login.html";
+				}
+				console.log(token);
+				getHodingList();
+				
+				function getHodingList(){
+					$.ajax({
+	                    url: test_url + pro_name + '/user/get/orders',
+	                    type:"post",
+	                    dataType: 'jsonp',
+	                    jsonp: "callback",
+	                    data: {
+	                       "token":token,
+	                       "pageNum":1,
+	                       "pageSize":20,
+	                       "type":7 // 持仓中
+	                    },
+	                    beforeSend: function() {
+	
+	                    },
+	                    success: function(data) {
+	                        console.log(data)
+	                        if (data.status === 200) {
+	                            layer.msg('登录成功', {
+	                                    time: 2000
+	                                }, function() {
+	                                    $('.lg').hide().siblings().show();
+	                                    /*localStorage.setItem('userToken', data.data)*/
+	                                    sessionStorage.setItem("token", data.data); 	                                    
+	                                   /*location.href="./personal_center.html"*/
+	                                  location.href="./home_page.html"
+	                                  
+	                                })
+	                        } else if(data.status===603){//2无数据
+	                           $(".first").css("display","none");
+	                           $("#holdingDiv").css({"color": "rgb(172, 130, 94)", "border-top": "none","border-right":"none","border-bottom": "2px solid rgb(172, 130, 94)","border-left": "none; border-image: initial"});
+	                           alert("暂无订单数据");
+	                        }else{
+	                        	alert(data.msg);
+	                        }
+	
+	                    },
+	                    error: function(xhr, status, error) {
+	                            $('.lg').hide().siblings().show();
+	                        } //error end
+	                });
+				}//fn end
+			});
+		</script>
+	</body>
+</html>
+

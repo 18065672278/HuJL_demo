@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>充值提现</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/top-up_withdrawal.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<div class="containers">
+			<div class="head">
+				<a href="personal_center.html"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">充值提现</span>
+			</div>              
+		    <div class="title">
+		    	<div class="lefts"><span>充值</span></div><div class="rights"><span>提现</span></div>		    			    	
+		    </div>
+		    <div class="aa"></div>
+		    <!--充值-->
+		   <div class="first">
+				<div class="online">
+					<a href="online_top-up.html">
+						<div class="btn">
+							<input type="button" id="" value="在线充值" />
+						</div>	
+					</a>				
+					<p>充值记录</p>				
+				</div>
+				<div class="forms" id="congzhi">
+			    	
+			    </div>
+		    </div>
+		    <!--提现-->
+		    <div class="second">
+		    	<div class="withdrawal">
+					<div class="tixian">
+						<div class="one">
+							<span>账&nbsp;户&nbsp;余&nbsp;额：</span><input type="text" id="money" disabled="disabled" class="remain_1" value="" />
+						</div>
+						<div class="two">
+							<span>提&nbsp;现&nbsp;金&nbsp;额：</span><input type="text" id="deposit" class="remain_2" value="" />
+						</div>
+						<div class="two">
+							<span>到&nbsp;账&nbsp;卡&nbsp;号：</span>
+							<!--<input type="text" id="deposit" class="remain_3" value="" />-->
+							<select class="remain_3" name="cards">
+								<option value="">-- 请选择 --</option>
+							</select>
+						</div>
+						<div id="choose">
+							
+						</div>							
+						<div class="four">
+							<input type="button" style="color:white;" onclick="tx()" value="提  交" />
+						</div>														    
+					</div>
+					<p>提现记录</p>
+				</div>	
+				<div class="forms" id="tixian">
+			    	
+			    </div>
+		    </div>		    
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="js/promotion_earnings.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]);
+				return null;
+			}
+			var money=GetQueryString("money")
+			console.log(money)
+			$("#money").val(money);
+			
+			function tx(){
+				console.log($("#deposit").val())
+					console.log($('#bankCard option:selected').val())
+				$.ajax({
+					url: test_url + pro_name + 'user/commit/withdraw',
+					type:"POST",
+					dataType:'jsonp',
+					jsonp:'callback',
+					data:{
+						"token":token,
+						"money":$("#deposit").val(),
+						"bankCardId":$('#bankCard option:selected').val()
+					},
+					success:function(data){
+						console.log(data)
+						/*console.log(token)*/// 
+						
+
+						if(data.status === 200){
+							layer.msg(data.msg)				    
+						}else{
+							layer.msg(data.msg)						
+						}
+					},
+					error:function(xhr,status,error){
+						
+					}
+				});
+			}
+			getB()
+			function getB(){
+			$.ajax({
+					url: test_url + pro_name + 'user/get/my/bankCard',
+					type:"POST",
+					dataType:'jsonp',
+					jsonp:'callback',
+					data:{
+						"token":token,
+						"state":"认证成功"
+					},
+					success:function(data){
+						console.log(data)
+						/*console.log(token)*/// 
+						if(data.status === 200){
+							var a=`<div class="three"><span>选择银行卡：</span><select name="" id="bankCard">`
+						    for (var i = 0; i <data.data.length; i++) {
+								a=a+`<option value="`+data.data[i].bankCardId+`">`+data.data[i].openBank+`</option>`
+							}	
+							a=a+'</select></div>';
+							$("#choose").html(a)					    
+						}else{
+							layer.msg("您无可提现银行卡")						
+						}
+					},
+					error:function(xhr,status,error){
+						
+					}
+				});
+		}
+		congzhi()
+		tixian()
+				function congzhi(){
+			$.ajax({
+					url: test_url + pro_name + 'user/get/capitals',
+					type:"POST",
+					dataType:'jsonp',
+					jsonp:'callback',
+					data:{
+						"token":token,
+						"type":2
+					},
+					success:function(data){
+						console.log(data)
+						/*console.log(token) */
+						if(data.status === 200){
+							var a=`<table border="0" cellspacing="0" cellpadding="0">
+			    		<tr><th>序号</th><th>充值时间</th><th>充值金额</th><th>充值状态</th></tr>`
+						    for (var i = 0; i <data.data.length; i++) {
+								a=a+`<tr><td>`+i+`</td><td>`+data.data[i].createTime+`</td><td>`+data.data[i].money+`</td><td>`+data.data[i].checkState+`</td></tr>`
+							}	
+							a=a+`</table>`
+							$("#congzhi").html(a);			    
+						}else{
+							//layer.msg(data.msg)						
+						}
+					},
+					error:function(xhr,status,error){
+						
+					}
+				});
+
+		}
+		function tixian(){
+			$.ajax({
+					url: test_url + pro_name + 'user/get/capitals',
+					type:"POST",
+					dataType:'jsonp',
+					jsonp:'callback',
+					data:{
+						"token":token,
+						"type":1
+					},
+					success:function(data){
+						console.log(data)
+						/*console.log(token)*/
+						if(data.status === 200){
+							var a=`<table border="0" cellspacing="0" cellpadding="0">
+			    		<tr><th>序号</th><th>提现时间</th><th>提现金额</th><th>提现状态</th></tr>`
+						    for (var i = 0; i <data.data.length; i++) {
+								a=a+`<tr><td>`+i+`</td><td>`+data.data[i].createTime+`</td><td>`+data.data[i].money+`</td><td>`+data.data[i].checkState+`</td></tr>`
+							}	
+							a=a+`</table>`
+							$("#tixian").html(a);			    
+						}else{
+							//layer.msg(data.msg)						
+						}
+					},
+					error:function(xhr,status,error){
+						
+					}
+				});
+
+		}
+		</script>
+	</body>
+</html>
+

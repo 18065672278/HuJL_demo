@@ -1,0 +1,53 @@
+<view class="content">
+  <view class="item-wrapper">
+    <view class="billBox">
+      <view class="content clearfix">
+        <view class="shop_name">
+          {{shopName}}
+        </view>
+        <view class="fund_details" bindtap="fundList">
+          资金明细 ＞
+        </view>
+      </view>
+      <view class="moneyBox">
+        <view class="content fontCenter">
+          本月营业额
+        </view>
+        <view class="content fontBig fontCenter">
+          ￥{{money}}
+        </view>
+        <view class="content fontCenter">
+          <view class="grayBox">
+            预计毛利：￥{{profit}}
+          </view>
+        </view>
+      </view>
+      <view class="costBox">
+        <view class="content">
+          <view class="costname">本月代理运营费</view>
+          <view class="costmoney">
+          ￥{{cost1}}
+          </view>
+        </view>
+        <view class="content indent">
+          <view class="costname">实际货物成本</view>
+          <view class="costmoney">
+          ￥{{cost2}}
+          </view>
+        </view>
+        <view class="content">
+          <view class="costname">可提现余额</view>
+          <view class="costmoney">
+          ￥{{cost3}}
+          </view>
+        </view>
+        <view class="content indent">
+          <view class="costname">需开票金额</view>
+          <view class="costmoney">
+          ￥{{cost4}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

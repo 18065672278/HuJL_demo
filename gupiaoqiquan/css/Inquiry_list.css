@@ -1,0 +1,285 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: #000000;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+}
+html{
+	width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+}
+body{
+	width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+}
+.containers{
+    width: 100%;
+    position: absolute;
+    overflow: auto;
+    top: 2.65rem;
+    bottom: 1.53rem;
+}
+.conclude{
+	width: 100%;
+	height: 2.65rem;
+	position: fixed;
+	top: 0;
+	background-color: #000000;
+}
+.head{
+	background-color: #000000;
+	color: #FFFFFF;
+	padding-top: 0.33rem;
+	padding-bottom: 0.33rem;
+	width: 100%;
+	height: 0.66rem;
+}
+.head img{
+	margin-left: 0.27rem;
+	margin-right: 0.2rem;
+	width: 0.33rem;
+	height: 0.4rem;
+}
+#back{
+	color: #FFFFFF;
+	margin-right: 22%;
+	font-size: 17px;
+}
+.heads{
+	width: 1.93rem;
+	height: 0.53rem;
+	font-size: 21px;
+}
+/*å†…å®¹*/
+.demand{
+	width: 100%;
+	height: 1.33rem;
+	background-color: #262626;
+}
+.demand select{
+	float: right;
+	height: 100%;
+	width: 2.7rem;
+	font-size: 16px;
+	margin-right: 0.53rem;
+	border: none;
+	color: #AC825E;
+	background-color:#262626;
+	letter-spacing: 2px;
+}
+/*è¯¢ä»·ä¸­*/
+.one{
+	width: 100%;
+	/*flex: 1;*/
+	background-color: #161614;
+	overflow: auto;
+	display: block;
+}
+.first{
+	width: 88%;
+	height: 3.73rem;
+	margin: 0 auto;
+	margin-top: 0.53rem;
+	margin-bottom: 0.4rem;
+	color: #FFFFFF;
+	font-size: 14px;
+}
+.content_1{
+	width: 100%;
+	height: 0.4rem;
+	margin-bottom: 0.26rem;
+}
+.number{
+	width: 46.9%;
+	height: 0.43rem;
+	/*float: left;*/
+	display: inline-block;
+}
+.content_1 span{
+	color: #CCCCCC;
+	
+}
+.content_1 p{
+	display: inline-block;
+	float: right;
+	color: #efefef;
+}
+.name{
+	width: 46.9%;
+	height: 0.33rem;
+	float: right;
+	display: inline-block;
+}
+.qiquan{
+	width: 47%;
+	height: 0.43rem;
+	display: inline-block;
+	color: #CCCCCC;
+}
+.qiquan p{
+	color: #ee1619;
+	display: inline-block;
+	float: right;
+}
+.states{
+	width: 46.9%;
+	height: 0.93rem;
+	float: right;
+	display: inline-block;
+	margin-top: 0.43rem;
+	line-height: 1.2rem;
+	margin-bottom: 0.3rem;
+}
+.states span{
+	color: #999999;
+}
+.states button{
+	width: 1.93rem;
+	height: 0.86rem;
+	float: right;
+	background-color: #AC825E;
+	border: 1px solid #AC825E;
+	color: #FFFFFF;
+	border-radius: 3px;
+	letter-spacing: 4px;
+}
+ hr{
+	width: 93.8%;
+	float: right;
+	border: 1px solid #53585e;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+.second{
+	width: 88%;
+	height: 3.73rem;
+	margin: 0 auto;
+	margin-top: 1rem;
+	/*margin-bottom: 0.4rem;*/
+	color: #FFFFFF;
+	font-size: 14px;
+	padding-bottom: 0.2rem;
+}
+/*å¾…ä¹°å…¥*/
+.two{
+	display: none;
+	width: 100%;
+	height: 100%;
+	flex: 1;
+	background-color: #161614;
+	overflow: auto;
+}
+
+/*ä¹°å…¥ä¸­*/
+.three{
+	display: none;
+	width: 100%;
+	height: 100%;
+	flex: 1;
+	background-color: #161614;
+	overflow: auto;
+}
+/*æŸ¥è¯¢å¤±è´¥*/
+.four{
+	display: none;
+	width: 100%;
+	height: 100%;
+	flex: 1;
+	background-color: #161614;
+	overflow: auto;
+}
+.four button{
+	background-color:#999999;
+	border: 1px solid #999999;
+}
+/*å·²ä½œåºŸ*/
+.five{
+	display: none;
+	width: 100%;
+	height: 100%;
+	flex: 1;
+	background-color: #161614;
+	overflow: auto;
+}
+.five button{
+	background-color:#999999;
+	border: 1px solid #999999;
+}
+/*åº•éƒ¨*/
+.footer{
+	width: 100%;
+	height: 1.33rem;
+	background-color: #000000;
+	color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 0.2rem;
+	font-size: 12px;
+}
+.shadow{
+	width: 100%;
+	flex: 1; /* 1 ä»£è¡¨ç›¡å¯èƒ½æœ€å¤§ï¼Œæœƒè‡ªå‹•å¡«æ»¿é™¤äº† header footer ä»¥å¤–çš„ç©ºé–“ */
+	background-color: #FFFFFF;
+}
+.rows_1{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+}
+.rows_2{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+}
+.rows_3{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+	
+}
+.rows_1 img{
+	width: 0.65rem;
+	height: 0.56rem;
+}
+.rows_2 img{
+	margin-left: 0.05rem;
+	width: 0.54rem;
+	height: 0.6rem;
+}
+.rows_3 img{
+	margin-left: 0.35rem;
+	width: 0.58rem;
+	height: 0.61rem;
+}
+@media screen and (min-width:768px){ 
+    #back{
+    	margin-right: 25%;
+    }
+    .head{
+    	font-size: 24px;
+    }
+    .head img{
+    	height: 0.53rem;
+    }
+    .footer{
+		padding-left: 3rem;
+	}
+	.footer p{
+		margin-left: 0.1rem;
+	}
+	.rows_3 p{
+		margin-left: 0.2rem;
+	}
+}

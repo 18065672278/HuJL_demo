@@ -1,0 +1,29 @@
+<!--src/pages/fleet/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">标签名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{labelName}}' placeholder='请填写标签名称' maxlength='10' bindinput='inputLabelName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">标签值
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{labelValue}}' placeholder='请填写标签值' maxlength='10' bindinput='inputLabelValue'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">排序编号
+    </view>
+    <input type='number' class="value right" style='text-align:right;' value='{{orderNo}}' placeholder='请填写市场价格' maxlength='50' bindinput='inputOrderNo'></input>
+  </view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{orgCode}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">组织编码
+      </view>
+      <view class="value right">{{orgCode}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

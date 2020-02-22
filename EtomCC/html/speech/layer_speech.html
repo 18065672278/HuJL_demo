@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/wx-audio.css">
+</head>
+
+<body>
+    <div class="pop-layer-wrapper ">
+        <div class="pop-layer-title">
+            <h3 class="txt">录音总结</h3>
+            <div class="btn-row">
+                <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+            </div>
+        </div>
+        <div class="pop-layer-content clearfix">
+            <div class="form-item-group mb10">
+                <a href="javascript:void(0);" class="common-btn btn-green">下载</a>
+                <a href="javascript:void(0);" class="common-btn btn-normal">保存</a>
+            </div>
+            <div class="speech-textarea">
+                <textarea class="textarea" name="">1111111111111</textarea>
+            </div>
+            <div class="wx-audio"></div>
+            <!-- <p class="weixinAudio">
+                <audio src="" id="media" width="1" height="1" preload></audio>
+                <span id="audio_area" class="db audio_area">
+                    <span class="audio_wrp db">
+                        <span class="audio_play_area">
+                            <i class="icon_audio_default"></i>
+                            <i class="icon_audio_playing"></i>
+                        </span>
+                        <span id="audio_length" class="audio_length tips_global">3:07</span>
+                        <span class="db audio_info_area">
+                            <strong class="db audio_title">Title/标题</strong>
+                            <span class="audio_source tips_global">From/来源</span>
+                        </span>
+                        <span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
+                    </span>
+                </span>
+            </p> -->
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/layer/layer.js"></script>
+    <script src="../../js/wx-audio.js"></script>
+    <script>
+        var layerIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+        $(".closeBtn").click(function() {
+        	parent.layer.close(layerIndex);
+        })
+        const wx = new WxAudio({    
+            ele: '.wx-audio',
+            title: '下雨了',
+            disc: '薛之谦 _ 毛不易',
+            src: 'http://m10.music.126.net/20181229115704/f211fc1fc8e498bf9bff221977619de8/ymusic/2f07/fe42/4433/19418b97d7cdd9ac5f338c2f1ebfdf12.mp3',
+            width: '100%',
+            loop: true,
+            ended: function() {
+                var src = 'http://m10.music.126.net/20181229115704/f211fc1fc8e498bf9bff221977619de8/ymusic/2f07/fe42/4433/19418b97d7cdd9ac5f338c2f1ebfdf12.mp3'
+                var title = '下雨了'
+                var disc = '薛之谦 _ 毛不易'
+                wx.audioCut(src, title, disc) //实现音频切换的效果
+            }
+        })
+        // 实例化的wxAudio可以这样操作
+        // wxAudio.audioPlay()   // 播放 
+        // wxAudio.audioPause()   // 暂停 
+        // wxAudio.audioPlayPause()  // 播放暂停 
+        // wxAudio.showLoading(bool)  //显示加载状态  参数bool  
+        // wxAudio的audioCut(src,title,disc) ;
+    </script>
+</body>
+
+</html>

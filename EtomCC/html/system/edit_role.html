@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>组织管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+        <style>
+            .container {
+                padding: 10px;
+            }
+            .checkAll+.checkbox-shape, .checkbox+.checkbox-shape {
+                top: 3px;
+                left: 5px;
+                background-color: #fff;
+            }
+            .role-menu {
+                display: none;
+            }
+            .checkAll:checked+.checkbox-black {
+                background: #d8d8d8;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>系统管理</a><span >/</span>
+                <a href="role_management.html"><cite>角色管理</cite><span >/</span></a>
+                <a href="edit_role.html"><cite>编辑角色</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="section-wrapper">
+                <div class="row">
+                    <div class="row-col">
+                        <section class="panel">
+                            <div class="panel-heading">基本信息</div>
+                            <div class="panel-body">
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">角色名称</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="text" placeholder="请输入角色名称">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">率属人员</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="text" readonly="true" unselectable="on" style="cursor:pointer;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">备注</label>
+                                        <div class="base-input-box">
+                                            <textarea class="base-form-textarea" id="memo"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-col">
+                        <section class="panel">
+                            <div class="panel-heading">首页设置</div>
+                            <div class="panel-body">
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="radio-group">
+                                        <input name="orgType" class="radio" type="radio" value="0" id="radio1" checked="">
+                                        <label class="radio-txt" for="radio1">项目经理</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input name="orgType" class="radio" type="radio" value="0" id="radio2" >
+                                        <label class="radio-txt" for="radio2">项目总监</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input name="orgType" class="radio" type="radio" value="0" id="radio3" >
+                                        <label class="radio-txt" for="radio3">客户</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input name="orgType" class="radio" type="radio" value="0" id="radio4" >
+                                        <label class="radio-txt" for="radio4">其他人员</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-col">
+                        <section class="panel">
+                            <div class="panel-heading">权限设置</div>
+                            <div class="panel-body">
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="role-content">
+                                        <div class="role-cell">
+                                            <div class="role-bd">
+                                                <div class="role-group">
+                                                    <div class="role-group-title up">
+                                                        <label class="role-name">项目管理</label>
+                                                        <input class="checkAll" type="checkbox" id="B-checkAll">
+                                                        <label class="checkbox-shape " id="checkAllBox" for="B-checkAll"></label>
+                                                    </div>
+                                                    <div class="role-menu-list">
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">我的项目</label>
+                                                                <input class="checkAll" type="checkbox" id="B1-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="B1-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-see">
+                                                                        <label class="checkbox-txt" for="B-see">查看项目资料</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-editor">
+                                                                        <label class="checkbox-txt" for="B-editor">编辑项目资料</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-download">
+                                                                        <label class="checkbox-txt" for="B-download">资料下载</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-audit">
+                                                                        <label class="checkbox-txt" for="B-audit">审核项目资料</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-export">
+                                                                        <label class="checkbox-txt" for="B-export">导出企业</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-subplan">
+                                                                        <label class="checkbox-txt" for="B-subplan">提交计划</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-editplan">
+                                                                        <label class="checkbox-txt" for="B-editplan">修改计划</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-schedule">
+                                                                        <label class="checkbox-txt" for="B-schedule">进度</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-exportschedule">
+                                                                        <label class="checkbox-txt" for="B-exportschedule">导出进度计划</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-change">
+                                                                        <label class="checkbox-txt" for="B-change">变更</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B-stop">
+                                                                        <label class="checkbox-txt" for="B-stop">终止</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">新增项目</label>
+                                                                <input class="checkAll" type="checkbox" id="B2-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="B2-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B2-add">
+                                                                        <label class="checkbox-txt" for="B2-add">新增项目</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">审批管理</label>
+                                                                <input class="checkAll" type="checkbox" id="B3-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="B3-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B3-plan">
+                                                                        <label class="checkbox-txt" for="B3-plan">审批计划</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">工作状态查询</label>
+                                                                <input class="checkAll" type="checkbox" id="B4-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="B4-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B4-query">
+                                                                        <label class="checkbox-txt" for="B4-query">工作状态查询</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">已终止项目</label>
+                                                                <input class="checkAll" type="checkbox" id="B5-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="B5-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="B5-start">
+                                                                        <label class="checkbox-txt" for="B5-start">重新启动</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="role-group">
+                                                    <div class="role-group-title up">
+                                                        <label class="role-name">公告管理</label>
+                                                        <input class="checkAll" type="checkbox" id="C-checkAll">
+                                                        <label class="checkbox-shape " id="checkAllBox" for="C-checkAll"></label>
+                                                    </div>
+                                                    <div class="role-menu-list">
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">公告列表</label>
+                                                                <input class="checkAll" type="checkbox" id="C1-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="C1-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="C1-detail">
+                                                                        <label class="checkbox-txt" for="C1-detail">查看详情</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="C1-add">
+                                                                        <label class="checkbox-txt" for="C1-add">新增公告</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="C1-edit">
+                                                                        <label class="checkbox-txt" for="C1-edit">编辑公告</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="C1-delete">
+                                                                        <label class="checkbox-txt" for="C1-delete">删除公告</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="role-group">
+                                                    <div class="role-group-title up">
+                                                        <label class="role-name">系统管理</label>
+                                                        <input class="checkAll" type="checkbox" id="D-checkAll">
+                                                        <label class="checkbox-shape " id="checkAllBox" for="D-checkAll"></label>
+                                                    </div>
+                                                    <div class="role-menu-list">
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">组织管理</label>
+                                                                <input class="checkAll" type="checkbox" id="D1-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="D1-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-detail">
+                                                                        <label class="checkbox-txt" for="D1-detail">查看人员</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-add">
+                                                                        <label class="checkbox-txt" for="D1-add">新增人员</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-edit">
+                                                                        <label class="checkbox-txt" for="D1-edit">编辑人员</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-delete">
+                                                                        <label class="checkbox-txt" for="D1-delete">删除人员</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-reset">
+                                                                        <label class="checkbox-txt" for="D1-reset">重置密码</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-detailpart">
+                                                                        <label class="checkbox-txt" for="D1-detailpart">查看部门</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-addpart">
+                                                                        <label class="checkbox-txt" for="D1-addpart">新增部门</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-editpart">
+                                                                        <label class="checkbox-txt" for="D1-editpart">编辑部门</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D1-deletepart">
+                                                                        <label class="checkbox-txt" for="D1-deletepart">删除部门</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">角色管理</label>
+                                                                <input class="checkAll" type="checkbox" id="D2-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="D2-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D2-detail">
+                                                                        <label class="checkbox-txt" for="D2-detail">查看角色</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D2-add">
+                                                                        <label class="checkbox-txt" for="D2-add">新增角色</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D2-edit">
+                                                                        <label class="checkbox-txt" for="D2-edit">编辑角色</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D2-delete">
+                                                                        <label class="checkbox-txt" for="D2-delete">删除角色</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">任务设置</label>
+                                                                <input class="checkAll" type="checkbox" id="D3-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="D3-checkAll"></label>
+                                                            </div>
+                                                            <div class="role-menu-list">
+                                                                <div class="role-menu">
+                                                                    <div class="role-item">
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D3-detail">
+                                                                        <label class="checkbox-txt" for="D3-detail">查看任务</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D3-add">
+                                                                        <label class="checkbox-txt" for="D3-add">新增任务</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D3-edit">
+                                                                        <label class="checkbox-txt" for="D3-edit">编辑任务</label>
+                                                                        <input class="checkbox" type="checkbox" name="type" id="D3-delete">
+                                                                        <label class="checkbox-txt" for="D3-delete">删除任务</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="role-menu">
+                                                            <div class="role-group-title up">
+                                                                <label class="role-name">修改密码</label>
+                                                                <input class="checkAll" type="checkbox" id="D4-checkAll">
+                                                                <label class="checkbox-shape " id="checkAllBox" for="D4-checkAll"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel-body">
+                        <div class="base-fieldset-content clearfix">
+                            <div class="base-grid2-1 mb10">
+                                <div class="base-input-box ml0">
+                                    <a href="javascript:void(0);" class="common-btn" id="cancel-btn">取消</a>
+                                    <a href="javascript:void(0);" class="common-btn btn-normal " id="save-btn">保存</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script>
+            $(".role-group-title").click(function(event) {
+                if(event.target.className=="checkAll"){
+                    return;
+                }
+                var parentNode = $(this).parent(".role-menu");
+                var parentsNode = $(this).parent(".role-group");
+
+                if($(this).hasClass('up')){
+
+                    $(this).removeClass('up').addClass("down");
+                    $(this).siblings('.role-menu-list').children().stop().slideDown();
+                    if($(this).parents().children().hasClass('role-menu')){
+                        // 同级存在时
+                       parentNode.siblings().children('.role-group-title').removeClass("down").addClass('up');
+                       parentNode.siblings().children(".role-menu-list").children('.role-menu').stop().slideUp();
+                    
+                    }else{
+                        parentsNode.siblings().children('.role-group-title').removeClass("down").addClass('up');
+                        parentsNode.siblings().children('.role-menu-list').children('.role-menu').stop().slideUp();
+                    }
+                }else{
+                    $(this).removeClass('down').addClass("up");
+                    $(this).siblings('.role-menu-list').children().stop().slideUp();
+
+                }
+            });
+            // 递归
+            function checkAllSelect(node){
+                if(!node.length){
+                    return;
+                }
+                var parentNode = node.parents(".role-menu-list").first();
+                var checkAllNode = parentNode.prev(".role-group-title").find(".checkAll");
+                
+                var inputNum = parentNode.find(".checkbox").length;
+                var checkedNum = parentNode.find(".checkbox:checked").length;
+                
+                if(checkedNum == 0){
+                    checkAllNode.prop("checked",false);
+                    checkAllNode.next().removeClass("checkbox-black");
+                }else if(checkedNum == inputNum){
+                    checkAllNode.prop("checked",true);
+                    checkAllNode.next().removeClass("checkbox-black");
+                }else{
+                     checkAllNode.prop("checked",true);
+                     checkAllNode.next().addClass("checkbox-black");
+                }
+                checkAllSelect(parentNode)
+            }
+
+            // 单件选中单个时
+            $(".checkbox").change(function(event){
+                event.stopPropagation();
+                checkAllSelect($(this));
+            });
+            // 全选按钮
+            $(".checkbox-shape").click(function(event){
+                event.stopPropagation();
+                var isChecked = $(this).prev().prop("checked");
+                var parentNode = $(this).parent(".role-group-title");
+                if(isChecked){
+                    parentNode.next(".role-menu-list").find("input").prop("checked",false);
+                }else{
+                    parentNode.next(".role-menu-list").find("input").prop("checked",true);
+                    $(this).removeClass("checkbox-black");
+                }
+                checkAllSelect(parentNode);
+            });
+        </script>
+    </body>
+</html>

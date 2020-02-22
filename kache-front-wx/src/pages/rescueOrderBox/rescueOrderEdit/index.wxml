@@ -1,0 +1,106 @@
+<!--src/pages/truck/index.wxml-->
+<view class="list">
+  <view class="item clear disfx">
+    <view class="name left">救援位置
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right fx1" style='text-align:right' data-latitude='{{latitude}}' data-longitude='{{longitude}}' value='{{address == " () "?" ":address}}' />
+    <image class="next reset" bindtap='addressSelect' src="/src/assets/images/outlet/reset.png"></image>
+  </view>
+  <view class="item clear{{identityType == 1?' disfx':''}}">
+    <view class="name left">车牌号
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right{{identityType == 1?' fx1':''}}" style='text-align:right' bindtap="handleFocus">
+      {{carNum}}
+    </view>
+    <image class="next selectCarNum" bindtap='selectCarNum' src="/src/assets/images/selectCarNum.png" wx:if="{{identityType == 1}}"></image>
+    <plate-number-keyboard show="{{showKeyboard}}" bind:getResult="setNumber" initValue="{{carNum}}"></plate-number-keyboard>
+  </view>
+  <view class="item clear">
+    <view class="name left">手机号
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" type='number' style='text-align:right' value='{{mobile}}' placeholder='请填写手机号' maxlength='50' bindinput='inputMobile'></input>
+  </view>
+  <view class="item clear" bindtap="selectOutlet" wx:if="{{orderType == 2?false:true}}">
+    <view class="name left">选择网点</view>
+    <view class="value right" style='text-align:right'>{{outletName}}</view>
+    <image class="next" wx:if="{{!outletName}}" src="/src/assets/images/next.png"></image>
+    <image class="next" wx:if="{{outletName}}" catchtap="clearOutlet" src="/src/assets/images/close.png"></image>
+  </view>
+  <!-- 附件ID -->
+  <view class="item clear">
+    <view class="name">现场图片</view>
+    <block wx:if='{{FilePaths && FilePaths.length > 0}}'>
+      <view class="img_box" wx:for="{{FilePaths}}" wx:key="{{item}}" data-index="{{index}}">
+        <image src="{{item}}" mode="aspecFill" class="frontimage cardImage" data-id="{{index}}" bindtap="ImagePreview" />
+        <image src="/src/assets/images/icons/close.png" class="q-image-remover" data-id="{{index}}" bindtap="removeImage" />
+      </view>
+    </block>
+    <view class="img_box">
+      <image src="/src/assets/images/icons/add.png" mode="aspecFill" class="cardImage" bindtap="ImageAdd" />
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name title">基础服务
+      <text class='color_red'>*</text>
+    </view>
+    <view class='serviceItems_box'>
+      <view class='serviceItems_content'>
+        <view class="table">
+          <view class="tr">
+            <view class="th">项目名称</view>
+            <view class="th">价格</view>
+            <view class="th">数量</view>
+          </view>
+          <block wx:for="{{serviceItems}}" wx:key="{{code}}">
+            <view class="tr">
+              <view class="td" data-servicename='{{item.serviceName}}'>{{item.serviceName}}</view>
+              <view class="td">{{item.servicePrice == undefined?'待定':item.servicePrice+'￥'}}</view>
+              <view class="td">
+                <view class='delBtn' data-servicename='{{item.serviceName}}' bindtap='delBtn'>-</view>
+                <view class='sumNum'>{{item.quantity}}</view>
+                <view class='addBtn' data-servicename='{{item.serviceName}}' bindtap='addBtn'>+</view>
+              </view>
+            </view>
+          </block>
+          <view class="tr">
+            <view class="td">总价</view>
+            <view class="td" style="border-right:0px;"></view>
+            <view class="td">{{totalPrice}}￥</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="addASBtn" bindtap='showModal'>增加额外服务</view>
+    <!-- 底部弹出框 bindtap="hideModal" -->
+    <view class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+    <!-- 从上至下的弹窗animation="{{animationData}}"-->
+    <view class="commodity_attr_box" wx:if="{{showModalStatus}}">
+      <view class='commodity_box_title'>额外服务</view>
+      <view class='commodity_box_content'>
+        <view class='commodity_item clear disfx'>
+          <view class='commodity_item_name left'>
+            <text class='color_red'>*</text>服务项目:</view>
+          <input class="commodity_item_value fx1 left" value='{{serviceName}}' placeholder='输入名称' maxlength='50' bindinput='inputServiceName'></input>
+        </view>
+        <view class='commodity_item clear disfx' style='margin-top:15rpx;'>
+          <view class='commodity_item_name left'>
+            <text class='color_red'>*</text>服务数量:</view>
+          <input class="commodity_item_value fx1 left" type='number' value='{{quantity}}' placeholder='输入数量' maxlength='50' bindinput='inputQuantity'></input>
+        </view>
+      </view>
+      <view class='commodity_box_btn'>
+        <view class='commodity_btn' bindtap='hideModal'>取消</view>
+        <view class='commodity_btn sureBtn' bindtap='sureBtn'>确定</view>
+      </view>
+    </view>
+  </view>
+  <!-- 说明 -->
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="btn" bindtap='subAction'>立即下单</view>
+</view>

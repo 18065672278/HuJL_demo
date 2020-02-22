@@ -1,0 +1,39 @@
+/* src/pages/user/attestHO/index.wxss */
+
+.item-wrapper {
+  margin-top: 0;
+}
+
+.item .resetValue {
+  margin-right: 60rpx;
+  max-width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.item .reset {
+  top: 14rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.idCardPhoto {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  text-align: center;
+  color: #888;
+}
+
+.img_box {
+  display: block;
+  width: 200rpx;
+  height: 150rpx;
+  margin: 40rpx auto 0;
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 100%;
+}

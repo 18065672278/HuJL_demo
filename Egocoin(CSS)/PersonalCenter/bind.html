@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>手机号绑定</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/m-base.css" />
+		<link rel="stylesheet" href="../css/script.css" />
+		<link rel="stylesheet" href="css/set.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+	</head>
+	<body>
+		<div class="bind w">
+			<div class="title">
+				<a href="set.html" class="back"></a>
+				<div class="logo">手机号绑定</div>
+				<div class="clear"></div>
+			</div>
+			<div class="b_content">
+				<div class="b_c_msg">
+					提示：绑定手机号将用于密码找回和资金安全认证等操作,是保障您账户安全的重要环节
+				</div>
+				<div class="b_input">
+					<ul>
+						<li class="disfx bindtel">
+							<input type="tel" name="bindtel" class="fx1" id="bindtel" value="" placeholder="请输入您的手机号"/>
+						</li>
+						<li class="disfx bindcode">
+							<input type="text" name="bindcode" class="fx1" id="bindcode" value="" placeholder="请输入短信验证码"/>
+							<input type="button" class="code" value="获取验证码">
+						</li>
+					</ul>
+					<div class="qr" id="bindphone">确认</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/rem_new.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+		<script src="../js/url.js"></script>
+		<script type="text/javascript" src="js/personal.js"></script>
+		<script type="text/javascript">
+			//获取验证码
+			var regPhone = /^1\d{10}$/;
+			$('.code').click(function() {
+                if (regPhone.test($('#bindtel').val())) {
+                    var _this = $(this)
+
+                    // if (data.status === 200) {
+                    _this.attr('disabled', true)
+
+                    // .css('background', '#e6e6e6').css('color', '#E0BB2C')
+                    var sTiem = 60;
+                    var stopT = setInterval(function() {
+                        sTiem--
+                        _this.val(sTiem);
+                        if (sTiem == 0) {
+                            sTiem = 60;
+                            clearInterval(stopT)
+                            _this.removeAttr('disabled').val('获取验证码')
+                                // .css('background', '#E0BB2C').css('color', '#fff')
+                        }
+                    }, 1000)
+                    setTimeout(function() {
+                            _this.removeAttr('disabled')
+                                // .css('background', '#E0BB2C')
+                        }, 60000)
+                    $.ajax({
+                        url: test_url + pro_name + "user/send/code",
+                        //请求的url
+                        type:"post",
+                        xhrFields: {
+				            withCredentials: true
+				        },
+				        crossDomain: true,
+                        data: {
+                        	token:token,
+                        	type:1,
+                            "phone": parseInt($('#bindtel').val())
+                        },
+                        beforeSend: function() {
+                            console.log('加载中。。。。。')
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            if (data.status === 200) {
+                                layer.msg('获取成功,请查看手机验证码', {time: 2000});
+                            } else {
+                            	console.log(data);
+                            	if (data.status == 601) {
+                            		layer.msg("操作过于频繁，请一分钟后重试", {time: 2000});
+                            	} else{
+                            		layer.msg(data.msg,{time: 2000});
+                            	}
+                            }
+
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        	
+                        }
+                    }); //ajax end
+                } else {
+                    layer.msg('请输入正确的手机号', {
+                        icon: 5,
+                        shift: 6
+                    });
+                }
+            });
+            $("#bindphone").click(function(){
+            	var bindtel = $("#bindtel").val();
+            	var bindcode = $("#bindcode").val();
+            	if (regPhone.test(bindtel)) {
+            		if(bindcode != null || bindcode != "" || bindcode.length !=0 ){
+            			$.ajax({
+            				type:"post",
+            				url:test_url + pro_name + "user/bind/phone ",
+            				xhrFields: {
+					            withCredentials: true
+					        },
+					        crossDomain: true,
+					        data:{
+					        	token:token,
+	                        	type:2,
+	                        	phoneLocalName:"+86",
+	                        	code:bindcode,
+	                        	phone:bindtel
+					        },
+					        beforeSend: function() {
+	                            console.log('加载中...')
+	                        },
+					        success:function(data){
+					        	console.log(data);
+					        	if (data.status == 200) {
+					        		layer.msg("绑定成功！",{time:2000})
+					        	} else{
+					        		layer.msg(data.msg,{time:2000})
+					        	}
+					        }
+            			});
+            		} else {
+            			layer.msg("请输入验证码！",{time:2000})
+            		}
+            	}else {
+                    layer.msg('请输入正确的手机号', {
+                        icon: 5,
+                        shift: 6
+                    });
+                }
+            })
+		</script>
+	</body>
+</html>

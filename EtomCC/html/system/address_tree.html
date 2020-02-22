@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>组织管理</title>
+        <link rel="stylesheet" href="../../js/ztree/css/zTreeStyle.css" />
+        <link rel="stylesheet" href="../../js/ztree/css/tree.css" />
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+    </head>
+    <body>
+        <div class="pop-layer-wrapper">
+            <div class="pop-layer-title">
+                <h3 class="txt">组织架构选择</h3>
+                <div class="btn-row">
+                    <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+                </div>
+            </div>
+            <div class="pop-layer-content clearfix">
+                <div class="pop-column">
+                    <p class="title">组织架构</p>
+                    <div class="pop-select-box" id="scroll">
+                        <ul id="tree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="pop-column noMargin">
+                    <p class="title">待选列表</p>
+                    <div class="pop-select-box tobeselectbox">
+                        <ul id="beSelectTree" class="cust-ztree"></ul>
+                    </div>
+                </div>
+                <div class="pop-column noMargin">
+                    <div class="btn-list">
+                        <p><a href="javascript:void(0);" class="opear-btn" id="appendOrg">&lt;&lt;添加</a></p>
+                        <p><a href="javascript:void(0);" class="opear-btn" id="removeOrg">删除&gt;&gt;</a></p>
+                        <p><a href="javascript:void(0);" class="opear-btn" id="appendAllOrg">全部添加</a></p>
+                        <p><a href="javascript:void(0);" class="opear-btn" id="removeAllOrg">全部删除</a></p>
+                    </div>
+                </div>
+                <div class="pop-column noMargin">
+                    <p class="title">组织架构</p>
+                    <div class="pop-select-box selectedbox">
+                        <ul id="selectedTree" class="cust-ztree"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pop-btn-row">
+                <a class="common-btn btn-normal" id="submitBtn" href="javascript:void(0);">确定</a>
+                <a class="common-btn" id="layerclose" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script src="../../js/ztree/js/jquery.ztree.all.min.js"></script>
+        <script src="../../js/ztree/js/jquery.ztree.exhide.min.js"></script>
+        <script src="../../js/jquery.nicescroll.js"></script>
+        <script>
+            var layerIndex = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+            //关闭窗口
+            $("#closeBtn").click(function() {
+                $("#pop-address-options",top.popAddressLayer.document).remove();
+                top.layer.close(layerIndex);
+            });
+            $("#layerclose").click(function() {
+                $("#pop-address-options",top.popAddressLayer.document).remove();
+                top.layer.close(layerIndex);
+            });
+            
+            //需要展开的节点(默认自己所在的部门)
+            var depId;
+            
+            var orgNameInput = $("#pop-address-options",top.popAddressLayer.document).attr("data-orgName");
+            var orgIdInput= $("#pop-address-options",top.popAddressLayer.document).attr("data-orgId");
+            //能够选择的类别
+            var orgType = $("#pop-address-options",top.popAddressLayer.document).attr("data-orgType");
+            //是否多选
+            var multi = $("#pop-address-options",top.popAddressLayer.document).attr("data-isMulti");
+            var callbackName = $("#pop-address-options",top.popAddressLayer.document).attr("data-callBack");
+            var isDblClickExpand=false;
+            //已经选中的节点
+            var hasSelectedId = $("#" + orgIdInput, top.popAddressLayer.document).val();
+            var hasSelectedName = $("#" + orgNameInput, top.popAddressLayer.document).val();
+            
+            if(orgType == null || orgType == "undefined"){
+                orgType = 2|4|8 + "";
+            }else if(orgType==8){
+                isDblClickExpand=true;
+            }
+            if(multi == null || multi == "" || multi == "undefined"){
+                multi = false;
+            }
+            if(multi == "false"){
+                $("#appendAllOrg").hide();
+                $("#removeAllOrg").hide();
+            }
+            multi = (multi == "false") ? false : true;
+            //组织树的初始设置
+            var setting = {
+                view: {
+                    dblClickExpand: false,
+                    showLine: false,
+                    showIcon: false,
+                    addHoverDom: addHoverDom,
+                    removeHoverDom: removeHoverDom
+                },
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "id",
+                        pIdKey: "pId",
+                        rootPId: ""
+                    }
+                },
+                callback: {
+                    onClick: onClick,
+                    onExpand: zTreeOnExpand,
+                    onDblClick: onDblClick
+                }
+            };
+            
+            //待选树设置
+            var beSelSetting = {  
+                isSimpleData : true,              //数据是否采用简单 Array 格式，默认false 
+                view: {
+                    dblClickExpand: false,
+                    showLine: false,
+                    selectedMulti: multi,
+                    showIcon: true
+                },
+                data: {
+                    simpleData: {
+                        enable:true,
+                        idKey: "id",
+                        pIdKey: "pId",
+                        rootPId: ""
+                    }
+                }, 
+                callback: {  
+                    onDblClick: onDblClick/* ,
+                    onClick:showSelect */
+                },  
+                treeNodeKey : "id",               //在isSimpleData格式下，当前节点id属性  
+                treeNodeParentKey : "pId",        //在isSimpleData格式下，当前节点的父节点id属性  
+                showLine : false,                  //是否显示节点间的连线  
+                checkable : false                  //每个节点上是否显示 CheckBox  
+            };  
+            
+            //已选树设置
+            var selSetting = {  
+                isSimpleData : true,              //数据是否采用简单 Array 格式，默认false 
+                view: {
+                    dblClickExpand: false,
+                    showLine: false,
+                    selectedMulti: multi,
+                    showIcon: true
+                },
+                data: {
+                    simpleData: {
+                        enable:true,
+                        idKey: "id",
+                        pIdKey: "pId",
+                        rootPId: ""
+                    }
+                }, 
+                callback: {  
+                    onDblClick: removeOrg
+                },  
+                treeNodeKey : "id",               //在isSimpleData格式下，当前节点id属性  
+                treeNodeParentKey : "pId",        //在isSimpleData格式下，当前节点的父节点id属性  
+                showLine : false,                  //是否显示节点间的连线  
+                checkable : false                  //每个节点上是否显示 CheckBox  
+            };
+            
+            //请求树数据
+            $.ajax({
+                type : 'POST',
+                url : "",//请求的action路径  
+                error : function() {//请求失败处理函数  
+                    layer.alert("请求失败鸟。", {icon: 9});
+                },
+                success : function(data) { //请求成功后处理函数。
+                    /* var treeNodes = data.list; */ //把后台封装好的简单Json格式赋给treeNodes  
+                    treeNodes =[
+                                    { id:1, pId:0, name:"根 Root"},
+                                    { id:11, pId:1, name:"父节点 1-1"},
+                                    { id:111, pId:11, name:"叶子节点 1-1-1"},
+                                    { id:112, pId:11, name:"叶子节点 1-1-2"},
+                                    { id:113, pId:11, name:"叶子节点 1-1-3"},
+                                    { id:114, pId:11, name:"叶子节点 1-1-4"},
+                                    { id:12, pId:1, name:"父节点 1-2"},
+                                    { id:121, pId:12, name:"叶子节点 1-2-1"},
+                                    { id:122, pId:12, name:"叶子节点 1-2-2"},
+                                    { id:123, pId:12, name:"叶子节点 1-2-3"},
+                                    { id:124, pId:12, name:"叶子节点 1-2-4"},
+                                    { id:13, pId:1, name:"父节点 1-3"},
+                                    { id:131, pId:13, name:"叶子节点 1-3-1"},
+                                    { id:132, pId:13, name:"叶子节点 1-3-2"},
+                                    { id:133, pId:13, name:"叶子节点 1-3-3"},
+                                    { id:134, pId:13, name:"叶子节点 1-3-4"}
+                                ];
+                    //组织树
+                    var tree = $("#tree");
+                    tree = $.fn.zTree.init(tree, setting, treeNodes);
+                    //待选树
+                    var beSelectedTree = $("#beSelectTree");
+                    beSelectedTree = $.fn.zTree.init(beSelectedTree, beSelSetting);
+                    //已选树
+                    var selectedTree = $("#selectedTree");
+                    selectedTree = $.fn.zTree.init(selectedTree, selSetting);
+                    
+                    //若未传入展开的节点，默认展开所属部门
+                    var d_node = null;
+                    if (depId != null && depId != "" && depId != "undefined") {
+                        d_node = tree.getNodeByParam("id", depId);
+                    }else{
+                        d_node = tree.getNodeByParam("expand", "on");
+                    }
+                    //组织架构树，人员隐藏
+                    var personNodes = tree.getNodesByParam("nType", 8);
+                    tree.hideNodes(personNodes);
+                    //组织树 根据type 来隐藏岗位
+                    filterPost(tree);
+                    
+                    
+                    if (d_node != null) {
+                        tree.selectNode(d_node);
+                        var nameObj = $("#org_id");
+                        nameObj.attr("value", d_node.name);
+                        nameObj.attr("nameid", d_node.id);
+                        nameObj.attr("nType", d_node.nType);
+                        selectTreeOpera("addressTree", d_node);
+                        $("#desc_p").html(d_node.desc);
+                    }
+                    
+                    if(hasSelectedId != null && hasSelectedId != "" && hasSelectedId != "undefined"){
+                        var selecteds= new Array();
+                        var selectedNodes = new Array();
+                        selecteds = hasSelectedId.split(",");
+                        for (var i = 0; i < selecteds.length ; i++ ){ 
+                            var d_node = tree.getNodeByParam("id", selecteds[i]);
+                            if (d_node != null && d_node != "undefined") {
+                                selectedNodes.push(d_node);
+                            }
+                        } 
+                        addToSelect(selectedNodes);
+                    }
+                    
+                }
+            });
+            $("#appendOrg").click(function(){
+                var treeObj = $.fn.zTree.getZTreeObj("beSelectTree");
+                var selectNodes = treeObj.getSelectedNodes();
+                if(selectNodes != null){
+                    addToSelect(selectNodes);
+                }
+            });
+
+            $("#appendAllOrg").click(function(){
+                var treeObj = $.fn.zTree.getZTreeObj("beSelectTree");
+                addToSelect(treeObj.getNodes());
+            });
+
+            $("#removeOrg").click(function(){
+                var treeObj = $.fn.zTree.getZTreeObj("selectedTree");
+                removeSelect(treeObj.getSelectedNodes(), true, treeObj);
+            });
+            
+            $("#removeAllOrg").click(function(){
+                var treeObj = $.fn.zTree.getZTreeObj("selectedTree");
+                removeSelect(treeObj.getNodes(), false, treeObj);
+            });
+
+            $("#scroll").niceScroll({  
+                cursorcolor:"#dadada",  
+                cursoropacitymax:1,
+                touchbehavior:false,  
+                cursorwidth:"6px",  
+                cursorborder:"0",  
+                cursorborderradius:"4px",
+                nativeparentscrolling:false,
+            });
+            
+            
+            function addHoverDom(treeId, treeNode) {
+                var aObj = $("#" + treeNode.tId + "_a");
+                aObj.parent("li").addClass("hover");
+            };
+            function removeHoverDom(treeId, treeNode) {
+                var aObj = $("#" + treeNode.tId + "_a");
+                aObj.parent("li").removeClass("hover");
+            };
+            
+            //单击选择
+            function onClick(e, treeId, treeNode) {
+                selectTreeOpera(treeId, treeNode);
+            }
+            
+            function zTreeOnExpand(){
+                $("#scroll").niceScroll().resize(); 
+            }
+            
+            //待选树单击选中
+            function showSelect(e, treeId, treeNode){
+                var zTree = $.fn.zTree.getZTreeObj("beSelectTree"), nodes = zTree.getSelectedNodes();
+            }
+            
+            //选择树操作
+            //treeId 选中的树id
+            //treeNode 选中的节点
+            function selectTreeOpera(treeId, treeNode){
+                var zTree = $.fn.zTree.getZTreeObj(treeId), nodes = zTree.getSelectedNodes();
+                var nid = "";
+                var ntype = "";
+                
+                if (nodes.length > 0) {
+                    var selectedTree = $("#beSelectTree");
+                    selectedTree = $.fn.zTree.init(selectedTree, beSelSetting);
+                    var isParent = nodes[0].isParent;
+                    /* $("#desc_p").html(nodes[0].desc); */
+                    var childrenNodes = treeNode.children;
+                    if(childrenNodes != null && childrenNodes != "undefined"){
+                        var treeObj = $.fn.zTree.getZTreeObj("beSelectTree");
+                        for(var i = 0; i < childrenNodes.length; i++){
+                            var resultNode = treeObj.copyNode(null, childrenNodes[i], "inner");
+                            treeObj.removeChildNodes(resultNode);
+                            treeObj.showNode(resultNode);
+                        }
+                    }
+                    filterOrg(selectedTree);
+                }
+            }
+            
+            //过滤组织隐藏操作
+            function filterOrg(treeObj){
+                if(treeObj == null || treeObj == "undefined"){
+                    return;
+                }
+                
+                var personNodes = treeObj.getNodesByParam("nType", 8);
+                var postNodes = treeObj.getNodesByParam("nType", 4);
+                var partNodes = treeObj.getNodesByParam("nType", 2);
+                
+                if(orgType == "2"){
+                    treeObj.hideNodes(personNodes);
+                    treeObj.hideNodes(postNodes);
+                }else if(orgType == "4"){
+                    treeObj.hideNodes(personNodes);
+                    treeObj.hideNodes(partNodes);
+                }else if(orgType == "8"){
+                    treeObj.hideNodes(postNodes);
+                    treeObj.hideNodes(partNodes);
+                }else if(orgType == (2|4+"")){
+                    treeObj.hideNodes(personNodes);
+                }else if(orgType == (2|8+"")){
+                    treeObj.hideNodes(postNodes);
+                }else if(orgType == (4|8+"")){
+                    treeObj.hideNodes(partNodes);
+                }
+            }
+            
+            //双击，添加入已选框
+            function onDblClick(e, treeId, treeNode) {
+                var treeObj = $.fn.zTree.getZTreeObj("selectedTree");
+                var addressTree = $.fn.zTree.getZTreeObj("tree");
+                if(multi == false && treeObj.getNodes().length != 0){
+                    return;
+                }
+                if(treeObj.getNodeByParam("id", treeNode.id) == null){
+                    var resultNode = treeObj.copyNode(null, treeNode, "inner");
+                    treeObj.removeChildNodes(resultNode);
+                    treeObj.showNode(resultNode);
+                    
+                }
+                filterDelOrg(treeObj);
+            }
+            
+            //添加操作
+            function addToSelect(treeNode){
+                if(treeNode == null || treeNode == "undefined"){
+                    return;
+                }
+                
+                var treeObj = $.fn.zTree.getZTreeObj("selectedTree");
+                if(multi == false && treeObj.getNodes().length != 0){
+                    return;
+                }
+                for(var i = 0; i < treeNode.length; i++){
+                    if(treeObj.getNodeByParam("id", treeNode[i].id) == null){
+                        var resultNode = treeObj.copyNode(null, treeNode[i], "inner");
+                        treeObj.removeChildNodes(resultNode);
+                        treeObj.showNode(resultNode);
+                    }
+                }
+                filterOrg(treeObj);
+            }
+            
+            //移除操作
+            function removeSelect(treeNode, isSelectMulti, treeObj){
+                if(treeNode == null || treeNode == "undefined"){
+                    return;
+                }
+                
+                for(var i = (treeNode.length - 1); i >= 0; i--){
+                    treeObj.removeNode(treeNode[i]);
+                }
+            }
+            
+            //过滤组织（删除操作）
+            function filterDelOrg(treeObj){
+                if(treeObj == null || treeObj == "undefined"){
+                    return;
+                }
+                
+                var personNodes = treeObj.getNodesByParam("nType", 8);
+                var postNodes = treeObj.getNodesByParam("nType", 4);
+                var partNodes = treeObj.getNodesByParam("nType", 2);
+                
+                if(orgType == "2"){
+                    removeSelect(personNodes, true, treeObj);
+                    removeSelect(postNodes, true, treeObj);
+                }else if(orgType == "4"){
+                    removeSelect(personNodes, true, treeObj);
+                    removeSelect(partNodes, true, treeObj);
+                }else if(orgType == "8"){
+                    removeSelect(postNodes, true, treeObj);
+                    removeSelect(partNodes, true, treeObj);
+                }else if(orgType == (2|4+"")){
+                    removeSelect(personNodes, true, treeObj);
+                }else if(orgType == (2|8+"")){
+                    removeSelect(postNodes, true, treeObj);
+                }else if(orgType == (4|8+"")){
+                    removeSelect(partNodes, true, treeObj);
+                }
+            }
+            
+            //已选树双击删除
+            function removeOrg(e, treeId, treeNode){
+                var treeObj = $.fn.zTree.getZTreeObj("selectedTree");
+                treeObj.removeNode(treeNode);
+            }
+            
+            //加载时如果不包含岗位 则隐藏岗位
+            function filterPost(treeObj){
+                if(treeObj == null || treeObj == "undefined"){
+                    return;
+                }
+                if(orgType != "4" || orgType != (2|4+"") || orgType != (4|8+"")){
+                    var postNodes = treeObj.getNodesByParam("nType", 4);
+                    treeObj.hideNodes(postNodes);
+                }
+            }
+            
+            //提交
+            $("#submitBtn").click(function(){
+                var selectedTree = $.fn.zTree.getZTreeObj("selectedTree");
+                var nodes = selectedTree.getNodes();
+                var nodeIds = "";
+                var nodeNames = "";
+                var selectNodes = $("#selectedTree").find("li");
+                var len = selectNodes.length;
+                for(var k=0;k<len;k++){
+                    var name = selectNodes.eq(k).find("a").attr("title");
+                    if(selectNodes.eq(k).attr("data-id")){
+                        nodeIds += selectNodes.eq(k).attr("data-id") + ",";
+                        nodeNames += name + ",";
+                    }else{
+                        var tid = selectNodes.eq(k).attr("id")
+                        var node = selectedTree.getNodeByTId(tid);
+                        if(node.isHidden){
+                            continue;
+                        }
+                        nodeIds += node.id + ",";
+                        nodeNames += name + ",";
+                    }
+                }
+                
+                if(nodeIds.length > 0){
+                    nodeIds = nodeIds.substring(0, nodeIds.length - 1);
+                }
+                
+                if(nodeNames.length > 0){
+                    nodeNames = nodeNames.substring(0, nodeNames.length - 1);
+                }
+                
+                $("#" + orgIdInput, top.popAddressLayer.document).val(nodeIds);
+                $("#" + orgNameInput, top.popAddressLayer.document).val(nodeNames);
+                if(callbackName){
+                    top.popAddressLayer[callbackName]();
+                }
+                $("#pop-address-options",top.popAddressLayer.document).remove();
+                top.layer.close(layerIndex);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组别管理</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/setting.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+    <link rel="stylesheet" href="../../js/page/page.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="childrenBody">
+            <div class="children-header">
+                <h3 class="title">
+                    <i class="iconfont icon-liucheng"></i> 组别管理
+                </h3>
+                <div class="opaer-box">
+                    <div class="form-item mb10">
+                        <input style="width:170px;" class="form-item-input" id="keyWord" type="text" placeholder="输入企业名称">
+                    </div>
+                    <a href="javascript:void(0);" id="queryBtn" class="common-btn btn-normal">查询</a>
+                    <a href="../setting/add_group.html" id="addBtn" class="common-btn btn-green">新增</a>
+                </div>
+            </div>
+            <div class="table-content">
+                <table class="table">
+                    <colgroup>
+                        <col width="40">
+                        <col width="120">
+                        <col width="">
+                        <col width="120">
+                        <col width="">
+                        <col width="80">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>组别名称</th>
+                            <th>权限</th>
+                            <th>率属人员</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>
+                                <a href="javascript:void(0);" class="undeline count_user">11</a>
+                            </td>
+                            <td>1</td>
+                            <td>
+                                <a href="javascript:void(0);" title="编辑" class="opear-btn editicon"></a>
+                                <a href="javascript:void(0);" title="删除" class="opear-btn deleteicon"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/layui/layui.all.js"></script>
+    <script src="../../js/page/page.js"></script>
+    <script>
+        //分页
+        pagination({
+            id: 'pagination',
+            totalPages: 5,
+            totalDatas: ""
+        }, initTable);
+
+        function initTable(pageNumber) {
+
+        }
+        /* 删除人员 */
+        $('.table').on('click', '.deleteicon', function () {
+            var layers = top.layer.confirm("确定删除该人员？", {
+                offset: 'auto',
+                closeBtn: false
+            }, function (layers) {
+
+            });
+        });
+        //人员部门切换
+        $(".btn-group .btn").click(function () {
+            var btnvalue = $(this).val();
+            if ($(this).hasClass('btnactive')) {
+                return
+            } else {
+                $(this).addClass("btnactive").siblings().removeClass("btnactive");
+                // ajax请求列表数据
+                if (btnvalue == '0') {
+                    layer.msg("这是人员")
+                } else if (btnvalue == '1') {
+                    layer.msg("这是部门")
+                } else {
+                    layer.msg("这是厂区")
+                }
+            }
+        });
+        //率属人员点击查看
+        $(".count_user").click(function(){
+        	top.layer.open({
+        		skin:"pop-layerBg",
+                type: 2,
+                title: false,
+                shade: 0.2,
+                shadeClose: false,
+                area: ['650px', '420px'],
+                closeBtn: 0,
+                anim: 0,
+		   		content: ["setting/user_assign.html", 'no']
+			});
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>登录</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div class="login w">
+			<div class="logo">
+				<img src="img/logo.png" alt="logo" />
+			</div>
+			<div class="layui-form">
+				<ul>
+					<li class="form_item">
+						<div class="form_item_input">
+							<img class="outline" src="img/loginname.png" alt="username" />
+						</div>
+						<div class="line"></div>
+						<input class="uname" id="uname" type="text" placeholder="请输入手机号" />
+					</li>
+					<li class="form_item">
+						<div class="form_item_input">
+							<img class="password" src="img/loginpass.png" />
+						</div>
+						<div class="line"></div>
+						<input class="pass" id="pass" type="password" placeholder="请输入登录密码" />
+					</li>
+				</ul>
+				<div class="forget">
+					忘记密码？
+				</div>
+				<button value="登录" class="loginBtn" lay-submit>登录</button>
+				<div class="login-b">
+					还没有帐号？立即注册
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+		<script src="js/url.js"></script>
+		<script type="text/javascript">
+			$(".forget").on("click", function() {
+				location.href = "forgetpass.html"
+			});
+			$(".login-b").on("click", function() {
+				location.href = "registered.html"
+			});
+			$(".loginBtn").on("click", function() {
+				var uname = $('#uname').val(); //手机号
+				var pass = $('#pass').val(); //密码
+				if(uname == "") {
+					layer.msg("请输入手机号", {
+						time: 2000
+					});
+				} else if(pass == "") {
+					layer.msg("请输入密码", {
+						time: 2000
+					});
+				} else {
+					location.href = "transaction.html";
+				}
+			})
+		</script>
+	</body>
+
+</html>

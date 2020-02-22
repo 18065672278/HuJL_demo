@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>银行卡管理</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/card_manage.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<div class="containers">
+			<div class="head">
+				<a href="personal_center.html"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">银行卡管理</span>
+			</div>              
+			
+			<div class="content">
+				<div class="conclude">
+					<div id="bankCard">
+						<!--<div class="one">
+							<img src="img/银行卡管理2.png"/><span id="account">6227************</span><span id="bank" class="bank">建设银行</span><button class="default">默认</button>
+						</div>-->
+					</div>
+					
+					<a href="add_card.html">
+						<div class="add">
+							<img src="img/添加.png"/><span>添加银行卡</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script  type="text/javascript" charset="utf-8">
+		
+			$.ajax({
+					url: test_url + pro_name + 'user/get/my/bankCard',
+					type:"POST",
+					dataType:'jsonp',
+					jsonp:'callback',
+					data:{
+						"token":token						
+					},
+					success:function(data){
+						console.log(data)
+						/*console.log(token)*/
+						if(data.status === 200){
+						    
+						    for (var i = 0; i <data.data.length; i++) {
+								$("#bankCard").append(
+									'<div class="one">'+
+										'<img src="img/银行卡管理2.png"/><span id="account" class="account">'+data.data[i].bankCardNo+'</span><span id="bank" class="bank">'+data.data[i].openBank +'</span><button class="default">'+'默认</button>'+
+									'</div>'
+								);
+							}
+						}else{
+							layer.msg(data.msg)						
+						}
+					},
+					error:function(xhr,status,error){
+						
+					}
+				});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>搜索</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/search.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div class="seach w">
+			<div class="title">
+				<a href="transaction.html" class="back"></a>
+				<div class="logo">搜索</div>
+				<div class="clear"></div>
+			</div>
+			<div class="nav">
+				<ul>
+					<li id="item1" class="hover">广告</li>
+					<li id="item2">用户</li>
+					<input type="hidden" name="searchtype" id="searchtype" value="广告" />
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="conlbox">
+				<div id="conl_item_1">
+					<!--1-->
+					<ul>
+						<li>
+							<div class="s_t_n ">
+								选择币种
+							</div>
+							<input type="text" name="selectcoin" id="selectcoin" value="BTC" readonly="readonly" />
+							<div class="selcurlist" style="display: none;">
+								<ul>
+									<li onclick="selectcoin(this)">BTC</li>
+									<li onclick="selectcoin(this)">USDT</li>
+									<li onclick="selectcoin(this)">BCH</li>
+									<li onclick="selectcoin(this)">LTC</li>
+									<li onclick="selectcoin(this)">ETH</li>
+								</ul>
+								<div class="close" id="selcoinclose">取消</div>
+							</div>
+						</li>
+						<li>
+							<div class="s_t_n">
+								所在地区
+							</div>
+							<input type="text" name="selectarea" id="selectarea" value="中国" readonly="readonly" />
+						</li>
+						<li>
+							<div class="s_t_n">
+								货币类型
+							</div>
+							<input type="text" name="selectcurry" id="selectcurry" value="CNY" readonly="readonly" />
+						</li>
+						<li>
+							<div class="s_t_n">
+								付款方式
+							</div>
+							<input type="text" name="selectpay" id="selectpay" value="支付宝" readonly="readonly" />
+							<div class="selpaylist" style="display: none;">
+								<ul>
+									<li onclick="selectpay(this)">支付宝</li>
+									<li onclick="selectpay(this)">现金存款</li>
+									<li onclick="selectpay(this)">银行转账</li>
+									<li onclick="selectpay(this)">微信支付</li>
+									<li onclick="selectpay(this)">西联汇款</li>
+								</ul>
+								<div class="close" id="selectpayclose">取消</div>
+							</div>
+						</li>
+						<li class="range">
+							<div class="s_t_n">
+								价格区间
+							</div>
+							<input type="number" name="lowerprice" id="lowerprice" value="" placeholder="最低价" />
+							<div class="hline"></div>
+							<input type="number" name="upperprice" id="upperprice" value="" placeholder="最高价" />
+						</li>
+					</ul>
+					<input type="button" name="searchadv" id="searchadv" value="搜索" onclick="searchadv()"/>
+				</div>
+				<div id="conl_item_2" style="display: none;">
+					<!--2-->
+					<div class="searchuser disfx">
+						<input type="text" name="susername" class="fx1" id="susername" value="" placeholder="请输入用户昵称" />
+					</div>
+					<input type="button" name="searchuser" id="searchuser" value="搜索" onclick="searchuser()"/>
+				</div>
+				<div class="theme-mask"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/footer.js"></script>
+		<script type="text/javascript" src="js/tsearch.js"></script>
+		<script src="js/url.js"></script>
+		<script type="text/javascript">
+			//获取用户输入的值
+			var coin = sessionStorage.getItem("coin");
+			var area = sessionStorage.getItem("area");
+			var curry = sessionStorage.getItem("curry");
+			var pay = sessionStorage.getItem("pay");
+			var lprice = sessionStorage.getItem("lprice");
+			var uprice = sessionStorage.getItem("uprice");
+			if(coin != null && coin != "" && coin.length != 0) {
+				console.log("选择币种：" + coin);
+				$("#selectcoin").val(coin);
+			}
+			if(area != null && area != "" && area.length != 0) {
+				console.log("所在地区：" + area);
+				$("#selectarea").val(area);
+			}
+			if(curry != null && curry != "" && curry.length != 0) {
+				console.log("货币类型：" + curry);
+				$("#selectcurry").val(curry);
+			}
+			if(pay != null && pay != "" && pay.length != 0) {
+				console.log("付款方式：" + pay);
+				$("#selectpay").val(pay);
+			}
+			if(lprice != null && lprice != "" && lprice.length != 0) {
+				console.log("最低价：" + lprice);
+				$("#lowerprice").val(lprice);
+			}
+			if(uprice != null && uprice != "" && uprice.length != 0) {
+				console.log("最高价：" + uprice);
+				$("#upperprice").val(uprice);
+			}
+			//最低价（最高价）更改时执行函数
+			window.onload=function(){
+			  var lprice = document.getElementById("lowerprice");
+			  var uprice = document.getElementById("upperprice");
+			  if(document.all){
+			     lprice.onpropertychange=function(){
+			     	lowerprice(lprice.value);
+			     }
+			     uprice.onpropertychange=function(){
+			     	upperprice(uprice.value);
+			     }
+			  }
+			  else{
+			    lprice.oninput=function(){
+			      	lowerprice(lprice.value);
+			    }
+			    uprice.oninput=function(){
+			      	upperprice(uprice.value);
+			    }
+			  }
+			}
+		</script>
+	</body>
+
+</html>

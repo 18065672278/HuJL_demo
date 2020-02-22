@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>修改密码</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>系统管理</a><span >/</span>
+                <a href="modify_pass.html"><cite>修改密码</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="form-content">
+                <div class="form-group">
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">旧密码</label>
+                            <div class="base-input-box">
+                                <input id="oldpass" class="base-form-input" type="password" placeholder="请输入旧密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">输入新密码</label>
+                            <div class="base-input-box">
+                                <input id="newpass" class="base-form-input" type="password" placeholder="请输入新密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">确认新密码</label>
+                            <div class="base-input-box">
+                                <input id="submitpass" class="base-form-input" type="password" placeholder="请确认新密码">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-btn">
+                    <div class="input-block">
+                        <a href="javascript:void(0);" class="common-btn" id="cancel-btn">取消</a>
+                        <a href="javascript:void(0);" class="common-btn btn-normal " id="save-btn">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script>
+            $(function(){
+                var formHeight = $(window).height() - $(".fixed-tab").outerHeight() - 40;
+                $(".form-content").outerHeight(formHeight);
+                // 保存
+                $("#save-btn").click(function(){
+                    var oldvalue = $("#oldpass").val();//旧密码
+                    var newvalue = $("#newpass").val();//新密码
+                    var submitvalue = $("#submitpass").val();//确认新密码
+                    if(oldvalue.length <= 0){
+                        layer.tips('请输入密码~', '#oldpass');
+                        return;
+                    }
+                    if(newvalue.length <= 0){
+                        layer.tips('请输入新密码~', '#newpass');
+                        return;
+                    }
+                    if(submitvalue.length <= 0){
+                        layer.tips('请输入确认密码~', '#submitpass');
+                        return;
+                    }
+                    if(newvalue !== submitvalue){
+                        layer.tips('密码输入错误~', '#submitpass');
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>

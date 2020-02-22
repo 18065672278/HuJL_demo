@@ -1,0 +1,28 @@
+<view class="menu-list">
+  <navigator url='../user/user'>
+    <view class="menu">
+      <view class="text">
+        <text class='menu-name'>头像</text>
+        <image src="{{avatarUrl}}" class="rightbtn img" />
+      </view>
+    </view>
+  </navigator>
+  <view class="menu">
+    <view class="text">
+      <text class='menu-name'>用户名</text>
+      <text class="rightbtn">{{nickname}}</text>
+    </view>
+  </view>
+  <!-- <view class="menu">
+      <view class="text">
+        <text class='menu-name'>性别</text>
+        <text class="rightbtn">{{userInfo.sex}}</text>
+      </view>
+    </view> -->
+  <view class="menu">
+    <view class="text">
+      <text class='menu-name'>绑定手机</text>
+      <text class="rightbtn">{{mobile}}</text>
+    </view>
+  </view>
+</view>

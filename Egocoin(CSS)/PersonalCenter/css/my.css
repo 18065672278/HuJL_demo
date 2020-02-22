@@ -1,0 +1,58 @@
+.title {
+	background-color: #1D2339;
+}
+
+.title .logo {
+	float: left;
+}
+
+.title .selecttype {
+	width: 1.5rem;
+	line-height: .88rem;
+	font-size: .24rem;
+	color: #FEFEFF;
+	text-align: left;
+	float: left;
+}
+
+.title .selecttype img {
+	width: .18rem;
+}
+
+.nav {
+	width: 7.5rem;
+	height: 0.88rem;
+	line-height: 0.84rem;
+	text-align: center;
+	font-size: 0.36rem;
+	color: #FFFFFF;
+	background-color: #1D2339;
+}
+
+.nav li {
+	width: 1.5rem;
+	float: left;
+}
+
+.nav li.on {
+	color: #28CEC3;
+	border-bottom: 0.04rem solid #28CEC3;
+}
+
+.mb_content {
+	background: #FFFFFF;
+}
+
+.mb_content li {
+	margin: 0 .3rem;
+	padding: .3rem 0 .5rem;
+	border-bottom: .02rem solid #D7D7D7;
+}
+
+.mb_content li:last-child {
+	border-bottom: 0;
+}
+
+.orderprice img {
+	width: .18rem;
+}

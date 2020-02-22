@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>组织管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>系统管理</a><span >/</span>
+                <a>组织管理</a><span >/</span>
+                <a href="organization_management.html"><cite>人员</cite></a><span >/</span>
+                <a href="edit_person.html"><cite>编辑人员</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="section-wrapper">
+                <div class="row">
+                    <div class="row-col">
+                        <section class="panel">
+                            <div class="panel-heading">基本信息</div>
+                            <div class="panel-body">
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">姓名</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="text" placeholder="请输入姓名">
+                                        </div>
+                                    </div>
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">账号</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="text" placeholder="请输入账号">
+                                        </div>
+                                    </div>
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt">所在部门</label>
+                                        <div class="base-input-box">
+                                            <input type="hidden" id="departId"/>
+                                            <input id="department" class="base-form-input" type="text" readonly="true" unselectable="on" style="cursor:pointer;">
+                                        </div>
+                                    </div>
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt">所属企业</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="text" placeholder="仅客户账号需填写">
+                                        </div>
+                                    </div>
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">邮箱</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="text" placeholder="请输入邮箱">
+                                        </div>
+                                    </div>
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">手机号</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="text" placeholder="请输入手机号">
+                                        </div>
+                                    </div>
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">角色</label>
+                                        <div class="base-input-box">
+                                            <input id="roleName" class="base-form-input" type="text" readonly="true" unselectable="on" style="cursor:pointer;">
+                                            <input type="hidden" id="roleNameId" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-col">
+                        <section class="panel">
+                            <div class="panel-heading">初始密码</div>
+                            <div class="panel-body">
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">登录密码</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="password" placeholder="请输入登录密码">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt required">确认密码</label>
+                                        <div class="base-input-box">
+                                            <input class="base-form-input" type="password" placeholder="请确认密码">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-col">
+                        <section class="panel">
+                            <div class="panel-heading">其他信息</div>
+                            <div class="panel-body">
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt">状态</label>
+                                        <div class="base-input-box">
+                                            <input name="orgType" class="radio" type="radio" value="0" id="radio1" checked>
+                                            <label class="radio-txt" for="radio1">启用</label>
+                                            <input name="orgType" class="radio" type="radio" value="1" id="radio2">
+                                            <label class="radio-txt" for="radio2">禁用</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="base-fieldset-content clearfix">
+                                    <div class="base-grid2-1 mb10">
+                                        <label class="base-form-txt">备注</label>
+                                        <div class="base-input-box">
+                                            <textarea class="base-form-textarea" id="memo" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel-body">
+                        <div class="base-fieldset-content clearfix">
+                            <div class="base-grid2-1 mb10">
+                                <div class="base-input-box">
+                                    <a href="javascript:void(0);" class="common-btn" id="cancel-btn">取消</a>
+                                    <a href="javascript:void(0);" class="common-btn btn-normal " id="save-btn">保存</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/address.js"></script>
+        <script>
+            $(function(){
+                // 所在部门
+                $("#department").click(function() {
+                    selectOrgTreeadress({
+                        orgName: "department",//返回所选择的ID（必填）
+                        orgId: "departId",//返回所选择的显示名(必填)
+                        orgType: 1,
+                        offset: "auto",
+                        isMulti:false,//默认fasle 单选
+                        orgType:'1'//选择的类别,默认0：1：部门，0：人员，1|0：部门&人员...
+                    })
+                })
+                //投放设备
+                $("#roleName").click(function(){
+                    top.selectLayer = window;
+                    /** 调用方式 
+                    *** 为了方便调用选择
+                    *** 弹框之前需要动态创建一个隐藏域input比如
+                    *** <input type="hidden" id="callBackMsg" data-nameId="nameId" data-id="dd" data-callBack="false">
+                    *** data-nameId是显示名称的输入框的id
+                    *** data-id 是储存片区id的隐藏域input的id，默认可以不写
+                    *** data-callBack 这个参数是设置是否有回调函数的，默认可以不写，如果为true时，页面中需要写名为selectProductCallback的一个函数，比如
+                    *** function selectAreaCallback(){}
+                    *** 要注意回调函数的作用
+                    **/
+                    var nameId = $(this).attr("id");
+                    var saveInputId = $(this).next().attr("id");
+                    var html = '<input type="hidden" id="callBackMsg" data-nameId="'+nameId+'" data-id="'+saveInputId+'">';
+                    $(this).after(html);
+                    // var device_type = $("#device_type").attr("data-type");
+                    // var pk_area=$("#launchingId").val();
+                    // var place=$("#supplierSort1").attr("data-type");
+                    // var wctype=$("#supplierSort2").attr("data-type");
+                    top.layer.open({
+                        type: 2,
+                        title: false,
+                        area: ['400px', '500px'],
+                        shade: 0.8,
+                        closeBtn: 0,
+                        shadeClose: false,
+                        content: ["system/select_role.html","no"]
+                    });
+                
+                });
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>巨高盛期权</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/buy.css"/>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<div class="containers">
+			<div class="head">
+				<!--<a href="#"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">股票期权</span>-->
+			</div>              
+			<div class="list">
+				<p>填写股票代码、行权周期、行权价格获取详细期权信息</p>
+			</div>
+			<!-- 输入表格 -->
+			<div class="content">
+				<div class="messgae">
+					<div class="one">
+						<span>股票期权</span><input type="text" name="sharesCode" value="" id="sharesCode" placeholder="请输入股票代码" />
+					</div>
+					<hr />
+					<div id="dayDiv" class="one">
+						<span id="cycle">行使周期</span>
+					</div>
+					<hr />
+					<div class="one">
+						<span>名义本金</span><input type="text" name="money" id="money" value="" placeholder="≥10万" />
+					</div>
+					<hr />
+					<div class="one">
+						<span>期权费</span><input type="text" name="" disabled="disabled" id="cost" placeholder="" />
+					</div>
+					<hr />
+				</div>
+				
+				<!--询价确认-->
+				<div class="list">
+					<p>询价确认</p>
+				</div>
+			</div>
+			
+			<!-- 询价显示  -->
+			<div class="two">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers"></p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names"></p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费率</span><p id="rate"></p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical"></p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>行权周期</span><p id="exercise"></p>
+						</div>
+						<div class="name">
+							<span>行权价格</span><p id="exercise_price"></p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>报价日期</span><p id="say"></p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire"></p>
+						</div>
+					</div>	
+					<div class="content_1">
+						<div class="number">
+							<span>期权类型</span><p id="type"></p>
+						</div>
+						<div class="name">
+							<span>期权费</span><p id="cost"></p>
+						</div>
+					</div>				
+				</div>
+				<hr />
+				<div class="explain">
+					<p>注意：询价后二个工作日内如未成交，请您重新询价</p>
+				</div>				
+			</div>
+			
+			<!--  -->
+			<div class="callfor">
+				<button class="apply">询价</button>
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		<div id="app">
+			<p>确认买入</p>
+			<div class="apps">
+				<div class="market_price">
+					市价
+				</div>
+				<div class="now_price">
+					现价
+				</div>
+			</div>
+			<div class="market_cost">
+				<input type="text" name="" id="" value="" placeholder="当前市场价格" />
+			</div>	
+			<div class="now_cost">
+				<input type="text" name="" id="" value="" placeholder="最小值"/> &nbsp; — &nbsp; <input type="text" name="" id="" value="" placeholder="最大值"/>
+			</div>
+			<div class="down">
+				<button class="no">取消</button><button class="yes">确定</button>
+			</div>
+		</div>
+		
+		
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				//非空判断
+				//alert(token);
+				if(token==null||token.length==0||token==""){
+					window.location.href = "login.html";
+				}
+			
+				$(".apply").bind("click",function(){
+					var sharesCode = $("#sharesCode").val();
+					var cycle = $("#cycle").val();
+					var money = $("#money").val();
+					if(sharesCode==""||sharesCode==null||sharesCode.length==0){
+						layer.msg('请输入查询股票代码', {time: 2000});
+					}else if(money==""||money==null||money.length==0){
+						layer.msg('请输入名义本金', {time: 2000});
+					}else{
+						var reg = /^\d{6,}$/
+						if(!(reg.test(money))){
+							layer.msg('请输入最少为10万的数字', {time: 2000});
+						}else{
+							//发送询价请求
+							//选中的周期
+							var selectTime = $("[name='selectTime']:checked").val();
+							$.ajax({
+			                    url: test_url + pro_name + '/user/commit/order',
+			                    type:"post",
+			                    dataType: 'jsonp',
+			                    jsonp: "callback",
+			                    data: {
+			                    	"token":token,
+			                    	"orderId":11,
+			                    	"type":1,
+			                    	"stockCode":sharesCode,
+			                    	"notionalAmount":money,
+			                    	"exerciseId":selectTime,
+			                    	"buyType":2,
+			                    	"exerciseType":3
+			                    },
+			                    beforeSend: function() {
+			
+			                    },
+			                    success: function(data) {
+			                        console.log(data)
+			
+			                        if (data.status === 200) {
+			                            layer.msg('询价成功', {
+			                                    time: 2000
+			                                })
+			                        } else {
+			                           layer.msg('查询股票数据出错！', {time: 2000});
+			                        }
+			
+			                    },
+			                    error: function(xhr, status, error) {
+			                            $('.lg').hide().siblings().show();
+			                        } //error end
+			                });
+//	                
+							
+							
+							//询价end
+						}
+					}//非空结束
+			    });//click结束
+//				if(){
+//					
+//				}
+				
+				/*$(".apply").bind("click",function(){
+				  layer.open({
+						  type: 1,
+						  title:false,
+						  skin: 'layui-layer-demo', //样式类名
+						  closeBtn: 0, //不显示关闭按钮
+						  anim: 2,
+						  shadeClose: true, //开启遮罩关闭
+						  area: ['7.33rem', '5.6rem'],
+						  content: $('#app')
+						});
+			    });*/
+			   
+			   //获取周期
+			   getTimeList();
+			   function getTimeList(){
+			   	$.ajax({
+	                    url: test_url + pro_name + '/user/get/exercisePeriod',
+	                    type:"post",
+	                    dataType: 'jsonp',//
+	                    jsonp: "callback",//
+	                    data: {
+	                    	token:token
+	                    },
+	                    beforeSend: function() {
+	
+	                    },
+	                    success: function(data) {
+	                        console.log(data)
+							/////////////
+							var getData = data.data;
+							
+							var select = $("<select />");
+							var dayDiv = $("#dayDiv");
+							select.appendTo(dayDiv);
+							
+							$.each(getData, function(i) {
+								var day = getData[i].exerciseName;
+								var option = $("<option />",{
+									"id":getData[i].exerciseId,
+									"name":"selectTime",
+									"value":getData[i].exerciseId,
+									"text":day
+								});
+								option.appendTo(select);
+							});
+							
+						
+							///////////
+	                    },//su end
+	                    error: function(xhr, status, error) {
+	                            $('.lg').hide().siblings().show();
+	                        } //error end
+	                });
+			   }//fn end
+			   
+  			   $(".now_price").on("mouseover",function(){
+					$(".now_price").css("color","#AC825E");					
+					$(".now_cost").show();
+					$(".market_cost").hide();
+				});
+			   $(".now_price").on("mouseout",function(){
+					$(".now_price").css("color","#999999");					
+				});
+			   $(".market_price").on("mouseover",function(){
+					$(".market_price").css("color","#AC825E");					
+					$(".now_cost").hide();
+					$(".market_cost").show();
+				});
+			   $(".market_price").on("mouseout",function(){
+					$(".market_price").css("color","#999999");					
+				});
+				$(".no").bind("click",function(){
+					layer.closeAll();
+				});
+				$(".yes").bind("click",function(){
+					layer.closeAll();
+					window.location.href="buy_complete.html"
+				});
+			});
+		</script>
+	</body>
+</html>
+
+

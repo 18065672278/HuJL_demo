@@ -1,0 +1,179 @@
+.top {
+	width: 7.5rem;
+	height: 0.8rem;
+	background-color: #1D2339;
+	padding: 0.1rem 0;
+}
+.selectadd {
+	height: 0.62rem;
+	line-height: 0.62rem;
+	display: inline-block;
+}
+.selectadd select {
+	width: 1.3rem;
+	line-height: 0.62rem;
+	font-size: 0.24rem;
+	color:#FEFEFF;
+	text-align: center;
+	padding: 0 0.28rem;
+	background: url(../img/jiaotoux.png) no-repeat center right;
+	background-size: 0.18rem 0.09rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.ct {
+	width: 3rem;
+	line-height: 0.58rem;
+	display: inline-block;
+	margin-left: 1.14rem;
+	font-size: 0.3rem;
+	color: #28CEC3;
+	border: 0.02rem solid #28CEC3;
+	border-radius:0.1rem;
+	overflow: hidden;
+}
+.ct .coin {
+	width: 50%;
+	display: inline-block;
+	text-align: center;
+}
+.coin.on {
+	color:#FFFFFF;
+	background-color: #28CEC3;
+}
+.search {
+	width: 1rem;
+	line-height: 0.62rem;
+	text-align: center;
+}
+.search img {
+	width: 0.35rem;
+	height: 0.35rem;
+}
+.nav {
+	width: 7.5rem;
+	height: 0.88rem;
+	line-height: 0.84rem;
+	text-align: center;
+	font-size: 0.36rem;
+	color:#FFFFFF;
+	background-color: #1D2339;
+}
+.nav li {
+	width: 1.5rem;
+	float: left;
+}
+.nav li.on{
+	color: #28CEC3;
+	border-bottom: 0.04rem solid #28CEC3;
+}
+.list {
+	margin-bottom: 1rem;
+}
+.list ul {
+	width: 7.5rem;
+	background-color: #FFFFFF;
+	display: inline-block;
+}
+.list li {
+	width: 6.9rem;
+	margin:0.38rem 0.3rem 0;
+	border-bottom: 0.02rem solid #d7d7d7;
+}
+.list li:last-child {
+	border-bottom: 0;
+}
+.list li .pinfo {
+	width: 1rem;
+	height: 1.8rem;
+}
+.list .pinfo img {
+	width: 1rem;
+	height: 1rem;
+}
+.list .pinfo p {
+	font-size: 0.24rem;
+	color:#666666;
+	text-align: center;
+	margin-top: 0.16rem;
+}
+.list li .tinfo {
+	height: 1.8rem;
+	margin-left: 0.16rem;
+}
+.list .tinfo .tsum {
+	height: 0.4rem;
+	line-height: 0.4rem;
+}
+.tinfo .tsum span ,
+.tinfo .tsum p {
+	font-size: 0.3rem;
+	color:#1D2339;
+	display: inline-block;
+	vertical-align: middle;
+}
+.tinfo .tsum p {
+	margin-right: 0.1rem;
+}
+.tinfo .tsum img {
+	width: 0.6rem;
+	height: 0.24rem;
+	margin: 0 0.05rem;
+	display: inline-block;
+	vertical-align: middle;
+}
+.tinfo .praise {
+	height: 0.31rem;
+	line-height: 0.31rem;
+	font-size: 0.24rem;
+	color:#1D2339;
+	margin-top: 0.18rem;
+	display: inline-block;
+}
+.tinfo .praise span ,
+.tinfo .praise p {
+	display: inline-block;
+	vertical-align: middle;
+}
+.list .tinfo .limit {
+	height: 0.4rem;
+	line-height: 0.4rem;
+	font-size: 0.24rem;
+	margin-top: 0.22rem;
+	display: inline-block;
+}
+.tinfo .limit span ,
+.tinfo .limit p {
+	display: inline-block;
+	vertical-align: middle;
+}
+.list .binfo .lumpsum{
+	display: inline-block;
+}
+.binfo .lumpsum span ,
+.binfo .lumpsum p {
+	display: inline-block;
+	vertical-align: middle;
+}
+.binfo .lumpsum p {
+	font-size: 0.4rem;
+	color:#28CEC3;
+}
+.binfo .lumpsum span {
+	font-size: 0.24rem;
+	color:#666666;
+	margin-top: 0.1rem;
+}
+.binfo .buy,
+.binfo .sale {
+	width: 1.8rem;
+	height: 0.6rem;
+	line-height: 0.6rem;
+	margin-top: 0.34rem;
+	background-color: #1D2339;
+	color:#28CEC3;
+	font-size: 0.36rem;
+	text-align: center;
+	border-radius: 0.05rem;
+}

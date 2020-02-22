@@ -1,0 +1,241 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: #000000;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+}
+html{
+	width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+}
+body{
+	width: 100%;
+    height: 100%;
+   /*  overflow: hidden; */
+}
+.containers{
+    display: flex;
+	min-height: 100vh;
+	flex-direction: column;	
+}
+.head{
+	background-color: #000000;
+	color: #FFFFFF;
+	padding-top: 0.33rem;
+	padding-bottom: 0.33rem;
+}
+.head img{
+	margin-left: 0.27rem;
+	margin-right: 0.2rem;
+	width: 0.33rem;
+	height: 0.4rem;
+}
+#back{
+	color: #FFFFFF;
+	margin-right: 2.2rem;
+	font-size: 17px;
+}
+.heads{
+	width: 1.93rem;
+	height: 0.53rem;
+	font-size: 21px;
+}
+/*内容*/
+.title{
+	width: 100%;
+	height: 1.26rem;
+}
+.title p{
+	width: 86%;
+	height: 1.26rem;
+	margin: 0 auto;
+	line-height: 1.26rem;
+	font-size: 14px;
+	font-weight: 500;
+}
+.title hr{
+	width: 90%;
+	margin: 0 auto;
+	border-top:1px solid rgb(241,241,241);
+	border-right:0px;
+	border-bottom:0px; 
+	border-left:0px;
+}
+.content{
+	width: 100%;
+	height: 7.4rem;
+}
+.money{
+	width: 84%;
+	height: 2.26rem;
+	margin: 0 auto;
+	text-align: center;	
+}
+.money input{
+	width: 27%;
+	height: 1.6rem;
+	margin-top: 0.33rem;
+	border: none;
+	background-color: #FFFFFF;
+	font-size: 18px;
+	border: 1px solid rgb(188,188,188);
+	border-radius: 5px;
+}
+#ten{
+	float: left;
+}
+#hundred{
+	float: right;
+}
+.custom{
+	width: 84%;
+	height: 1.4rem;
+	margin: 0 auto;
+	text-align: center;
+}
+.custom input{
+	width: 100%;
+	height: 1.4rem;
+	border: 1px solid rgb(188,188,188);
+	border-radius: 5px;
+	color: rgb(204,204,204);
+	font-size: 20px;
+}
+.imgae{
+	width: 84%;
+	height: 3.6rem;
+	margin: 0 auto;
+	padding-top: 0.4rem;
+}
+.imgae input{
+	width: 46.4%;
+	height: 1.1rem;
+	margin-top: 0.4rem;
+	border: none;
+	background-color: #FFFFFF;
+	font-size: 18px;
+	border: 1px solid rgb(188,188,188);
+	border-radius: 5px;
+	text-align: center;
+}
+#wechat{
+	background-image: url(../img/voucher_center_wechat.png);
+	background-size: 0.6rem 0.6rem;
+	background-repeat: no-repeat;
+	background-position: 5% center;
+	color: #FFFFFF;
+	background-color: rgb(62,177,52);
+}
+#alipay{
+	float: right;
+	background-image: url(../img/voucher_center_alipay.png);
+	background-size: 0.6rem 0.6rem;
+	background-repeat: no-repeat;
+	background-position: 5% center;
+	color: #20b5f0;
+}
+#quick{
+	background-image: url(../img/快捷.png);
+	background-size: 0.6rem 0.6rem;
+	background-repeat: no-repeat;
+	background-position: 5% center;
+	color: #999999;
+}
+.confirm{
+	width: 100%;
+	flex: 1; /* 1 代表盡可能最大，會自動填滿除了 header footer 以外的空間 */
+	background-color: #f5f5f5;	
+	text-align: center;
+}
+.confirm input{
+    width: 82%;
+    height: 1.33rem;
+    background-color: #ac825e;
+    border: 1px solid #AC825E;
+    border-radius: 5px;
+    margin-top: 25%;
+    color: #FFFFFF;
+}
+/*底部*/
+.footer{
+	font-size: 12px;
+	width: 100%;
+	height: 1.33rem;
+	background-color: #000000;
+	color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 0.2rem;
+}
+.shadow{
+	width: 100%;
+	flex: 1; /* 1 代表盡可能最大，會自動填滿除了 header footer 以外的空間 */
+	background-color: #FFFFFF;
+}
+.rows_1{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+}
+.rows_2{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+}
+.rows_3{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+	
+}
+.rows_1 img{
+	width: 0.65rem;
+	height: 0.56rem;
+}
+.rows_2 img{
+	margin-left: 0.05rem;
+	width: 0.54rem;
+	height: 0.6rem;
+}
+.rows_3 img{
+	margin-left: 0.35rem;
+	width: 0.58rem;
+	height: 0.61rem;
+}
+@media screen and (min-width:768px){ 
+    #back{
+    	margin-right: 3.2rem;
+    }
+    .head{
+    	font-size: 2em;
+    	font-size: 24px;
+    }
+    .head img{
+    	height: 0.53rem;
+    }
+    .footer{
+		padding-left: 3rem;
+	}
+	.footer p{
+		margin-left: 0.1rem;
+	}
+	.rows_3 p{
+		margin-left: 0.2rem;
+	}
+}
+@media only screen and (max-height:567px){ 
+    .confirm input{
+	    margin-top: 14%;
+	}
+
+}

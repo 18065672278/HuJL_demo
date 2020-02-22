@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>良率预测模型</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/lacquer.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+    <link rel="stylesheet" href="../../js/select/select.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="childrenBody">
+            <div class="children-header mb10">
+                <h3 class="title">
+                    <i class="iconfont icon-moxingguanli"></i> 当前生产品类良率预测模型
+                </h3>
+                <div class="opaer-box">
+                    <div class="form-item">
+                        <div class="selectDiv up" id="selectDiv">
+                            <input id="beginyear" type="text" class="selectValue" readonly="true" unselectable="on"
+                                data-type="" placeholder="选择产品类别">
+                            <div class="selectOption has-selectsearch">
+                                <div class="select-search">
+                                    <input class="search-input js-search-input" type="text" placeholder="搜索" />
+                                </div>
+                                <div class="select-scroll">
+                                    <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                    <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item mb10">
+                        <input style="width:170px;" class="form-item-input" id="keyWord" type="text" placeholder="输出产品数量">
+                    </div>
+                    <a href="javascript:void(0);" id="queryBtn" class="common-btn btn-normal">测算</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <i class="iconfont icon-shuju"></i> 产线段位状态监测
+                        </div>
+                        <div class="panel-body clearfix">
+                            <div class="chart" id="chart1"></div>
+                            <div class="chart" id="chart2"></div>
+                            <div class="chart" id="chart3"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="row-col-6 pr10">
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <i class="iconfont icon-fenzu"></i> 参数状态
+                        </div>
+                        <div class="panel-body">
+                            <div class="type-tabContent scroller" id="scroll">
+                                <div class="viewport">
+                                    <div class="overview">
+                                        <ul class="type-content clearfix">
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                            <li class="type-item">
+                                                <p>
+                                                    1#除油槽温度
+                                                    <span class="red">880°</span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="scrollbar">
+                                    <div class="track">
+                                        <div class="thumb"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="row-col-6 pl10">
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <i class="iconfont icon-shuju"></i> 良率预测
+                        </div>
+                        <div class="panel-body clearfix">
+                            <div class="chart" id="chart4"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <i class="iconfont icon-talk"></i> 调优建议
+                        </div>
+                        <div class="panel-body">
+                            <div class="suggest-content scroller" id="scroll1">
+                                <div class="viewport">
+                                    <div class="overview">
+                                        <ul class="sugges-list">
+                                            <li class="suggest-list-item no-suggest">
+                                                暂无调优建议
+                                            </li>
+                                            <li class="suggest-list-item">
+                                                <div class="suggest-list-title">最少改变排序</div>
+                                                <div class="suggest-list-sys">良品率=96.0%，属性调整量=9, 主要属性：</div>
+                                                <div class="suggest-list-content">
+                                                    18#真空干燥100000°,<span class="normal">红外2温度72°,1#除油槽温度880°,3#水洗温度30°</span>,4#活化温度50°,6#水洗温度34°,7#纯化温度50°,<span
+                                                        class="normal">1#喷漆室旋转电机
+                                                        速度223°</span>,1#喷枪上行下行速度223’,18#真空干燥1真空值22‘,18#真空干燥1槽壁温度220°,除尘台送风机运行频率220°,除尘台过道送风机运行
+                                                    频率223’,除尘台旋转电机运行频率223’,1#喷枪静电电压22‘,1#喷枪静电电流220°,1#喷枪供油泵速度220°,1#喷枪旋杯卸杯压力220°,1#喷枪
+                                                    旋杯喷幅压力1220°
+                                                </div>
+                                            </li>
+                                            <li class="suggest-list-item">
+                                                <div class="suggest-list-title">最少改变排序</div>
+                                                <div class="suggest-list-sys">良品率=96.0%，属性调整量=9, 主要属性：</div>
+                                                <div class="suggest-list-content">
+                                                    18#真空干燥100000°,<span class="normal">红外2温度72°,1#除油槽温度880°,3#水洗温度30°</span>,4#活化温度50°,6#水洗温度34°,7#纯化温度50°,<span
+                                                        class="normal">1#喷漆室旋转电机
+                                                        速度223°</span>,1#喷枪上行下行速度223’,18#真空干燥1真空值22‘,18#真空干燥1槽壁温度220°,除尘台送风机运行频率220°,除尘台过道送风机运行
+                                                    频率223’,除尘台旋转电机运行频率223’,1#喷枪静电电压22‘,1#喷枪静电电流220°,1#喷枪供油泵速度220°,1#喷枪旋杯卸杯压力220°,1#喷枪
+                                                    旋杯喷幅压力1220°
+                                                </div>
+                                            </li>
+                                            <li class="suggest-list-item">
+                                                <div class="suggest-list-title">最少改变排序</div>
+                                                <div class="suggest-list-sys">良品率=96.0%，属性调整量=9, 主要属性：</div>
+                                                <div class="suggest-list-content">
+                                                    18#真空干燥100000°,<span class="normal">红外2温度72°,1#除油槽温度880°,3#水洗温度30°</span>,4#活化温度50°,6#水洗温度34°,7#纯化温度50°,<span
+                                                        class="normal">1#喷漆室旋转电机
+                                                        速度223°</span>,1#喷枪上行下行速度223’,18#真空干燥1真空值22‘,18#真空干燥1槽壁温度220°,除尘台送风机运行频率220°,除尘台过道送风机运行
+                                                    频率223’,除尘台旋转电机运行频率223’,1#喷枪静电电压22‘,1#喷枪静电电流220°,1#喷枪供油泵速度220°,1#喷枪旋杯卸杯压力220°,1#喷枪
+                                                    旋杯喷幅压力1220°
+                                                </div>
+                                            </li>
+                                            <li class="suggest-list-item">
+                                                <div class="suggest-list-title">最少改变排序</div>
+                                                <div class="suggest-list-sys">良品率=96.0%，属性调整量=9, 主要属性：</div>
+                                                <div class="suggest-list-content">
+                                                    18#真空干燥100000°,<span class="normal">红外2温度72°,1#除油槽温度880°,3#水洗温度30°</span>,4#活化温度50°,6#水洗温度34°,7#纯化温度50°,<span
+                                                        class="normal">1#喷漆室旋转电机
+                                                        速度223°</span>,1#喷枪上行下行速度223’,18#真空干燥1真空值22‘,18#真空干燥1槽壁温度220°,除尘台送风机运行频率220°,除尘台过道送风机运行
+                                                    频率223’,除尘台旋转电机运行频率223’,1#喷枪静电电压22‘,1#喷枪静电电流220°,1#喷枪供油泵速度220°,1#喷枪旋杯卸杯压力220°,1#喷枪
+                                                    旋杯喷幅压力1220°
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="scrollbar">
+                                    <div class="track">
+                                        <div class="thumb"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/select/select.js"></script>
+    <script src="../../js/tinyscrollbar/jquery.tinyscrollbar.js"></script>
+    <script src="../../js/echarts.min.js"></script>
+    <script src="../../js/chart.js"></script>
+    <script>
+        // 所属厂区
+        $.divselect("#selectDiv", "#beginyear", null, null, null, true);
+
+        $scroll = $('#scroll');
+        $scroll1 = $('#scroll1');
+        $scroll.tinyscrollbar({
+            axis: 'y'
+        });
+        $scroll1.tinyscrollbar({
+            axis: 'y'
+        });
+
+        var myChart1 = getanalysis('chart1', '');
+        var myChart2 = spray('chart2', '');
+        var myChart3 = getanalysis('chart3', '');
+        var myChart4 = prediction('chart4', '');
+        window.onresize = function () {
+            myChart1.resize();
+            myChart2.resize();
+            myChart3.resize();
+            myChart4.resize();
+        }
+    </script>
+</body>
+
+</html>

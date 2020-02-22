@@ -1,0 +1,5 @@
+/* src/pages/legalPerson/index.wxss */
+.item .personselect {
+  width:40rpx;
+  height:40rpx;
+}

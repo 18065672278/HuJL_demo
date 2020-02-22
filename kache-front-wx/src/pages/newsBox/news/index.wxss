@@ -1,0 +1,5 @@
+@import "../../../templates/list/list.wxss";
+
+.btn-primary.add {
+  display: none;
+}

@@ -1,0 +1,31 @@
+<!--src/pages/workbench/grabOrder/index.wxml-->
+<view class="content">
+  <view class="item-wrapper">
+    <block wx:if='{{favorList && favorList.length > 0}}'>
+      <view class="item-list" wx:for="{{favorList}}" wx:for-item="item" wx:for-index="index" wx:key="that">
+        <view class="item-info" bindtap='editBtn' data-id="{{item.id}}">
+          <!-- <image class="info-img" src="/src/assets/images/icons/jd.png"></image> -->
+          <view class="info-wrapper">
+            <view class="info-desc">
+              <view class="name">订单号: {{item.orderNum}}{{item.orderType == 1?"(救援)":item.orderType == 2?"(到店服务)":""}}</view>
+            </view>
+            <view class="info-desc">
+              <view class="carnum time">车牌号: {{item.carNum}}</view>
+              <view class="time">联系电话: {{item.mobile}}</view>
+            </view>
+            <view class="info-content">
+              车辆位置: {{item.address}}
+            </view>
+            <view class="grabBtn" catchtap="grabBtn" data-id="{{item.id}}">立即抢单</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='none-box' style='display:flex;flex-direction:column;'>
+        <image class='none-content' src='/src/assets/images/content_none.png'></image>
+        <view class='none-text'>暂无记录</view>
+      </view>
+    </block>
+  </view>
+</view>

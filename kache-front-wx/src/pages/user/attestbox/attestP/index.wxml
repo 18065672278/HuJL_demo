@@ -1,0 +1,109 @@
+<!--src/pages/user/attestHO/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">姓名
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{name}}' placeholder='请输入联系人姓名' maxlength='20' bindinput='inputName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">英文名</view>
+    <input class="value right" style='text-align:right;' value='{{nameEn}}' placeholder='请输入联系人姓名' maxlength='20' bindinput='inputNameEn'></input>
+  </view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{orgCode}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">地址
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right" style='text-align:right;'>{{region}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <picker bindchange="bindNationalityChange" value="{{nationalityIndex}}" range="{{nationalityArray}}">
+    <view class="item clear">
+      <view class="name left">国籍</view>
+      <view class="value right">{{nationalityArray[nationalityIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <picker bindchange="bindPoliceChange" value="{{politicsIndex}}" range="{{politicsArray}}">
+    <view class="item clear">
+      <view class="name left">政治面貌</view>
+      <view class="value right">{{politicsArray[politicsIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <picker bindchange="bindIsMarryChange" value="{{marriageIndex}}" range="{{marriageArray}}">
+    <view class="item clear">
+      <view class="name left">婚姻状况</view>
+      <view class="value right">{{marriageArray[marriageIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <picker bindchange="bindmonthIncomeChange" value="{{monthIncomeIndex}}" range="{{monthIncomeArry}}">
+    <view class="item clear">
+      <view class="name left">月收入情况</view>
+      <view class="value right">{{monthIncomeArry[monthIncomeIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <!-- <picker mode="multiSelector" bindchange="bindcareerChange" bindcolumnchange="bindcareerColumnChange" value="{{careerIndex}}" range="{{careerArry}}">
+    <view class="item clear">
+      <view class="name left">职业</view>
+      <view class="value right">{{careerArry[0][careerIndex[0]]}}，{{careerArry[1][careerIndex[1]]}}，{{careerArry[2][careerIndex[2]]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker> -->
+  <picker bindchange="bindeducationChange" value="{{educationIndex}}" range="{{educationArry}}">
+    <view class="item clear">
+      <view class="name left">文化程度</view>
+      <view class="value right">{{educationArry[educationIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">身份证照</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[0]?FilePaths[0]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[0]?'':'frontimage'}} cardImage" data-id="0" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[0]}}" data-id="0" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(正面)</view>
+      </view>
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[1]?FilePaths[1]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[1]?'':'frontimage'}} cardImage" data-id="1" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[1]}}" data-id="1" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(反面)</view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">驾驶证照</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[2]?FilePaths[2]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[2]?'':'frontimage'}} cardImage" data-id="2" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[2]}}" data-id="2" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(主页)</view>
+      </view>
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[3]?FilePaths[3]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[3]?'':'frontimage'}} cardImage" data-id="3" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[3]}}" data-id="3" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(副页)</view>
+      </view>
+    </view>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class='sub_btn_box'>
+    <view class="sub_btn btn" bindtap='subAction'>提交</view>
+  </view>
+</view>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>交易</title>
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/transaction.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+	</head>
+	<body>
+		<div class="transaction w">
+			<div class="top clearfix">
+				<div class="fl selectadd">
+					<select name="address" id="guajia">
+						<option value="1">中国</option>
+					</select>
+				</div>
+				<div class="ct clearfix">
+					<div class="fl coin on" id="buycoin">买币</div>
+					<div class="fr coin" id="salecoin">卖币</div>
+					<input type="hidden" name="coin" id="coin" value="买币" />
+				</div>
+				<div class="fr search">
+					<img src="img/search.png"/>
+				</div>
+			</div>
+			<div class="nav">
+				<ul class="tab clearfix">
+				    <li onclick="market(this)">BTC</li>
+				    <li onclick="market(this)" class="on">USDT</li>
+				    <li onclick="market(this)">BCH</li>
+				    <li onclick="market(this)">LTC</li>
+				    <li onclick="market(this)">ETH</li>
+				    <input type="hidden" name="currency" id="currency" value="USDT"/>
+				    <div class="clear"></div>
+				</ul>
+			</div>
+			<div class="list">
+				<ul>
+					<li class="clearfix">
+						<div class="fl pinfo">
+							<img src="img/timg.png" onerror="this.src='img/timg.png'"/>
+							<p>林梦瑶</p>
+						</div>
+						<div class="fl tinfo">
+							<div class="tsum">
+								<span>交易</span>&nbsp;<p id="sum">55</p>
+								<img src="img/yrz.png" />
+								<img src="img/alipayrz.png"/>
+							</div>
+							<div class="praise">
+								<span>好评</span>&nbsp;<p id="praise">100%</p>
+								&nbsp;|&nbsp;
+								<span>信任</span>&nbsp;<p id="praise">98%</p>
+							</div>
+							<div class="clear"></div>
+							<div class="limit">
+								<span>限额</span>&nbsp;<p id="lower_limit">5000</p>-<p id="upper_limit">9000</p>&nbsp;<span>CNY</span>
+							</div>
+						</div>
+						<div class="fr binfo">
+							<div class="lumpsum">
+								<p id="lumpsum">4952.20</p>&nbsp;<span>CNY</span>
+							</div>
+							<div class="buy" onclick="buy(4)">购买</div>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="fl pinfo">
+							<img src="img/timg.png" onerror="this.src='img/timg.png'"/>
+							<p>林梦瑶</p>
+						</div>
+						<div class="fl tinfo">
+							<div class="tsum">
+								<span>交易</span>&nbsp;<p id="sum">55</p>
+								<img src="img/yrz.png" />
+							</div>
+							<div class="praise">
+								<span>好评</span>&nbsp;<p id="praise">100%</p>
+								&nbsp;|&nbsp;
+								<span>信任</span>&nbsp;<p id="praise">98%</p>
+							</div>
+							<div class="clear"></div>
+							<div class="limit">
+								<span>限额</span>&nbsp;<p id="lower_limit">5000</p>-<p id="upper_limit">9000</p>&nbsp;<span>CNY</span>
+							</div>
+						</div>
+						<div class="fr binfo">
+							<div class="lumpsum">
+								<p id="lumpsum">4952.20</p>&nbsp;<span>CNY</span>
+							</div>
+							<div class="buy" onclick="buy(3)">购买</div>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="fl pinfo">
+							<img src="img/timg.png" onerror="this.src='img/timg.png'"/>
+							<p>林梦瑶</p>
+						</div>
+						<div class="fl tinfo">
+							<div class="tsum">
+								<span>交易</span>&nbsp;<p id="sum">55</p>
+								<img src="img/yrz.png" />
+								<img src="img/alipayrz.png"/>
+							</div>
+							<div class="praise">
+								<span>好评</span>&nbsp;<p id="praise">100%</p>
+								&nbsp;|&nbsp;
+								<span>信任</span>&nbsp;<p id="praise">98%</p>
+							</div>
+							<div class="clear"></div>
+							<div class="limit">
+								<span>限额</span>&nbsp;<p id="lower_limit">5000</p>-<p id="upper_limit">9000</p>&nbsp;<span>CNY</span>
+							</div>
+						</div>
+						<div class="fr binfo">
+							<div class="lumpsum">
+								<p id="lumpsum">4952.20</p>&nbsp;<span>CNY</span>
+							</div>
+							<div class="buy" onclick="buy(2)">购买</div>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="fl pinfo">
+							<img src="img/timg.png" onerror="this.src='img/timg.png'"/>
+							<p>林梦瑶</p>
+						</div>
+						<div class="fl tinfo">
+							<div class="tsum">
+								<span>交易</span>&nbsp;<p id="sum">55</p>
+								<img src="img/yrz.png" />
+								<img src="img/alipayrz.png"/>
+							</div>
+							<div class="praise">
+								<span>好评</span>&nbsp;<p id="praise">100%</p>
+								&nbsp;|&nbsp;
+								<span>信任</span>&nbsp;<p id="praise">98%</p>
+							</div>
+							<div class="clear"></div>
+							<div class="limit">
+								<span>限额</span>&nbsp;<p id="lower_limit">5000</p>-<p id="upper_limit">9000</p>&nbsp;<span>CNY</span>
+							</div>
+						</div>
+						<div class="fr binfo">
+							<div class="lumpsum">
+								<p id="lumpsum">4952.20</p>&nbsp;<span>CNY</span>
+							</div>
+							<div class="buy" onclick="buy(1)">购买</div>
+							<!--<div class="sale" onclick="sale(id)">卖出</div>-->
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="foot clearfix">
+				<li class="b_button1 select"><img src="img/transaction2.png" id="menu1"/><p id="transaction">交易</p></li>
+				<li class="b_button2"><img src="img/order1.png" id="menu2"/><p id="order">订单</p></li>
+				<li class="b_center"><img src="img/footerj.png"/></li>
+				<li class="b_button3"><img src="img/wallet1.png" id="menu3"/><p id="wallet">钱包</p></li>
+				<li class="b_button4"><img src="img/personal1.png" id="menu4"/><p id="personal">我的</p></li>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/footer.js" ></script>
+		<script type="text/javascript" src="js/transaction.js" ></script>
+		<script src="js/url.js"></script>
+	</body>
+</html>

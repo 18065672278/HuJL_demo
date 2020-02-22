@@ -1,0 +1,13 @@
+<!--src/pages/truck/index.wxml-->
+<import src="../../../components/wxParse/wxParse.wxml" />
+<view class="content">
+  <view class="news_title">
+    {{newsTitle}}
+  </view>
+  <view class="news_auth">
+    {{newsAuth}} {{newsDate}}
+  </view>
+  <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+  </view>
+</view>

@@ -1,0 +1,242 @@
+import WXEXT from '../../../components/common/common.js';
+import WXYZ from "../../../components/verification/verification.js";
+import cui from "../../../components/base/cui.js";
+const app = getApp();
+const API_SERVER = app.getConfig("API_SERVER");
+const API_api = app.getConfig("api");
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    pageNum: 1,
+    searchinput: '',
+    favorList: [],
+    product: {
+      hasSelect: false,
+      product_list: [],
+    },
+    startX: 0, //开始坐标
+    startY: 0
+  },
+  //添加
+  addBtn: function(e) {
+    wx.navigateTo({
+      url: '../personBox/person/index?select=true&&type=fleet&&fleetId=' + app.globalData.userInfo.fleetList[0].id,
+    })
+  },
+  //编辑
+  showProductDetail: function(e) {
+    wx.navigateTo({
+      url: '../../personnelDetail/index?type=fleet&&id=' + e.currentTarget.dataset.index,
+    })
+  },
+  //左滑开始
+  touchstart: function(e) {
+    this.data.product.product_list.map(item => {
+      if (item.isTouchMove) {
+        item.isTouchMove = false;
+      }
+    })
+    this.setData({
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      "product.product_list": this.data.product.product_list
+    })
+  },
+  //滑动事件处理
+  touchmove(e) {
+    var
+      index = e.currentTarget.dataset.index, //当前索引
+      startX = this.data.startX, //开始X坐标
+      startY = this.data.startY, //开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
+      //获取滑动角度
+      angle = this.angle({
+        X: startX,
+        Y: startY
+      }, {
+        X: touchMoveX,
+        Y: touchMoveY
+      });
+    this.data.product.product_list.forEach(function(v, i) {
+      v.isTouchMove = false
+      //滑动超过30度角 return
+      if (Math.abs(angle) > 30) return;
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+          v.isTouchMove = false
+        else //左滑
+          v.isTouchMove = true
+      }
+    })
+    //更新数据
+    this.setData({
+      "product.product_list": this.data.product.product_list
+    })
+  },
+  angle(start, end) {
+    var X = end.X - start.X,
+      Y = end.Y - start.Y
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(Y / X) / (2 * Math.PI);
+  },
+  //删除
+  delProductItem(e) {
+    const index = e.currentTarget.dataset.index;
+    const id = e.currentTarget.dataset.id;
+    let me = this;
+    WXEXT.showModal('', "是否确定删除", true, '确定删除', '取消', function(data) {
+      if (data.confirm) {
+        console.log(index);
+        me.data.product.product_list.splice(index, 1);
+        me.setData({
+          "product.product_list": me.data.product.product_list
+        });
+        WXEXT.request(API_SERVER + API_api.fleetEmployeeUnBand, {
+          id: id,
+          fleetId: app.globalData.userInfo.fleetList[0].id
+        }, '', me.delcallback)
+      }
+    });
+  },
+  //删除回调
+  delcallback: function(data) {
+    var me = this;
+    console.log(data);
+    wx.showToast({
+      title: '删除成功',
+    })
+  },
+  //查询
+  query: function() {
+    var me = this;
+    console.log(this.data.searchinput, this.data.pageNum)
+    var s = {
+      fleetId: app.globalData.userInfo.fleetList[0].id,
+      pageNum: this.data.pageNum,
+      pageSize: 10
+    }
+    WXEXT.request(API_SERVER + API_api.fleetEmployeequery, s, '', me.callback)
+  },
+  //查询回调
+  callback: function(data) {
+    setTimeout(function() {
+      wx.hideLoading();
+    }, 500)
+    var favorList = this.data.favorList;
+    var result = data;
+    for (var i = 0; i < result.length; i++) {
+      favorList.push(result[i])
+    }
+    this.productList(favorList)
+  },
+  //搜索框内容
+  input1: function(e) {
+    this.data.searchinput = e.detail.value;
+  },
+  //搜索
+  search: function() {
+    console.log(this.data.searchinput)
+    var me = this;
+    var s = {
+      name: this.data.searchinput,
+      pageNum: this.data.pageNum,
+      pageSize: 10
+    }
+    WXEXT.request(API_SERVER + API_api.fleetEmployeequery, s, '', me.searchBack)
+  },
+  //搜索回调
+  searchBack: function(data) {
+    console.log(data)
+    var favorList = data;
+    this.productList(favorList)
+  },
+  //格式化json串（favorList=》product_list）
+  productList: function(favorList) {
+    console.log(favorList)
+    let product_list = [];
+    for (let i = 0, length = favorList.length; i < length; i++) {
+      let listA = {};
+      listA.id = favorList[i].id;
+      listA.img = "https://i8.mifile.cn/v1/a1/7dc38112-bbf4-f3fa-db39-5f4674f9d0d4!720x792.webp";
+      listA.firstRowL = cui.isEmpty(favorList[i].name) ? "" : favorList[i].name;
+      listA.firstRowR = "";
+      listA.secondRowL = cui.isEmpty(favorList[i].mobile) ? "" : favorList[i].mobile;
+      listA.isTouchMove = false;
+      listA.selected = false;
+      listA.unSelect = true;
+      product_list.push(listA);
+    }
+    console.log(product_list)
+    this.setData({
+      "product.product_list": product_list
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function(data) {
+    this.query()
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+    this.setData({
+      favorList: [],
+      pageNum: 1
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+    wx.showLoading({
+      title: '玩命加载中',
+    })
+    this.setData({
+      pageNum: this.data.pageNum + 1 // 一般上拉触底是为了加载更多分页数据，所以这里页数自增
+    });
+    this.query() // 查询方法
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

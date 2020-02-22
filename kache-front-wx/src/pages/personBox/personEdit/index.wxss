@@ -1,0 +1,30 @@
+/* pages/driver/index.wxss */
+
+.img_box {
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  height: 150rpx;
+  margin: 40rpx 23rpx 0 0;
+  border: 1px solid #ededed;
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.q-image-remover {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+}
+
+.idCardPhoto_msg {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}

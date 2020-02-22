@@ -1,0 +1,81 @@
+<!--src/pages/identityinfor/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">姓名
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{name}}' placeholder='请填写姓名' maxlength='8' bindinput='inputeidtName'></input>
+  </view>
+  <picker bindchange="bindgenderChange" value="{{genderIndex}}" range="{{genderArray}}">
+    <view class="item clear">
+      <view class="name left">性别</view>
+      <view class="value right">{{genderArray[genderIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">民族</view>
+    <input class="value right" style='text-align:right;' value='{{ethnic}}' placeholder='请填写民族' bindinput='inputeidtEthnic'></input>
+  </view>
+  <picker mode="date" value="{{birthday}}" bindchange="birthdaySelect">
+    <view class="item clear">
+      <view class="name left">出生日期</view>
+      <view class="value right">{{birthday}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">详细地址</view>
+    <input class="value right" style='text-align:right;' value='{{address}}' placeholder='请填写详细地址' bindinput='inputeidtAddress'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">证件号
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" type='idcard' style='text-align:right;' value='{{certNum}}' placeholder='请填写证号' maxlength='100' bindinput='inputCertNum'></input>
+  </view>
+  <picker mode="date" value="{{validityStartDate}}" bindchange="validityStartSelect">
+    <view class="item clear">
+      <view class="name left">有效开始日期</view>
+      <view class="value right">{{validityStartDate}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <picker mode="date" value="{{validityEndDate}}" bindchange="validityEndSelect">
+    <view class="item clear">
+      <view class="name left">有效结束日期</view>
+      <view class="value right">{{validityEndDate}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">发证单位</view>
+    <input class="value right" style='text-align:right;' value='{{issueUnit}}' placeholder='请填写发证单位' maxlength='60' bindinput='inputissueUnit'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">身份证照
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[0]?FilePaths[0]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[0]?'':'frontimage'}} cardImage" data-id="0" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[0]}}" data-id="0" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(正面)</view>
+      </view>
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[1]?FilePaths[1]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[1]?'':'frontimage'}} cardImage" data-id="1" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[1]}}" data-id="1" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(背面)</view>
+      </view>
+    </view>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

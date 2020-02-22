@@ -1,0 +1,55 @@
+<view class="list">
+  <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{typeArray}}">
+    <view class="item clear">
+      <view class="name left">地址类型
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right">{{typeArray[typeIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">{{typeArray[typeIndex]}}
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right">{{region[0]}},{{region[1]}},{{region[2]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">组织编码</view>
+    <view class="value right">{{orgCode}}</view>
+  </view>
+  <view class="item clear">
+    <view class="name left">详细地址</view>
+    <input class="value right" style='text-align:right;' value='{{address}}' placeholder='请填写详细地址' maxlength='100' bindinput='inputeAddress'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">地址别名</view>
+    <input class="value right" style='text-align:right;' value='{{addressAlias}}' placeholder='请填写地址别名' maxlength='100' bindinput='inputeAddressAlias'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">邮政编码</view>
+    <input class="value right" type="number" style='text-align:right;' value='{{zipCode}}' placeholder='请填写邮政编码' maxlength='20' bindinput='inputezipCode'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">联系电话1
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" type="number" style='text-align:right;' value='{{num1}}' placeholder='请填写联系电话' maxlength='20' bindinput='inputnum1'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">联系电话2</view>
+    <input class="value right" type="number" style='text-align:right;' value='{{num2}}' placeholder='请填写联系电话' maxlength='20' bindinput='inputnum2'></input>
+  </view>
+  <view class="item clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name left">是否默认</view>
+    <switch class="value right" checked="{{defaultContact}}" bindchange="switchChange" />
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

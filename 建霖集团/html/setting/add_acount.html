@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加账号</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/setting.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+    <link rel="stylesheet" href="../../js/select/select.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="childrenBody">
+            <div class="children-header mb10">
+                <h3 class="title">
+                    <i class="iconfont icon-xinjianhuiyi"></i> 添加账号
+                </h3>
+            </div>
+            <div class="form-content">
+                <div class="site-box">
+                    <div class="pass-form clearfix">
+                        <div class="base-fieldset-content clearfix">
+                            <div class="base-grid3-1 mb20">
+                                <label class="base-form-txt required">账号</label>
+                                <div class="base-input-box">
+                                    <input type="text" class="base-form-input" placeholder="请输入账号">
+                                </div>
+                            </div>
+                            <div class="base-grid3-1 mb20">
+                                <label class="base-form-txt required">姓名</label>
+                                <div class="base-input-box">
+                                    <input type="text" class="base-form-input" placeholder="请输入姓名">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-fieldset-content clearfix">
+                            <div class="base-grid3-1 mb20">
+                                <label class="base-form-txt required">单位</label>
+                                <div class="base-input-box twoSelectDiv">
+                                    <div class="selectDiv up" id="selectDiv">
+                                        <input id="beginyear" type="text" class="selectValue" readonly="true"
+                                            unselectable="on" data-type="" placeholder="所属厂区">
+                                        <div class="selectOption has-selectsearch">
+                                            <div class="select-search">
+                                                <input class="search-input js-search-input" type="text" placeholder="搜索" />
+                                            </div>
+                                            <div class="select-scroll">
+                                                <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                                <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="selectDiv up" id="selectDiv1">
+                                        <input id="beginyear1" type="text" class="selectValue" readonly="true"
+                                            unselectable="on" data-type="" placeholder="所属部门">
+                                        <div class="selectOption has-selectsearch">
+                                            <div class="select-search">
+                                                <input class="search-input js-search-input" type="text" placeholder="搜索" />
+                                            </div>
+                                            <div class="select-scroll">
+                                                <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                                <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="base-grid3-1 mb20">
+                                <label class="base-form-txt required">组别</label>
+                                <div class="base-input-box ">
+                                    <div class="selectDiv up" id="selectDiv2">
+                                        <input id="beginyear2" type="text" class="selectValue" readonly="true"
+                                            unselectable="on" data-type="" placeholder="请选择">
+                                        <div class="selectOption has-selectsearch">
+                                            <div class="select-search">
+                                                <input class="search-input js-search-input" type="text" placeholder="搜索" />
+                                            </div>
+                                            <div class="select-scroll">
+                                                <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                                <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-fieldset-content clearfix">
+                            <div class="base-grid3-1 mb20">
+                                <label class="base-form-txt required">初始密码</label>
+                                <div class="base-input-box">
+                                    <input type="password" class="base-form-input" placeholder="请输入初始密码">
+                                </div>
+                            </div>
+                            <div class="base-grid3-1 mb20">
+                                <label class="base-form-txt required">确认密码</label>
+                                <div class="base-input-box">
+                                    <input type="password" class="base-form-input" placeholder="请输入确认密码">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-grid3-1 mb20">
+                            <label class="base-form-txt required">状态</label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="radio" type="radio" value="N" id="radio2" checked="" disabled>
+                                <label class="radio-txt" for="radio2">启用</label>
+                                <input name="orgType" class="radio" type="radio" value="Y" id="radio1" disabled>
+                                <label class="radio-txt" for="radio1">禁用</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group-btn">
+                        <div class="base-input-box">
+                            <a href="javascript:void(0);" class="common-btn" id="cancel-btn">取消</a>
+                            <a href="javascript:void(0);" class="common-btn btn-normal " id="save-btn">保存</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/layui/layui.all.js"></script>
+    <script src="../../js/select/select.js"></script>
+    <script>
+        $(function () {
+            var formHeight = $(window).height() - $(".children-header").outerHeight() - 90;
+            $(".form-content").outerHeight(formHeight);
+            // 所属厂区
+            $.divselect("#selectDiv", "#beginyear", null, null, null, true);
+            // 所属部门
+            $.divselect("#selectDiv1", "#beginyear1", null, null, null, true);
+            // 组别
+            $.divselect("#selectDiv2", "#beginyear2", null, null, null, true);
+        })
+    </script>
+</body>
+
+</html>

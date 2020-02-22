@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* ztree样式 */
+.ztree *{
+	font: 12px/normal Microsoft YaHei,SimSun,Arial;
+}
+.ztree li {
+    position: relative;
+}
+.ztree li a {
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 20px;
+    box-sizing: border-box;
+    line-height:30px;
+}
+.ztree li a.curSelectedNode {
+    height: auto;
+    border: none;
+    color:#fff;
+    background:#50657b;
+    opacity: 1;
+}
+.ztree li a:hover {
+    text-decoration: none;
+}
+.ztree li ul {
+    padding: 0;
+}
+.ztree .level0>.node_name{
+	font-size:16px;
+    font-weight: bold;
+    line-height:30px;
+}
+.ztree .level1>.node_name{
+	font-size:14px;
+    line-height:30px;
+}
+.ztree li span.button {
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+.ztree .level0 a.level1{
+	padding-left:30px;
+}
+.ztree li.level1 .button{
+    left: 10px;
+}
+.ztree .level1 a.level2{
+	padding-left:40px;
+}
+.ztree li.level2 .button{
+    left: 20px;
+}
+.ztree .level2 a.level3{
+	padding-left:50px;
+}
+.ztree li.level3 .button{
+    left: 30px;
+}
+.ztree .level3 a.level4{
+	padding-left:60px;
+}
+.ztree li.level4 .button{
+    left: 40px;
+}
+.ztree .level4 a.level5 {
+    padding-left: 70px;
+}
+.ztree li.level5 .button{
+    left: 50px;
+}
+.ztree .level5 a.level6 {
+    padding-left: 80px;
+}
+.ztree li.level6 .button{
+    left: 60px;
+}
+.ztree .level6 a.level7 {
+    padding-left: 80px;
+}
+.ztree li.level7 .button{
+    left: 70px;
+}
+.ztree li a:hover {
+    color:#fff;
+    background:#50657b;
+}
+.ztree li.hover>span.button.noline_close{
+	background-position: -87px 8px;
+}
+.ztree li span.button.noline_close {
+    background-position: -57px 8px;
+    background-image: url(../images/ztree-icon.png);
+}
+.ztree li.hover>span.button.noline_open{
+	background-position: -27px 6px;
+}
+.ztree li span.button.noline_open {
+	background-position: 3px 6px;
+    background-image: url(../images/ztree-icon.png);
+}

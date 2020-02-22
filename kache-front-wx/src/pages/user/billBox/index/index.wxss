@@ -1,0 +1,91 @@
+.billBox {
+  width: 650rpx;
+  height: 750rpx;
+  margin: 50rpx;
+  padding: 30rpx;
+  border-radius: 30rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.shop_name {
+  width: 300rpx;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  color: #000;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+  padding-left: 60rpx;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAgMAAADQNkYNAAAACVBMVEUAAACWw+uWw+vJBjOTAAAAAnRSTlMA8MsuPyQAAAImSURBVGje7Zm9kQMhDIU9hJRwJai0q4L4qlBwgYYq79/irYyflvFcYl5iY/gESGux2r1sbW09vaTP1W4Std+RkUnS0/S70htEuY8Y3UoU2UpyM/3xiPLdc6QyxCISfqS94lNPgkaQoFsIupF1RzNREpHCEY2I3UNqRCpHjFnhqxCOdOYR7tGeQBoxQgNTMogSh9DA1AxiJCw0MJJBOgkLDUxPIY2EhQSm5BAlYSGBqTnESFhIYCSHdBIWEpieRBoaoJIlRNEZVHUJMeSpyiqCvih9KnUnOUKOywlCbq4gMG7locjVS+4KgugyYo4oXRgGpi4ixMl/bnKkkTsfmyBUckVkCbls5LmQfvqCKUuIJZLl2FNTSOkGiALtowYE/kpyzDDeoZNjqDuPZy3w/VMHJH4v2AiWHdGx8FNAfMuY+Q1KMqy2cJRbhkHNO3waKOGqj4JSrYx5rwBSrqOqDxpaDey6bSguFWtgHwOIeSJ3A26hHhD5YQ5JWL4+5af5TdisdH37NVy/P8YunRXIFzxXZsU4mJKRH1uz5wMwp3krlAnwO65evAHCAx5axecHCVjCpcjYiD7Ddar3HfwVL2FciscxLk3RgOK/I6ooGEC7LZWy7bK1NVNNVHzhSKdG47MLfp3qEWkECRlmIxvZyEY2spGNPBNy9gVEpY+HX45I6Qm9n0d0EXFxIPj09TwiCeTsq9d5LcZ37+JIW32PnGd2mbW19V/6AKuwpoT4E3+gAAAAAElFTkSuQmCC);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.fund_details {
+  float: right;
+  color: #96a4cb;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
+
+.moneyBox {
+  margin: 60rpx;
+  font-size: 24rpx;
+  color: #969696;
+}
+
+.moneyBox .content {
+  margin: 20rpx 0;
+}
+
+.moneyBox .fontBig {
+  font-size: 60rpx;
+  color: #000;
+}
+
+.moneyBox .grayBox {
+  background: #f5f5f5;
+  display: inline-block;
+  padding: 20rpx 40rpx;
+  border-radius: 50rpx;
+  color: #000;
+}
+
+.fontCenter {
+  text-align: center;
+}
+
+.costBox::before {
+  display: block;
+  content: '';
+  width: 650rpx;
+  margin: 0 -30rpx;
+  height: 2rpx;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.costBox .content {
+  width: 50%;
+  height: 150rpx;
+  line-height: 50rpx;
+  padding: 30rpx;
+  display: inline-block;
+}
+
+.costBox .indent {
+  text-indent: 50rpx;
+}
+
+.costBox .costname {
+  font-size: 26rpx;
+  color: #969696;
+}
+
+.costBox .costmoney {
+  font-size: 30rpx;
+  color: #000;
+}

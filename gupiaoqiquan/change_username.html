@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改昵称</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/change_password.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<div class="containers">
+			<div class="head">
+				<!--<a href="personal_data.html"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">修改密码</span>-->
+			</div>              
+			<div class="content">
+				<div class="conclude">
+					<div class="original">
+						<img src="img/username.png" class="picture"/><input type="text" name="" id="newName" placeholder="新昵称" class="import"/>
+					</div>
+					<div style="width:100%;" class="confirm_change">
+						<input type="button" id="" onclick="changUsername()" value="确认修改" />
+					</div>
+				</div>
+				
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			if(token==null||token.length==0||token==""){
+					window.location.href = "login.html";
+			}
+			
+			function changUsername(){
+				var newName = $("#newName").val();
+				if(newName==null||newName.length==0||newName==""){
+					layer.msg('新昵称不能为空！', {time: 2000});
+				}else{
+					$.ajax({
+						url: test_url + pro_name + '/user/change/info',
+						type:"POST",
+						dataType:'jsonp',
+						jsonp:'callback',
+						data:{
+							"token":token,
+							"userName":newName,
+							"userPic":test_url+pro_name + "/img/icon-user.png"
+						},
+						success:function(data){
+							window.location.href="personal_center.html";
+//							console.log(data)
+//							if(data.status == 200){
+//							
+//							}else{
+//								layer.msg(data.msg);
+//								
+//							}
+						},
+						error:function(xhr,status,error){
+							
+						}
+					})
+				}//
+			
+			
+				
+			}//fn end
+		</script>
+		
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

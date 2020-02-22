@@ -1,0 +1,28 @@
+
+<view class="container"  >
+    <image class="icon-logo" src="/src/assets/images/icons/icon_logo.png"></image>
+    <form class="form" bindsubmit="formSubmit">
+        <view class="form-item-box">
+            <view class="form-item">
+                <label>
+                    <image class="icon-iphone" src="/src/assets/images/icons/login_icon_iphone.png"></image>
+                </label>
+                <input type="number" value="{{phoneNum}}" placeholder="输入手机号" maxlength="11" placeholder-style="none"
+                       bindblur="bindBlurHandler" bindfocus="bindFocusHandler" bindinput="bindPhoneTap" focus="{{getfocus}}"/>
+                <label bindtap="bindCloseTap">
+                    <image class="{{closeShowFlag ? 'icon-close' : 'icon-close hidden'}}"  src="/src/assets/images/icons/login_icon_delete_nor@2x.png"></image>
+                </label>
+                <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="{{vcodeBtnDisabled ? 'btn-vcode vcode-off' : 'btn-vcode'}}" >{{vcodeText}}</button>
+            </view>
+            <view class="form-item mt40">
+                <label><image class="icon-lock" src="/src/assets/images/icons/login_icon_lock.png"></image></label>
+                <input type="number" placeholder="短信验证码" placeholder-style="none" bindinput="bindCodeTap"/>
+            </view>
+            <view class="form-des mt16">
+                点击"登录"即表示您同意<text class="fwtk" bindtap="bindTextTap">《用户服务条款》</text>
+            </view>
+        </view>
+        <view class="{{loginBtnDisabled ? 'btn-login btn-off' : 'btn-login'}}" data-login-btn-disabled="{{loginBtnDisabled}}" bindtap="bindLoginTap">登录</view>
+    </form>
+</view>
+

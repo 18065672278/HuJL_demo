@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>买入</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/buy.css"/>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<div class="containers">
+			<div class="head">
+				<a href="#"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">股票期权</span>
+			</div>              
+			<div class="list">
+				<p>填写股票代码、行权周期、行权价格获取详细期权信息</p>
+			</div>
+			<div class="content">
+				<div class="messgae">
+					<div class="one">
+						<span>股票期权</span><input type="text" name="" id="" placeholder="请输入股票代码" />
+					</div>
+					<hr />
+					<div class="one">
+						<span>行使周期</span><select name=""><option value="">一个月</option><option value="">三个月</option><option value="">半年</option></select>
+					</div>
+					<hr />
+					<div class="one">
+						<span>名义本金</span><input type="text" name="" id="" placeholder="≥10万" />
+					</div>
+					<hr />
+					<div class="one">
+						<span>期权费</span><input type="text" name="" id="cost" placeholder="55555.555" />
+					</div>
+					<hr />
+				</div>
+				<!--询价确认-->
+				<div class="list">
+					<p>询价确认</p>
+				</div>
+			</div>
+			<div class="two">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费率</span><p id="rate">0.01</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+						<div class="name">
+							<span>行权价格</span><p id="exercise_price">1.25</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>报价日期</span><p id="say">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>	
+					<div class="content_1">
+						<div class="number">
+							<span>期权类型</span><p id="type">美式看涨</p>
+						</div>
+						<div class="name">
+							<span>期权费</span><p id="cost">5555.55</p>
+						</div>
+					</div>				
+				</div>
+				<hr />
+				<div class="explain">
+					<p>注意：询价后二个工作日内如未成交，请您重新询价</p>
+				</div>				
+			</div>
+			<div class="callfor">
+				<button class="apply">询价</button>
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		<div id="app">
+			<p>确认买入</p>
+			<div class="apps">
+				<div class="market_price">
+					市价
+				</div>
+				<div class="now_price">
+					现价
+				</div>
+			</div>
+			<div class="market_cost">
+				<input type="text" name="" id="" value="" placeholder="当前市场价格" />
+			</div>	
+			<div class="now_cost">
+				<input type="text" name="" id="" value="" placeholder="最小值"/> &nbsp; — &nbsp; <input type="text" name="" id="" value="" placeholder="最大值"/>
+			</div>
+			<div class="down">
+				<button class="no">取消</button><button class="yes">确定</button>
+			</div>
+		</div>
+		
+		
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				//http://119.29.227.15/gpqq/user/commit/order?
+				//token=&orderId=2&type=2&stockCode=123456&notionalAmount=12345678&exerciseId=1&buyType=2&exerciseType=3
+//				$.ajax({
+//	                    url: test_url + pro_name + '/user/commit/order',
+//	                    type:"post",
+//	                    dataType: 'jsonp',//
+//	                    jsonp: "callback",//
+//	                    data: {
+//	                    	token:token,
+//	                    	
+//	                    },
+//	                    beforeSend: function() {
+//	
+//	                    },
+//	                    success: function(data) {
+//	                        console.log(data)
+//							/////////////
+//							var getData = data.data;
+//							
+//							var select = $("<select />");
+//							var dayDiv = $("#dayDiv");
+//							select.appendTo(dayDiv);
+//							
+//							$.each(getData, function(i) {
+//								var day = getData[i].exerciseName;
+//								var option = $("<option />",{
+//									"id":getData[i].exerciseId,
+//									"name":"selectTime",
+//									"value":getData[i].exerciseId,
+//									"text":day
+//								});
+//								option.appendTo(select);
+//							});
+//							
+//						
+//							///////////
+//	                    },//su end
+//	                    error: function(xhr, status, error) {
+//	                            $('.lg').hide().siblings().show();
+//	                        } //error end
+//	                });
+			
+			});
+		</script>
+	</body>
+</html>
+
+

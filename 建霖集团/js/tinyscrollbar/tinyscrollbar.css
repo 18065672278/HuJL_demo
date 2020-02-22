@@ -1,0 +1,57 @@
+.table-scroller{
+    position: relative;
+    width:100%;
+    margin-bottom:5px;
+    z-index: 2;
+}
+.table-scroller .fixeTable{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    z-index: 1;
+}
+.table-scroller .viewport{
+    position: relative;
+    width: 100%;
+    overflow:hidden;
+}
+.table-scroller .overview{
+    position: relative;
+    margin-bottom: 20px;
+}
+.table-scroller .scrollbar{
+    position: absolute;
+    bottom: 0;
+    height: 12px;
+    background: #2a2a44;
+    z-index: 11;
+    cursor: pointer;
+}
+.table-scroller .track{
+    position: relative;
+    top: 2px;
+    height: 8px;
+    width: 100%;
+    background: #2a2a44;
+}
+.table-scroller .thumb{
+    position: absolute;
+    left: 0;
+    height:8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #393958;
+    cursor: pointer;
+}
+.noSelect{
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+.table-scroller .disable{
+    display:none;
+}

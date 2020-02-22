@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>询价列表</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/Inquiry_list.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<div class="containers">
+			<div class="conclude">
+				<div class="head">
+					<a href="home_page.html"><img  src="img/_.png"/><span id="back">返回</span></a>
+					<span class="heads">股票期权</span>
+				</div>
+				<div class="demand">
+					<select name="" id="state" class="select">
+						<option value="0" >状态查询</option>
+						<option value="1" >询价中</option>
+						<option value="2" >待买入</option>
+						<option value="3" >买入中</option>
+						<option value="4" >询价失败</option>
+						<option value="5" >已作废</option>
+					</select>
+				</div>
+			</div>
+				
+			<!--询价中-->
+			<div class="one">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">询价中</button>
+					</div>
+				</div>
+				<hr />
+				<!--2-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">询价中</button>
+					</div>
+				</div>
+				<hr />
+				<!--3-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">询价中</button>
+					</div>
+				</div>
+				<hr />
+				<!--4-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">询价中</button>
+					</div>
+				</div>
+				<hr />
+			</div>
+			<!--待买入-->
+			<div class="two">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">待买入</button>
+					</div>
+				</div>
+				<hr />
+				<!--2-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">待买入</button>
+					</div>
+				</div>
+				<hr />	
+			</div>
+			<!--买入中-->
+			<div class="three">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">买入中</button>
+					</div>
+				</div>
+				<hr />
+				<!--2-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">买入中</button>
+					</div>
+				</div>
+				<hr />	
+			</div>
+			<!--查询失败-->
+			<div class="four">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">查询失败</button>
+					</div>
+				</div>
+				<hr />
+				<!--2-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">查询失败</button>
+					</div>
+				</div>
+				<hr />	
+			</div>
+			<!--已作废-->
+			<div class="five">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">已作废</button>
+					</div>
+				</div>
+				<hr />
+				<!--2-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">已作废</button>
+					</div>
+				</div>
+				<hr />	
+				<!--2-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">已作废</button>
+					</div>
+				</div>
+				<hr />	
+				<!--2-->
+				<div class="second">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>期权费率</span><p id="rate">5%</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>询价日期</span><p id="ask">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>作废日期</span><p id="stop">2018/02/13</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>名义本金</span><p id="prinpical">50000</p>
+						</div>
+						<div class="name">
+							<span>行权周期</span><p id="exercise">一个月</p>
+						</div>
+					</div>
+					<div class="qiquan">
+						<span>期权类型</span><p id="type">美式看涨</p>
+					</div>
+					<div class="states">
+						<span class="concact">合约状态</span><button id="state">已作废</button>
+					</div>
+				</div>
+				<hr />	
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">		    						
+			$(function(){
+				$("#state").bind("change",function(){
+				   var val=$("#state option:selected").val()
+				if (val==='1'){
+					//询价中
+					$(".one").show();
+					$(".two").hide();
+					$(".three").hide();
+					$(".four").hide();
+					$(".five").hide();
+				}else if(val==='2'){
+					//待买入
+					$(".two").show();
+					$(".one").hide();
+					$(".three").hide();
+					$(".four").hide();
+					$(".five").hide();
+				}else if(val==='3'){
+					//买入中
+					$(".three").show();
+					$(".two").hide();
+					$(".one").hide();
+					$(".four").hide();
+					$(".five").hide();
+				}else if(val==='4'){
+					//询价失败
+					$(".four").show();
+					$(".two").hide();
+					$(".three").hide();
+					$(".one").hide();
+					$(".five").hide();
+				}else if(val==='5'){
+					//已作废
+					$(".five").show();
+					$(".two").hide();
+					$(".three").hide();
+					$(".four").hide();
+					$(".one").hide();
+				}
+			  });
+			});
+		</script>
+	</body>
+</html>

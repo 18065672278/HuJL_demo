@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>项目管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+    </head>
+    <body>
+        <div class="pop-layer-wrapper">
+            <div class="pop-layer-title">
+                <h3 class="txt">变更项目资料</h3>
+                <div class="btn-row">
+                    <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+                </div>
+            </div>
+            <div class="pop-layer-content clearfix">
+                <div class="base-fieldset-content clearfix">
+                    <div class="base-grid1 mb10">
+                        <label class="base-form-txt required">企业名称</label>
+                        <div class="base-input-box">
+                            <input class="base-form-input" type="text" placeholder="请输入企业名称">
+                        </div>
+                    </div>
+                    <div class="base-grid1 mb10">
+                        <label class="base-form-txt required">项目经理</label>
+                        <div class="base-input-box">
+                            <input id="projectName" class="base-form-input" type="text" readonly="true" unselectable="on" style="cursor:pointer;">
+                        </div>
+                    </div>
+                    <div class="base-grid1 mb10">
+                        <label class="base-form-txt required">项目等级</label>
+                        <div class="base-input-box">
+                            <input class="base-form-input" type="text" placeholder="请输入项目等级">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pop-btn-row">
+                <a class="common-btn btn-normal" id="submitBtn" href="javascript:void(0);">确定</a>
+                <a class="common-btn" id="layerclose" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script>
+            top.project = window;
+            $(function(){
+                var layerIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                //关闭窗口
+                $("#closeBtn").click(function() {
+                    parent.layer.close(layerIndex);
+                });
+                $("#layerclose").click(function() {
+                    parent.layer.close(layerIndex);
+                });
+                $("#projectName").click(function() {
+                    top.layer.open({
+                        type: 2,
+                        area:[800+'px', 610+'px'],
+                        offset: 'auto',
+                        scrollbar: false,
+                        title:false,
+                        closeBtn:false,
+                        content: ["project/person_file.html", 'no']
+                    });
+                });
+            })
+        </script>
+    </body>
+</html>

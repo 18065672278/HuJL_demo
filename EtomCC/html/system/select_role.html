@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>组织管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+        <style>
+            .pop-layer-content {
+                padding:0;
+                height: 350px;
+                overflow: auto;
+            }
+            .checkBtn-All .checkbox:checked+.checkAll-txt.checkbox-green:before {
+                background: #70b85d;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pop-layer-wrapper">
+            <div class="pop-layer-title">
+                <h3 class="txt">角色选择</h3>
+                <div class="btn-row">
+                    <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+                </div>
+            </div>
+            <div class="search-input-box clearfix">
+                <input type="text" id="search_txt" class="search-input" placeholder="输入查找的关键字">
+                <a href="javascript:void(0);" class="checkBtn-All">
+                    <input class="checkbox checkAll" type="checkbox" name="" id="checkType">
+                    <label class="checkAll-txt" for="checkType">全选</label>
+                </a>
+            </div>
+            <div class="pop-layer-content clearfix" id="check_list">
+                <a href="javascript:void(0);" class="product-item" data-id="1">
+                    <input class="checkbox" type="checkbox" name="type" id="1">
+                    <label class="checkbox-txt" for="1">设备1 <span>11111111</span></label>
+                </a>
+                <a href="javascript:void(0);" class="product-item" data-id="2">
+                    <input class="checkbox" type="checkbox" name="type" id="2">
+                    <label class="checkbox-txt" for="2">设备2 <span>11111111</span></label>
+                </a>
+                <a href="javascript:void(0);" class="product-item" data-id="3">
+                    <input class="checkbox" type="checkbox" name="type" id="3">
+                    <label class="checkbox-txt" for="3">设备3 <span>11111111</span></label>
+                </a>
+            </div>
+            <div class="pop-btn-row">
+                <a class="common-btn btn-normal" id="submitBtn" href="javascript:void(0);">确定</a>
+                <a class="common-btn" id="layerclose" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script>
+            $(function(){
+                var selectedArray = [];
+                var selectedNameArray = [];
+                var idValueId = $("#callBackMsg",top.selectLayer.document).attr("data-id");
+                var selectedId = $("#"+idValueId,top.selectLayer.document).val();
+
+                var layerIndex = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                //关闭窗口
+                $("#closeBtn").click(function() {
+                    $("#callBackMsg",top.selectLayer.document).remove();
+                    top.layer.close(layerIndex);
+                });
+
+                $("#layerclose").click(function() {
+                    $("#callBackMsg",top.selectLayer.document).remove();
+                    top.layer.close(layerIndex);
+                });
+                
+                //默认选择已经选中的选项
+                if (selectedId) {
+                    selectedId = selectedId.split(","); //["xx","yy","zz"]数组格式
+                    selectedArray = selectedId;
+                    for (var i = 0; i < selectedId.length; i++) {
+                        var node = $(".product-item[data-id=" + selectedId[i] + "]");
+                        var name = node.find(".checkbox-txt").text();
+                        selectedNameArray.push(name);
+                        node.find(".checkbox")[0].checked = true;
+                        $(".checkBtn-All .checkbox").prop("checked",true);
+                    }
+                    var inputNum = $("#check_list").find(".checkbox").length;//所有个数
+                    var checkedNum = selectedId.length;//回显个数
+                    if(checkedNum == 0){
+                        $(".checkBtn-All .checkbox").next().removeClass("checkbox-green");
+                    }else if(checkedNum == inputNum){
+                        $(".checkBtn-All .checkbox").next().removeClass("checkbox-green");
+                    }else{
+                        $(".checkBtn-All .checkbox").next().addClass("checkbox-green");
+                    }
+                }
+                // 选中角色
+                $("#check_list").on("change",".checkbox",function(){
+                    var parentNode = $(this).parents(".pop-layer-content");
+                    var inputNum = parentNode.find(".checkbox").length;
+                    var checkedNum = parentNode.find(".checkbox:checked").length;
+                    var checkAllNode = $(".checkBtn-All").find(".checkbox");
+                    if(checkedNum == 0){
+                        checkAllNode.prop("checked",false);
+                        checkAllNode.next().removeClass("checkbox-green");
+                    }else if(checkedNum == inputNum){
+                        checkAllNode.prop("checked",true);
+                        checkAllNode.next().removeClass("checkbox-green");
+                        
+                    }else{
+                         checkAllNode.prop("checked",true);
+                          checkAllNode.next().addClass("checkbox-green");
+                    } 
+
+                    var id = $(this).attr("id");
+                    var name = $(this).next().text();
+                    var isChecked = $(this).prop("checked");
+                    if(isChecked){
+                        if($.inArray(id, selectedArray)<0){
+                            selectedArray.push(id);
+                            selectedNameArray.push(name);
+                        }
+                    }else{
+                        if($.inArray(id, selectedArray)>=0){
+                            selectedArray.splice($.inArray(id, selectedArray),1);
+                            selectedNameArray.splice($.inArray(name, selectedNameArray),1);
+                        }
+                    }
+             
+                }); 
+                //全选
+                $(".checkBtn-All").on("change",".checkbox",function(){
+                    var isChecked = $(this).prop("checked");
+                    if(isChecked){
+                        $("#check_list").find(".checkbox").prop("checked",true);
+                        $("#check_list .checkbox:checked").each(function(){
+                             var id = $(this).attr("id");
+                             var name = $(this).next().text();
+                            if($.inArray(id, selectedArray)<0){
+                                selectedArray.push(id);
+                                selectedNameArray.push(name);
+                            }
+                         })
+                    }else{
+                        $("#check_list").find(".checkbox").prop("checked",false);
+                        selectedArray = [];
+                        selectedNameArray = [];
+                    }
+                });
+                // 条件查找
+                $("#search_txt").bind("input propertychange",function(){
+                    var keyword = $("#search_txt").val();
+                    $.ajax({
+                        url: '../../js/equipSelect.json',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            "keyword": keyword
+                        },
+                        success:function(result){
+                            if(result.success){
+                                var list = result.datas;
+                                var html = '';
+                                $("#check_list").empty();
+                                for(var i = 0;i<list.length;i++){
+                                    var result = list[i];
+                                    var pk_device= result.pk_device == null ? "": result.pk_device;
+                                    var code = result.code == null ? "": result.code;
+                                    var address = result.address == null ?"":result.address;
+                                    html += "<a href'javascript:void(0);' class='product-item' data-id=" +pk_device + ">";
+                                    html += "<input class='checkbox' type='checkbox' name='type' id=" +pk_device + ">";
+                                    html += "<label class='checkbox-txt' for=" +pk_device + ">" + code+ " <span title="+address+">"+address+"</span></label>";
+                                }
+                            }else{
+                                $("#check_list").empty();
+                                html="";
+                            }
+                            $("#check_list").append(html);
+                            var temp = $("#check_list").find('input[class=checkbox]') //获取搜索结果长度
+                            //默认选择已经选中的选项
+                            if (selectedArray) { //["xx","yy","zz"]数组格式
+                                 for (var i = 0; i < selectedArray.length; i++) {
+                                      for(var j=0;j < temp.length;j++){
+                                         if(temp[j].id==selectedArray[i]){
+                                             var node = $(".product-item[data-id=" + selectedArray[i] + "]");
+                                             node.find(".checkbox")[0].checked = true;
+                                             break;//跳出循环
+                                         }
+                                     } 
+                                 }
+                            }
+                        }
+                    })
+                    .done(function() {
+                        console.log("success");
+                    })
+                    .fail(function() {
+                        console.log("error");
+                    })
+                    .always(function() {
+                        console.log("complete");
+                    });
+                    
+                })
+                // 提交
+                $("#submitBtn").click(function(){
+                    var nodeLength = selectedArray.length;
+                    var names = '';
+                    var ids = '';
+                    var showNameId = $("#callBackMsg",top.selectLayer.document).attr("data-nameId");
+                    var hasCallBack = $("#callBackMsg",top.selectLayer.document).attr("data-callBack");
+                    if(nodeLength){
+                        for(var i=0;i<nodeLength;i++){
+                            var id = selectedArray[i];
+                            var name = selectedNameArray[i];
+                            if (i === nodeLength - 1) {
+                                ids = ids + id;
+                                names = names + name;
+                            } else {
+                                ids = ids + id + ",";
+                                names = names + name + ",";
+                            }
+                        }
+                    }
+                    if(showNameId){
+                        $("#"+showNameId,top.selectLayer.document).val(names);
+                    }
+                    if(idValueId){
+                        $("#"+idValueId,top.selectLayer.document).val(ids);
+                    }
+                    if(hasCallBack){
+                        top.selectLayer.selectProductCallback();
+                    }
+                    $("#callBackMsg",top.selectLayer.document).remove();
+                    top.layer.close(layerIndex);
+                });
+            })
+
+        </script>
+    </body>
+</html>

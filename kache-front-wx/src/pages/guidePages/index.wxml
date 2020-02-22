@@ -1,0 +1,10 @@
+<!--src/pages/guidePages/index.wxml-->
+<view class="content" style="width:100%;height:100%">
+  <image src="/src/assets/images/Launcher.jpg" style="width:100%;height:100%"></image>
+  <!-- <view class='sub_btn_box'">
+    <button class='btn{{loginBtn?" gray_btn":" sub_btn"}}' bindtap="loginBtn">
+      登录/注册
+    </button>
+    <view class="noLogin" bindtap="noLogin">暂不登录</view>
+  </view> -->
+</view>

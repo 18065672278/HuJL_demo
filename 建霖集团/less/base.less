@@ -1,0 +1,90 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+    margin: 0;
+    padding: 0
+}
+fieldset,img {
+    border: 0
+}
+body {
+    color: #333333;
+    font: 14px/normal Microsoft YaHei,SimSun,Arial;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+ol,ul {
+    list-style: none
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+html,body,.container{
+    height: 100%;
+}
+input,textarea{
+    font-size:14px;
+    font-family: Microsoft YaHei,SimSun,Arial;
+    outline: 0;
+    -webkit-appearance: none;
+}
+input.readonly,
+textarea.readonly{
+    background: #f0f0f1;
+}
+input:disabled,
+textarea:disabled  {
+    background: #393958!important;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #f4f7ff inset;
+    box-shadow: 0 0 0 1000px #f4f7ff inset;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder{
+	color: #989898;
+	font-size:14px;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder{
+	color: #989898;
+	font-size:14px;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder{
+	color: #989898;
+	font-size:14px;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder{
+	color: #989898;
+	font-size:14px;
+}
+/*滚动条*/
+::-webkit-scrollbar{/*血槽宽度*/
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb{/*拖动条*/
+    background: #303052;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-track{/*背景槽*/
+    background-color: #25253e;
+}
+.clearfix{
+    zoom:1;
+}
+.clearfix:after{
+    display:block;
+    content:'';
+    clear:both;
+    font-size: 0;
+    line-height:0;
+    visibility:hidden;
+}
+html,body{
+    height: 100%;
+}

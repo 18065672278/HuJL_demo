@@ -1,0 +1,86 @@
+.title {
+	background-color: #1D2339;
+}
+.h_content {
+	background-color: #FFFFFF;
+}
+.h_content li {
+	line-height: 1rem;
+	margin:0 .3rem;
+	border-bottom: .02rem solid #D7D7D7;
+	background: url(../img/go.png) no-repeat right center;
+	background-size: .54rem;
+}
+.h_content li:last-child {
+	border-bottom: 0;
+}
+.h_content li a {
+	font-size: .3rem;
+	color:#1D2339;
+}
+.page_content {
+    margin: 0 .3rem;
+}
+.titlemsg {
+	font-size: .3rem;
+	color:#1D2339;
+	margin-top: .54rem;
+}
+.page_content p {
+	line-height: .5rem;
+	font-size: .24rem;
+	color:#666666;
+	margin-top: .3rem;
+}
+.msg {
+    font-size: .28rem;
+    color: #1D2339;
+    margin-top: .3rem;
+}
+.msgtitle {
+	font-size: .28rem;
+    color: #666666;
+    margin-top: .4rem;
+}
+.rate_content {
+	margin: 0 .3rem;
+}
+.r_c_t {
+	padding: .38rem 0;
+	border-bottom: .02rem solid #d7d7d7;
+}
+.r_c_t:last-child {
+	border-bottom: 0;
+}
+.title01 {
+	font-size: .3rem;
+	color:#1D2339;
+}
+.rate_content ins {
+	font-size: .24rem;
+	color: #666666;
+	display: block;
+	margin-top: .3rem;
+    text-decoration: none;
+}
+.rate_content table {
+	width: 6.9rem;
+	height: .5rem;
+	line-height: .5rem;
+	font-size: .24rem;
+	text-align: center;
+	margin-top: .26rem;
+}
+.rate_content thead {
+	background-color: #1D2339;
+	color:#FFFFFF;
+}
+.rate_content thead th {
+	font-weight: 400 ;
+}
+.rate_content tbody tr:nth-child(2n-1) {
+	background-color: #d6d6d6;
+}
+.rate_content tbody tr:nth-child(2n) {
+	background-color: #ebebeb;
+}

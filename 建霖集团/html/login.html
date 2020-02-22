@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>建霖大数据平台</title>
+		<link rel="shortcut icon" href="../images/bitbug_favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/font/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../js/layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
+	</head>
+
+	<body>
+		<div class="login-wrapper">
+			<div class="login-img">
+				<div class="login-name">大数据优化运行指导平台</div>
+			</div>
+			<div class="login-logo">
+				<img src="../images/login_logo.png" title="建霖集团"/>
+			</div>
+			<div class="login-box">
+				<div class="logo-title">用户登录</div>
+				<div class="login-form">
+					<div class="login-form-group clearfix">
+						<i class="icon icon-yonghu"></i>
+						<input type="text" class="form-input" id="userName" onkeydown="funLoginNameKeyDown()" placeholder="请输入用户名">
+					</div>
+					<div class="login-form-group clearfix">
+						<i class="icon icon-mima"></i>
+						<input type="password" class="form-input" id="password" onkeydown="funPasswordKeyDown()" placeholder="请输入密码">
+					</div>
+					<div class="login-form-group yzm-group clearfix">
+						<i class="icon icon-yanzhengma"></i>
+						<input type="text" class="form-input yzm-input" id="yzm" onkeydown="funYzmKeyDown()" placeholder="请输入验证码">
+						<div class="yzm-img">
+							<img src="../images/code.jpg">
+						</div>
+					</div>
+					<div class="login-button-group">
+						<button class="login-button" id="submit" type="submit" onclick="doLogin();return false;">登录</button>
+					</div>
+				</div>
+			</div>
+			<footer class="footer">
+				<p class="copyright">建霖健康家居股份有限公司 版权所有</p>
+				<p class="support">技术服务商：厦门邑通软件科技有限公司</p>
+			</footer>
+		</div>
+		<script src="../js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/login.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

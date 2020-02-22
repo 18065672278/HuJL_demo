@@ -1,0 +1,21 @@
+/* src/pages/user/attestC/index.wxss */
+
+.idCardPhoto {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  text-align: center;
+  color: #888;
+}
+
+.img_box {
+  display: block;
+  width: 200rpx;
+  height: 150rpx;
+  margin: 40rpx auto 0;
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 100%;
+}

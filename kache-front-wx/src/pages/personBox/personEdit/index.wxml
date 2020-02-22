@@ -1,0 +1,141 @@
+<!--pages/driver/index.wxml-->
+<view class="list">
+  <view class="item clear" bindtap='isBasicShow'>
+    <view class="name left">基本信息</view>
+    <image class="{{basicShow?'down':'top'}}" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class='item_list' wx:if='{{basicShow}}'>
+    <view class="item clear">
+      <view class="name left">姓名
+        <text class='color_red'>*</text>
+      </view>
+      <input class="value right" style='text-align:right;' value='{{name}}' placeholder='请填写姓名' maxlength='8' bindinput='inputeidtName'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">手机号
+        <text class='color_red'>*</text>
+      </view>
+      <input class="value right" style='text-align:right;' value='{{mobile}}' placeholder='请填写手机号' maxlength='11' bindinput='inputeidtMobile'></input>
+    </view>
+  </view>
+  <!-- 扩展信息 -->
+  <view class="item clear" bindtap='isExtendShow'>
+    <view class="name left">扩展信息</view>
+    <image class="{{extendShow?'down':'top'}}" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class='item_list' wx:if='{{extendShow}}'>
+    <view class="item clear" bindtap='idCertIdSelect'>
+      <view class="name left">身份证ID</view>
+      <view class="value right" style='text-align:right;'>{{idCertId}}</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+    <view class="item clear" bindtap='driverCertIdSelect'>
+      <view class="name left">驾驶证ID</view>
+      <view class="value right" style='text-align:right;'>{{driverCertId}}</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+    <view class="item clear">
+      <view class="name left">英文名</view>
+      <input class="value right" style='text-align:right' value='{{nameEn}}' placeholder='请填写英文名' maxlength='80'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">英文名缩写</view>
+      <input class="value right" style='text-align:right' value='{{nameShortEn}}' placeholder='请填写英文名缩写' maxlength='20'></input>
+    </view>
+    <picker bindchange="bindNationalityChange" value="{{nationalityIndex}}" range="{{nationalityArray}}">
+      <view class="item clear">
+        <view class="name left">国籍</view>
+        <view class="value right">{{nationalityArray[nationalityIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <picker bindchange="bindPoliceChange" value="{{politicsIndex}}" range="{{politicsArray}}">
+      <view class="item clear">
+        <view class="name left">政治面貌</view>
+        <view class="value right">{{politicsArray[politicsIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <picker bindchange="bindIsMarryChange" value="{{marriageIndex}}" range="{{marriageArray}}">
+      <view class="item clear">
+        <view class="name left">婚姻状况</view>
+        <view class="value right">{{marriageArray[marriageIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <picker bindchange="bindmonthIncomeChange" value="{{monthIncomeIndex}}" range="{{monthIncomeArry}}">
+      <view class="item clear">
+        <view class="name left">月收入情况</view>
+        <view class="value right">{{monthIncomeArry[monthIncomeIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <view class="item clear">
+      <view class="name left">体重(kg)</view>
+      <input class="value right" type="number" style='text-align:right;' value='{{weight}}' placeholder='请填写体重' bindinput='inputeidtweight'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">身高(cm)</view>
+      <input class="value right" type="number" style='text-align:right;' value='{{height}}' placeholder='请填写身高' bindinput='inputeidtheight'></input>
+    </view>
+    <picker bindchange="bindbloodChange" value="{{bloodIndex}}" range="{{bloodArry}}">
+      <view class="item clear">
+        <view class="name left">血型</view>
+        <view class="value right">{{bloodArry[bloodIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <picker bindchange="bindHealthStatusChange" value="{{healthStatusIndex}}" range="{{healthStatusArry}}">
+      <view class="item clear">
+        <view class="name left">健康状况</view>
+        <view class="value right">{{healthStatusArry[healthStatusIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <!-- <picker mode="multiSelector" bindchange="bindcareerChange" bindcolumnchange="bindcareerColumnChange" value="{{careerIndex}}" range="{{careerArry}}">
+      <view class="item clear">
+        <view class="name left">职业</view>
+        <view class="value right">{{careerArry[0][careerIndex[0]]}}，{{careerArry[1][careerIndex[1]]}}，{{careerArry[2][careerIndex[2]]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker> -->
+    <picker bindchange="bindreligionChange" value="{{religionIndex}}" range="{{religionArry}}">
+      <view class="item clear">
+        <view class="name left">宗教</view>
+        <view class="value right">{{religionArry[religionIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <!-- <picker mode="multiSelector" bindchange="bindinterestChange" bindcolumnchange="bindinterestColumnChange" value="{{interestIndex}}" range="{{interestArry}}">
+      <view class="item clear">
+        <view class="name left">兴趣爱好</view>
+        <view class="value right">{{interestArry[0][interestIndex[0]]}}，{{interestArry[1][interestIndex[1]]}}，{{interestArry[2][interestIndex[2]]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker> -->
+    <picker bindchange="bindeducationChange" value="{{educationIndex}}" range="{{educationArry}}">
+      <view class="item clear">
+        <view class="name left">文化程度</view>
+        <view class="value right">{{educationArry[educationIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <view class="item clear" bindtap='contacSelect' wx:if="{{id != ''?true:false}}">
+      <view class="name left">联系方式</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+    <view class="item clear">
+    <view class="name">照片</view>
+    <block wx:if='{{FilePaths && FilePaths.length > 0}}'>
+      <view class="img_box" wx:for="{{FilePaths}}" wx:key="{{item}}" data-index="{{index}}">
+        <image src="{{item}}" mode="aspecFill" class="frontimage cardImage" data-id="{{index}}" bindtap="ImagePreview" />
+        <image src="/src/assets/images/icons/close.png" class="q-image-remover" data-id="{{index}}" bindtap="removeImage" />
+      </view>
+    </block>
+    <view class="img_box">
+      <image src="/src/assets/images/icons/add.png" mode="aspecFill" class="cardImage" bindtap="ImageAdd" />
+    </view>
+  </view>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

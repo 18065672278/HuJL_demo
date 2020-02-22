@@ -1,0 +1,99 @@
+<!--pages/center/center.wxml-->
+<view class='top-part'>
+  <view class="bg"></view>
+  <view class="center-info">
+    <view class="user-info">
+      <image class="avatar" src="{{avatarUrl}}" bindtap='loginPage'></image>
+      <view class="user-name">
+        <text class="name" bindtap='loginPage'>{{nickName}}</text>
+        <view class="level">
+          <image class="level-icon" src='/src/assets/images/icons/level.png'></image>
+          {{level}}
+        </view>
+      </view>
+      <navigator class="points" url='../credits/credits'>
+        积分
+        <text>{{integral}}</text>
+        <image class="next" src="/src/assets/images/icons/next.png"></image>
+      </navigator>
+    </view>
+    <view class="article-info">
+      <view bindtap="getAddress">
+        <view class="item">
+          <text class="text">收货地址</text>
+        </view>
+      </view>
+      <view class="item">
+        <!-- <text class="num">{{articleInfo.comment}}</text> -->
+        <text class="text">我的评论</text>
+      </view>
+    </view>
+  </view>
+  <view class="tools-warp">
+    <text class="title">每天都是 lucky day</text>
+    <view class="tools">
+      <view class="tools-item news" bindtap="myBill">我的账单
+        <text class="text">专业咖啡新鲜式 </text>
+        <image class="icon" src="/src/assets/images/icons/luckincoffee.jpg"></image>
+      </view>
+      <view class="tools-item post-card" bindtap="myDistribution">我的分销
+        <text class="text">友谊像一抹彩虹 </text>
+        <image class="icon" src="/src/assets/images/icons/postcard-icon.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="menu-list">
+    <view bindtap="goMsg" data-Url="../info/info">
+      <view class="menu">
+        <view class="text">
+          <image src="/src/assets/images/icons/user2.png"></image>
+          <text>个人信息</text>
+          <image src="/src/assets/images/icons/right.png" class="rightbtn" />
+        </view>
+      </view>
+    </view>
+    <view bindtap="goMsg" data-Url="../attestbox/attest/index">
+      <view class="menu">
+        <view class="text">
+          <image src="/src/assets/images/icons/user2.png"></image>
+          <text>认证</text>
+          <image src="/src/assets/images/icons/right.png" class="rightbtn" />
+        </view>
+      </view>
+    </view>
+    <!-- <view class="menu" bindtab="app.unfinished">
+      <view class="text">
+        <image src="/src/assets/images/icons/phone.png"></image>
+        <text>联系客服</text>
+        <image src="/src/assets/images/icons/right.png" class="rightbtn" />
+      </view>
+    </view>
+    <view class="menu">
+      <view class="text">
+        <image src="/src/assets/images/icons/about.png"></image>
+        <text>关于我们</text>
+        <image src="/src/assets/images/icons/right.png" class="rightbtn" />
+      </view>
+    </view> -->
+  </view>
+  <!-- 底部弹出框 bindtap="hideModal" -->
+  <view class="isLogin_screen" wx:if="{{showModalStatus}}"></view>
+  <!-- 从上至下的弹窗animation="{{animationData}}"-->
+  <view class="isLogin_box" wx:if="{{showModalStatus}}">
+    <view class="isLogin_msg">
+      <view class="fontWeight font20">您还未登录</view>
+      <view class="font15">请先登录在进行操作</view>
+    </view>
+    <view class="isLogin_img">
+      <image src="/src/assets/images/rocket.png"></image>
+    </view>
+    <view class="isLogin_button">
+      <button class="unLogin" bindtap="unLogin">暂不登录</button>
+      <button class='login' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        确定登录
+      </button>
+    </view>
+  </view>
+  <button class='release-btn' bindtap='loginOut' wx:if="{{hasLogin}}"> 退出登录 </button>
+</view>
+<tabbar activeIdx='2' auth='{{auth}}'></tabbar>

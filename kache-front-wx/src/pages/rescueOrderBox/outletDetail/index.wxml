@@ -1,0 +1,32 @@
+<!--src/pages/rescueOrderBox/outletDetail/index.wxml-->
+<view class='content'>
+  <view class='images_box'>
+    <image src='{{thumbPhoto == ""?"":thumbPhoto}}'></image>
+    <view class='store_address'>
+      <image src='/src/assets/images/icons/store_address.png'></image>
+      {{address}}
+    </view>
+  </view>
+  <view class='msg_box'>
+    <view class='store_name'>{{name}}</view>
+    <view class='store_mobile' bindtap='PhoneCall' data-mobile="{{mobile}}"></view>
+  </view>
+  <view class='serviceItems_box'>
+    <view class='serviceItems_name'>服务项目</view>
+    <view class='serviceItems_content'>
+      <view class="table">
+        <view class="tr">
+          <view class="th">项目名称</view>
+          <view class="th">价格(￥)</view>
+        </view>
+        <block wx:for="{{listData}}" wx:key="{{code}}">
+          <view class="tr" hover-class="trhover">
+            <view class="td">{{item.serviceName}}</view>
+            <view class="td">{{item.servicePrice == undefined?'待定':item.servicePrice}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap='subAction'>立即下单</view>
+</view>

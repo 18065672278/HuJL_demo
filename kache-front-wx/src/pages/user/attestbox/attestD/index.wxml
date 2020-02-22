@@ -1,0 +1,78 @@
+<!--src/pages/user/attestC/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">车队名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{fleetName}}' placeholder='请填写车队名称' maxlength='10' bindinput='inputFleetName'></input>
+  </view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">地址
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right">{{orgCode}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">负责人姓名
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{principalName}}' placeholder='请填写负责人姓名' maxlength='50' bindinput='inputPrincipalName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">负责人联系电话
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" type='number' style='text-align:right;' value='{{principalTel}}' placeholder='请填写负责人联系电话' maxlength='30' bindinput='inputPrincipalTel'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">法人证件照(身份证照)
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[0]?FilePaths[0]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[0]?'':'frontimage'}} cardImage" data-id="0" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[0]}}" data-id="0" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(正面)</view>
+      </view>
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[1]?FilePaths[1]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[1]?'':'frontimage'}} cardImage" data-id="1" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[1]}}" data-id="1" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(背面)</view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">营业执照</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[2]?FilePaths[2]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[2]?'':'frontimage'}} cardImage" data-id="2" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[2]}}" data-id="2" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">开户许可证照</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[3]?FilePaths[3]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[3]?'':'frontimage'}} cardImage" data-id="3" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[3]}}" data-id="3" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

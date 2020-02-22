@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" initial-scale="1.0,user-scalable=no,maximum-scale=1.0">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    <meta name="format-detection" content="telephone=no">
+	    <title>登录</title>
+	    <meta name="description" scontent="login">
+	    <meta name="keywords" content="login">
+	    <link href="css/login.css" rel="stylesheet">
+	    
+	</head>
+	
+	<body>
+		<div class="head">
+			<a href="#"><img  src="img/_.png"/><span id="back">返回</span></a>
+			<span class="heads">巨高盛期权</span>
+		</div>
+	    <!-- 标题：巨高盛期权 -->
+	    <div class="login-title"></div>
+	    <!-- main包裹层 -->
+	    <div class="login-wrap">
+	        <!-- 输入框和提交按钮 -->
+	        <form id="loginForm" action=" " class="layui-form" method="post">
+	            <div class="login-input">
+	                <span class="login-icon login-phone"></span>
+	                <input id="loginUserName" type="text" name="UserName" placeholder="请输入手机号码" lay-verify="phone">
+	                <!-- lay-verify="phone" -->
+	            </div>
+	            <div class="login-input">
+	                <span class="login-icon login-key"></span>
+	                <input id="loginPassword" type="password" name="Password" placeholder="请输入密码" lay-verify="pass">
+	            </div>
+	            <div style="position:relative">
+	                <button type="button" class="loginBtn" lay-submit>登录</button>
+	                <button type="button" class="qc-log-btn lg" style="display:none">
+	                <div class="m-loading">
+	                  <div class="loading">
+	                    <div class="one"></div>
+	                    <div class="two"></div>
+	                    <div class="three"></div>
+	                  </div>
+	                </div>
+	              </button>
+	            </div>
+	        </form>
+	        <!-- 忘记密码链接 -->
+	        <a href="forget_password.html">忘记密码？</a>
+	        <!-- 注册链接 -->
+	        <div class="register">
+	            <a href="register.html">没有账号？点击注册</a>
+	        </div>
+	    </div>
+	   
+	    <script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+	    <script>
+	        layui.use(['jquery', 'form'], function() {
+	            var $ = layui.jquery,
+	                form = layui.form;
+	            form.verify({
+	                pass: function(val) {
+	                    if (!/\S/.test(val)) {
+	                        return '密码不能为空'
+	                    }
+	                    if (!/^[\S]{6,12}$/.test(val)) {
+	                        return '密码必须6到12位，且不能出现空格'
+	                    }
+	                }
+	            })
+	            form.on('submit', function(data) {
+	                // layer.msg('请先配置提交数据的后台');
+	                console.log(data)
+	                $('.lg').show().siblings().hide();
+	                $.ajax({
+	                    url: test_url + pro_name + 'user/login',
+	                    /*url: "http://119.29.227.15/gpqq/user/login",*/
+	                    //请求的url
+	                    type:"post",
+	                    dataType: 'jsonp',
+	                    jsonp: "callback",
+	                    data: {
+	                        phone: data.field.UserName,
+	                        password: data.field.Password
+	                    },
+	                    beforeSend: function() {
+	
+	                    },
+	                    success: function(data) {
+	                        console.log(data)
+	
+	                        if (data.status === 200) {
+	                            layer.msg('登录成功', {
+	                                    time: 2000
+	                                }, function() {
+	                                    $('.lg').hide().siblings().show();
+	                                    /*localStorage.setItem('userToken', data.data)*/
+	                                    sessionStorage.setItem("token", data.data); 	                                    
+	                                   /*location.href="./personal_center.html"*/
+	                                  location.href="./home_page.html"
+	                                  
+	                                })
+	                        } else {
+	                            $('.lg').hide().siblings().show();
+	                            layer.msg(data.msg)
+	                        }
+	
+	                    },
+	                    error: function(xhr, status, error) {
+	                            $('.lg').hide().siblings().show();
+	                        } //error end
+	                });
+	            })
+	
+	
+	        })
+	    </script>
+	</body>
+
+</html>

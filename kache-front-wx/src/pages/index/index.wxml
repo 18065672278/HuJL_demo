@@ -1,0 +1,89 @@
+<view class="main">
+  <!--轮播图-->
+  <swiper indicator-dots="true" autoplay="true" interval="3000" duration="800" circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="100%" style="background-color: #eeeeee;" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--按钮功能区-->
+  <swiper class="categoryList" indicator-dots="true" indicator-color="rgba(228,228,228,1)" indicator-active-color="#FECA49" wx:if="{{hasLogin}}">
+    <block wx:for="{{categoryList}}" wx:key="{{index}}">
+      <swiper-item>
+        <block wx:for="{{item}}" wx:key="{{index}}">
+          <view class="category-info" bindtap="switchPage" data-action="{{item.menuAction}}" data-action-router="{{item.url}}">
+            <image src="{{item.iconUrl == undefinded ?'/src/assets/images/icons/2.png':item.iconUrl}}" class="category-image"></image>
+            <view class="category-text">{{item.menuName}}</view>
+          </view>
+        </block>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="categoryList" wx:else>
+    <view class="categoryList_left">
+      <image src="/src/assets/images/logo.png"></image>
+    </view>
+    <view class="categoryList_right">
+      <view class="login_msg">需要登录后才能获取菜单</view>
+      <button class='btn sub_btn}}' bindtap="loginBtn">
+        登录/注册
+      </button>
+    </view>
+    <!-- 底部弹出框 bindtap="hideModal" -->
+    <view class="isLogin_screen" wx:if="{{showModalStatus}}"></view>
+    <!-- 从上至下的弹窗animation="{{animationData}}"-->
+    <view class="isLogin_box" wx:if="{{showModalStatus}}">
+      <view class="isLogin_msg">
+        <view class="fontWeight font20">您还未登录</view>
+        <view class="font15">请先登录在进行操作</view>
+      </view>
+      <view class="isLogin_img">
+        <image src="/src/assets/images/rocket.png" mode="aspectFill"></image>
+      </view>
+      <view class="isLogin_button">
+        <button class="unLogin" bindtap="unLogin">暂不登录</button>
+        <button class='login' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+          确定登录
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!--最新动态-->
+  <view class="content">
+    <view class="hd">
+      <text class="word-1">最新资讯</text>
+      <text class="word-2"></text>
+      <text bindtap="jump" class="word-3 right">...</text>
+    </view>
+    <scroll-view bindscrolltolower="lower" class="scroll-restaurants-list" scroll-y="true" style="height:100%">
+      <view class="list">
+        <block wx:if='{{favorList && favorList.length > 0}}'>
+          <view wx:for="{{favorList}}" wx:key="{{item}}" data-data="{{item}}">
+            <view class="item clear navigator-hover" data-id="{{item.id}}" bindtap="jumpDetail">
+              <image class="left" src="{{item.imgUrl}}"></image>
+              <view class="desc_box">
+                <view class="desc clearfix">
+                  <view class="title left">{{item.title}}</view>
+                  <view class="money right">{{item.date}}</view>
+                </view>
+                <view class="time">
+                  <view class="word">{{item.word}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view style='display:flex;flex-direction:column;'>
+            <image class='none-content' src='/src/assets/images/content_none.png'></image>
+            <view class='none-text'>暂无记录</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<tabbar activeIdx='0' auth='{{auth}}'></tabbar>

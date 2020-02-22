@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>设置</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/m-base.css" />
+		<link rel="stylesheet" href="../css/script.css" />
+		<link rel="stylesheet" href="css/set.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div class="set w">
+			<div class="title">
+				<a href="personal.html" class="back"></a>
+				<div class="logo">设置</div>
+				<div class="clear"></div>
+			</div>
+			<div class="content">
+				<ul>
+					<li>
+						<a href="javascript:void(0);" id="verified" class="clearfix">
+							<img src="img/safety.png" />
+							<em>实名认证</em>
+							<div class="fr">
+								<i class="status" id="shiming">未认证</i>
+								<img src="img/go.png" />
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="updatefund.html" id="fund" class="clearfix">
+							<img src="img/pass.png" />
+							<em>交易密码</em>
+							<div class="fr">
+								<i class="status" id="fundpass">未设置</i>
+								<img src="img/go.png" />
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="javascript:void(0);" id="buphone" class="clearfix">
+							<img src="img/stel.png" />
+							<em>绑定手机号</em>
+							<div class="fr">
+								<i class="status" id="bindtel">已绑定</i>
+								<img src="img/go.png" />
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="bindemail.html" class="clearfix">
+							<img src="img/email.png" />
+							<em>绑定邮箱</em>
+							<div class="fr">
+								<i class="status" id="bindemail">未绑定</i>
+								<img src="img/go.png" />
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="loginpass.html" class="clearfix">
+							<img src="img/pass.png" />
+							<em>登录密码</em>
+							<div class="fr">
+								<i class="status" id="updatepass">修改</i>
+								<img src="img/go.png" />
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<!--<li>
+						<a href="javascript:;" class="clearfix">
+							<img src="img/language.png"/>
+							<em>语言</em>
+							<div class="fr">
+								<i class="status" id="language">简体中文</i>
+								<img src="img/go.png"/>
+							</div>
+						</a>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/rem_new.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+		<script src="../js/url.js"></script>
+		<script type="text/javascript" src="js/personal.js"></script>
+		<script type="text/javascript">
+			updateverified();
+			updatephone();
+		</script>
+	</body>
+
+</html>

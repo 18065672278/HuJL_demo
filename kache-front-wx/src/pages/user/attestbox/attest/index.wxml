@@ -1,0 +1,33 @@
+<!--src/pages/user/attest/index.wxml-->
+<view class="content">
+  <view class="attest_mag">
+    <text class="color_red">注：</text>每个账户只能认证一种角色！</view>
+  <view class="item_wrapper">
+    <view class="item_list{{nameP?' isVerified':''}}">
+      <view class="item_title">我是普通用户</view>
+      <view class="item_msg">轮胎及配件优惠购</view>
+      <view class="item_msg">(需要认证)</view>
+      <view class="item_btn" bindtap="navGo" data-url="../attestP/index" data-role="1004">{{nameP?'点击修改':'认证'}}</view>
+    </view>
+    <view class="item_list{{nameC?' isVerified':''}}">
+      <view class="item_title">我是物流公司、个人车主</view>
+      <view class="item_msg">救援服务，轮胎及配件优惠购，接活(运输业务单推送)</view>
+      <view class="item_msg">(需要认证)</view>
+      <view class="item_btn" bindtap="navGo" data-url="../attestC/index" data-role="1001">{{nameC?'点击修改':'认证'}}</view>
+    </view>
+    <view class="item_list{{nameH?' isVerified':''}}">
+      <view class="item_title">我是服务网点(有门店、无门店流动网点)</view>
+      <view class="item_msg">在线接单(外出救援单，到店单)，订单业务推送</view>
+      <view class="item_msg">(需要认证)</view>
+      <view class="itemBtn_list">
+        <view class="item_btn" bindtap="navGo" data-url="../attestHO/index" data-role="1002">{{nameH?'点击修改':'认证'}}</view>
+      </view>
+    </view>
+    <view class="item_list{{nameD?' isVerified':''}}" style="display:none">
+      <view class="item_title">我是供应商</view>
+      <view class="item_msg">承销提供的汽车配件,免费使用平台提供的b2b\b2c\b2f销售平台</view>
+      <view class="item_msg">(需要认证)</view>
+      <view class="item_btn" bindtap="navGo" data-url="../attestD/index" data-role="1003">{{nameD?'点击修改':'认证'}}</view>
+    </view>
+  </view>
+</view>

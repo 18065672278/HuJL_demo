@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>首页</title>
+        <link rel="stylesheet" href="../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../images/bitbug_favicon.ico">
+    </head>
+    <body class="parent-body">
+        <div class="admin-container">
+            <!-- header -->
+            <div class="top-header">
+                <div class="top-log clearfix">
+                    <a href="javascript:void(0);">
+                        <img src="../images/logo.png" alt="ETOM云咨询管理平台" />
+                    </a>
+                    <p>CC云咨询管理平台</p>
+                </div>
+                <div class="top-nav-right">
+                    <div class="top-nav-item">
+                        <p class="nav-name">胡建霖，欢迎您</p>
+                        <p class="nav-box">
+                            <span class="nav-box-date"></span>
+                            <span class="nav-box-time"></span>
+                        </p>
+                    </div>
+                    <div class="top-nav-item power-close"></div>
+                </div>
+            </div>
+            <!-- leftslide -->
+            <div class="left-side">
+                <div class="left-side-scroll">
+                <div class=' left-nav-tree'>
+                    <!-- <ul class="left-nav-tree">
+                        <li class="left-nav-item unfolded">
+                            <a class="link home left-this" href="javascript:void(0);" data-url="customerIndex.html">
+                                <em class="icon"></em>
+                                <label class="menu-txt">首页</label>
+                            </a>
+                        </li> -->
+<!--                         <li class="left-nav-item">
+                            <a class="link notice " href="javascript:void(0);" data-url="">
+                                <em class="icon"></em>
+                                <label class="menu-txt">公告管理</label>
+                            </a>
+                        </li>
+                        <li class="left-nav-item ">
+                            <a class="link project" href="javascript:void(0);">
+                                <em class="icon"></em>
+                                <label class="menu-txt">项目管理</label>
+                                <em class="packup"></em>
+                            </a>
+                            <dl class="left-nav-child">
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="">我的项目</a>
+                                </dd>
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="">新增项目</a>
+                                </dd>
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="">审批管理</a>
+                                </dd>
+                                <dd> 
+                                    <a class="link " href="javascript:void(0);" data-url="">工作状态查询</a>
+                                </dd>
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="">已终止项目</a>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="left-nav-item">
+                            <a class="link setting" href="javascript:void(0);">
+                                <em class="icon"></em>
+                                <label class="menu-txt">系统管理</label>
+                                <em class="packup"></em>
+                            </a>
+                            <dl class="left-nav-child">
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="system/organization_management.html">组织管理</a>
+                                </dd>
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="">公告管理</a>
+                                </dd>
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="system/role_management.html">角色管理</a>
+                                </dd>
+                                <dd> 
+                                    <a class="link " href="javascript:void(0);" data-url="system/task_setting.html">任务设置</a>
+                                </dd>
+                                <dd>
+                                    <a class="link" href="javascript:void(0);" data-url="system/modify_pass.html">修改密码</a>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="left-nav-item"></li>  </ul>-->
+                   
+                    </div>
+                </div>
+            </div>
+            <!-- 主体内容 -->
+            <div class="admin-body">
+                <div class="admin-content">
+                    <iframe id="poIframe" src="directorIndex.html" frameborder="0" style="width:100%;height:100%;border:none;outline:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/layer/layer.js"></script>
+  	<script src="../js/common.js"></script>
+    <script>
+    var menulist = {
+            "menulist": [
+                 { "MID": "M001","name":'home', "MName": "首页", "Url": "directorIndex.html", "menulist": "" },
+                { "MID": "M002","name":'notice', "MName": "公告管理", "Url": "notice/notice_list.html", "menulist": [] },
+                { "MID": "M005","name":'speech', "MName": "语音解析", "Url": "", "menulist": [
+                    { "MID": "M015", "MName": "语音解析工具", "Url": "speech/speech_list.html", "menulist":""},
+                    
+                ] },
+                { "MID": "M003","name":'project', "MName": "项目管理", "Url": "", "menulist":
+                    [
+                        { "MID": "M005", "MName": "我的项目", "Url": "project/project_list.html", "menulist":""},
+                        { "MID": "M006", "MName": "新增项目", "Url": "project/add_project_list.html", "menulist": "" },
+                        { "MID": "M007", "MName": "审批管理", "Url": "project/approval_management.html", "menulist": "" },
+                        { "MID": "M008", "MName": "工作状态查询", "Url": "project/state_query.html", "menulist": "" },
+                        { "MID": "M009", "MName": "已终止项目", "Url": "project/stop_project.html", "menulist": "" }
+                    ]
+                },
+                { "MID": "M004","name":'setting', "MName": "系统管理", "Url": "", "menulist":
+                    [
+                        { "MID": "M010", "MName": "组织管理", "Url": "system/organization_management.html", "menulist":""},
+                        { "MID": "M012", "MName": "角色管理", "Url": "system/role_management.html", "menulist": "" },
+                        { "MID": "M013", "MName": "任务设置", "Url": "system/task_setting.html", "menulist": "" },
+                        { "MID": "M014", "MName": "修改密码", "Url": "system/modify_pass.html", "menulist": "" }
+                    ]
+                }
+          ]         
+      };
+    $('.left-nav-tree').html(buildChild(menulist.menulist,0));
+       
+        function buildChild(menu_list,parent)
+        { 
+        	var html='<ul class="left-nav-item">';
+            for(var menu in menu_list){
+                  html+=' 	<li class="left-nav-child ">';                 
+                  if(menu_list[menu].menulist.length>0)
+                   	 { 	       	  
+	                	  html+='      <a class="link '+menu_list[menu].name+'" href="javascript:void(0);">';
+	                  	  if(parent==0)
+		                  	  {
+		                  	 	  html+='        <em class="icon"></em>';
+		                  	  }
+                          html+='        <label class="menu-txt">'+menu_list[menu].MName+'</label>';
+                          html+='        <em class="packup"></em>';
+                          html+='    </a>';
+                  	      html+= buildChild(menu_list[menu].menulist,menu_list);
+                   	 }
+                  else
+                     {	    
+	                	
+	                	  html+='    <a class="link '+menu_list[menu].name+'" href="javascript:void(0);" data-url="'+menu_list[menu].Url+'">';
+                          if(parent==0)
+                        	  {
+                        	  	 html+='        <em class="icon"></em>';
+                        	  }                       
+                          html+='        <label class="menu-txt">'+menu_list[menu].MName+'</label>';
+                          html+='    </a>';
+                     }
+                  html+='  </li>';
+                 }
+        	 html+='</ul>';
+             return html;
+        }
+        
+        
+   
+	
+    </script>
+</html>

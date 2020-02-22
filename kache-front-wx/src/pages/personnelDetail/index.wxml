@@ -1,0 +1,23 @@
+<!--src/pages/personnelDetail/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">姓名</view>
+    <view class="value right" style='text-align:right;'>{{name}}</view>
+  </view>
+  <view class="item clear">
+    <view class="name left">手机号</view>
+    <view class="value right" style='text-align:right;'>{{mobile}}</view>
+  </view>
+  <view class="item clear">
+    <view class="name left">入职时间</view>
+    <view class="value right" style='text-align:right;'>{{bindTime}}</view>
+  </view>
+  <view class="item clear">
+    <view class="name left">离职时间</view>
+    <view class="value right" style='text-align:right;'>{{unbindTime}}</view>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' disabled="true"></textarea>
+  </view>
+</view>

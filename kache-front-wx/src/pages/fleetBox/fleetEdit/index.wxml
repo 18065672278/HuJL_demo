@@ -1,0 +1,59 @@
+<!--src/pages/fleet/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">车队名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{fleetName}}' placeholder='请填写车队名称' maxlength='10' bindinput='inputFleetName'></input>
+  </view>
+  <picker bindchange="bindFleetTypeChange" value="{{fleetTypeIndex}}" range="{{fleetTypeArray}}">
+    <view class="item clear">
+      <view class="name left">车队类型</view>
+      <view class="value right">{{fleetTypeArray[fleetTypeIndex]}}</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear" wx:if="{{isShow}}" bindtap='selectCompany'>
+    <view class="name left">企业ID
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right">{{companyId}}</view>
+    <image class="next" src="../../../assets/images/next.png"></image>
+  </view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">组织编码</view>
+      <view class="value right">{{region[0]}},{{region[1]}},{{region[2]}}</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">负责人姓名
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{principalName}}' placeholder='请填写负责人姓名' maxlength='50' bindinput='inputPrincipalName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">负责人联系电话
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" type='number' style='text-align:right;' value='{{principalTel}}' placeholder='请填写负责人联系电话' maxlength='30' bindinput='inputPrincipalTel'></input>
+  </view>
+  <view class="item clear" bindtap='bindOutlet'>
+    <view class="name left">绑定网点
+      <text class='color_red'>*</text>
+    </view>
+    <image class="next" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class="item clear" bindtap='bindCar'>
+    <view class="name left">绑定车辆
+      <text class='color_red'>*</text>
+    </view>
+    <image class="next" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

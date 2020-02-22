@@ -1,0 +1,40 @@
+.menu-list {
+  padding-top: 10rpx;
+}
+
+.menu {
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.menu .text {
+  display: block;
+  float: left;
+}
+
+.menu .text image {
+  margin: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
+  float: left;
+}
+
+.menu .text text {
+  float: left;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.menu .menu-name {
+  margin-left: 40rpx;
+}
+
+.rightbtn {
+  position: fixed;
+  right: 30rpx;
+}
+
+

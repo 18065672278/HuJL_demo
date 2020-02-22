@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>项目管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+        <style>
+            .textarea {
+                width: 100%;
+                border: none;
+                resize: none;
+                border: 1px solid #e6e6e6;
+                box-sizing: border-box;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pop-layer-wrapper">
+            <div class="pop-layer-title">
+                <h3 class="txt">审批不通过原因</h3>
+                <div class="btn-row">
+                    <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+                </div>
+            </div>
+            <div class="pop-layer-content clearfix">
+                <div class="base-fieldset-content clearfix">
+                    <textarea placeholder="请输入原因" class="textarea" name="" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="pop-btn-row">
+                <a class="common-btn btn-normal" id="submitBtn" href="javascript:void(0);">确定</a>
+                <a class="common-btn" id="layerclose" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script>
+            $(function(){
+                var layerIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                //关闭窗口
+                $("#closeBtn").click(function() {
+                    parent.layer.close(layerIndex);
+                });
+                $("#layerclose").click(function() {
+                    parent.layer.close(layerIndex);
+                });
+
+            })
+        </script>
+    </body>
+</html>

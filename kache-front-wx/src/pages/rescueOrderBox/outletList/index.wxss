@@ -1,0 +1,47 @@
+@import "../../../templates/list/list.wxss";
+
+.map-icon {
+  position: fixed;
+  right: 20rpx;
+  bottom: 142rpx;
+  width: 42rpx;
+  height: 42rpx;
+  padding: 15rpx;
+  border: 1px solid #e3e3e3;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.add {
+  display: none !important;
+}
+
+.regionSelect {
+  width: 130rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 25rpx;
+  text-align: center;
+  padding: 0 30rpx 0 0;
+  margin: 10rpx -10rpx 10rpx 10rpx;
+  border: 1px solid #8888;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.regionSelect::after {
+  display: block;
+  content: '';
+  border-width: 5px 5px 5px 5px;
+  border-style: solid;
+  border-color: #808080 transparent transparent transparent;
+  position: absolute;
+  right: 10rpx;
+  top: 40%;
+}
+
+.info-content {
+  overflow: inherit;
+  text-overflow: inherit;
+  white-space: inherit;
+}

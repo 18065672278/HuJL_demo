@@ -1,0 +1,7 @@
+<!--src/pages/fleet/index.wxml-->
+<import src="../../../templates/list/list.wxml" />
+<view class='searchbox disfx'>
+  <input class='searchinput fx1' type='text' confirm-type='search' bindinput='input1' placeholder='请输入车队名称进行搜索' value='{{searchinput}}' />
+  <view class='searchBtn' bindtap='search'>搜索</view>
+</view>
+<template is="product_list" data="{{product}}"></template>

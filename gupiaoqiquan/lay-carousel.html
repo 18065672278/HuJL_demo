@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片 </title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <?php include 'lay-common.php'?>
+    <div class="layui-body" style="padding:120px;">
+    <!-- 内容主体区域 -->
+        <form action="" method="post" class="layui-form-pane" style="width: 600px;">
+            <div class="layui-form-item">
+                <label class="layui-form-label">指向商品</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="goodsName" placeholder="请输入想要指向的商品" autocomplete="off" id="goodsName" class="layui-input" style="width: 400px;"><br/>
+                    <!--<input type="text" id="goodsName" name="goodsName">-->
+                    <button type="button" class="layui-btn" id="test1">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                        <!-- 上传图片路径 -->
+                        <input type="text" id="img" name="img" style="display: none">
+
+                        <!--<input type="hidden" id="goodsName" name="goodsName">-->
+                    </button>
+                    <!-- 上传成功提示以及上传效果 -->
+                    <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop" id="imgUploading" style="display: none">&#xe63d;</i>
+                    <i class="layui-icon" id="imgUploadSuccess" style="display: none">上传成功 &#xe618;</i>
+                </div>
+            </div>
+            <div class="layui-form-item" style="float: left">
+                <label class="layui-form-label">指向商品</label>
+                <div class="layui-input-block">
+                    <input type="text" name="goodsName" placeholder="请输入想要指向的商品" autocomplete="off" class="layui-input" value="" style="width: 400px;">
+                </div>
+            </div>
+            <input type="submit" style="float: right;width: 50px;height: 35px;color: #009688" value="新增">
+        </form>
+        <div style="padding: 100px 0px;">
+            <table class="layui-table" lay-filter="test3" lay-data="{width:366 , id:'test3'}">
+                <thead>
+                <tr>
+                    <th lay-data="{field:'id', width:60,sort: true}">ID</th>
+                    <th lay-data="{field:'imgs', width:100}">图片</th>
+                    <th lay-data="{field:'article', width:100,edit:'text'}">指向商品</th>
+                    <th lay-data="{field:'cao', width:100}">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="img.jpg" alt=""/></td>
+                    <td>aa</td>
+                    <td>
+                        <a href="">删除</a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="layui/layui.js"></script>
+<script>
+    layui.use(['layer', 'form','element','jquery','layer','table','upload'], function(){
+        var layer = layui.layer
+                ,form = layui.form
+                ,element = layui.element
+                ,$= layui.$
+                ,upload = layui.upload
+                ,table=layui.table;
+
+        //转换静态表格
+        table.init('demo', {
+            height: 315 //设置高度
+            ,limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
+            //支持所有基础参数
+        });
+        //监听单元格编辑
+        table.on('edit(test3)', function(obj){
+            var value = obj.value //得到修改后的值
+                    ,data = obj.data //得到所在行所有键值
+                    ,field = obj.field; //得到字段
+//            layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+//            layer.alert("aa");
+            $.get('后台修改路径的路径', {
+                'good_id': data.id,
+                'good_name': value   //传到后台的参数，后台通过get方式获取
+            }, function (data) {    //data为后台传回来的参数
+                if (data == 'success') {
+                    layer.msg("修改成功");
+                } else {
+                    layer.msg("修改失败");
+                }
+            }, 'text');
+        });
+        //图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'                      //绑定元素
+            ,url: '/blog/editormdPic'           //上传接口
+            ,field : "editormd-image-file"      //设定文件域的字段名
+            ,data:{goodsName:$("#goodsName").val()}
+            ,done: function(res){              //上传完毕回调
+                console.log(res);
+                $("#img").val(res.url);
+                $("#goodsName").val(res.goodsName);
+                $("#imgUploading").show().fadeIn().fadeOut(200);
+                $("#imgUploadSuccess").show().fadeIn(4000);
+            }
+            ,error: function(){                //请求异常回调
+
+            }
+        });
+        $("#test1").on("click",function(){
+            console.log($("#goodsName").val());
+        });
+    });
+</script>
+</body>
+</html>

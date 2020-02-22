@@ -1,0 +1,42 @@
+<!--src/templates/list/list.wxml-->
+<template name="product_list">
+  <view wx:if="{{product.product_list==''}}">
+    <view class="empty-product">
+      <view class="product-icon">
+        <image src="/src/assets/images/content_none.png" mode="aspectFill" />
+      </view>
+      <view class="prompt">暂无记录</view>
+    </view>
+    <view class="user-operation">
+      <view class="btn-primary add" bindtap="addBtn">+新增</view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="product-box mb100">
+      <view class="product-list" wx:for="{{product.product_list}}" wx:key="index">
+        <view class="product-item {{item.isTouchMove? 'touch-move-active': ''}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+          <view class="product-content{{product.hasSelect?' hasSelect':''}}" bindtap="showProductDetail" data-index="{{item.id}}">
+            <icon type="{{item.selected?'success':'circle'}}" class="" color="#ff6700" size="20" catchtap="selectList" data-index="{{index}}" wx:if="{{product.hasSelect}}" />
+            <image src="{{item.img}}" mode="aspectFill" />
+            <view class="info-wrapper">
+              <view class="info-desc">
+                <view class="name firstRowL">{{item.firstRowL}}</view>
+                <view class="time firstRowR">{{item.firstRowR}}</view>
+              </view>
+              <view class="info-desc">
+                <view class="time secondRowL">{{item.secondRowL}}</view>
+                <view class="time secondRowR">{{item.secondRowR}}</view>
+              </view>
+              <view class="info-content">{{item.remark}}</view>
+            </view>
+            <view class="del-product-item" catchtap="delProductItem" data-index="{{index}}" data-id="{{item.id}}">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="user-operation">
+      <view class="btn-primary pay{{product.hasSelect?'':' hidden'}}" bindtap="checkOut">确定</view>
+      <view class="btn-primary add" bindtap="addBtn">+新增</view>
+    </view>
+  </view>
+</template>

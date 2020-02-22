@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>公告管理</title>
+        <link rel="stylesheet" href="../../js/webuploader/webuploader.css" />
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>公告管理</a><span >/</span>
+                <a href="add_notice.html"><cite>添加公告</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="form-content">
+                <div class="form-group">
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">公告类型</label>
+                            <div class="base-input-box">
+                                <div class="radio-group">
+                                    <input name="orgType" class="checkbox" type="checkbox" value="0" id="radio1" checked="">
+                                    <label class="checkbox-txt" for="radio1">政策法规</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input name="orgType" class="checkbox" type="checkbox" value="0" id="radio2">
+                                    <label class="checkbox-txt" for="radio2">通知</label>
+                                </div>
+                                <div class="radio-group">
+                                    <input name="orgType" class="checkbox" type="checkbox" value="0" id="radio3">
+                                    <label class="checkbox-txt" for="radio3">其他</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">公告范围</label>
+                            <div class="base-input-box">
+                                <input type="hidden" id="departId"/>
+                                <input id="departSelect" class="base-form-input" type="text" readonly="true" unselectable="on" style="cursor:pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">标题</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" placeholder="请输入标题">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid1 mb10">
+                            <label class="base-form-txt required">正文</label>
+                            <div class="base-input-box">
+                                <textarea id="richTextContent"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid1 mb10">
+                            <label class="base-form-txt required">正文</label>
+                            <div class="base-input-box">
+                                <div class="uploaded-accessory-list clearfix" id="uploadedAccessoryList">
+                                    <div class="uploaded-accessory-item" id="">
+                                        <div class="filetype">
+                                            <img class="filetype-icon" src="" alt="" />
+                                            <p class="filetype-txt">1111</p>
+                                            <div class="boxlist clearfix">
+                                                <a class="download" href="javascript:void(0)">下载</a>
+                                                <a class="preview" href="javascript:void(0)">预览</a>
+                                            </div>
+                                        </div>
+                                        <i class="accessory-remove"></i>
+                                    </div>
+                                    <div class="accessory-upload-btn" id="accessoryUpload">
+                                        <div id="picker"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-btn">
+                    <div class="input-block">
+                        <a href="javascript:void(0);" class="common-btn" id="cancel-btn">取消</a>
+                        <a href="javascript:void(0);" class="common-btn btn-normal " id="save-btn">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script src="../../js/address.js"></script>
+        <script src="../../js/ueditor/ueditor.config.js"></script>
+        <script src="../../js/ueditor/ueditor.all.js"></script>
+        <script src="../../js/webuploader/webuploader.js"></script>
+        <script src="../../js/staffuploader.js"></script>
+        <script>
+            $(function(){
+                var formHeight = $(window).height() - $(".fixed-tab").outerHeight() - 62;
+                $(".form-content").css("min-height",formHeight);
+                // 发布范围
+                $("#departSelect").click(function(){
+                    selectOrgTreeadress({
+                        orgName: "departSelect",//返回所选择的ID（必填）
+                        orgId: "departId",//返回所选择的显示名(必填)
+                        orgType: 1,
+                        offset: "auto",
+                        isMulti:true,//默认fasle 单选
+                        orgType:'1|0'//选择的类别,默认0：1：部门，0：人员，1|0：部门&人员...
+                    })
+                })
+            })
+            //富文本
+            var ue = UE.getEditor('richTextContent',{
+                serverUrl: '',
+                initialFrameWidth: "733",
+                initialFrameHeight:"175",
+                /* autoHeightEnabled: true, */
+                autoFloatEnabled: false
+            });
+            var ctp = '';
+            createUpload('product_image','','#picker');
+        </script>
+    </body>
+</html>

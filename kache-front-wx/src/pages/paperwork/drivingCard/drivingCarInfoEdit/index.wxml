@@ -1,0 +1,94 @@
+<!--src/pages/identityinfor/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">车牌号
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right" style='text-align:right' bindtap="handleFocus">{{carNum}}</view>
+    <plate-number-keyboard show="{{showKeyboard}}" bind:getResult="setNumber" initValue="{{carNum}}"></plate-number-keyboard>
+  </view>
+  <picker bindchange="bindCarTypeChange" value="{{carTypeIndex}}" range="{{carTypeArray}}">
+    <view class="item clear">
+      <view class="name left">车辆类型
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right">{{carTypeArray[carTypeIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">所属人姓名
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{ownerName}}' placeholder='请填写车辆类型' bindinput='inputeidtOwnerName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">详细地址
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{ownerAddress}}' placeholder='请填写详细地址' bindinput='inputeidtOwnerAddress'></input>
+  </view>
+  <picker bindchange="bindUseCharacterChange" value="{{useCharacterIndex}}" range="{{useCharacterArray}}">
+    <view class="item clear">
+      <view class="name left">使用性质</view>
+      <view class="value right">{{useCharacterArray[useCharacterIndex]}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">品牌型号</view>
+    <input class="value right" style='text-align:right;' value='{{carModel}}' placeholder='请填写车辆类型' bindinput='inputeidtCarModel'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">车辆识别号</view>
+    <input class="value right" style='text-align:right;' value='{{vinNum}}' placeholder='请填写车辆类型' bindinput='inputeidtVinNum'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">发动机号</view>
+    <input class="value right" style='text-align:right;' value='{{engineNum}}' placeholder='请填写车辆类型' bindinput='inputeidtEngineNum'></input>
+  </view>
+  <picker mode="date" value="{{registrationDate}}" bindchange="registrationDateSelect">
+    <view class="item clear">
+      <view class="name left">初次登记时间</view>
+      <view class="value right">{{registrationDate}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <picker mode="date" value="{{issueDate}}" bindchange="issueDateSelect">
+    <view class="item clear">
+      <view class="name left">发证时间</view>
+      <view class="value right">{{issueDate}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">发证单位</view>
+    <input class="value right" style='text-align:right;' value='{{issueUnit}}' placeholder='请填写发证单位' maxlength='60' bindinput='inputeditIssueUnit'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">档案号</view>
+    <input class="value right" style='text-align:right;' value='{{archivesNum}}' placeholder='请填写证号' maxlength='100' bindinput='inputeditArchivesNum'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">核定载人人数</view>
+    <input class="value right" type='number' style='text-align:right;' value='{{carriers}}' placeholder='请填写证号' maxlength='100' bindinput='inputeditCarriers'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">行驶证照
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[0]?FilePaths:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[0]?'':'frontimage'}} cardImage" data-id="0" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[0]}}" data-id="0" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

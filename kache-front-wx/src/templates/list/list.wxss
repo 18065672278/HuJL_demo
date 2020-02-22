@@ -1,0 +1,254 @@
+/* src/templates/list/list.wxss */
+
+.searchbox {
+  width: 100%;
+  height: 70rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+
+.searchinput {
+  width: calc(100% - 40rpx);
+  height: 30rpx;
+  line-height: 30rpx;
+  padding: 0 10rpx;
+  margin: 10rpx 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  color: #808080;
+  background: whitesmoke;
+}
+
+.searchBtn {
+  border: 1px solid #8888;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 10rpx;
+  margin: 10rpx 20rpx 10rpx 0;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  color: #808080;
+  background: whitesmoke;
+}
+
+.empty-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-product .product-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 190rpx;
+  height: 190rpx;
+  margin-top: 100rpx;
+  border-radius: 50%;
+  background: #d6d6d6;
+}
+
+.product-icon image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.btn-warn, .prompt {
+  margin-top: 80rpx;
+}
+
+.btn-warn {
+  width: 580rpx;
+  letter-spacing: 4rpx;
+}
+
+/*购物车结算操作*/
+
+.user-operation {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.select-all, .total-price, .btn-primary.pay, .btn-primary.add {
+  flex: 1;
+  font-size: 12pt;
+  text-align: center;
+}
+
+.select-all icon {
+  position: absolute;
+  left: 30rpx;
+  top: 20rpx;
+}
+
+.total-price text {
+  font-size: 12pt;
+  padding: 20rpx;
+  color: #ff6700;
+}
+
+.btn-primary.pay {
+  flex: 1;
+  font-size: 14pt;
+  color: #fff;
+  background: #ff6700;
+}
+
+.btn-primary.add {
+  flex: 1;
+  font-size: 14pt;
+  color: #fff;
+  background: red;
+}
+
+/*购物车列表样式*/
+
+.product-box {
+  width: 100%;
+  margin-top: 70rpx;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+.mb100 {
+  margin-bottom: 100rpx;
+}
+
+.product-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-item {
+  height: 150rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 11pt;
+  border-top: 1rpx solid #dcdcdc;
+}
+
+.product-list:last-child .product-item {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.product-item icon {
+  margin-left: -140rpx;
+}
+
+.product-item text {
+  display: inline-block;
+  margin-left: 10rpx;
+}
+
+.product-item .item-price {
+  color: #ff6700;
+}
+
+.product-list image {
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+.del-product-item {
+  background-color: red;
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(150rpx);
+  transform: translateX(150rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.product-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 0rpx;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(100rpx);
+  transform: translateX(100rpx);
+  margin-left: -100rpx;
+}
+
+.touch-move-active .product-content, .touch-move-active .del-product-item {
+  -webkit-transform: translateX(30rpx);
+  transform: translateX(30rpx);
+}
+
+.product-content.hasSelect {
+  margin-right: -150rpx;
+  -webkit-transform: translateX(150rpx);
+  transform: translateX(150rpx);
+  margin-left: -150rpx;
+}
+
+.touch-move-active .product-content.hasSelect,
+.touch-move-active .hasSelect .del-product-item {
+  -webkit-transform: translateX(10rpx);
+  transform: translateX(10rppx);
+}
+
+.info-wrapper {
+  margin-left: 20rpx;
+  width: 480rpx;
+}
+
+.info-desc {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 6rpx;
+}
+
+.info-desc .name {
+  font-size: 26rpx;
+  color: #808080;
+}
+
+.info-desc .time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.info-content {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>项目管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>项目管理</a><span>/</span>
+                <a>蒙牛中国股份有限公司</a><span>/</span>
+                <a href="revision_plan.html"><cite>计划修改申请</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="tab-content">
+                <div class="form-item-group mb10">
+                    <a href="project_progress.html" class="common-btn ">取消</a>
+                    <a href="javascript:void(0);" class="common-btn btn-normal" id="save-btn">确定并提交</a>
+                </div>
+            </div>
+            <div class="table-content js-table basetable">
+                <table class="table">
+                    <colgroup>
+                        <col width="40">
+                        <col width="100%">
+                        <col width="200">
+                        <col width="200">
+                        <col width="200">
+                        <col width="100">
+                        <col width="100">
+                        <col width="100%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>任务内容</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>实际完成时间</th>
+                            <th>发起人</th>
+                            <th>执行人</th>
+                            <th>变更原因</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>贯标启动</td>
+                            <td>
+                                <input id="beginDate" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>现状调研及分析</td>
+                            <td>
+                                <input id="beginDate1" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate1" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>主线策划</td>
+                            <td>
+                                <input id="beginDate2" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate2" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>文件策划及编写</td>
+                            <td>
+                                <input id="beginDate3" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate3" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>体系式运行</td>
+                            <td>
+                                <input id="beginDate4" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate4" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>内部审核</td>
+                            <td>
+                                <input id="beginDate5" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate5" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>管理评审</td>
+                            <td>
+                                <input id="beginDate6" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate6" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>评定申请</td>
+                            <td>
+                                <input id="beginDate7" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input id="endDate7" type="text" class="table-input date-icon" readonly="true" unselectable="on" >
+                            </td>
+                            <td>
+                                <input class="table-input date-icon" value="2018-08-25" type="text" readonly="true" unselectable="on">
+                            </td>
+                            <td>小白</td>
+                            <td>小白</td>
+                            <td>
+                                <input class="table-input" type="text" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section-wrapper">
+                <div class="row">
+                    <div class="row-col">
+                        <section class="panel">
+                            <div class="panel-heading">计划修改审批反馈</div>
+                            <div class="panel-body">
+                                <div class="panel-body-nodata">暂无记录</div>
+                                <ul class="pancel-timeline">
+                                    <li class="pancel-timeline-item">
+                                        <i class="pancel-timeline-axis"></i>
+                                        <div class="pancel-timeline-content">
+                                            <h3 class="pancel-timeline-title">等待审批</h3>
+                                            <p>2018-05-20 19:52:31</p>
+                                        </div>
+                                    </li>
+                                    <li class="pancel-timeline-item">
+                                        <i class="pancel-timeline-axis"></i>
+                                        <div class="pancel-timeline-content">
+                                            <h3 class="pancel-timeline-title">等待审批</h3>
+                                            <p>2018-05-20 19:52:31</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script src="../../js/laydate/laydate.js"></script>
+        <script src="../../js/common.js"></script>
+        <script>
+            // 确定并提交
+            $("#save-btn").click(function() {
+                var that = $(this);
+                var index = layer.load(2, {
+                  shade: [0.1,'#fff'] //0.1透明度的白色背景
+                });
+                if ($(".main-wrapper").hasClass("table-disabled")) {
+                    return;
+                }
+                setTimeout(function(){
+                    layer.close(index);
+                    $(".main-wrapper").addClass("table-disabled");
+                    $(".js-table").find(".table-input").attr("disabled", true);
+                    that.removeClass("btn-normal").addClass("btn-disabled");
+                    that.html("已提交");
+                }, 500)
+            });
+            // 贯标启动开始时间
+            laydate.render({
+              elem: '#beginDate', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate","endDate");
+              }
+            });
+            laydate.render({
+              elem: '#endDate', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate","endDate");
+              }
+            });
+            // // 现状调研及分析
+            laydate.render({
+              elem: '#beginDate1', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate1","endDate1");
+              }
+            });
+            laydate.render({
+              elem: '#endDate1', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate1","endDate1");
+              }
+            });
+            // 主线策划
+            laydate.render({
+              elem: '#beginDate2', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate2","endDate2");
+              }
+            });
+            laydate.render({
+              elem: '#endDate', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate2","endDate2");
+              }
+            });
+            // 文件策划及编写
+            laydate.render({
+              elem: '#beginDate3', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate3","endDate3");
+              }
+            });
+            laydate.render({
+              elem: '#endDate', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate3","endDate3");
+              }
+            });
+            // 体系式运行
+            laydate.render({
+              elem: '#beginDate4', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate4","endDate4");
+              }
+            });
+            laydate.render({
+              elem: '#endDate4', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate4","endDate4");
+              }
+            });
+            // 内部审核
+            laydate.render({
+              elem: '#beginDate5', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate5","endDate5");
+              }
+            });
+            laydate.render({
+              elem: '#endDate5', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate5","endDate5");
+              }
+            });
+            // 管理评审
+            laydate.render({
+              elem: '#beginDate6', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate6","endDate6");
+              }
+            });
+            laydate.render({
+              elem: '#endDate6', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate6","endDate6");
+              }
+            });
+            // 评定申请
+            laydate.render({
+              elem: '#beginDate7', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate7","endDate7");
+              }
+            });
+            laydate.render({
+              elem: '#endDate7', //指定元素
+              done:function(value,date,endDate){
+                // value:得到日期生成的值;date:得到日期生成对象;endDate:得到结束的日期对象时间
+                checkDate("beginDate7","endDate7");
+              }
+            });
+            //检查结束日期是否大于开始日期
+            function checkDate(startId,endId){
+                var sTime = $("#"+startId).val();
+                var eTime = $("#"+endId).val();
+                if(sTime == "" || eTime == ""){
+                    return;
+                }
+                sTime = sTime.replace(/-/g,"/");
+                eTime = eTime.replace(/-/g,"/");
+                var sDate = new Date(sTime);
+                var eDate = new Date(eTime);
+                if(Date.parse(sDate) > Date.parse(eDate)){
+                    layer.tips("开始时间不能大于结束时间", "#"+startId);
+                    $("#"+endId).val('');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>
+</html>

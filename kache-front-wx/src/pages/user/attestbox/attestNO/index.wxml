@@ -1,0 +1,90 @@
+<!--src/pages/user/attestNO/index.wxml-->
+<view class="content">
+  <view class="item-wrapper">
+    <view class="item_list disfx clear">
+      <view class="name left">车牌号</view>
+      <input class="value right fx1" value='{{subData.carNum}}' placeholder='请输入门店名称' maxlength='20' bindinput='inputtel'></input>
+    </view>
+    <view class="item_list disfx clear">
+      <view class="name left">车型</view>
+      <input class="value right fx1" value='{{subData.storeName}}' placeholder='请输入门店名称' maxlength='20' bindinput='inputtel'></input>
+    </view>
+    <view class="item_list disfx clear">
+      <view class="value_list fx1 disfx left">
+        <view class="name left">联系人姓名</view>
+        <input class="value right fx1" value='{{subData.name}}' placeholder='请输入门店联系人姓名' maxlength='20' bindinput='inputtel'></input>
+      </view>
+    </view>
+    <view class="item_list disfx clear">
+      <view class="name left">联系方式</view>
+      <input class="value fx1 right" value='{{subData.tel}}' placeholder='请输入门店联系人联系方式' maxlength='20' bindinput='inputcode'></input>
+    </view>
+    
+    <view class="item_list disfx clear">
+      <view class="name left" style="margin-top:10rpx;">身份证照</view>
+      <view class="value fx1 right">
+        <view class="idCardPhoto">
+          <view class="img_box">
+            <image src="{{fFilePaths?fFilePaths:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="frontimage cardImage" bindtap="handleFImagePreview" />
+            <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshowf}}" bindtap="removeFImage" />
+          </view>
+          <view class="idCardPhoto_msg">(正面)</view>
+        </view>
+        <view class="idCardPhoto">
+          <view class="img_box">
+            <image src="{{rFilePaths?rFilePaths:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="reciteimage cardImage" bindtap="handleRImagePreview" />
+            <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshowr}}" bindtap="removeRImage" />
+          </view>
+          <view class="idCardPhoto_msg">(装备)</view>
+        </view>
+      </view>
+    </view>
+    <view class="item_list disfx clear">
+      <view class="name left" style="margin-top:10rpx;">行驶证照</view>
+      <view class="value fx1 right">
+        <view class="idCardPhoto">
+          <view class="img_box">
+            <image src="{{dFilePaths?dFilePaths:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="frontimage cardImage" bindtap="handleDImagePreview" />
+            <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshowd}}" bindtap="removeDImage" />
+          </view>
+          <view class="idCardPhoto_msg">(正面)</view>
+        </view>
+        <view class="idCardPhoto">
+          <view class="img_box">
+            <image src="{{drFilePaths?drFilePaths:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="reciteimage cardImage" bindtap="handleDRImagePreview" />
+            <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshowdr}}" bindtap="removeDRImage" />
+          </view>
+          <view class="idCardPhoto_msg">(副页)</view>
+        </view>
+      </view>
+    </view>
+    <view class="item_list disfx clear">
+      <view class="name left smallLN">服务项目
+        <text class="smallFS">\n(可多选)</text>
+      </view>
+      <block wx:if='{{checkboxArr && checkboxArr.length > 0}}'>
+        <view class="value fx1 right">
+          <checkbox-group>
+            <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{checkboxArr}}" wx:if="{{item.show}}" bindtap='checkbox' data-id="{{item.id}}" data-index="{{index}}" wx:key="item.name">
+              <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+              <view class="checkbox_name">{{item.name}}</view>
+            </label>
+          </checkbox-group>
+        </view>
+      </block>
+      <block wx:else>
+        <input class="value fx1 right" value='{{subData.tel}}' disabled="true"></input>
+      </block>
+    </view>
+    <picker bindchange="bindserviceRadiusChange" value="{{serviceRadiusIndex}}" range="{{serviceRadiusArray}}">
+      <view class="item_list clear">
+        <view class="name left">服务半径</view>
+        <view class="value right picvalue">{{serviceRadiusArray[serviceRadiusIndex]}}</view>
+        <image class="next" src="/src/assets/images/next.png"></image>
+      </view>
+    </picker>
+    <view class='sub_btn_box'>
+      <view class="sub_btn btn" bindtap='subAction'>提交</view>
+    </view>
+  </view>
+</view>

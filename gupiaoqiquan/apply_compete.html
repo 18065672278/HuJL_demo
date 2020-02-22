@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>行权中</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/apply_compete.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<div class="containers">
+			<div class="head">
+				<a href="#"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">股票期权</span>
+			</div>              
+			<div class="list">
+				<p>持仓记录</p>
+			</div>
+			<div class="one">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">初期价</span><p id="average">1.25</p>
+						</div>
+						<div class="name">
+							<span class="states">合约状态</span><p id="state">买入中</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>报价日期</span><p id="say">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>	
+					<div class="content_1">
+						<div class="number">
+							<span>买入时间</span><p id="relatiybuy">年月日</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="spaces">备注</span><p id="note"></p>
+						</div>
+					</div>					
+				</div>
+				<hr />
+				<!--<div class="explain">
+					<p>说明：该单子买入五个交易日后才可行权申请操作</p>
+				</div>	-->			
+			</div>
+			<div class="callfor">
+				<button class="apply">行权中...</button>
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			/*$(function(){
+				$(".apply").bind("click",function(){
+				  layer.open({
+						  type: 1,
+						  title:false,
+						  skin: 'layui-layer-demo', //样式类名
+						  closeBtn: 0, //不显示关闭按钮
+						  anim: 2,
+						  shadeClose: true, //开启遮罩关闭
+						  area: ['7.33rem', '5.6rem'],
+						  content: $('#app')
+						});
+			    });
+  			   $(".now_price").on("mouseover",function(){
+					$(".now_price").css("color","#AC825E");					
+					$(".now_cost").show();
+					$(".market_cost").hide();
+				});
+			   $(".now_price").on("mouseout",function(){
+					$(".now_price").css("color","#999999");					
+				});
+			   $(".market_price").on("mouseover",function(){
+					$(".market_price").css("color","#AC825E");					
+					$(".now_cost").hide();
+					$(".market_cost").show();
+				});
+			   $(".market_price").on("mouseout",function(){
+					$(".market_price").css("color","#999999");					
+				});
+				$(".no").bind("click",function(){
+					layer.closeAll();
+				});
+				$(".yes").bind("click",function(){
+					layer.closeAll();
+				});
+			});*/
+		</script>
+	</body>
+</html>

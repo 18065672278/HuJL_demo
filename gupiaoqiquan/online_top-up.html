@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>在线充值</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/online_top-up.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<div class="containers">
+			<div class="head">
+				<a href="top-up_withdrawal.html"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">在线充值</span>
+			</div>              
+			<div class="title">
+				<p>在线支付</p>
+				<hr />
+			</div>
+			<div class="content">
+				<div class="money">
+					<input type="button" name="" id="ten" class="aa"  value="10" />
+					<input type="button" name="" id="fifty" class="aa"  value="50" />
+					<input type="button" name="" id="hundred" class="aa" value="100" />
+				</div>
+				<div class="custom">
+					<input type="text" name="orderAmount" id="orderAmount" value="" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;自定义金额" />
+				</div>
+				<div class="imgae">
+					<input type="button" id="wechat" value="微信支付" disabled="disabled" />
+					<input type="button" id="alipay" value="支付宝" onclick="pay()" />
+					<input type="button" id="quick" value="快捷支付"  disabled="disabled"  />
+				</div>
+			</div>
+			<div class="confirm">
+				<input type="button" id="" value="确认充值" />
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		 <script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		 <script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".aa").click(function(){
+				$("#orderAmount").val($(this).val())
+			})
+
+			function pay(){
+				console.log($("#orderAmount").val())
+				console.log(token)
+					$.ajax({
+						url:"../user/Ali/h5pay",
+						data:{
+							"token":token,
+							"orderAmount":$("#orderAmount").val()},
+						success:function(data){
+							if(data.status===200){
+								window.location.href="../wappay/pay.jsp?orderno="+data.data+"&orderAmount="+$("#orderAmount").val()
+							}else{
+								layer.msg(data.msg)
+							}
+						}
+					})
+			}
+
+			
+
+		</script>
+	</body>
+</html>

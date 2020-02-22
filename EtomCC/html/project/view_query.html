@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>项目管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="stylesheet" href="../../js/page/page.css" />
+        <style>
+            .table-content {
+                margin: 0 0 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pop-layer-wrapper">
+            <div class="pop-layer-title">
+                <h3 class="txt">状态名称</h3>
+                <div class="btn-row">
+                    <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+                </div>
+            </div>
+            <div class="pop-layer-content clearfix">
+                <div class="table-content">
+                    <table class="table">
+                        <colgroup>
+                            <col width="40" />
+                            <col width="100%" />
+                            <col width="200" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>项目名称</th>
+                                <th>完成时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>山东省数字信息化有限公司</td>
+                                <td>2018-08-26</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination" id="pagination">
+                        <div class="pagination-content">
+                            <a class="prevPage disabled" id="prevPage" href="javascript:void(0)">上一页</a>
+                            <a class="pageNum active" data-index="0" href="javascript:void(0)">1</a>
+                            <a class="pageNum" data-index="1" href="javascript:void(0)">2</a>
+                            <a class="pageNum" data-index="2" href="javascript:void(0)">3</a>
+                            <a class="pageNum" data-index="3" href="javascript:void(0)">4</a>
+                            <a class="pageNum" data-index="4" href="javascript:void(0)">5</a>
+                            <a class="nextPage" id="nextPage" href="javascript:void(0)">下一页</a>
+                            <span class="pageCount">共<label class="pageCountNum">5</label>页,到第</span>
+                            <input class="jump-number" id="jumpNumber" type="text"/>
+                            <label>页</label>
+                            <a class="common-btn btn-normal" id="jumpPage" href="javascript:void(0)">跳转</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script>
+            $(function(){
+                var layerIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                //关闭窗口
+                $("#closeBtn").click(function() {
+                    top.layer.close(layerIndex);
+                });
+                //分页
+                pagination({
+                    id:'pagination',
+                    totalPages:5
+                },initTable);
+                function initTable(pageNumber){
+
+                }
+            })
+        </script>
+    </body>
+</html>

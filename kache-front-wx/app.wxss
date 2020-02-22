@@ -1,0 +1,259 @@
+/* tab */
+
+view {
+  box-sizing: border-box;
+}
+
+.tab {
+  display: flex;
+  position: relative;
+  background: #fff;
+  border-bottom: 1px solid #ededed;
+}
+
+.tab .item {
+  width: 33.33%;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.tab image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.tab text {
+  display: block;
+  font-size: 28rpx;
+}
+
+.btn {
+  width: 95%;
+  height: 96rpx;
+  margin: 70rpx auto 0;
+  line-height: 96rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  background: #09c083;
+}
+
+.text-more {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*对齐方式*/
+
+.clear {
+  clear: both;
+  overflow: hidden;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.disfx {
+  display: flex;
+}
+
+.fx1 {
+  flex: 1;
+}
+
+/* 字体颜色 */
+
+.color_red {
+  color: red;
+}
+
+.color_green {
+  color: green;
+}
+
+.fontWeight {
+  font-weight: bolder;
+}
+
+.searchbox {
+  width: 100%;
+  height: 70rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+
+.searchinput {
+  width: calc(100% - 40rpx);
+  height: 30rpx;
+  line-height: 30rpx;
+  padding: 0 10rpx;
+  margin: 10rpx 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  color: #808080;
+  background: whitesmoke;
+}
+
+.searchBtn {
+  border: 1px solid #8888;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 10rpx;
+  margin: 10rpx 20rpx 10rpx 0;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  color: #808080;
+  background: whitesmoke;
+}
+
+/*编辑页面*/
+
+page {
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.list {
+  padding-left: 20rpx;
+}
+
+.item {
+  border-bottom: 1px solid #ededed;
+  font-size: 28rpx;
+  position: relative;
+  padding: 25rpx 20rpx 25rpx 0;
+}
+
+.item .name {
+  color: #333;
+}
+
+.item .value {
+  margin-right: 40rpx;
+  color: #666;
+}
+
+.item .next {
+  position: absolute;
+  right: 13rpx;
+  top: 29rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.item .top {
+  position: absolute;
+  right: 13rpx;
+  top: 29rpx;
+  width: 32rpx;
+  height: 32rpx;
+  transform: rotate(-90deg);
+  animation: 1s;
+}
+
+.item .down {
+  position: absolute;
+  right: 13rpx;
+  top: 29rpx;
+  width: 32rpx;
+  height: 32rpx;
+  transform: rotate(90deg);
+  animation: 1s;
+}
+
+.list .btn {
+  margin-bottom: 70rpx;
+}
+
+.list .title {
+  color: #666;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.list textarea {
+  width: 100%;
+  height: 200rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  border: 1px solid #ededed;
+  font-size: 30rpx;
+}
+
+.list .nobottom {
+  border: 0;
+}
+
+.img_box {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  height: 150rpx;
+  margin: 40rpx 23rpx 0 0;
+  border: 1px solid #ededed;
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.frontimage {
+  display: flex;
+}
+
+.q-image-remover {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+}
+
+.idCardPhoto_msg {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+
+/* switch */
+
+.wx-switch-input {
+  width: 82rpx !important;
+  height: 40rpx !important;
+}
+
+/*关闭状态*/
+
+.wx-switch-input::before {
+  width: 80rpx !important;
+  height: 36rpx !important;
+}
+
+/*开启状态*/
+
+.wx-switch-input::after {
+  width: 38rpx !important;
+  height: 36rpx !important;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title></title>
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/m-base.css" />
+		<link rel="stylesheet" href="../css/script.css" />
+		<link rel="stylesheet" href="css/personal.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css"/>
+	</head>
+	<body>
+		<div class="personal w">
+			<div class="info">
+				<div class="head">
+					<div class="headpic">
+						<img src="img/head.png" id="personalavatar" onerror="this.src='img/head.png'"/>
+					</div>
+					<div class="username">林梦瑶</div>
+					<div class="userinfo clearfix">
+						<ul>
+							<li>
+								<div class="userinfo1">
+									交易<span id="transum">55</span>
+								</div>
+							</li>
+							<div class="line"></div>
+							<li>
+								<div class="userinfo2">
+									好评率<span id="praise">50%</span>
+								</div>
+							</li>
+							<div class="line"></div>
+							<li>
+								<div class="userinfo3">
+									信任<span id="trust">99%</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="perlist">
+					<ul>
+						<li>
+							<a href="mybuy.html">
+								<img src="img/buy.png"/>我购买的
+							</a>
+						</li>
+						<li>
+							<a href="mysale.html">
+								<img src="img/sale.png"/>我出售的
+							</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="set.html">
+								<img src="img/set.png"/>设置
+							</a>
+						</li>
+						<li>
+							<a href="cservice.html">
+								<img src="img/cservice.png"/>联系客服
+							</a>
+						</li>
+						<li>
+							<a href="help.html">
+								<img src="img/help.png"/>帮助中心
+							</a>
+						</li>
+						<li>
+							<a href="aboutus.html">
+								<img src="img/aboutus.png"/>关于我们
+							</a>
+						</li>
+						<li>
+							<a onclick="loginout()" >
+								<img src="img/loginout.png"/>退出
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="theme-mask"></div>
+			<div class="loginout" style="display: none;">
+				<div class="lo_title">提示</div>
+				<div class="lo_msg">您确定要退出当前账号？</div>
+				<input type="button" value="取消" id="closeloginout" onclick="closeloginout()"/>
+				<input type="button" value="确定" id="qdloginout" onclick="qdloginout()"/>
+			</div>
+			<div class="foot clearfix">
+				<li class="b_button1"><img src="../img/transaction1.png"/><p>交易</p></li>
+				<li class="b_button2"><img src="../img/order1.png"/><p>订单</p></li>
+				<li class="b_center"><img src="../img/footerj.png"/></li>
+				<li class="b_button3"><img src="../img/wallet1.png"/><p>钱包</p></li>
+				<li class="b_button4 select"><img src="../img/personal2.png"/><p>我的</p></li>
+			</div>
+		</div>
+		
+		
+		
+		
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script src="../js/url.js"></script>
+		<script type="text/javascript" src="../js/rem_new.js"></script>
+		<script type="text/javascript" src="js/personal.js" ></script>
+		<script type="text/javascript" src="js/footer.js" ></script>
+	</body>
+</html>

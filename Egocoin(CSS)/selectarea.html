@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>所在地区</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/search.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div class="selectsearch w">
+			<div class="title">
+				<a href="tsearch.html" class="back"></a>
+				<div class="logo">
+					<!--所在地区-->
+					<input type="text" name="searcharea" id="searcharea" value="" placeholder="请输入关键字" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="content">
+				<div class="msg">
+					<a name="a">A</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="AFN">阿富汗</li>
+					<li onclick="selectarea(this)" curry="ALL">阿尔巴尼亚</li>
+					<li onclick="selectarea(this)" curry="AUD">澳大利亚</li>
+					<li onclick="selectarea(this)" curry="OMR">阿曼</li>
+					<li onclick="selectarea(this)" curry="YER">阿拉伯也门</li>
+				</ul>
+				<div class="msg">
+					<a name="b">B</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="EUR">比利时</li>
+					<li onclick="selectarea(this)" curry="PRK">巴基斯坦</li>
+					<li onclick="selectarea(this)" curry="BHD">巴林</li>
+				</ul>
+				<div class="msg">
+					<a name="c">C</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="KP">朝鲜</li>
+				</ul>
+				<div class="msg">
+					<a name="d">D</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="DK">丹麦</li>
+				</ul>
+				<div class="msg">
+					<a name="e">E</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="USD">厄瓜多尔</li>
+				</ul>
+				<div class="msg">
+					<a name="f">F</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="PHP">菲律宾</li>
+				</ul>
+				<div class="msg">
+					<a name="g">G</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="COP">哥伦比亚</li>
+				</ul>
+				<div class="msg">
+					<a name="h">H</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="KRW">韩国</li>
+				</ul>
+				<div class="msg">
+					<a name="j">J</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="KHR">柬埔寨</li>
+				</ul>
+
+				<div class="msg">
+					<a name="k">K</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="KWD">科威特</li>
+					<li onclick="selectarea(this)" curry="QAR">卡塔尔</li>
+				</ul>
+				<div class="msg">
+					<a name="l">L</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="LAK">老挝</li>
+					<li onclick="selectarea(this)" curry="LBP">黎巴嫩</li>
+				</ul>
+				<div class="msg">
+					<a name="m">M</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="MYR">马来西亚</li>
+					<li onclick="selectarea(this)" curry="BUK">缅甸</li>
+					<li onclick="selectarea(this)" curry="MVR">马尔代夫</li>
+					<li onclick="selectarea(this)" curry="YDD">民主也门</li>
+				</ul>
+				<div class="msg">
+					<a name="n">N</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="NPR">尼泊尔</li>
+				</ul>
+
+				<div class="msg">
+					<a name="p">P</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="EUR">葡萄牙</li>
+				</ul>
+				<div class="msg">
+					<a name="r">R</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="JPY">日本</li>
+				</ul>
+				<div class="msg">
+					<a name="s">S</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="LKR">斯里兰卡</li>
+					<li onclick="selectarea(this)" curry="SAR">沙特阿拉伯</li>
+					<li onclick="selectarea(this)" curry="CYP">塞浦路斯</li>
+				</ul>
+				<div class="msg">
+					<a name="t">T</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="THP">泰国</li>
+					<li onclick="selectarea(this)" curry="TRL">土耳其</li>
+				</ul>
+
+				<div class="msg">
+					<a name="w">W</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="BND">文莱</li>
+				</ul>
+				<div class="msg">
+					<a name="x">X</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="SGD">新加坡</li>
+					<li onclick="selectarea(this)" curry="SYP">叙利亚</li>
+				</ul>
+
+				<div class="msg">
+					<a name="y">Y</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="VND">越南</li>
+					<li onclick="selectarea(this)" curry="IDR">印度尼西亚</li>
+					<li onclick="selectarea(this)" curry="INR">印度</li>
+					<li onclick="selectarea(this)" curry="IRR">伊朗</li>
+					<li onclick="selectarea(this)" curry="IQD">伊拉克</li>
+					<li onclick="selectarea(this)" curry="JOD">约旦</li>
+				</ul>
+				<div class="msg">
+					<a name="z">Z</a>
+				</div>
+				<ul>
+					<li onclick="selectarea(this)" curry="CNY">中国</li>
+				</ul>
+				<div class="mao">
+					<a href="#a">A</a>
+					<a href="#b">B</a>
+					<a href="#c">C</a>
+					<a href="#d">D</a>
+					<a href="#e">E</a>
+					<a href="#f">F</a>
+					<a href="#g">G</a>
+					<a href="#h">H</a>
+					<a href="#i">I</a>
+					<a href="#j">J</a>
+					<a href="#k">K</a>
+					<a href="#l">L</a>
+					<a href="#m">M</a>
+					<a href="#n">N</a>
+					<a href="#o">O</a>
+					<a href="#p">P</a>
+					<a href="#q">Q</a>
+					<a href="#r">R</a>
+					<a href="#s">S</a>
+					<a href="#t">T</a>
+					<a href="#u">U</a>
+					<a href="#v">V</a>
+					<a href="#w">W</a>
+					<a href="#x">X</a>
+					<a href="#y">Y</a>
+					<a href="#z">Z</a>
+					<a href="javascript:void(0);">#</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/footer.js"></script>
+		<script type="text/javascript" src="js/tsearch.js"></script>
+		<script src="js/url.js"></script>
+		<script type="text/javascript">
+			//顶部搜索（搜索地区选择）
+			window.onload = function() {
+				var search = document.getElementById("searcharea");
+				if(document.all) {
+					search.onpropertychange = function() {
+						if(search.value.length <= "") {
+							$("li").show();
+							$("div.msg").show();
+							$(".mao").show();
+						} else {
+							$("li:contains(" + search.value + ")").show();
+							$("li:not(:contains(" + search.value + "))").hide();
+							$("div.msg").hide();
+							$(".mao").hide();
+						}
+						console.log()
+					}
+				} else {
+					search.oninput = function() {
+						if(search.value.length <= "") {
+							$("li").show();
+							$("div.msg").show();
+							$(".mao").show();
+						} else {
+							$("li:contains(" + search.value + ")").show();
+							$("li:not(:contains(" + search.value + "))").hide();
+							$("div.msg").hide();
+							$(".mao").hide();
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

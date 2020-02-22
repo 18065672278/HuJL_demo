@@ -1,0 +1,100 @@
+<!--src/pages/truck/index.wxml-->
+<view class="list">
+  <view class="item clear" bindtap='copyOderNum' data-ordernum='{{orderNum}}'>
+    <view class="name left">订单编号(点击复制)</view>
+    <view class="value right">{{orderNum}}</view>
+  </view>
+  <view class="item disfx clear" bindtap='mapGo' data-latitude='{{latitude}}' data-longitude='{{longitude}}'>
+    <view class="name left">救援位置(点击导航)</view>
+    <view class="value fx1 right" style="margin: 0 0 0 40rpx;">{{address == "()"?"":address}}</view>
+  </view>
+  <view class="item clear">
+    <view class="name left">车牌号</view>
+    <view class="value right">{{carNum}}</view>
+  </view>
+  <view class="item clear">
+    <view class="name left">手机号</view>
+    <view class="value right">{{mobile}}</view>
+  </view>
+  <!-- 附件ID -->
+  <view class="item clear">
+    <view class="name">现场图片</view>
+    <block wx:if='{{FilePaths && FilePaths.length > 0}}'>
+      <view class="img_box" wx:for="{{FilePaths}}" wx:key="{{item}}" data-index="{{index}}">
+        <image src="{{item}}" mode="aspecFill" class="frontimage cardImage" data-id="{{index}}" bindtap="ImagePreview" />
+      </view>
+    </block>
+    <block wx:else>
+      <view class="img_box">
+        <image src="/src/assets/images/icons/noneimg.png" mode="aspecFill" class="cardImage" />
+      </view>
+    </block>
+  </view>
+  <view class="item clear">
+    <view class="name title">服务项目</view>
+    <view class='serviceItems_box'>
+      <view class='serviceItems_content'>
+        <view class="table">
+          <view class="tr">
+            <view class="th">项目名称</view>
+            <view class="th">价格(￥)</view>
+            <view class="th">数量</view>
+          </view>
+          <block wx:for="{{serviceItems}}" wx:key="{{code}}">
+            <view class="tr">
+              <view class="td" data-servicename='{{item.serviceName}}'>{{item.serviceName}}</view>
+              <view class="td">
+                <view class="td">
+                  <input type="digit" class="tdinput" value="{{item.originalPrice == undefined?'待定':item.originalPrice}}"  data-servicename='{{item.serviceName}}' bindinput="inputPrice"></input>
+                </view>
+              </view>
+              <view class="td">
+                <view class='delBtn' data-servicename='{{item.serviceName}}' bindtap='delBtn'>-</view>
+                <view class='sumNum'>{{item.quantity}}</view>
+                <view class='addBtn' data-servicename='{{item.serviceName}}' bindtap='addBtn'>+</view>
+              </view>
+            </view>
+          </block>
+          <view class="tr">
+            <view class="td">总价</view>
+            <view class="td" style="border-right:0px;"></view>
+            <view class="td">{{totalPrice}}￥</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="addASBtn" bindtap='showModal' wx:if="{{outletOrderStatus==2}}">增加额外服务</view>
+    <!-- 底部弹出框 bindtap="hideModal" -->
+    <view class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+    <!-- 从上至下的弹窗animation="{{animationData}}"-->
+    <view class="commodity_attr_box" wx:if="{{showModalStatus}}">
+      <view class='commodity_box_title'>额外服务</view>
+      <view class='commodity_box_content'>
+        <view class='commodity_item clear disfx'>
+          <view class='commodity_item_name left'>
+            <text class='color_red'>*</text>服务项目:</view>
+          <input class="commodity_item_value fx1 left" value='{{serviceName}}' placeholder='输入名称' maxlength='50' bindinput='inputServiceName'></input>
+        </view>
+        <view class='commodity_item clear disfx' style='margin-top:15rpx;'>
+          <view class='commodity_item_name left'>
+            <text class='color_red'>*</text>服务数量:</view>
+          <input class="commodity_item_value fx1 left" type='number' value='{{quantity}}' placeholder='输入数量' maxlength='50' bindinput='inputQuantity'></input>
+        </view>
+      </view>
+      <view class='commodity_box_btn'>
+        <view class='commodity_btn' bindtap='hideModal'>取消</view>
+        <view class='commodity_btn sureBtn' bindtap='sureBtn'>确定</view>
+      </view>
+    </view>
+  </view>
+  <!-- 说明 -->
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' disabled='true'></textarea>
+  </view>
+  <!-- 网点 -->
+  <view class="btnList">
+    <view class="btn" bindtap='subAction' wx:if="{{outletOrderStatus==1||outletOrderStatus==2||outletOrderStatus==7}}" data-status="{{outletOrderStatus}}" data-orderid="{{orderId}}">{{outletOrderStatus==1?'开始服务':outletOrderStatus==2?'完成服务':outletOrderStatus==7?'确认':''}}</view>
+    <view class="btn redBtn" bindtap='ordercancel' wx:if="{{outletOrderStatus==1||outletOrderStatus==2}}" data-status="{{outletOrderStatus}}" data-orderid="{{orderId}}">{{outletOrderStatus==1||outletOrderStatus==2?'取消':''}}</view>
+  </view>
+</view>

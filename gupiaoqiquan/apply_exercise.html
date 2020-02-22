@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>申请行权</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/apply_exercise.css"/>
+		
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<div class="containers">
+			<div class="head">
+			</div>              
+			<div class="list">
+				<p>持仓记录</p>
+			</div>
+			<div class="one">
+				<div class="first">
+					<div class="content_1">
+						<div class="number">
+							<span>股票代码</span><p id="numbers">300586</p>
+						</div>
+						<div class="name">
+							<span>股票名称</span><p id="names">美联新材</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">期权费</span><p id="cost">5005</p>
+						</div>
+						<div class="name">
+							<span>名义本金</span><p id="prinpical">50000.00</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="space">初期价</span><p id="average">1.25</p>
+						</div>
+						<div class="name">
+							<span class="states">合约状态</span><p id="state">行权中</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span>报价日期</span><p id="say">2018/02/12</p>
+						</div>
+						<div class="name">
+							<span>到期日期</span><p id="expire">2018/03/12</p>
+						</div>
+					</div>	
+					<div class="content_1">
+						<div class="number">
+							<span>买入时间</span><p id="relatiybuy">年月日</p>
+						</div>
+					</div>
+					<div class="content_1">
+						<div class="number">
+							<span class="spaces">备注</span><p id="note"></p>
+						</div>
+					</div>					
+				</div>
+				<hr />
+				<div class="explain">
+					<p>说明：该单子买入五个交易日后才可行权申请操作</p>
+				</div>				
+			</div>
+			<div class="callfor">
+				<button class="apply">申请行权</button>
+			</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		<div id="app">
+			<p>行权申请</p>
+			<div class="apps">
+				<div class="market_price">
+					市价
+				</div>
+				<div class="now_price">
+					现价
+				</div>
+			</div>
+			<div class="market_cost">
+				<input type="text" name="" id="" value="" placeholder="当前市场价格" />
+			</div>	
+			<div class="now_cost">
+				<input type="text" name="" id="" value="" placeholder="最小值"/> &nbsp; — &nbsp; <input type="text" name="" id="" value="" placeholder="最大值"/>
+			</div>
+			<div class="down">
+				<button class="no">取消</button><button class="yes">确定</button>
+			</div>
+		</div>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/order.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				if(token==null||token.length==0||token==""){
+					window.location.href = "login.html";
+				}
+				
+				getHodingList();
+				
+				function getHodingList(){
+					$.ajax({
+	                    url: test_url + pro_name + '/user/get/orders',
+	                    /*url: "http://119.29.227.15/gpqq/user/login",*/
+	                    //请求的url
+	                    type:"post",
+	                    dataType: 'jsonp',
+	                    jsonp: "callback",
+	                    data: {
+	                       "token":token,
+	                       "pageNum":1,
+	                       "pageSize":20,
+	                       "type":7 // 持仓中
+	                    },
+	                    beforeSend: function() {
+	
+	                    },
+	                    success: function(data) {
+	                        console.log(data)
+	
+	                        if (data.status === 200) {
+	                            layer.msg('登录成功', {
+	                                    time: 2000
+	                                }, function() {
+	                                    $('.lg').hide().siblings().show();
+	                                    /*localStorage.setItem('userToken', data.data)*/
+	                                    sessionStorage.setItem("token", data.data); 	                                    
+	                                   /*location.href="./personal_center.html"*/
+	                                  location.href="./home_page.html"
+	                                  
+	                                })
+	                        } else {
+	                            $('.lg').hide().siblings().show();
+	                            layer.msg(data.msg)
+	                        }
+	
+	                    },
+	                    error: function(xhr, status, error) {
+	                            $('.lg').hide().siblings().show();
+	                        } //error end
+	                });
+				}//fn end
+				
+			});//final end
+		</script>
+	</body>
+</html>
+
+
+
+

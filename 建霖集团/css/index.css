@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* header */
+.top-header {
+  position: relative;
+  z-index: 1000;
+  height: 60px;
+  background-color: #20203c;
+}
+.top-header .top-logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+}
+.top-header .top-logo a {
+  display: inline-block;
+  text-align: center;
+  line-height: 60px;
+}
+.top-header .top-logo a .login-img {
+  float: left;
+  width: 44px;
+  height: 60px;
+}
+.top-header .top-logo a .login-img img {
+  display: block;
+  width: 21px;
+  height: 22px;
+  margin: 19px 0 0 17px;
+  border: 0;
+}
+.top-header .top-logo a .login-name {
+  float: left;
+  text-align: center;
+  line-height: 60px;
+  color: #0394fd;
+  font-size: 24px;
+}
+.top-header .top-logo a .login-name p {
+  display: inline-block;
+}
+.top-header .top-logo a .login-name i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 5px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: #0394fd;
+}
+.top-header .top-nav-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+.top-header .top-nav-right .top-nav-item {
+  position: relative;
+  display: inline-block;
+  max-height: 60px;
+  line-height: 60px;
+  vertical-align: middle;
+}
+.top-header .top-nav-right .top-nav-item.timeBox {
+  display: inline-block;
+  padding: 10px 0px;
+  vertical-align: top;
+  line-height: 40px;
+}
+.top-header .top-nav-right .top-nav-item.timeBox .nav-name {
+  width: 138px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #fff;
+  font-size: 14px;
+}
+.top-header .top-nav-right .top-nav-item.timeBox .nav-box {
+  line-height: 20px;
+  color: #fff;
+  font-size: 12px;
+}
+.top-header .top-nav-right .top-nav-item.power-close {
+  width: 80px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #2a2a44;
+  cursor: pointer;
+}
+.top-header .top-nav-right .top-nav-item.power-close:hover {
+  background-color: #29294d;
+}
+.top-header .top-nav-right .top-nav-item.power-close .icon-tuichu {
+  color: #c6e7fe;
+  font-size: 18px;
+}
+/* 主体内容 */
+.admin-body {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  z-index: 998;
+  width: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.admin-body .admin-content {
+  width: 100%;
+  height: 100%;
+  background-color: #1c1c34;
+}

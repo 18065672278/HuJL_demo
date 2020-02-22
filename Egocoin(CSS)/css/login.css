@@ -1,0 +1,155 @@
+.login,.forgetpass,.registered {
+	display: inline-block;
+	width: 7.5rem;
+	min-height: 100vh;
+	/*background: -webkit-linear-gradient(#21677c, #21273d); 
+    background: -o-linear-gradient(#21677c, #21273d); 
+    background: -moz-linear-gradient(#21677c, #21273d); 
+    background: linear-gradient(#21677c, #21273d);*/
+   background: url(../img/bg.png) no-repeat center center;
+   background-size: 100% 100%; 
+}
+.login .logo {
+	padding: 2.05rem 0 2.05rem;
+	text-align: center;
+}
+.logo img {
+	width: 3.8rem;
+    height: 1.24rem;
+}
+.form_item {
+    width: 5rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    margin: 0.4rem auto 0rem;
+    border-bottom: 0.02rem solid #FFFFFF;
+    position: relative;
+}
+.form_item .outline {
+	width: 0.3rem;
+	height: 0.34rem;
+	margin:0;
+	vertical-align: middle;
+}
+.form_item .password {
+	width: 0.3rem;
+	height: 0.34rem;
+	margin:0;
+	vertical-align: middle;
+}
+.form_item_input {
+    display: inline-block;
+}
+.form_item img.by {
+    width: 0.36rem;
+    height: 0.16rem;
+    margin-top: 0.2rem;
+    vertical-align: middle;
+}
+.form_item input {
+    width: 3.9rem;
+    border: 0;
+    line-height: 0.8rem;
+    /*color: rgba(255,255,255,0.6);*/
+    font-size: 0.30rem;
+    background: rgba(255,255,255,0);
+    vertical-align: middle;
+    display: inline-block;
+}
+.line {
+    width: 0.4rem;
+    display: inline-block;
+}
+button.loginBtn,button.wait {
+    width: 5rem;
+    height: 0.9rem;
+    font-size: 0.48rem;
+    color: rgba(255,255,255,0.6);
+    border: 0;
+    margin: 0.56rem 1.25rem 0;
+    background: rgba(255,255,255,0.3);
+}
+
+.forget {
+    width: 5rem;
+    display: block;
+    font-size: 0.24rem;
+    color: #FFFFFF;
+    margin: 0.15rem auto 0;
+    text-align: right;
+}
+.login-b {
+    display: block;
+    width: 5.6rem;
+    font-size: 0.24rem;
+    color: #ffffff;
+    /*padding: 2.2rem 0 0.6rem;
+    margin: 0 auto;*/
+    margin: 2.2rem auto 0.6rem;
+    text-align: center;
+}
+.forgetcheck,
+.registeredcheck {
+    font-size: 0.36rem;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+.ttel {
+    border-bottom: 0.02rem solid;
+}
+input.post {
+    width: 0.9rem;
+    font-size: 0.3rem;
+    color: #eea527;
+    float: right;
+}
+.forgetpass .form_item {
+    margin: 0 auto;
+}
+-moz-placeholder { 
+    color: rgba(255,255,255,0.6); opacity:1; 
+}
+
+::-moz-placeholder { 
+    color: rgba(255,255,255,0.6);opacity:1;
+}
+
+input:-ms-input-placeholder{
+    color: rgba(255,255,255,0.6);opacity:1;
+}
+
+input::-webkit-input-placeholder{
+    color: rgba(255,255,255,0.6);opacity:1;
+}
+.registered .form,.forgetpass .form {
+    margin-top: 2.5rem;
+}
+.form_item input#rcode,.form_item input#fcode {
+    width: 2.5rem;
+}
+.form_item input.code {
+    width: 1.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    vertical-align: middle;
+    font-size: 0.2rem;
+    color: #FFFFFF;
+    text-align: center;
+    display: inline-block;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 0.1rem;
+}
+.protocol {
+    text-align: center;
+    font-size: 0.18rem;
+    color: #FFFFFF;
+    padding: 0.26rem 0 3rem;
+}
+input#protocol {
+    width: 0.24rem;
+    height: 0.24rem;
+    vertical-align: middle;
+}

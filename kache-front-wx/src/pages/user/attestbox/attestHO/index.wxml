@@ -1,0 +1,155 @@
+<!--src/pages/user/attestHO/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">网点名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{name}}' placeholder='请输入网点名称' maxlength='20' bindinput='inputName'></input>
+  </view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">地址
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right" style='text-align:right;'>{{region}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left">联系人姓名
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{contact}}' placeholder='请输入联系人姓名' maxlength='20' bindinput='inputContact'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">联系方式
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{mobile}}' placeholder='请输入联系方式' maxlength='20' bindinput='inputMobile'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">网点地址
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right resetValue" data-latitude='{{latitude}}' data-longitude='{{longitude}}' value='{{address == "()"?"":address}}'/>
+    <image class="next reset" bindtap='addressSelect' src="/src/assets/images/outlet/reset.png"></image>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">身份证照
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[0]?FilePaths[0]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[0]?'':'frontimage'}} cardImage" data-id="0" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[0]}}" data-id="0" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(正面)</view>
+      </view>
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[1]?FilePaths[1]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[1]?'':'frontimage'}} cardImage" data-id="1" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[1]}}" data-id="1" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(反面)</view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">营业执照</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[2]?FilePaths[2]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[2]?'':'frontimage'}} cardImage" data-id="2" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[2]}}" data-id="2" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">开户许可证</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[3]?FilePaths[3]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[3]?'':'frontimage'}} cardImage" data-id="3" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[3]}}" data-id="3" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">驾驶证照</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[4]?FilePaths[4]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[4]?'':'frontimage'}} cardImage" data-id="4" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[4]}}" data-id="4" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(主页)</view>
+      </view>
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[5]?FilePaths[5]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[5]?'':'frontimage'}} cardImage" data-id="5" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[5]}}" data-id="5" bindtap="removeImage" />
+        </view>
+        <view class="idCardPhoto_msg">(副页)</view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">行驶证照
+      <text class="color_red">(流动网点必填)</text>
+    </view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[6]?FilePaths[6]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[6]?'':'frontimage'}} cardImage" data-id="6" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[6]}}" data-id="6" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">门头照</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[7]?FilePaths[7]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[7]?'':'frontimage'}} cardImage" data-id="7" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[7]}}" data-id="7" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">网点缩略图</view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[8]?FilePaths[8]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[8]?'':'frontimage'}} cardImage" data-id="8" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[8]}}" data-id="8" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:if='{{carboxArr && carboxArr.length > 0}}'>
+    <view class="item clear" wx:for="{{carboxArr}}" wx:key="item.carNum">
+      <view class="name left" bindtap="delCarItem" data-id="{{item.id}}" data-index="{{index}}" data-no="{{item.carNum}}">删除</view>
+      <view class="value right" style='text-align:right;' bindtap="editCarItem" data-id="{{item.id}}" data-index="{{index}}" data-no="{{item.carNum}}">
+        <text class="car_name car_info">服务车{{item.id}}</text>
+        <text class="car_no car_info">{{item.carNum}}</text>
+        <image class="next" src="/src/assets/images/next.png"></image>
+      </view>
+    </view>
+  </block>
+  <!-- <view class="item clear" bindtap="addCarItem">
+    <view class="name left">添加服务车</view>
+    <image class="next" src="/src/assets/images/next.png"></image>
+  </view> -->
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class='sub_btn_box'>
+    <view class="sub_btn btn" bindtap='subAction'>提交</view>
+  </view>
+</view>

@@ -1,0 +1,145 @@
+/* src/pages/user/attestNO/index.wxss */
+
+.item_list {
+  position: relative;
+  margin: 0 20rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #ededed;
+}
+
+.name {
+  font-size: 26rpx;
+  color: #000;
+  min-width: 130rpx;
+}
+
+.value {
+  margin-left: 20rpx;
+}
+
+input.value {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: right;
+  color: #828282;
+}
+
+.smallLN {
+  line-height: 40rpx;
+  margin-top: 20rpx;
+}
+
+.smallFS {
+  line-height: 30rpx;
+  font-size: 24rpx;
+}
+
+.getcode {
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #ededed;
+  font-size: 30rpx;
+  color: #52cc38;
+  padding: 0 20rpx;
+  text-align: center;
+}
+
+.btn {
+  margin: 30rpx auto;
+}
+
+.checkbox-con {
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.checkbox {
+  width: 30%;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+  color: #888;
+  border: 1rpx solid #cecece;
+  border-radius: 5rpx;
+  display: inline-block;
+  margin: 0 10rpx 20rpx 0;
+  text-align: center;
+  position: relative;
+}
+
+.checkbox checkbox {
+  float: left;
+}
+
+.checkbox checkbox {
+  display: none;
+}
+
+.checked {
+  border: 1rpx solid red;
+  color: red;
+}
+
+.checked-img {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.idCardPhoto {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  text-align: center;
+  color: #888;
+}
+
+.img_box {
+  display: block;
+  width: 200rpx;
+  height: 150rpx;
+  margin: 40rpx auto 0;
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.q-image-remover {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.idCardPhoto_msg {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+
+.next {
+  position: absolute;
+  right: 13rpx;
+  top: 25rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.car_info {
+  font-size: 24rpx;
+  color:#888;
+}
+.car_no {
+  margin-left: 30rpx;
+}
+
+.picvalue {
+  margin-right: 60rpx;
+}

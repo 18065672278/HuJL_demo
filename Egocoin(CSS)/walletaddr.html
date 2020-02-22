@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>管理地址</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/wallet.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+	</head>
+	<body>
+		<div class="walletaddr w">
+			<div class="title">
+				<a href="recharge.html" class="back" id="back"></a>
+				<div class="logo">管理地址</div>
+				<div class="fr back" id="addaddr"><img src="img/add.png" /></div>
+				<div class="clear"></div>
+			</div>
+			<div class="w_content">
+				<div class="wa_msg">
+					最多可生成20个<span class="rcode">USDT</span>地址，点击可复制
+				</div>
+				<div class="addrlist">
+					<ul>
+						<li class="disfx">
+							<div class="alnum">9</div>
+							<input type="text" class="addr fx1" value="13Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">8</div>
+							<input type="text" class="addr fx1" value="12Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">7</div>
+							<input type="text" class="addr fx1" value="11Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">6</div>
+							<input type="text" class="addr fx1" value="10Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">5</div>
+							<input type="text" class="addr fx1" value="09Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">4</div>
+							<input type="text" class="addr fx1" value="08Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">3</div>
+							<input type="text" class="addr fx1" value="07Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">2</div>
+							<input type="text" class="addr fx1" value="06Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+						<li  class="disfx">
+							<div class="alnum">1</div>
+							<input type="text" class="addr fx1" value="05Qw5Uib2X2BowLZdSBL7QA2A2J41QFKaa" readonly="readonly"/>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+			
+		
+		
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/footer.js" ></script>
+		<script src="js/wallet.js"></script>
+		<script src="js/url.js"></script>
+		<script type="text/javascript">
+			//获取前一个页面的值并转换页面上的相关值
+			var currency=GetQueryString("currency")
+			if (currency != null){
+				$(".rcode").text(currency);
+				$("#back").attr("href","recharge.html?currency="+currency);
+			}
+			$("#addaddr").click(function(){
+				walletaddr();
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>USDT提现</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/wallet.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+	</head>
+	<body>
+		<div class="withdraw w">
+			<div class="title">
+				<a href="wallet.html" class="back"></a>
+				<div class="logo">USDT提现</div>
+				<div class="clear"></div>
+			</div>
+			<div class="w_content">
+				<div class="w_c_t clearfix">
+					<ul>
+						<li class="disfx">
+							<div class="w_c_lname">
+								提现地址
+							</div>
+							<input type="text" class="address w_c_ltext fx1" id="withadd" value="" placeholder="请输入USDT地址"/>
+						</li>
+						<li class="disfx">
+							<div class="w_c_lname">
+								<span class="rcode">USTD</span>数量
+							</div>
+							<input type="text" class="count w_c_ltext fx1" id="withcount" value="" placeholder="请输入USDT数量"/>
+						</li>
+						<li class="disfx">
+							<div class="w_c_lname">
+								交易密码
+							</div>
+							<input type="password" class="password w_c_ltext fx1" id="withfund" value="" placeholder="请输入交易密码"/>
+						</li>
+					</ul>
+					<div class="fr forget">忘记密码？</div>
+				</div>
+				<div class="w_c_c">
+					<div class="msg_t">
+						注意事项
+					</div>
+					<div class="msg_c">
+						<span class="rcode">USTD</span>地址只能充值<span class="rcode">USTD</span>资产， 任何充入
+						<span class="rcode">USTD</span>地址的非<span class="rcode">USTD</span>资产将不可找回。 充值上述地址需要
+						<span class="date">1</span>个网络确认才能到账，最低存入金额为<span class="lowmoney">100</span><span class="rcode">USTD</span>
+					</div>
+				</div>
+				<div class="w_c_btn btn">
+					<div class="qdwithdraw">
+						确定提现
+					</div>
+				</div>
+			</div>
+			<div class="w_c_b">
+				正在处理中的转账 <img src="img/wh.png" id="showwh" />
+			</div>
+			<div class="eject">
+				<div class="theme-mask"></div>
+				<div class="popover1">
+					<div class="msg">
+						温馨提示<br /> 
+						在<span class="rcode">USTD</span>网络接收<span class="rcode">USTD</span>通常需要<span class="min">20</span>分钟。
+						我们会在收到<span class="rcode">USTD</span>网络<span class="data">1</span>个确认后给您入账。 
+						最低存入金额为<span class="lowmoney">100</span><span class="rcode">USTD</span>,我们不会处理少于该金额的<span class="rcode">USTD</span>存入请求。 
+						在平台内相互转账是实时到账且免费的。
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/footer.js" ></script>
+		<script src="js/wallet.js"></script>
+		<script src="js/url.js"></script>
+		<script type="text/javascript">
+			//获取前一个页面的值并转换页面上的相关值
+			var currency=GetQueryString("currency")
+			console.log(currency);
+			if (currency != null){
+				$(".rcode").text(currency);
+				$("title").text(currency + "提现");
+				$(".logo").text(currency + "提现");
+				$(".address").attr("placeholder","请输入"+currency+"地址");
+				$(".count").attr("placeholder","请输入"+currency+"数量");
+			}
+			//点击底部问号显示弹出框
+			$('#showwh').click(function() {
+				$('.theme-mask').show();
+				$('.theme-mask').height($(document).height());
+				$('.popover1').slideDown(200);
+			})
+			//点击遮幕隐藏弹出框
+			$(".theme-mask").click(function() {
+				$('.theme-mask').hide();
+				$('.popover1').slideUp(200);
+			})
+			//确认提现
+			$(".qdwithdraw").on("click",function(){
+				withdraw()
+			})
+		</script>
+	</body>
+</html>

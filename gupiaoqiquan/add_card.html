@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加银行卡</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/add_card.css"/>
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<div class="containers">
+			<div class="head">
+				<a href="card_manage.html"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">添加银行卡</span>
+			</div> 
+			<!--<div class="blanks"></div>-->
+		    <div class="list_1">
+		    	<img src="img/姓名.png"/>
+		    	<div class="recharge">
+		    		<input type="text" name="" id="name" placeholder="姓名" />
+		    	</div>		 
+		    </div>
+			<div class="list_2">
+		    	<img src="img/银行卡.png"/>
+		    	<div class="recharge">
+		    		<input type="text" name="" id="card" placeholder="银行卡" /> 
+		    	</div>		 
+		    </div>
+		    <div class="list_3">
+		    	<img src="img/网点.png"/>
+		    	<div class="recharge">
+		    		<input type="text" name="" id="address" placeholder="开户行" /> 
+		    	</div>		 
+		    </div>
+		    <div class="list_4">
+		    	<img src="img/手机.png"/>
+		    	<div class="recharge">
+		    		<input type="text" name="" id="phone" placeholder="预留号码" /> 
+		    	</div>		 
+		    </div>
+		    <div class="confirm">
+	    		<input type="button" name="" id="add" value="确认添加" />
+	    	</div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" charset="utf-8">	
+		 $(function(){
+		 	$("#add").on("click",function(){
+		 		if($("#name").val()==""){
+		 			layer.msg("持卡人姓名不允许为空")
+		 		}else if($("#card").val()==""){
+		 			layer.msg("卡号不允许为空")
+		 		}else if($("#address").val()==""){
+		 			layer.msg("开户网点不允许为空")
+		 		}else if($("#phone").val()==""){
+		 			layer.msg("预留手机号不允许为空")
+		 		}else{		 			
+		 			//可以加正则表达式校验///卡号 手机号等
+		 			$.ajax({
+					url: test_url + pro_name + 'user/commit/bankCard',
+					type:"POST",
+					dataType:'jsonp',
+					jsonp:'callback',
+					data:{
+						"token":token,
+						"cardholderName":$("#name").val(),
+						"bankCardNo":$("#card").val(),
+						"openBank":$("#address").val(),
+						"cardholderPhone":$("#phone").val()
+					},
+					success:function(data){
+						console.log(data);
+						if(data.status === 200){
+							layer.msg("添加成功",{time:2000},function(){
+								
+								window.location.href="card_manage.html"
+							})
+						}else{
+							layer.msg(data.msg);
+							/*location.href="./login.html"*/
+						}
+					},
+					error:function(xhr,status,error){
+						
+					}
+				});
+		 		}
+		 		
+		 	});
+		 });
+			
+		</script>
+	</body>
+</html>

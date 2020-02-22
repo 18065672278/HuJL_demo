@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>组织管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="shortcut icon" type="text/css" href="../../images/bitbug_favicon.ico">
+        <style>
+            .table-content {
+                position: relative;
+                padding: 0;
+                margin: 0;
+                overflow: auto;
+                height: 344px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pop-layer-wrapper">
+            <div class="pop-layer-title">
+                <h3 class="txt">率属人员</h3>
+                <div class="btn-row">
+                    <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+                </div>
+            </div>
+            <div class="pop-layer-content clearfix">
+                <div class="table-content">
+                    <table class="table fixedTable">
+                        <thead>
+                            <tr>
+                                <th>所在部门</th>
+                                <th>姓名</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>所在部门</th>
+                                <th>姓名</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                            <tr>
+                                <td>咨询一部</td>
+                                <td>吴亦凡</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script>
+            $(function(){
+                var layerIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                //关闭窗口
+                $("#closeBtn").click(function() {
+                    top.layer.close(layerIndex);
+                });
+                //滚动时表头固定
+                $(".table-content").scroll(function(){
+                    var scrollTop = $(this).scrollTop();
+                    // $(".right-content .fixed-tab").css("top",scrollTop);
+                    $(".fixedTable").css("top",scrollTop);
+                });
+            })
+        </script>
+    </body>
+</html>

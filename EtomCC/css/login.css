@@ -1,0 +1,162 @@
+@charset "utf-8";
+/*login*/
+.login-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: table;
+}
+.login-wrapper .imgbg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(../images/loginbg.jpg);
+    background-size: cover;
+}
+.login-wrapper .login-name {
+    position: absolute;
+    top: 95px;
+    left: 50px;
+    height: 60px;
+    line-height: 60px;
+}
+.login-wrapper .login-name a {
+    display: block;
+    text-decoration: none;
+    font-size: 34px;
+    color: #fff;
+}
+.login-wrapper .login-name a img {
+    display: inline-block;
+    width: 435px;
+    height: 45px;
+    border:0;
+}
+.login-wrapper .login-box {
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    left: 0;
+    right: 3%;
+    width: 504px;
+    height: 532px;
+    margin-left: auto;
+}
+.logo-title {
+    padding: 10px 0;
+    text-align: center;
+    line-height: 44px;
+    color: #2a2d2e;
+    font-size: 26px;
+}
+.login-form {
+    margin-top: 50px;
+    padding: 0 20px;
+}
+.login-form .login-form-group{
+    position: relative;
+    height: 56px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.login-form-group .icon-con{
+    float: left;
+    width: 74px;
+    height: 24px;
+    padding: 9px 0;
+    border-radius: 5px;
+    background-color: #249cf3;
+}
+.login-form-group .yzm {
+    float: left;
+    width: 130px;
+    height: 42px;
+    cursor: pointer;
+}
+.login-form-group .yzm img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.login-form .login-form-group .form-input{
+    display: block;
+    float: left;
+    width: calc(100% - 105px);
+    height: 40px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #999999;
+    background-color: #f5f8ff;
+}
+.login-form .login-form-group .icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin: auto;
+}
+.login-form .user-group .icon{
+    background: url("../images/user.png") no-repeat center;
+    background-size: contain;
+}
+.login-form .password-group .icon{
+    background: url("../images/pass.png") no-repeat center;
+    background-size: contain;
+}
+.login-form .yzm-group .icon{
+    background: url("../images/yzm.png") no-repeat center;
+    background-size: contain;
+}
+.login-form .yzm-group {
+    margin-bottom: 50px;
+}
+.login-form .login-form-group.yzm-group .form-input {
+    width: calc(100% - 235px);
+}
+.login-form .login-button-group {
+    margin: 0 auto;
+    text-align: center;
+}
+.login-form .login-button {
+    width: 345px;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    background-color: #0d92f2;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+}
+.login-form .login-button:hover {
+    background-color: #55abed;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1366px){
+    .login-wrapper .login-box {
+        right: 4%;
+    }
+}
+@media screen and (min-width: 1366px) and (max-width: 1680px){
+    .login-wrapper .login-box {
+        right: 6%;
+    }
+}
+@media (min-width: 1680px) {
+    .login-wrapper .login-box {
+        right: 12%;
+    }
+}

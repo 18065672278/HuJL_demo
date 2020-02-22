@@ -1,0 +1,5 @@
+@import "../../../templates/list/list.wxss";
+
+.product-box {
+  margin-top: 0;
+}

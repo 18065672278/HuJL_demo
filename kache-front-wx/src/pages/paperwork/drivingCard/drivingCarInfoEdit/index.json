@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "证件信息",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#222674",
+  "backgroundColor": "#eeeeee",
+  "component": true,
+  "usingComponents": {
+    "plate-number-keyboard": "../../../components/plate-number-keyboard/plate-number-keyboard"
+  }
+}

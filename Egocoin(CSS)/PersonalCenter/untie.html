@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>手机号解绑</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/m-base.css" />
+		<link rel="stylesheet" href="../css/script.css" />
+		<link rel="stylesheet" href="css/set.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+	</head>
+	<body>
+		<div class="untie w">
+			<div class="title">
+				<a href="set.html" class="back"></a>
+				<div class="logo">手机号解绑</div>
+				<div class="clear"></div>
+			</div>
+			<div class="u_content">
+				<div class="u_c_msg">
+					提示：修改手机号，24小时内限制提币和卖币，一个手机号 只能绑定一个账户，更换手机号后，下次登录时可使用新手机号登录
+				</div>
+				<div class="u_c_phone">
+					<span>当前手机号：+86 </span><span id="jbtel">15968956756</span>
+				</div>
+				<div class="qr" id="untie">解除绑定</div>
+			</div>
+			<div class="theme-mask"></div>
+			<div class="qduntie">
+				<div class="qduntie_msg">确定解除绑定吗？</div>
+				<div class="close qduntie_btn">取消</div>
+				<div class="qduntie_btn" id="untiephone">确定解绑</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/rem_new.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+		<script src="../js/url.js"></script>
+		<script type="text/javascript" src="js/personal.js"></script>
+		<script type="text/javascript">
+			console.log($("#jbtel").text());
+			$("#untie").click(function(){
+				$('.theme-mask').show();
+				$('.theme-mask').height($(document).height());
+				$('.qduntie').show();
+			})
+			$(".close").click(function(){
+				$('.theme-mask').hide();
+				$('.qduntie').hide();
+			})
+			$("#untiephone").click(function(){
+				$.ajax({
+					type:"post",
+					url:test_url + pro_name + "user/bind/phone ",
+					xhrFields: {
+				        withCredentials: true
+				    },
+				    crossDomain: true,
+                    data: {
+                    	token:token,
+                        phone:$("#jbtel").text()
+                    },
+                    beforeSend: function() {
+                        console.log('加载中...')
+                    },
+                    success:function(data){
+                    	console.log(data);
+                    	if(data.status ==200){
+                    		layer.msg("解绑成功！",{time:2000},function(){
+                    			location.href = "set.html"
+                    		})
+                    		
+                    	} else {
+                    		layer.msg(data.msg,{time:2000})
+                    	}
+                    }
+				});
+			})
+		</script>
+	</body>
+</html>

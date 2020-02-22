@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>项目管理</title>
+        <link rel="stylesheet" href="../../js/webuploader/webuploader.css" />
+        <link rel="stylesheet" href="../../css/common.css" />
+        <link rel="stylesheet" href="../../js/select/select.css" />
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>项目管理</a><span>/</span>
+                <a href="project_list.html"><cite>蒙牛中国股份有限公司项目资料</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="section-tab" id="section-tab">
+                <ul class="section-tab-title">
+                    <li class="tab-name active">
+                        <a href="approval_index.html">企业基本信息</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="start_up.html">贯标启动</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="field_diagnosis.html">现场调研及诊断</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="masterstroke_plan.html">主线策划</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="ploat_write.html">文件策划及编写</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="systematic_run.html">体系式运行</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="internal_audit.html">内部审核</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="management_review.html">管理评审</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="assess_evaluation.html">评定申请</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="stage_first.html">第一阶段现场审核</a>
+                    </li>
+                    <li class="tab-name">
+                        <a href="stage_second.html">第二阶段现场审核</a>
+                    </li>
+                    <li class="tab-name tab-more">
+                        <a href="javascript:void(0);">更多</a>
+                        <ul class="tab-more-list">
+                            <li class="tab-more-name active">
+                                <a href="approval_index.html">企业基本信息</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="start_up.html">贯标启动</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="field_diagnosis.html">现场调研及诊断</a>
+                            </li>
+                            <li class="tab-more-name">
+                                 <a href="masterstroke_plan.html">主线策划</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="ploat_write.html">文件策划及编写</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="systematic_run.html">体系式运行</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="internal_audit.html">内部审核</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="management_review.html">管理评审</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="assess_evaluation.html">评定申请</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="stage_first.html">第一阶段现场审核</a>
+                            </li>
+                            <li class="tab-more-name">
+                                <a href="stage_second.html">第二阶段现场审核</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content clearfix">
+                <div class="form-item-group mb10">
+                    <a href="javascript:void(0);" class="common-btn btn-normal">编辑资料</a>
+                </div>
+            </div>
+            <div class="form-content">
+                <div class="form-group">
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">企业名称</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">项目经理</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">项目等级</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">组织机构代码</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">所属行业</label>
+                            <div class="base-input-box twoSelectDiv">
+                                <div class="selectDiv up" id="selectDiv">
+                                    <input id="beginyear" type="text" class="selectValue" readonly="" value="2017" data-type="4">
+                                    <div class="selectOption">
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                    </div>
+                                </div>
+                                <div class="selectDiv up" id="selectDiv1">
+                                    <input id="beginyear1" type="text" class="selectValue" readonly="" value="2017" data-type="4">
+                                    <div class="selectOption">
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-grid1 mb10">
+                            <label class="base-form-txt required">营业执照(营业执照复印件必须加盖公章)</label>
+                            <div class="base-input-box">
+                                <a class="uploadImg" href="javascript:void(0);" id="uploadImage">上传照片</a>
+                                <input type="hidden" id="imageId" name = "#imageId"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">所属省市</label>
+                            <div class="base-input-box twoSelectDiv">
+                                <div class="selectDiv up" id="selectDiv2">
+                                    <input id="beginyear2" type="text" class="selectValue" readonly="" value="2017" data-type="4">
+                                    <div class="selectOption">
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                    </div>
+                                </div>
+                                <div class="selectDiv up" id="selectDiv3">
+                                    <input id="beginyear3" type="text" class="selectValue" readonly="" value="2017" data-type="4">
+                                    <div class="selectOption">
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">是否属于央企</label>
+                            <div class="base-input-box">
+                                <div class="selectDiv up" id="selectDiv4">
+                                    <input id="beginyear4" type="text" class="selectValue" readonly="" value="是" data-type="4">
+                                    <div class="selectOption">
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="3">是</a></div>
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="4">否</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">是否为上市企业</label>
+                            <div class="base-input-box">
+                                <div class="selectDiv up" id="selectDiv5">
+                                    <input id="beginyear5" type="text" class="selectValue" readonly="" value="是" data-type="4">
+                                    <div class="selectOption">
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="3">是</a></div>
+                                        <div class="option"><a href="javascript:void(0);" date-selectid="4">否</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">企业营收规模</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">主要产品</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">企业人数</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">企业法定代表人</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">企业总经理</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required lineH18">企业信息化负责人</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix" id="checkContent">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">企业信息化系统情况</label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox1" checked="">
+                                <label class="checkbox-txt" for="checkbox1">ERP</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox2" checked="">
+                                <label class="checkbox-txt" for="checkbox2">MES制造执行系统</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox3" checked="">
+                                <label class="checkbox-txt" for="checkbox3">PLM研发生命周期管理</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox4" checked="">
+                                <label class="checkbox-txt" for="checkbox4">财务系统</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox5" checked="">
+                                <label class="checkbox-txt" for="checkbox5">OA</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox6" checked="">
+                                <label class="checkbox-txt" for="checkbox6">自动化生产线</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox7" checked="">
+                                <label class="checkbox-txt" for="checkbox7">CRM客户关系管理系</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox8" checked="">
+                                <label class="checkbox-txt" for="checkbox8">SRM供应商关系管理系</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox9" checked="">
+                                <label class="checkbox-txt" for="checkbox9">BI商务智能决策系统</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox10" checked="">
+                                <label class="checkbox-txt" for="checkbox10">CAD/CAE/CAPP/CAM</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox checkboxItem" type="checkbox" value="0" id="checkbox11" checked="">
+                                <label class="checkbox-txt" for="checkbox11">其他</label>
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required"></label>
+                            <div class="base-input-box">
+                                <input name="orgType" class="checkbox" type="checkbox" value="0" id="checkbox12" >
+                                <label class="checkbox-txt" for="checkbox12" id="checkboxAll">均无</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">联系人</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">部门</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">职务</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">手机</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">邮箱</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">地址</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">网址</label>
+                            <div class="base-input-box">
+                                <input class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                        <div class="base-grid1 mb10">
+                            <label class="base-form-txt required">公司简介</label>
+                            <div class="base-input-box">
+                                <textarea class="base-form-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script src="../../js/select/select.js"></script>
+        <script src="../../js/autoTabWidth.js"></script>
+        <script src="../../js/webuploader/webuploader.js"></script>
+        <script src="../../js/staffuploader.js"></script>
+        <script src="../../js/posfixed.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+        <script>
+            $(function(){
+                // 所属行业
+                $.divselect("#selectDiv","#beginyear");  
+                $.divselect("#selectDiv1","#beginyear1"); 
+                //所属省市 
+                $.divselect("#selectDiv2","#beginyear2");  
+                $.divselect("#selectDiv3","#beginyear3"); 
+                 //是否属于央企 
+                $.divselect("#selectDiv4","#beginyear4");  
+                // 是否属于上市企业
+                $.divselect("#selectDiv5","#beginyear5");  
+                // 上传营业执照
+                createUpload('product_image','');
+
+            })
+            // 滚动定位
+            $("#section-tab").posfixed({
+                distance:-20,
+                pos:"top",
+                type:"while",
+                hide:false
+            });
+            // 均无
+            $("#checkboxAll").click(function() {
+                var isChecked = $(this).prev().prop("checked");
+                if(!isChecked){
+                    $("#checkContent").find(".checkboxItem").prop("checked", false);
+                }
+            });
+            // 单选时
+            $("#checkContent").find(".checkboxItem").next(".checkbox-txt").click(function() {
+                var isChecked = $(this).prev().prop("checked");
+                if(!isChecked){
+                    $("#checkbox12").prop("checked", false);
+                }
+            });
+        </script>
+    </body>
+</html>

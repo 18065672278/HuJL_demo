@@ -1,0 +1,27 @@
+<!--src/pages/bindtel/index.wxml-->
+<view class="content">
+  <view class="item-wrapper">
+    <view class="item_list disfx clear">
+      <view class="name left fx1">
+        <open-data type="userNickName" lang="zh_CN"></open-data>
+      </view>
+      <view class="value right">
+        <open-data type="userAvatarUrl" class="userimg"></open-data>
+      </view>
+    </view>
+    <view class="item_list disfx clear">
+      <view class="value|_list fx1 disfx left">
+        <view class="name left">手机号</view>
+        <input class="value left fx1" type='number' value='{{subData.tel}}' placeholder='请输入手机号' maxlength='20' bindinput='inputtel'></input>
+      </view>
+      <button class="getcode right" bindtap="getcode" disabled="{{disabled}}">{{codeName}}</button>
+    </view>
+    <view class="item_list disfx clear">
+      <view class="name left">验证码</view>
+      <input class="value fx1 right" type='number' value='{{subData.code}}' placeholder='请输入验证码' maxlength='20' bindinput='inputcode'></input>
+    </view>
+  </view>
+  <view class='sub_btn_box'>
+    <view class="sub_btn btn" bindtap='subAction'>登录</view>
+  </view>
+</view>

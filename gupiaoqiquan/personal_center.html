@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/personal_center.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<div class="containers">
+			<div class="head">
+				<a href="#"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">个人中心</span>
+			</div>              
+		    <div class="my-sign">
+		        <div class="my-signImg">
+		            <img id="my-signImg" src="img/icon-user.png">
+		            <div class="my-signWord">
+		                <span class="my-signTitle" id="my-signTitle"><span class="number"></span></span> 	                
+		                <div class="money">
+		                	<img src="img/icon-余额.png"/><span id="mount"></span>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <a id="withdrawal">
+			    <div class="list_1">
+			    	<img src="img/icon-充值提现.png"/ class="img_left">
+			    	<div class="recharge">
+			    		<span class="recharges">充值提现</span> 
+			    	</div>
+			    	<img src="img/more.png" class="img_right"/>
+			    </div>
+		    </a>
+		    <!--<a href="user_authentication.html"></a>-->
+		    <div class="list_1" id="audit">
+		    	<img src="img/icon-实名认证.png"/ class="img_left">
+		    	<div class="recharge">
+		    		<span class="recharges">实名认证</span> 
+		    	</div>
+		    	<img src="img/more.png" class="img_right"/>
+		    </div>
+		    
+		    <a href="promotion_earnings.html">
+			    <div class="list_1">
+			    	<img src="img/icon-推广收益.png"/ class="img_left">
+			    	<div class="recharge">
+			    		<span class="recharges">推广收益</span> 
+			    	</div>
+			    	<img src="img/more.png" class="img_right"/>
+			    </div>
+		    </a>
+		    <a href="personal_data.html">
+			    <div class="list_1">
+			    	<img src="img/个人资料.png"/ class="img_left">
+			    	<div class="recharge">
+			    		<span class="recharges">个人资料</span> 
+			    	</div>
+			    	<img src="img/more.png" class="img_right"/>
+			    </div>
+		    </a>
+		    <a href="card_manage.html">
+			    <div class="list_1">
+			    	<img src="img/银行卡管理.png"/ class="img_left">
+			    	<div class="recharge">
+			    		<span class="recharges">银行卡管理</span> 
+			    	</div>
+			    	<img src="img/more.png" class="img_right"/>
+			    </div>
+		    </a>
+		    <a href="login.html">
+			    <div class="register">
+			    	<p>退出登录</p>
+			    </div>
+		    </a>
+		    <div class="shadow"></div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">	
+			//alert(token);
+			if(token==null||token.length==0||token==""){
+				window.location.href = "login.html";
+			}
+			
+			$.ajax({
+				url: test_url + pro_name + 'user/get/info',
+				type:"POST",
+				dataType:'jsonp',
+				jsonp:'callback',
+				data:{
+					"token":token
+				},
+				success:function(data){
+					console.log(data)
+					/*console.log(token)*/
+					if(data.status === 200){
+//						$("#my-signImg").attr("src", pic_url + data.data.userPic);
+						$("#my-signTitle").html(data.data.userName+"<span class='number'>("+data.data.userPhone+")<span>");
+						/*$("#my-signTitle").html(data.data.userName);
+						$(".number").html(data.data.userPhone);*/
+						$("#mount").html("￥" + data.data.userBalance)
+						$("#withdrawal").attr("href","top-up_withdrawal.html?money="+data.data.userBalance)
+					}else{
+						/*layer.msg(data.msg);*/
+						location.href="./login.html"
+					}
+				}
+				/*error:function(xhr,status,error){
+						
+				}*/
+			});
+			//打开用户认证页面 判断是否认证过
+			$("#audit").on("click",function(){
+				$.ajax({
+				url: test_url + pro_name + 'user/get/bankCard/state',
+				type:"POST",
+				dataType:'jsonp',
+				jsonp:'callback',
+				data:{
+					"token":token
+				},
+				success:function(data){
+					console.log(data)
+					/*console.log(token)*/
+					if(data.status === 200){
+						window.location.href="user_authentication.html"
+					}else if(data.status === 601){
+						layer.msg("等待审核",{time:2000},function(){
+							window.location.href="waiting_audit.html"
+						});						
+					}else if(data.status === 602){
+						layer.msg("认证成功");
+					}else if(data.status === 603){
+						layer.msg("认证失败，请重新认证",{time:2000},function(){
+							window.location.href="user_authentication.html"
+						});
+						
+					}
+				}
+				/*error:function(xhr,status,error){
+						
+				}*/
+			});
+			});
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>等待审核</title>
+		<meta name="keywords" content="" />  
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/waiting_audit.css"/>
+
+	</head>
+	<body>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<div class="containers">
+			<div class="head">
+				<a href="#"><img  src="img/_.png"/><span id="back">返回</span></a>
+				<span class="heads">等待审核</span>
+			</div>              
+		    <div class="head_portrait">
+		    	<img src="img/PIC1.png"/>
+		    </div>
+		    <div class="contents">
+		    	<p>资料已提交，等待审核</p>
+		    </div>
+		    <div class="contact">
+		    	<div class="conclude">
+		    		<p class="lianxi">如需信息修改，请联系客服：</p>
+		    		<div class="way">
+				    	<div class="rows">
+							<img src="img/icon1.png" />
+							<p class="qq">749202242</p>
+						</div>
+						<div class="rows">
+							<img src="img/icon2.png" />
+							<p class="phone">0592-881166</p>
+						</div>
+						<div class="rows">
+							<img src="img/icon3.png" />
+							<p class="wechat">13799234549</p>
+						</div>
+				    </div>
+				    <p class="lianxi">工作时间：</p>
+				    <p class="lianxi">周一~周五  9:00~18:00</p>
+		    	</div>			    	
+		    </div>
+		    <a href="personal_center.html">
+			    <div class="jump">
+			    	<input type="button" name="" id="" value="立即跳转" />
+			    </div>
+		    </a>
+		    <div class="shadow"></div>
+		    <div class="footer">
+				<div class="rows_1">
+					<img src="img/交易.png" id="row_1" />
+					<p class="change">交易</p>
+				</div>
+				<div class="rows_2">
+					<img src="img/订单.png" id="row_2"/>
+					<p class="order">订单</p>
+				</div>
+				<div class="rows_3">
+					<img src="img/会员中心.png" id="row_3"/>
+					<p class="member">会员中心</p>
+				</div>
+		    </div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile.custom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/url.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+		 $(function(){		 			 				 			
+		 			//可以加正则表达式校验///卡号 手机号等
+		 			$.ajax({
+					url: test_url + pro_name + 'user/get/bankCard/state',
+					type:"POST",
+					dataType:'jsonp',
+					jsonp:'callback',
+					data:{
+						"token":token
+					},
+					success:function(data){
+						console.log(token);
+						/*$("#confirm").css("background-color","#AC825E");*/
+						if(data.status === 200){
+							layer.msg(data.msg)
+						}else{
+							layer.msg(data.msg);
+							/*location.href="./login.html"*/
+						}
+					},
+					error:function(xhr,status,error){
+						
+					}
+				});		 		
+		 	});
+	</body>
+</html>

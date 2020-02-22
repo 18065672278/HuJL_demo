@@ -1,0 +1,495 @@
+/*reset css, from YUI Library*/
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-weight: normal;
+    font-style: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: ”;
+}
+
+abbr,
+acronym {
+    border: 0;
+}
+
+html {
+    font-size: 40px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .6rem;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(../img/背景图.png) no-repeat;
+    background-size: 100% 100%;
+    /*background-size: cover;*/
+}
+.head{
+	background-color: #000000;
+	color: #FFFFFF;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
+}
+.head img{
+	margin-left: 0.27rem;
+	margin-right: 0.4rem;
+	width: 0.7rem;
+	height: 0.8rem;
+}
+#back{
+	color: #FFFFFF;
+	margin-right: 25%;
+	font-size:1.6em;
+}
+.heads{
+	width: 1.93rem;
+	height: 0.53rem;
+	font-size: 12px;
+	text-align: center;
+}
+
+/*标题：富途商品汇*/
+
+.login-title {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20vh 0 6vh;
+    background: url(../img/头像.png) no-repeat center;
+    background-position: bottom;
+    background-size: 4.7rem ;
+}
+
+
+/*main包裹层*/
+
+.login-wrap {
+    position: relative;
+    width: 75%;
+    margin: 2rem auto 0;
+}
+
+
+/*输入框和提交按钮*/
+
+.login-wrap form {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login-icon {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    display: inline-block;
+    width: 2rem;
+    height: 1.7rem;
+    border-right: solid 1px #d6d6d6;
+}
+
+.login-phone {
+    background-image: url(../img/邮箱.png);
+    background-repeat: no-repeat;
+    background-position: .2rem center;
+    background-size: 1.3rem;
+}
+
+.login-key {
+    background-image: url(../img/密码.png);
+    background-repeat: no-repeat;
+    background-position: .3rem center;
+    background-size: 1.1rem;
+}
+
+.login-input {
+    position: relative;
+    display: block;
+    width: 100%;
+    /* margin: 0 auto .5rem; */
+}
+
+#loginForm>div:nth-child(2) {
+    margin-top: 15px;
+}
+
+.login-wrap input[type='text'],
+.login-wrap input[type='password'] {
+    box-sizing: border-box;
+    font-size: .8rem;
+    display: block;
+    width: 100%;
+    height: 2.6rem;
+    margin: 0 auto;
+    padding-left: 3.2rem;
+    text-align: left;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: url(../img/pic-input.png) no-repeat center;
+    background-size: cover;
+    -webkit-appearance: none;
+}
+
+.login-wrap input[type='text']:focus,
+.login-wrap input[type='password']:focus {
+    outline: none;
+}
+
+.login-btn {
+    display: block;
+    overflow: hidden;
+    width: 10rem;
+    height: 4.3rem;
+    margin: 0 auto;
+    border: none;
+    background: url(../img/icon/pic-login.png) no-repeat center;
+    background-size: 10rem 2.2rem;
+}
+
+#loginBtnInput {
+    border: 0;
+    background-color: transparent;
+}
+
+.login-wrap a {
+    font-size: .6rem;
+    display: block;
+    margin: .5rem auto 0;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+/*已有账号登录链接*/
+
+.register {
+    position: fixed;
+    bottom: 2vh;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    border-top: solid 1px #fff;
+}
+
+
+/*注册按钮点击后动画*/
+
+.login-btn-ani {
+    font-size: .6rem;
+    width: 1.5rem;
+    height: 2rem;
+    margin-top: 1.15rem;
+    -webkit-animation: move_eye 2s linear 0s infinite alternate;
+    animation: move_eye 2s linear 0s infinite alternate;
+    color: white;
+    background-color: red;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(25%, rgba( 70, 70, 70, .7)), color-stop(50%, rgba( 70, 70, 70, .1)), color-stop(75%, rgba( 70, 70, 70, .7)));
+    background-image: linear-gradient(to right, rgba( 70, 70, 70, .7) 25%, rgba( 70, 70, 70, .1) 50%, rgba( 70, 70, 70, .7) 75%);
+}
+
+@-webkit-keyframes move_eye {
+    from {
+        margin-left: 5%;
+    }
+    to {
+        margin-left: 80%;
+    }
+}
+
+@keyframes move_eye {
+    from {
+        margin-left: 5%;
+    }
+    to {
+        margin-left: 80%;
+    }
+}
+
+
+/*媒体查询，匹配分辨率*/
+
+@media only screen and (max-width: 376px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 377px) and (max-width: 450px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 525px) {
+    html {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 526px) and (max-width: 600px) {
+    html {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 675px) {
+    html {
+        font-size: 36px;
+    }
+}
+
+
+/*查询屏幕宽高比调整页面*/
+
+@media only screen and (min-aspect-ratio: 11/16) and (max-aspect-ratio: 1/1) {
+    .login-title {
+        padding: 20vh 0 1vh;
+        background-size: rem;
+    }
+    .login-wrap {
+        margin: 1rem auto 0;
+    }
+}
+
+@media only screen and (min-aspect-ratio: 16/15) {
+    html {
+        font-size: 16px;
+    }
+    .login-title {
+        padding: 10vh 0 1vh;
+        background-size: rem;
+    }
+    .login-wrap {
+        margin: 1rem auto 0;
+    }
+}
+
+
+/*alert弹出框样式*/
+
+#alertbox {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 2rem;
+    position: absolute;
+    z-index: 999;
+    top: 42%;
+    left: 20%;
+    width: 60%;
+    height: 4rem;
+    text-align: center;
+    word-wrap: break-word;
+    border-radius: .3rem;
+    background-color: rgb(248, 248, 248);
+}
+
+#alertbutton {
+    font-weight: normal;
+    line-height: 1.5rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 99%;
+    height: 1.5rem;
+    text-align: center;
+    color: #61a7ea;
+    border: 1px solid rgb(204, 204, 204);
+    border-bottom-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+}
+
+#backg {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: .3;
+    background: #000;
+}
+
+.qc-pt-login-content .login-box .op-btn .qc-log-btn {
+    width: 100%;
+    height: 40px;
+    font-size: 17px !important;
+    -webkit-appearance: none;
+}
+
+.qc-log-btn {
+    opacity: 1;
+    border: none;
+    /* color: #fff; */
+    cursor: pointer;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    /* height: 50px; */
+    /* padding: 0 25px; */
+    /* width: 9rem; */
+    /* border-radius: 4px; */
+    /* background: #009b4f; */
+    background: #E0BB2C;
+    /* border-radius: 50px; */
+    outline: none;
+    height: 2.6rem;
+    font-size: 0.9rem;
+    margin: 0 auto;
+    line-height: -0.2rem;
+    width: 75%;
+    border-radius: 50px;
+}
+
+.m-loading,
+.loading {
+    text-align: center !important;
+    font-size: 1.5rem;
+}
+
+.m-loading .loading>div {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 100%;
+    background-color: #fff;
+    -webkit-animation: bouncedelay .7s infinite ease-in-out both;
+    animation: bouncedelay .7s infinite ease-in-out both;
+    text-align: center !important;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.m-loading .loading .one {
+    -webkit-animation-delay: -.32s;
+    animation-delay: -.32s;
+}
+
+.m-loading .loading .two {
+    -webkit-animation-delay: -.16s;
+    animation-delay: -.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%,
+    100%,
+    80% {
+        -webkit-transform: scale(0.5);
+        opacity: 1;
+    }
+    40% {
+        -webkit-transform: scale(1);
+        opacity: .8;
+    }
+}
+
+@keyframes bouncedelay {
+    0%,
+    100%,
+    80% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        opacity: .8;
+    }
+}
+
+.loginBtn {
+    height: 2.6rem;
+    width: 75%;
+    outline: none;
+    background: #ac825e;
+    border: 0;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 2.6rem;
+    color: #fff;
+    font-size: 18px;
+}
+
+#loginForm>div:last-child {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+@media screen and (max-width:350px) {
+    .loginBtn {
+        height: 2.6rem;
+        line-height: 2.6rem;
+        text-align: center;
+    }
+}

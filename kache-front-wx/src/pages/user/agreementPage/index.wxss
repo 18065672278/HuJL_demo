@@ -1,0 +1,20 @@
+/* src/pages/user/agreementPage/index.wxss */
+
+.content {
+  margin: 20rpx;
+}
+
+.agreement_title {
+  font-size: 40rpx;
+  text-align: center;
+}
+
+.agreement_content {
+  font-size: 35rpx;
+}
+.agreement_content view {
+  margin-bottom: 14rpx;
+}
+.agreement_content .indent {
+  text-indent: 70rpx;
+}

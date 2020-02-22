@@ -1,0 +1,123 @@
+<!--src/pages/legalPerson/index.wxml-->
+<view class="list">
+  <view class="item clear" bindtap='isBasicShow'>
+    <view class="name left">基本信息</view>
+    <image class="{{basicShow?'down':'top'}}" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class='item_list' wx:if='{{basicShow}}'>
+    <view class="item clear">
+      <view class="name left">公司名称
+        <text class='color_red'>*</text>
+      </view>
+      <input class="value right" style='text-align:right' value='{{companyName}}' placeholder='请填写公司名称' maxlength='75' bindinput='inputcompanyName'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">统一社会信用代码ID
+        <text class='color_red'>*</text>
+      </view>
+      <input class="value right" style='text-align:right;' value='{{creditCode}}' placeholder='请填写统一社会信用代码ID' maxlength='20' bindinput='inputcreditCode'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">法人代表人姓名
+        <text class='color_red'>*</text>
+      </view>
+      <input class="value right" style='text-align:right' value='{{legalName}}' placeholder='请填写法人代表人姓名' maxlength='75' bindinput='inputlegalName'></input>
+      <input class='value right' hidden='true'>{{personId}}</input> 
+      <image class="next personselect" src="../../../assets/images/icons/personselect.png" bindtap='personselect'></image>
+    </view>
+    <view class="item clear">
+      <view class="name left">法人代表人电话
+        <text class='color_red'>*</text>
+      </view>
+      <input class="value right" type="number" style='text-align:right' value='{{legalTel}}' placeholder='请填写法人代表人电话' maxlength='75' bindinput='inputlegalTel'></input>
+    </view>
+  </view>
+  <!-- 扩展信息 -->
+  <view class="item clear" bindtap='isExtendShow'>
+    <view class="name left">扩展信息</view>
+    <image class="{{extendShow?'down':'top'}}" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class='item_list' wx:if='{{extendShow}}'>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="item clear">
+        <view class="name left">行政编码</view>
+        <view class="value right">{{region[0]}},{{region[1]}},{{region[2]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <navigator url="../../openingcert/index">
+      <view class="item clear">
+        <view class="name left">开户许可证件ID</view>
+        <view class="value right">{{openingCertId}}123456789</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </navigator>
+    <navigator url="../../businesscert/index">
+      <view class="item clear">
+        <view class="name left">营业执照证件ID</view>
+        <view class="value right">{{businessCertId}}123456789</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </navigator>
+    <view class="item clear">
+      <view class="name left">公司详细地址</view>
+      <input class="value right" style='text-align:right;' value='{{companyAddress}}' placeholder='请填写公司详细地址' maxlength='255' bindinput='inputcompanyAddress'></input>
+    </view>
+    <picker bindchange="bindcompanyStatusChange" value="{{companyStatusIndex}}" range="{{companyStatusArry}}">
+      <view class="item clear">
+        <view class="name left">企业状态</view>
+        <view class="value right">{{companyStatusArry[companyStatusIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <view class="item clear">
+      <view class="name left">公司电话</view>
+      <input class="value right" type='number' style='text-align:right;' value='{{companyTel}}' placeholder='请填写公司电话' maxlength='30' bindinput='inputcompanyTel'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">员工总数</view>
+      <input class="value right" type='number' style='text-align:right;' value='{{companyEmpNum}}' placeholder='请填写员工总数' maxlength='7' bindinput='inputcompanyEmpNum'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">电子邮箱</view>
+      <input class="value right" style='text-align:right;' value='{{companyEmail}}' placeholder='请填写电子邮箱' maxlength='75' bindinput='inputcompanyEmail'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">联系人姓名</view>
+      <input class="value right" style='text-align:right;' value='{{companyContactName}}' placeholder='请填写联系人姓名' maxlength='75' bindinput='inputcompanyContactName'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">联系人电话</view>
+      <input class="value right" type='number' style='text-align:right;' value='{{companyContactTel}}' placeholder='请填写联系人电话' maxlength='30' bindinput='inputcompanyContactTel'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">公司网址</view>
+      <input class="value right" style='text-align:right;' value='{{companySite}}' placeholder='请填写网址' maxlength='30' bindinput='inputcompanySite'></input>
+    </view>
+    <navigator url="../researchattach/index">
+      <view class="item clear">
+        <view class="name left">调研资料ID</view>
+        <view class="value right">{{attachIds}}123456789,123456789</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </navigator>
+    <picker bindchange="bindapproveStatusChange" value="{{approveStatusIndex}}" range="{{approveStatusArry}}">
+      <view class="item clear">
+        <view class="name left">验证状态</view>
+        <view class="value right">{{approveStatusArry[approveStatusIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <view class="item clear">
+      <view class="name left">数据来源</view>
+      <input class="value right" style='text-align:right;' value='{{dataSource}}' placeholder='请填写数据来源' bindinput='inputdataSource'></input>
+    </view>
+    <view class="item nobottom clear">
+      <view class="name title">说明</view>
+      <textarea value='{{remark}}' maxlength='200' bindinput='inputremark'></textarea>
+    </view>
+  </view>
+
+
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

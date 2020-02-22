@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>我购买的</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/m-base.css" />
+		<link rel="stylesheet" href="../css/script.css" />
+		<link rel="stylesheet" href="css/my.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div class="mybuy w">
+			<div class="title">
+				<a href="personal.html" class="back"></a>
+				<div class="logo">我购买的</div>
+				<div class="selecttype">
+					订单状态
+					<img src="img/selecttype.png" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="nav">
+				<ul class="tab clearfix">
+					<li onclick="mybuy(this)">BTC</li>
+					<li onclick="mybuy(this)" class="on">USDT</li>
+					<li onclick="mybuy(this)">BCH</li>
+					<li onclick="mybuy(this)">LTC</li>
+					<li onclick="mybuy(this)">ETH</li>
+					<input type="hidden" name="currency" id="currency" value="USDT" />
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="mb_content">
+				<ul>
+					<li class="clearfix">
+						<div class="order_t">
+							<div class="fl ordernum">
+								订单编号：<span id="ordernum">U1806111107</span>
+							</div>
+							<div class="fr orderstatus">
+								<span id="orderstatus">等待卖家收款</span>
+							</div>
+						</div>
+						<div class="ordertype">
+							订单类型：<span id="ordertype">买入</span>
+						</div>
+						<div class="orderprice">
+							购买价格：<span id="orderprice1">1.8000</span> CNY  
+								   <img src="img/dengjia.png"/> 
+								   <span id="orderprice1">1</span> <span class="priceunit">USDT</span>
+						</div>
+						<div class="fl ordercount">
+							购买数量：<span id="ordercount">160</span> <span class="priceunit">USDT</span>
+						</div>
+						<div class="fr pricesum">
+							<span id="pricesum">2000</span> CNY
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/rem_new.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+		<script src="../js/url.js"></script>
+		<script type="text/javascript" src="js/my.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!--src/pages/fleet/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">网点名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{name}}' placeholder='请填写车网点名称' maxlength='10' bindinput='inputName'></input>
+  </view>
+  <view class="item clear" bindtap='selectCompany'>
+    <view class="name left">企业ID</view>
+    <view class="value right">{{companyId}}</view>
+    <image class="next" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class="item clear">
+    <view class="name left">联系人姓名
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{contact}}' placeholder='请填写负责人姓名' maxlength='50' bindinput='inputContact'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">联系人电话
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" type='number' style='text-align:right;' value='{{mobile}}' placeholder='请填写负责人联系电话' maxlength='30' bindinput='inputMobile'></input>
+  </view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="item clear">
+      <view class="name left">区域编码
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right">{{orgCode}}</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear" bindtap='selectAddress'>
+    <view class="name left">地址
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right">{{address}}</view>
+    <view class="value right" style="display:none;">纬度：{{latitude}},经度：{{longitude}}</view>
+    <image class="next" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class="item clear" wx:if="{{outletCode}}" bindtap='selectOutletItem'>
+    <view class="name left">服务项</view>
+    <image class="next" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class="item clear" wx:if="{{outletCode}}" bindtap='selectLabelItem'>
+    <view class="name left">服务标签</view>
+    <image class="next" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="item clear">
+    <view class="name">门头照</view>
+    <view class="img_box">
+      <image src="{{FilePaths[0]?FilePaths[0]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[0].length!=0?'':'frontimage'}} cardImage" data-id="0" bindtap="ImagePreview" />
+      <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[0]}}" data-id="0" bindtap="removeImage" />
+    </view>
+    <view class="img_box">
+      <image src="{{FilePaths[1]?FilePaths[1]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[1]!=0?'':'frontimage'}} cardImage" data-id="1" bindtap="ImagePreview" />
+      <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[1]}}" data-id="1" bindtap="removeImage" />
+    </view>
+    <view class="img_box">
+      <image src="{{FilePaths[2]?FilePaths[2]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[2]!=0?'':'frontimage'}} cardImage" data-id="2" bindtap="ImagePreview" />
+      <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[2]}}" data-id="2" bindtap="removeImage" />
+    </view>
+  </view>
+  <view class="item clear">
+    <view class="name">网点缩略图</view>
+    <view class="img_box">
+      <image src="{{FilePaths[3]?FilePaths[3]:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[3].length!=0?'':'frontimage'}} cardImage" data-id="3" bindtap="ImagePreview" />
+      <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[3]}}" data-id="3" bindtap="removeImage" />
+    </view>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

@@ -1,0 +1,148 @@
+<!--src/pages/truck/index.wxml-->
+<view class="list">
+  <!-- 基本信息 -->
+  <view class="item clear" bindtap='isBasicShow'>
+    <view class="name left">基本信息</view>
+    <image class="{{basicShow?'down':'top'}}" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class='item_list' wx:if='{{basicShow}}'>
+    <view class="item clear">
+      <view class="name left">车牌号/车架号
+        <text class='color_red'>*</text>
+      </view>
+      <view class="value right" style='text-align:right' bindtap="handleFocus">
+        {{carNum}}
+      </view>
+      <plate-number-keyboard show="{{showKeyboard}}" bind:getResult="setNumber" initValue="{{carNum}}"></plate-number-keyboard>
+    </view>
+  </view>
+  <!-- 扩展信息 -->
+  <view class="item clear" bindtap='isExtendShow'>
+    <view class="name left">扩展信息</view>
+    <image class="{{extendShow?'down':'top'}}" src="../../../assets/images/next.png"></image>
+  </view>
+  <view class='item_list' wx:if='{{extendShow}}'>
+    <view class="item clear" bindtap='vehicleCertIdSelect'>
+      <view class="name left">行驶证id</view>
+      <view class="value right">{{vehicleCertId}}</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+    <view class="item clear">
+      <view class="name left">所属人姓名</view>
+      <input class="value right" style='text-align:right' value='{{ownerName}}' placeholder='请填写所属人姓名' maxlength='50' bindinput='inputOwnerName'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">所属人电话</view>
+      <input class="value right" type='number' style='text-align:right' value='{{ownerTel}}' placeholder='请填写所属人电话' maxlength='50' bindinput='inputOwnerTel'></input>
+    </view>
+    <picker bindchange="bindCarBrandChange" value="{{carBrandIndex}}" range="{{carBrandArray}}">
+      <view class="item clear">
+        <view class="name left">车辆品牌</view>
+        <view class="value right">{{carBrandArray[carBrandIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <view class="item clear">
+      <view class="name left">生产厂家</view>
+      <input class="value right" style='text-align:right' value='{{manufacturer}}' placeholder='请填写生产厂家' maxlength='50' bindinput='inputManufacturer'></input>
+    </view>
+    <picker mode="date" value="{{factoryTime}}" bindchange="factoryTimeSelect">
+      <view class="item clear">
+        <view class="name left">出厂时间</view>
+        <view class="value right">{{factoryTime}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <view class="item clear">
+      <view class="name left">车辆价格</view>
+      <input class="value right" type='number' style='text-align:right' value='{{carPrice}}' placeholder='请填写车辆价格' maxlength='50' bindinput='inputCarPrice'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">车辆颜色</view>
+      <input class="value right" style='text-align:right' value='{{carColor}}' placeholder='请填写车辆颜色' maxlength='20' bindinput='inputCarColor'></input>
+    </view>
+    <view class="item clear">
+      <view class="name left">车辆公里数</view>
+      <input class="value right" type='number' style='text-align:right' value='{{carMileage}}' placeholder='请填写车辆公里数' maxlength='20' bindinput='inputCarMileage'></input>
+    </view>
+    <picker bindchange="bindfuelTypeChange" value="{{fuelTypeIndex}}" range="{{fuelTypeArray}}">
+      <view class="item clear">
+        <view class="name left">燃料类型</view>
+        <view class="value right">{{fuelTypeArray[fuelTypeIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <!-- 车险到期 -->
+    <picker mode="date" value="{{insuranceExpiresTime}}" bindchange="insuranceExpiresTimeSelect">
+      <view class="item clear">
+        <view class="name left">车险到期</view>
+        <view class="value right">{{insuranceExpiresTime}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <!-- 年检到期 -->
+    <picker mode="date" value="{{yearlyInspectioTime}}" bindchange="yearlyInspectioTimeSelect">
+      <view class="item clear">
+        <view class="name left">年检到期</view>
+        <view class="value right">{{yearlyInspectioTime}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <!-- 排放等级 -->
+    <picker bindchange="bindUseCharacterChange" value="{{emissionLevelIndex}}" range="{{emissionLevelArray}}">
+      <view class="item clear">
+        <view class="name left">排放等级</view>
+        <view class="value right">{{emissionLevelArray[emissionLevelIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <picker bindchange="bindtyreNumChange" value="{{tyreNumIndex}}" range="{{tyreNumArray}}">
+      <view class="item clear">
+        <view class="name left">轮胎数</view>
+        <view class="value right">{{tyreNumArray[tyreNumIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <!-- <picker bindchange="bindtyreSpecificationChange" value="{{tyreSpecificationIndex}}" range="{{tyreSpecificationArray}}">
+      <view class="item clear">
+        <view class="name left">轮胎规格</view>
+        <view class="value right">{{tyreSpecificationArray[tyreSpecificationIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker> -->
+    <view class="item clear">
+      <view class="name left">轮胎规格</view>
+      <input class="value right" style='text-align:right' value='{{tyreSpecification}}' placeholder='请填写轮胎规格' maxlength='20' bindinput='inputTyreSpecification'></input>
+    </view>
+    <picker bindchange="bindaxleNumChange" value="{{axleNumIndex}}" range="{{axleNumArray}}">
+      <view class="item clear">
+        <view class="name left">车轴数量</view>
+        <view class="value right">{{axleNumArray[axleNumIndex]}}</view>
+        <image class="next" src="../../../assets/images/next.png"></image>
+      </view>
+    </picker>
+    <!-- 附件ID -->
+    <view class="item clear">
+      <view class="name">车辆图片</view>
+      <block wx:if='{{FilePaths && FilePaths.length > 0}}'>
+        <view class="img_box" wx:for="{{FilePaths}}" wx:key="{{item}}" data-index="{{index}}">
+          <image src="{{item}}" mode="aspecFill" class="frontimage cardImage" data-id="{{index}}" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" data-id="{{index}}" bindtap="removeImage" />
+        </view>
+      </block>
+      <view class="img_box">
+        <image src="/src/assets/images/icons/add.png" mode="aspecFill" class="cardImage" bindtap="ImageAdd" />
+      </view>
+    </view>
+    <view class="item clear" bindtap='bindDriver'>
+      <view class="name left">绑定驾驶人员</view>
+      <image class="next" src="../../../assets/images/next.png"></image>
+    </view>
+    <!-- 说明 -->
+    <view class="item nobottom clear">
+      <view class="name title">说明</view>
+      <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+    </view>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

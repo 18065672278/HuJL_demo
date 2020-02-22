@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>系统管理</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/setting.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="childrenBody">
+            <div class="children-header">
+                <h3 class="title">
+                    <i class="iconfont icon-zhanghao"></i> 账号管理
+                </h3>
+            </div>
+            <div class="btn-group-content mt">
+                <div class="btn-group ">
+                    <a href="../setting/system_manage.html" class="btn " value="0">人员</a>
+                    <a href="../setting/department.html" class="btn " value="1">部门</a>
+                    <a href="../setting/factory_area.html" class="btn btnactive" value="2">厂区</a>
+                </div>
+                <div class="opaer-box">
+                    <div class="form-item mb10">
+                        <input style="width:170px;" class="form-item-input" id="keyWord" type="text" placeholder="请输入厂区名称">
+                    </div>
+                    <a href="javascript:void(0);" id="queryBtn" class="common-btn btn-normal">查询</a>
+                    <a href="javascript:void(0);" id="addBtn" class="common-btn btn-green">新增</a>
+                </div>
+            </div>
+            <div class="table-content">
+                <table class="table">
+                    <colgroup>
+                        <col width="40">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>厂区名称</th>
+                            <th>所属部门</th>
+                            <th>率属人员</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <a href="javascript:void(0);" class="undeline">厂区</a>
+                            </td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>
+                                <a href="edit_person.html" title="编辑" class="opear-btn editicon"></a>
+                                <a href="javascript:void(0);" title="删除" class="opear-btn deleteicon"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/layer/layer.js"></script>
+    <script>
+   
+        $('.table').on('click', '.deleteicon', function () {
+            var layers = top.layer.confirm("确定删除该人员？", {
+                offset: 'auto',
+                closeBtn: false
+            }, function (layers) {
+
+            });
+        });
+        /* 新增厂区 */
+        $("#addBtn").click(function () {
+            layer.open({
+                skin:"pop-layerBg",
+                id: 'layer-role',
+                type: 2,
+                title: false,
+                shade: 0.2,
+                shadeClose: false,
+                area: ['100%', '100%'],
+                closeBtn: 0,
+                anim: 0,
+                content: ["../setting/add_factory.html"]
+            });
+        })
+    </script>
+</body>
+
+</html>

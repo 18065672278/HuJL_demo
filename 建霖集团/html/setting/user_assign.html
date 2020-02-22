@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>组别管理</title>
+		<link rel="stylesheet" href="../../css/base.css">
+		<link rel="stylesheet" href="../../css/common.css">
+		<link rel="stylesheet" href="../../css/setting.css">
+		<link rel="stylesheet" href="../../css/font/iconfont.css">
+		<link rel="stylesheet" href="../../js/page/page.css">
+		<link rel="stylesheet" type="text/css" href="../../js/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+		<style type="text/css">
+			.pop-layer-content {
+				padding: 20px 12px 20px 20px;
+			}
+			.table-content {
+			    position: relative;
+			    padding: 0;
+			    margin: 0;
+			    overflow: hidden;
+			    height: 344px;
+			}
+			.table.fixedTable {
+				/*Firefox*/
+				width: -moz-calc(100% - 8px);
+				/*chrome safari*/
+				width: -webkit-calc(100% - 8px);
+			    width: calc(100% - 8px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="pop-layer-wrapper">
+			<div class="pop-layer-title">
+				<h3 class="txt">率属人员</h3>
+				<div class="btn-row">
+					<a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+				</div>
+			</div>
+			<div class="pop-layer-content clearfix">
+				<div class="table-content">
+					<table class="table fixedTable">
+						<thead>
+							<tr>
+								<th>所在部门</th>
+								<th>姓名</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="table-content scrollbar">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>所在部门</th>
+									<th>姓名</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr><tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+								<tr>
+									<td>智慧办公室</td>
+									<td>冯丽丽</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.min.js"></script>
+		<script src="../../js/mCustomScrollbar/jquery.mCustomScrollbar.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				var layerIndex = parent.layer.getFrameIndex(window.name); //获取窗口索引
+				//关闭窗口
+				$("#closeBtn").click(function() {
+					top.layer.close(layerIndex);
+				});
+				//滚动时表头固定
+				$(".table-content").scroll(function() {
+					var scrollTop = $(this).scrollTop();
+					// $(".right-content .fixed-tab").css("top",scrollTop);
+					$(".fixedTable").css("top", scrollTop);
+				});
+				//滚动条(可以直接提到公共JS中,需要用的时候在需要滚动的地方加mCustomScrollbar这个class)
+		        $(".scrollbar").mCustomScrollbar({
+		        	scrollInertia:0,//滚动延迟
+		        	mouseWheelPixels:80 // 滚动距离
+		        });
+
+			})
+		</script>
+	</body>
+
+</html>

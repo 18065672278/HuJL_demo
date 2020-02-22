@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新增部门</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/setting.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+    <link rel="stylesheet" href="../../js/select/select.css">
+</head>
+
+<body>
+    <div class="pop-layer-wrapper">
+        <div class="pop-layer-title">
+            <h3 class="txt">新增部门</h3>
+            <div class="btn-row">
+                <a class="closeBtn" id="closeBtn" href="javascript:void(0)"></a>
+            </div>
+        </div>
+        <div class="pop-layer-content clearfix">
+            <div class="base-fieldset-content clearfix">
+                <div class="base-grid3-1 mb20">
+                    <label class="base-form-txt required">部门名称</label>
+                    <div class="base-input-box">
+                        <input class="base-form-input" type="text" placeholder="请输入部门名称">
+                    </div>
+                </div>
+            </div>
+            <div class="base-fieldset-content clearfix">
+                <div class="base-grid3-1 mb20">
+                    <label class="base-form-txt required">部门负责人</label>
+                    <div class="base-input-box">
+                        <input type="hidden" id="departId">
+                        <input class="base-form-input" type="text" id="departSelect" readonly="readonly" unselectable="on"
+                            style="cursor:pointer;">
+                    </div>
+                </div>
+            </div>
+            <div class="base-fieldset-content clearfix">
+                <div class="base-grid3-1 mb20">
+                    <label class="base-form-txt required">上级部门</label>
+                    <div class="base-input-box">
+                        <input type="hidden" id="compantId">
+                        <input class="base-form-input" type="text" id="compantselect" readonly="readonly" unselectable="on"
+                            style="cursor:pointer;">
+                    </div>
+                </div>
+            </div>
+            <div class="base-fieldset-content clearfix">
+                <div class="base-grid3-1 mb20">
+                    <label class="base-form-txt required">所属厂区</label>
+                    <div class="base-input-box">
+                        <div class="selectDiv up" id="selectDiv">
+                            <input id="beginyear" type="text" class="selectValue" readonly="true" unselectable="on"
+                                data-type="" placeholder="选择产品类别">
+                            <div class="selectOption has-selectsearch">
+                                <div class="select-search">
+                                    <input class="search-input js-search-input" type="text" placeholder="搜索" />
+                                </div>
+                                <div class="select-scroll">
+                                    <div class="option"><a href="javascript:void(0);" date-selectid="3">2016</a></div>
+                                    <div class="option"><a href="javascript:void(0);" date-selectid="4">2017</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="base-fieldset-content clearfix">
+                <div class="base-grid3-1 mb20">
+                    <label class="base-form-txt">备注</label>
+                    <div class="base-input-box">
+                        <textarea class="base-form-textarea edited" id="memo" maxlength="100"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-btn">
+                <div class="base-input-box">
+                    <a href="javascript:void(0);" class="common-btn" id="cancel-btn">取消</a>
+                    <a href="javascript:void(0);" class="common-btn btn-normal " id="save-btn">保存</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/address.js"></script>
+    <script src="../../js/select/select.js"></script>
+    <script>
+    	//所属厂区
+    	$.divselect("#selectDiv", "#beginyear", null, null, null, true);
+        var layerIndex = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+        $('#closeBtn').on("click", function () {
+            parent.layer.close(layerIndex); //再执行关闭    
+        })
+        $("#cancel-btn").on("click", function () {
+            parent.layer.close(layerIndex); //再执行关闭    
+        })
+        /* 部门负责人 */
+        $("#departSelect").click(function () {
+            selectOrgTreeadress({
+                orgName: "departSelect", //返回所选择的ID（必填）
+                orgId: "departId", //返回所选择的显示名(必填)
+                orgType: 1,
+                offset: "auto",
+                isMulti: true, //默认fasle 单选
+                orgType: '0' //选择的类别,默认0：1：部门，0：人员，1|0：部门&人员...
+            })
+        })
+        // 上级部门
+        $("#compantselect").click(function () {
+            selectOrgTreeadress({
+                orgName: "compantselect", //返回所选择的ID（必填）
+                orgId: "compantId", //返回所选择的显示名(必填)
+                orgType: 1,
+                offset: "auto",
+                isMulti: false, //默认fasle 单选
+                orgType: '1' //选择的类别,默认0：1：部门，0：人员，1|0：部门&人员...
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>项目管理</title>
+        <link rel="stylesheet" href="../../css/common.css" />
+    </head>
+    <body>
+        <div class="fixed-tab">
+            <blockquote class="admin-elem-quote">
+                <a>项目管理</a><span>/</span>
+                <a href="add_project.html"><cite>新增项目</cite></a>
+            </blockquote>
+        </div>
+        <div class="main-wrapper">
+            <div class="form-content">
+                <div class="form-group">
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">企业名称</label>
+                            <div class="base-input-box">
+                                <input id="" class="base-form-input" type="text" placeholder="请输入企业名称">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">项目经理</label>
+                            <div class="base-input-box">
+                                <input id="projectName" class="base-form-input" type="text" readonly="true" unselectable="on" style="cursor:pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="base-fieldset-content clearfix">
+                        <div class="base-grid2-1 mb10">
+                            <label class="base-form-txt required">项目等级</label>
+                            <div class="base-input-box">
+                                <input id="" class="base-form-input" type="text" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-btn">
+                    <div class="input-block">
+                        <a href="javascript:void(0);" class="common-btn" id="cancel-btn">取消</a>
+                        <a href="javascript:void(0);" class="common-btn btn-normal " id="save-btn">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery-1.11.0.min.js"></script>
+        <script src="../../js/layer/layer.js"></script>
+        <script>
+            var formHeight = $(window).height() - $(".fixed-tab").outerHeight() - 40;
+                $(".form-content").outerHeight(formHeight);
+        	top.project = window;
+            $(function(){
+                var formHeight = $(window).height() - $(".fixed-tab").outerHeight() - 40;
+                $(".form-content").outerHeight(formHeight);
+                $("#projectName").click(function() {
+                    top.layer.open({
+                        type: 2,
+                        area:[800+'px', 610+'px'],
+                        offset: 'auto',
+                        scrollbar: false,
+                        title:false,
+                        closeBtn:false,
+                        content: ["project/person_file.html", 'no']
+                    });
+                });
+            })
+        </script>
+    </body>
+</html>

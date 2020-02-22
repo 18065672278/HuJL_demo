@@ -1,0 +1,70 @@
+<!--src/pages/identityinfor/index.wxml-->
+<view class="list">
+  <view class="item clear">
+    <view class="name left">统一社会信用代码
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{creditCode}}' placeholder='请填写统一社会信用代码' bindinput='inputeidtCreditCode'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">核准号</view>
+    <input class="value right" style='text-align:right;' value='{{approvedNum}}' placeholder='请填写核准号' bindinput='inputeidtApprovedNum'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">编号</view>
+    <input class="value right" style='text-align:right;' value='{{serialNum}}' placeholder='请填写编号' bindinput='inputeidtSerialNum'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">公司名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{companyName}}' placeholder='请填写公司名称' bindinput='inputeidtCompanyName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">法人代表
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{legalName}}' placeholder='请填写法人代表' bindinput='inputeidtLegalName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">公司银行账号
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{bankNum}}' placeholder='请填写公司银行账号' bindinput='inputeidtBankNum'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">开户行支行名称
+      <text class='color_red'>*</text>
+    </view>
+    <input class="value right" style='text-align:right;' value='{{bankName}}' placeholder='请填写开户行支行名称' bindinput='inputeidtBankName'></input>
+  </view>
+  <view class="item clear">
+    <view class="name left">登记机关</view>
+    <input class="value right" style='text-align:right;' value='{{registerUnit}}' placeholder='请填写登记机关' bindinput='inputeidtRegisterUnit'></input>
+  </view>
+  <picker mode="date" value="{{approveDate}}" bindchange="approveDateSelect">
+    <view class="item clear">
+      <view class="name left">核准日期</view>
+      <view class="value right">{{approveDate}}</view>
+      <image class="next" src="/src/assets/images/next.png"></image>
+    </view>
+  </picker>
+  <view class="item clear">
+    <view class="name left" style="margin-top:10rpx;">开户许可证照
+      <text class='color_red'>*</text>
+    </view>
+    <view class="value right" style="width:100%">
+      <view class="idCardPhoto">
+        <view class="img_box">
+          <image src="{{FilePaths[0]?FilePaths:'/src/assets/images/icons/add.png'}}" mode="aspecFill" class="{{FilePaths[0]?'':'frontimage'}} cardImage" data-id="0" bindtap="ImagePreview" />
+          <image src="/src/assets/images/icons/close.png" class="q-image-remover" wx:if="{{removeshow[0]}}" data-id="0" bindtap="removeImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item nobottom clear">
+    <view class="name title">说明</view>
+    <textarea value='{{remark}}' bindinput='inputremark'></textarea>
+  </view>
+  <view class="btn" bindtap='subAction'>保存</view>
+</view>

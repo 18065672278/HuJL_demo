@@ -1,0 +1,178 @@
+.item .value {
+  max-width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.item .resetValue {
+  margin-right: 60rpx;
+}
+
+.table {
+  border: 1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+  width: 98%;
+  margin-left: 1%;
+  margin-bottom: 20rpx;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.th, .td {
+  height: 56rpx;
+  line-height: 56rpx;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.th {
+  font-weight: 800;
+  background-color: #4d94f5;
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.td {
+  font-size: 22rpx;
+  color: #303030;
+}
+
+.delBtn, .addBtn {
+  width: 33%;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  display: inline-block;
+}
+
+.sumNum {
+  width: 33%;
+  height: 56rpx;
+  line-height: 56rpx;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.addASBtn {
+  width: 95%;
+  height: 96rpx;
+  margin: 0rpx auto 0;
+  line-height: 96rpx;
+  text-align: center;
+  color: #09c083;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  border: 1px solid #09c083;
+}
+
+/*蒙层的结构，目的是覆盖整个手机界面*/
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+/*对话框结构*/
+
+.commodity_attr_box {
+  width: 80%;
+  overflow: hidden;
+  position: fixed;
+  top: 400rpx;
+  left: 10%;
+  z-index: 2000;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.commodity_box_title {
+  width: 100%;
+  font-size: 16px;
+  margin: 30rpx auto;
+  text-align: center;
+}
+
+.commodity_box_content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.commodity_item {
+  width: 100%;
+  line-height: 50rpx;
+  font-size: 12px;
+  color: #888;
+}
+
+.commodity_item_name {
+  width: 120rpx;
+  color: #888;
+}
+
+.commodity_item_value {
+  border: 1px solid #dadada;
+  padding-left: 5px;
+}
+
+.commodity_box_btn {
+  border-top: 1px solid #dadada;
+  color: #000;
+  margin-top: 40rpx;
+}
+
+.commodity_btn {
+  display: inline-block;
+  width: 49%;
+  font-size: 16px;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.sureBtn {
+  color: #09c083;
+  border-left: 1px solid #dadada;
+}
+
+.list .btn {
+  margin-left: 10rpx;
+}
+
+.btnList {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -10rpx;
+}
+
+.btn {
+  flex: 1;
+}
+
+.redBtn {
+  background: red;
+}

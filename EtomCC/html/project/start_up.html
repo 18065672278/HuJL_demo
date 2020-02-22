@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>项目管理</title>
+    <link rel="stylesheet" href="../../js/webuploader/webuploader.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+        .form-item-text {
+            float: right;
+            height: 36px;
+            display: inline-block;
+            line-height: 36px;
+        }
+
+        .form-item-text .undeline {
+            display: inline;
+        }
+
+        .form-panel-list {
+            border-bottom: none;
+            border-top: 1px solid #e6e6e6;
+        }
+
+        .row:first-child {
+            padding-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixed-tab">
+        <blockquote class="admin-elem-quote">
+            <a>项目管理</a><span>/</span>
+            <a href="project_list.html"><cite>蒙牛中国股份有限公司项目资料</cite></a>
+        </blockquote>
+    </div>
+    <div class="main-wrapper">
+        <div class="section-tab" id="section-tab">
+            <ul class="section-tab-title">
+                <li class="tab-name ">
+                    <a href="approval_index.html">企业基本信息</a>
+                </li>
+                <li class="tab-name active orange">
+                    <a href="start_up.html">贯标启动</a>
+                </li>
+                <li class="tab-name green">
+                    <a href="field_diagnosis.html">现场调研及诊断</a>
+                </li>
+                <li class="tab-name">
+                    <a href="masterstroke_plan.html">主线策划</a>
+                </li>
+                <li class="tab-name">
+                    <a href="ploat_write.html">文件策划及编写</a>
+                </li>
+                <li class="tab-name">
+                    <a href="systematic_run.html">体系式运行</a>
+                </li>
+                <li class="tab-name">
+                    <a href="internal_audit.html">内部审核</a>
+                </li>
+                <li class="tab-name">
+                    <a href="management_review.html">管理评审</a>
+                </li>
+                <li class="tab-name">
+                    <a href="assess_evaluation.html">评定申请</a>
+                </li>
+                <li class="tab-name">
+                    <a href="stage_first.html">第一阶段现场审核</a>
+                </li>
+                <li class="tab-name">
+                    <a href="stage_second.html">第二阶段现场审核</a>
+                </li>
+                <li class="tab-name tab-more">
+                    <a href="javascript:void(0);">更多</a>
+                    <ul class="tab-more-list">
+                        <li class="tab-more-name active">
+                            <a href="approval_index.html">企业基本信息</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="start_up.html">贯标启动</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="field_diagnosis.html">现场调研及诊断</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="masterstroke_plan.html">主线策划</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="ploat_write.html">文件策划及编写</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="systematic_run.html">体系式运行</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="internal_audit.html">内部审核</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="management_review.html">管理评审</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="assess_evaluation.html">评定申请</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="stage_first.html">第一阶段现场审核</a>
+                        </li>
+                        <li class="tab-more-name">
+                            <a href="stage_second.html">第二阶段现场审核</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content clearfix">
+            <div class="form-item-group mb10">
+                <a href="javascript:void(0);" class="common-btn btn-green">提交审核</a>
+                <a href="javascript:void(0);" class="common-btn btn-normal">编辑资料</a>
+                <div class="form-item-text">
+                    请尽快完善基本信息,<a href="approval_index.html" class="undeline">去完善>></a>
+                </div>
+            </div>
+        </div>
+        <div class="section-wrapper">
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-body ">
+                            <div class="approval-list  clearfix">
+                                <div class="approval-left">
+                                    <p class="title">1.贯标启动议程</p>
+                                    <p class="indicate">注:上传贯标启动议程表</p>
+                                    <p class="explain">(可上传文件类型为:jpg,jpeg,png,doc,docx,xls,pdf,rar,zip最多不超过700MB,如需上传多个文件,请压缩打包成zip或rar文件后上传)</p>
+                                </div>
+                                <div class="approval-right">
+                                    <a href="javascript:void(0);" class="common-btn btn-primary" id="achieve">一键获取</a>
+                                    <a href="javascript:void(0);" class="common-btn btn-danger">审核不通过</a>
+                                    <a href="javascript:void(0);" class="common-btn btn-green">审核通过</a>
+                                    <a href="javascript:void(0);" id="timepick" class="common-btn btn-normal">上传</a>
+                                </div>
+                            </div>
+                            <div class="form-panel-list" id="form-panel-list">
+                                <div class="form-panel-item">
+                                    <a href="javascript:void(0);">日常保单单子填写</a>
+                                    <i class="enc-remove"></i>
+                                </div>
+                            </div>
+                            <div class="approved"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-body ">
+                            <div class="approval-list clearfix">
+                                <div class="approval-left">
+                                    <p class="title">2.制定贯标工作实施计划</p>
+                                    <p class="indicate">注:由邑通公司项目经理上传</p>
+                                    <p class="explain">(可上传文件类型为:jpg,jpeg,png,doc,docx,xls,pdf,rar,zip最多不超过700MB,如需上传多个文件,请压缩打包成zip或rar文件后上传)</p>
+                                </div>
+                                <div class="approval-right">
+                                    <a href="javascript:void(0);" id="timepick1" class="common-btn btn-normal">上传</a>
+                                </div>
+                            </div>
+                            <div class="form-panel-list" id="form-panel-list">
+                                <div class="form-panel-item">
+                                    <a href="javascript:void(0);">日常保单单子填写</a>
+                                    <i class="enc-remove"></i>
+                                </div>
+                            </div>
+                            <div class="denied"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-body ">
+                            <div class="approval-list clearfix">
+                                <div class="approval-left">
+                                    <p class="title">3.召开贯标启动会</p>
+                                    <p class="indicate">注:上传活动通知、纪要、新闻、会议材料、照片、会议签到表等证明材料</p>
+                                    <p class="explain">(可上传文件类型为:jpg,jpeg,png,doc,docx,xls,pdf,rar,zip最多不超过700MB,如需上传多个文件,请压缩打包成zip或rar文件后上传)</p>
+                                </div>
+                                <div class="approval-right">
+                                    <a href="javascript:void(0);" id="timepick2" class="common-btn btn-normal">上传</a>
+                                </div>
+                            </div>
+                            <div class="form-panel-list" id="form-panel-list">
+                                <div class="form-panel-item">
+                                    <a href="javascript:void(0);">日常保单单子填写</a>
+                                    <i class="enc-remove"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pending"></div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class="approval-list clearfix">
+                                <div class="approval-left">
+                                    <p class="title">4.组织贯标工作组织体系</p>
+                                    <p class="indicate">注:上传贯标工作组织体系架构和组成，双方项目组通讯录等</p>
+                                    <p class="explain">(可上传文件类型为:jpg,jpeg,png,doc,docx,xls,pdf,rar,zip最多不超过700MB,如需上传多个文件,请压缩打包成zip或rar文件后上传)</p>
+                                </div>
+                                <div class="approval-right">
+                                    <a href="javascript:void(0);" id="timepick3" class="common-btn btn-normal">上传</a>
+                                </div>
+                            </div>
+                            <div class="form-panel-list" id="form-panel-list">
+                                <div class="form-panel-item">
+                                    <a href="javascript:void(0);">日常保单单子填写</a>
+                                    <i class="enc-remove"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class="approval-list clearfix">
+                                <div class="approval-left">
+                                    <p class="title">5.贯标咨询保密协议(非必须上传项)</p>
+                                    <p class="indicate">注:下载<a class="download" id="96debb39fc0a426399ccf7c3bcfd6eb2"
+                                            href="javascript:void(0);">贯标咨询保密协议</a></p>
+                                    <p class="explain">(可上传文件类型为:jpg,jpeg,png,doc,docx,xls,pdf,rar,zip最多不超过700MB,如需上传多个文件,请压缩打包成zip或rar文件后上传)</p>
+                                </div>
+                                <div class="approval-right">
+                                    <a href="javascript:void(0);" id="timepick4" class="common-btn btn-normal">上传</a>
+                                </div>
+                            </div>
+                            <div class="form-panel-list" id="form-panel-list">
+                                <div class="form-panel-item">
+                                    <a href="javascript:void(0);">日常保单单子填写</a>
+                                    <i class="enc-remove"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-col">
+                    <section class="panel">
+                        <div class="panel-heading">操作记录</div>
+                        <div class="panel-body">
+                            <div class="panel-body-nodata">暂无记录</div>
+                            <ul class="pancel-timeline">
+                                <li class="pancel-timeline-item">
+                                    <i class="pancel-timeline-axis"></i>
+                                    <i class="pancel-timeline-axis-rol"></i>
+                                    <div class="pancel-timeline-content">
+                                        <h3 class="pancel-timeline-title">等待审批</h3>
+                                        <p>2018-05-20 19:52:31</p>
+                                    </div>
+                                </li>
+                                <li class="pancel-timeline-item">
+                                    <i class="pancel-timeline-axis"></i>
+                                    <div class="pancel-timeline-content">
+                                        <h3 class="pancel-timeline-title">等待审批</h3>
+                                        <p>2018-05-20 19:52:31</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/layer/layer.js"></script>
+    <script src="../../js/autoTabWidth.js"></script>
+    <script src="../../js/webuploader/webuploader.js"></script>
+    <script src="../../js/posfixed.js"></script>
+    <script src="../../js/approvalupkoader.js"></script>
+    <script src="../../js/upload.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+    <script>
+        // 滚动定位
+        var ctp = '';
+        var pk_project_subtask = '';
+        $("#section-tab").posfixed({
+            distance: -20,
+            pos: "top",
+            type: "while",
+            hide: false
+        });
+        var ctp = '';
+        /**
+           	 项目管理上传文件需要四个参数，
+            1、文件目录 start_up 
+            2、任务状态主键id
+            3、第几个子任务
+            4、按钮id
+            */
+        /* createUpload('start_up', '1111', '1', '#timepick');
+
+
+
+        createUpload('product_image', '', '#timepick1');
+        createUpload('product_image', '', '#timepick2');
+        createUpload('product_image', '', '#timepick3');
+        createUpload('product_image', '', '#timepick4'); */
+
+
+        $("#achieve").click(function () {
+            layer.open({
+                id: 'layer-role',
+                type: 2,
+                title: false,
+                shade: 0.2,
+                shadeClose: false,
+                area: ['100%', '100%'],
+                closeBtn: 0,
+                anim: 0,
+                scrollbar: false,
+                content: '/html/project/analysis_report.html'
+            });
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+.title {
+	background-color: #1D2339;
+}
+.title .logo {
+	float: left;
+}
+.title div#talk img{
+	width: .38rem;
+	height: .36rem;
+}
+.b_c_info {
+	background: #FFFFFF;
+	padding: .3rem;
+}
+img.b_c_first {
+    width: 1rem;
+    border-radius: 1rem;
+    float: left;
+}
+.b_c_secon {
+	margin-left: .2rem;
+	padding-top: .1rem;
+	float: left;
+}
+.b_c_info_name {
+	font-size: .3rem;
+	color:#1D2339;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: .3rem;
+}
+.b_c_secon img {
+	width: auto;
+	height: .24rem;
+	vertical-align: middle;
+}
+.b_c_secon_b {
+	font-size: .24rem;
+	color:#1D2339;
+	margin-top: .1rem;
+}
+.b_c_three {
+	line-height: 1rem;
+	float: right;
+	font-size: .24rem;
+	color: #666666;
+}
+.b_c_three span#money {
+	font-size: .4rem;
+	color: #28CEC3;
+}
+hr {
+    width: 6.9rem;
+    height: .02rem !important;
+    margin: -.02rem auto !important;
+    color: #d7d7d7;
+    position: relative;
+}
+.b_c_infos {
+	padding: .3rem;
+	background: #FFFFFF;
+}
+.b_c_infos li {
+    width: 25%;
+    line-height: .4rem;
+    font-size: .24rem;
+    text-align: center;
+    float: left;
+}
+.b_c_infos p.xx {
+	font-size: .3rem;
+	color: #1D2339;
+}
+.b_c_msg {
+	line-height: .45rem;
+	font-size: .3rem;
+	color:#1D2339;
+	background-color: #FFFFFF;
+	padding: .3rem;
+	margin-top: .3rem;
+}
+.b_c_buy {
+	padding: .3rem;
+	background-color: #FFFFFF;
+	margin-top: .3rem;
+}
+p.b_c_title {
+	font-size: .3rem;
+	color:#1D2339;
+}
+.b_c_sum {
+	margin-top: .5rem;
+}
+.b_c_sum span {
+	font-size: .36rem;
+	color:#1D2339;
+}
+.b_c_sum input {
+	width: 2rem;
+    line-height: .36rem;
+    font-size: .24rem;
+    text-align: center;
+    vertical-align: top;
+    border-bottom: .02rem solid #1d2339;
+}
+.b_c_sum span#scode {
+	margin-left: .24rem;
+}
+.b_c_sum img {
+    width: .3rem;
+    margin-left: .24rem;
+    vertical-align: super;
+}
+.b_c_tmsg {
+	padding: .3rem;
+	margin-top: .3rem;
+	background-color: #FFFFFF;
+}
+.b_c_tmsg div {
+	line-height: .4rem;
+	font-size: .24rem;
+	color:#666666;
+	margin-top: .1rem;
+}
+.buybtn,
+.salebtn {
+	width: 5rem;
+	height: .9rem;
+	line-height: .9rem;
+	font-size: .36rem;
+	color:#FFFFFF;
+	text-align: center;
+	background-color: #28CEC3;
+	margin: .84rem auto .62rem;
+}
+.buyorder {
+    background: #FFFFFF;
+}
+.orderinfo,
+.orderinfos {
+	margin:.3rem .3rem 0;
+	padding-bottom: .3rem;
+	border-bottom: .02rem solid #D7D7D7;
+}
+.ordernum {
+	line-height: .5rem;
+	font-size: .3rem;
+	color: #1D2339;
+}
+.orderstatus {
+	line-height: .5rem;
+	font-size: .24rem;
+	color:#E51E1E;
+}
+.o_i_second {
+	margin-top: .2rem;
+}
+.o_i_second span,
+.o_i_three span ,
+.o_i_fourth span{
+	line-height: .5rem;
+    font-size: .24rem;
+    color: #666666;
+}
+.orderinfos_l {
+	line-height: .5rem;
+	font-size: .3rem;
+	color:#1D2339;
+}
+.orderinfos_l span{
+	float: left;
+}
+.oi_l_name {
+	float: left;
+}
+.orderinfos_l img {
+	width: .8rem;
+	margin-left: .2rem;
+}
+.orderinfos_msg {
+	line-height: .4rem;
+	font-size: .24rem;
+	color:#666666;
+}
+.btn {
+	margin:.4rem .3rem .6rem;
+}
+.failbtn,
+.succbtn {
+	width: 3.3rem;
+	height: .8rem;
+	line-height: .8rem;
+	font-size: .3rem;
+	text-align: center;
+	color: #FFFFFF;
+	display: inline-block;
+	border-radius: .5rem;
+	background-color: #28CEC3;
+}
+.succbtn {
+	margin-left: .2rem;
+}
+.btn_msg {
+	margin-top: .28rem;
+	padding-bottom: .6rem;
+	font-size: .24rem;
+	color: #999999;
+	text-align: center;
+}
+.btn_msg a {
+	color:#28CEC3;
+}

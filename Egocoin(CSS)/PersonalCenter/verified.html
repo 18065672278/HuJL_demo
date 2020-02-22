@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>实名认证</title>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/m-base.css" />
+		<link rel="stylesheet" href="../css/script.css" />
+		<link rel="stylesheet" href="css/verified.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div class="verrfied w">
+			<div class="title">
+				<a href="set.html" class="back"></a>
+				<div class="logo">实名认证</div>
+				<div class="clear"></div>
+			</div>
+			<div class="content">
+				<div class="msg">
+					<!--<img src="img/important.png" />-->
+					<span>请上传身份证正面照</span>
+				</div>
+				<div class="usercard" id="face">
+					<div class="usercard_img">
+						<img class="usercard_l" src="img/card.png" id="faceImg" />
+						<p id="up1">点击上传</p>
+					</div>
+				</div>
+				<div class="msg">
+					<!--<img src="img/important.png" />-->
+					<span>请上传身份证反面照</span>
+				</div>
+				<div class="usercard" id="reverse">
+					<div class="usercard_img">
+						<img class="usercard_l" src="img/card.png" id="reverseImg" />
+						<p id="up2">点击上传</p>
+					</div>
+				</div>
+				<div class="btn" id="add">
+					开始认证
+				</div>
+			</div>
+		</div>
+		</div>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/rem_new.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+		<script src="../js/url.js"></script>
+		<script type="text/javascript">
+			var pic1 = "";
+			var pic2 = "";
+			layui.use('upload', function() {
+				var upload = layui.upload;
+				//执行实例
+				var uploadInst = upload.render({
+					elem: '#face', //绑定元素
+					url: pic_url + pro_name + 'upload/pic', //上传接口
+					field: "image",
+					data: {
+						type: "user",
+					},
+					done: function(res) {
+						console.log(res);
+						pic1 = res.data;
+						$("#up1").css("display", "none");
+						$("#faceImg").attr("src", pic_url + pic1);
+						$("#faceImg").css({"margin-top":"0","max-width":"100%"});
+					},
+					error: function() {
+						//请求异常回调
+					}
+				});
+				var uploadInst = upload.render({
+					elem: '#reverse', //绑定元素
+					url: pic_url + pro_name + 'upload/pic', //上传接口
+					field: "image",
+					data: {
+						type: "user",
+					},
+					done: function(res) {
+						console.log(res);
+						pic2 = res.data;
+						$("#up2").css("display", "none");
+						$("#reverseImg").attr("src", pic_url + pic2);
+						$("#reverseImg").css({"margin-top":"0","max-width":"100%"});
+					},
+					error: function() {
+						//请求异常回调
+					}
+				});
+			});
+			$("#add").click(function(){
+				if (pic1 == "" || pic1 == null ) {
+					layer.msg("请上传身份证正面照",{time:2000});
+				} else if (pic2 == "" || pic2 == null ){
+					layer.msg("请上传身份证反面照",{time:2000});
+				} else {
+					console.log("data")
+					/*$.ajax({
+						url: test_url + pro_name +"",
+						type:"POST",
+						xhrFields: {
+					           withCredentials: true
+					    },
+					    crossDomain: true,
+						data:{
+							
+						},
+						success:function(data){
+							if (data.status == 200) {
+								layer.msg("操作成功",{time:2000},function(){
+									location.href = "personal.html";
+								})
+							} else{
+								
+							}
+						}
+					})*/
+				}
+			})
+		</script>
+	</body>
+
+</html>

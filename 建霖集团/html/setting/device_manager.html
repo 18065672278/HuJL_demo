@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>设备参数配置管理</title>
+		<link rel="stylesheet" href="../../css/base.css">
+		<link rel="stylesheet" href="../../css/common.css">
+		<link rel="stylesheet" href="../../css/setting.css">
+		<link rel="stylesheet" href="../../css/font/iconfont.css">
+		<link rel="stylesheet" href="../../js/page/page.css">
+		<link rel="stylesheet" href="../../js/tinyscrollbar/tinyscrollbar.css">
+	</head>
+
+	<body>
+		<div class="main-wrapper">
+			<div class="childrenBody">
+				<div class="children-header">
+					<h3 class="title">
+	                    <i class="iconfont icon-icon_shiyongwendang"></i> 设备参数配置管理
+	                </h3>
+					<div class="btn-group-content mt">
+						<div class="btn-group ">
+							<button class="btn btnactive" value="0">喷漆线</button>
+							<button class="btn " value="1">注塑线</button>
+							<button class="btn " value="2">表面处理</button>
+						</div>
+						<div class="opaer-box">
+							<a href="javascript:void(0);" id="queryBtn" class="common-btn btn-green">导出数据</a>
+						</div>
+					</div>
+				</div>
+				<div class="table-content">
+					<div class="table-scroller" id="tableScroller">
+						<div class="viewport">
+							<div class="overview">
+								<table class="table">
+									<colgroup>
+										<col width="80">
+										<col width="140">
+										<col width="120">
+										<col width="120">
+										<col width="120">
+										<col width="120">
+										<col width="120">
+										<col width="120">
+										<col width="200">
+										<col width="120">
+										<col width="80">
+									</colgroup>
+									<thead>
+										<tr>
+											<th rowspan="2">工艺段</th>
+											<th rowspan="2" class="lh21">零件/过程编号 <br/>Part/Process NO.</th>
+											<th rowspan="2" class="lh21">过程名称 <br/>Process name</th>
+											<th rowspan="2">设备</th>
+											<th colspan="2">特性 Characteristics</th>
+											<th rowspan="2">数据内容</th>
+											<th rowspan="2">采集方式</th>
+											<th rowspan="2">现状(是否已采集)</th>
+											<th rowspan="2">探测手段</th>
+											<th rowspan="2">单位</th>
+										</tr>
+										<tr>
+											<th>产品 Product</th>
+											<th>过程 Process</th>
+										</tr>
+									</thead>
+									<tbody id="paintTable">
+									</tbody>
+								</table>
+							</div>
+							<div class="scrollbar">
+								<div class="track">
+									<div class="thumb"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pagination" id="pagination"></div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.min.js"></script>
+		<script src="../../js/layui/layui.all.js"></script>
+		<script src="../../js/page/page.js"></script>
+		<script src="../../js/tinyscrollbar/jquery.tinyscrollbar.js"></script>
+		<script>
+			//表格滚动条
+			var $scroller;
+			$scroll1 = $('#tableScroller');
+			$scroll1.tinyscrollbar({ axis: 'x',wheel:false});
+			//分页
+			pagination({
+				id: 'pagination',
+				totalPages: 5,
+				totalDatas: ""
+			}, initTable);
+
+			function initTable(pageNumber) {
+				if (pageNumber) {
+					var index = layer.load(1, {shade : [ 0 ]});
+				}
+				$.ajax({
+					type:"get",//对服务器改成post
+					url:"../../text/devicw_manager.json",
+					dataType: "json",
+					success:function(data){
+						console.log(data);
+						var html = "";
+						for (var i in data) {
+							html += "<tr>";
+								html += '<td title="'+data[i].a+'">'+data[i].a+'</td>';
+								html += '<td title="'+data[i].b+'">'+data[i].b+'</td>';
+								html += '<td title="'+data[i].c+'">'+data[i].c+'</td>';
+								html += '<td title="'+data[i].d+'">'+data[i].d+'</td>';
+								html += '<td title="'+data[i].f+'">'+data[i].f+'</td>';
+								html += '<td title="'+data[i].g+'">'+data[i].g+'</td>';
+								html += '<td title="'+data[i].h+'">'+data[i].h+'</td>';
+								html += '<td title="'+data[i].i+'">'+data[i].i+'</td>';
+								html += '<td title="'+data[i].j+'">'+data[i].j+'</td>';
+								html += '<td title="'+data[i].k+'">'+data[i].k+'</td>';
+								html += '<td title="'+data[i].l+'">'+data[i].l+'</td>';
+							html +="</tr>";
+						}
+						$("#paintTable").html(html);
+						layer.close(index);
+					}
+				});
+			}
+			initTable(0);
+			//工艺切换
+			$(".btn-group .btn").click(function() {
+				var btnvalue = $(this).val();
+				if($(this).hasClass('btnactive')) {
+					return
+				} else {
+					$(this).addClass("btnactive").siblings().removeClass("btnactive");
+					// ajax请求列表数据
+					if(btnvalue == '0') {
+						layer.msg("这是喷漆线")
+					} else if(btnvalue == '1') {
+						layer.msg("这是注塑线")
+					} else {
+						layer.msg("这是表面处理")
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

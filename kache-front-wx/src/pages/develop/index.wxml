@@ -1,0 +1,11 @@
+<!--src/pages/develop/index.wxml-->
+<view class="content">
+  <view class="develop_box">
+    <view class="develop_img">
+      <image src="../../assets/images/develop.png"></image>
+    </view>
+    <view class="develop_msg">
+      功能正在开发中，敬请期待！
+    </view>
+  </view>
+</view>

@@ -1,0 +1,140 @@
+.personal {
+	background-color: #f3f3f3;
+}
+.info {
+	margin-bottom: 1.5rem;
+}
+.head {
+	width: 7.5rem;
+	height: 3.98rem;
+	display: inline-block;
+	background: -webkit-linear-gradient(#21677c, #21273d); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#21677c, #21273d); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#21677c, #21273d); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#21677c, #21273d); /* 标准的语法 */
+}
+.headpic {
+	width: 1.5rem;
+	height: 1.5rem;
+	margin:0.56rem auto 0;
+	text-align: center;
+	border-radius: 100%;
+}
+.headpic img {
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 2rem;
+}
+.head .username {
+	width: 7.5rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	font-size: 0.36rem;
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 0.27rem;
+}
+.userinfo {
+	margin:0.45rem auto 0.5rem;
+	text-align: center;
+}
+.userinfo li {
+	line-height: 0.4rem;
+	font-size: 0.28rem;
+	color: #FFFFFF;
+	padding:0 0.2rem;
+	display:inline-block;
+	vertical-align: middle;
+}
+.userinfo li span {
+	margin-left: 0.17rem;
+}
+.userinfo .line {
+    display: inline-block;
+    width: 0.02rem;
+    height: 0.4rem;
+    vertical-align: middle;
+    background: url(../img/line.png) no-repeat center center;
+    background-size: 0.02rem 0.4rem;
+}
+.perlist ul {
+	width: 7.5rem;
+	margin-top: 0.3rem;
+	background-color:#FFFFFF;
+}
+.perlist li {
+	width: 7rem;
+	height: 0.9rem;
+	line-height: 0.9rem;
+	margin:0 auto;
+	background-color:#FFFFFF;
+	border-bottom: 0.02rem solid #d7d7d7;
+}
+.perlist li:last-child {
+	border-bottom: 0;
+}
+.perlist li a {
+	display: block;
+	font-size: 0.36rem;
+	color:#1d2339;
+}
+.perlist a img {
+	width: 0.4rem;
+	height: 0.4rem;
+	margin: 0 0.35rem 0 0.15rem; 
+}
+
+.theme-mask {
+    z-index: 100;
+    position: fixed;
+    _position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    display: none;
+}
+.loginout {
+    width: 6rem;
+    height: 2.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFFFFF;
+    margin: auto;
+    padding:.3rem;
+    border-radius: .1rem;
+    z-index: 101;
+}
+.lo_title {
+	font-size: .3rem;
+	color:#1D2339;
+}
+.lo_msg {
+	font-size: .24rem;
+	margin-top: .35rem;
+}
+.loginout input {
+	font-size: .3rem;
+	background: none;
+	margin-top: .2rem;
+    padding: .1rem .3rem;
+}
+input#closeloginout {
+	font-size: .3rem;
+	color: #666666;
+	margin-top: .3rem;
+	margin-left: 2.9rem;
+}
+input#qdloginout {
+	font-size: .3rem;
+	color: #28CEC3;
+	margin-top: .3rem;
+	/*margin-left: .4rem;*/
+}

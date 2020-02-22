@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>关于我们</title>
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/m-base.css" />
+		<link rel="stylesheet" href="../css/script.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css"/>
+		<style type="text/css">
+			.title {
+				background-color: #1D2339;
+			}
+			.content {
+			    width: 6.9rem;
+			    min-height: 100vh;
+			    padding: 0.5rem 0.3rem;
+			}
+			.content img {
+				width: 3rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aboutus w">
+			<div class="title">
+				<a href="personal.html" class="back"><img src="../img/back.png"/></a>
+				<div class="logo">关于我们</div>
+				<div class="clear"></div>
+			</div>
+			<div class="content" style="word-wrap: break-word">
+				
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/rem_new.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>   
+		<script src="../js/url.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.ajax({
+					type:"post",
+					url:test_url + pro_name + "/aboutUs/q",
+					xhrFields: {
+				        withCredentials: true
+				    },
+				    crossDomain: true,
+				    data:{
+				    	token:token,
+				    },
+				    success:function(data){
+				    	if (data.status == 200) {
+				    		console.log(data);
+				    		$(".content").html(data.data.content);
+				    	} else{
+				    		if (data.status == 601) {
+								alert(data.msg);
+								setTimeout(function(){
+									location.href = "../login.html";
+								},1000)
+							} else if (data.status == 700){
+								alert("登录失效，请重新登录");
+								setTimeout(function(){
+									location.href = "../login.html";
+								},1000)
+							}
+							console.log(data);
+				    	}
+				    	
+				    }
+				});
+			})
+		</script>
+	</body>
+</html>

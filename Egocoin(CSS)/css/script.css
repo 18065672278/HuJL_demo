@@ -1,0 +1,312 @@
+/*flix等分*/
+
+
+.disfx {
+	display: -webkit-box;
+	/* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;
+	/* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;
+	/* TWEENER - IE 10 */
+	display: -webkit-flex;
+	/* NEW - Chrome */
+	display: flex;
+	font-size: 0;
+}
+
+
+.fx1 {
+	-webkit-flex: 1;
+	flex: 1;
+	/* for uc */
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-flex: 1;
+}
+
+.fx2 {
+	-webkit-flex: 2;
+	flex: 2;
+	/* for uc */
+	-webkit-box-flex: 2;
+	-moz-box-flex: 2;
+	-ms-flex: 2;
+}
+
+.fx3 {
+	-webkit-flex: 3;
+	flex: 3;
+	/* for uc */
+	-webkit-box-flex: 3;
+	-moz-box-flex: 3;
+	-ms-flex: 3;
+}
+
+.fx4 {
+	-webkit-flex: 4;
+	flex: 4;
+	/* for uc */
+	-webkit-box-flex: 4;
+	-moz-box-flex: 4;
+	-ms-flex: 4;
+}
+
+.fx5 {
+	-webkit-flex: 5;
+	flex: 5;
+	/* for uc */
+	-webkit-box-flex: 5;
+	-moz-box-flex: 5;
+	-ms-flex: 5;
+}
+
+.fx6 {
+	-webkit-flex: 6;
+	flex: 6;
+	/* for uc */
+	-webkit-box-flex: 6;
+	-moz-box-flex: 6;
+	-ms-flex: 6;
+}
+
+.fx7 {
+	-webkit-flex: 7;
+	flex: 7;
+	/* for uc */
+	-webkit-box-flex: 7;
+	-moz-box-flex: 7;
+	-ms-flex: 7;
+}
+
+.fx8 {
+	-webkit-flex: 8;
+	flex: 8;
+	/* for uc */
+	-webkit-box-flex: 8;
+	-moz-box-flex: 8;
+	-ms-flex: 8;
+}
+
+
+/*字体大小*/
+
+.f0 {
+	font-size: 0;
+}
+
+.f16 {
+	font-size: .16rem;
+}
+
+.f18 {
+	font-size: .18rem;
+}
+
+.f20 {
+	font-size: .20rem;
+}
+
+.f22 {
+	font-size: .22rem;
+}
+
+.f24 {
+	font-size: .24rem;
+}
+
+.f26 {
+	font-size: .26rem;
+}
+.f28 {
+	font-size: .28rem;
+}
+
+.f30 {
+	font-size: .3rem;
+}
+
+.f36 {
+	font-size: .36rem;
+}
+.f48{
+	font-size: .48rem;
+}
+
+/*文字颜色*/
+
+
+/*A字体默认样式*/
+
+a {
+	color: #9f9f9f;
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c0 {
+	color: #000;
+}
+
+.c3 {
+	color: #333;
+}
+.cr{
+	color: #dd5563;
+}
+.c9 {
+	color: #999;
+}
+
+.cf {
+	color: #fff;
+}
+.cab{
+	color: #ababab;
+}
+.cj {
+	color: #cfa972;
+}
+/*bgcolor*/
+.bgh {
+	background-color: #cfa972;
+}
+
+/*bor*/
+
+.borb1 {
+	border-bottom: 1px #dcdcdc solid;
+}
+
+.borb10 {
+	border-bottom: .1rem #f4f7f6  solid;
+}
+
+.borb15 {
+	border-bottom: .15rem #f4f7f6  solid;
+}
+
+.borb20 {
+	border-bottom: .2rem #f4f7f6  solid;
+}
+
+
+/*btn*/
+.mt15{
+	margin-top: .15rem;
+}
+.mb15{
+	margin-bottom: .15rem;
+}
+
+/*下拉框样式改变*/
+
+select {
+	/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+	border: 0;
+	/*很关键：将默认的select选择框样式清除*/
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	/*为下拉小箭头留出一点位置，避免被文字覆盖*/
+	padding-right: 14px;
+}
+
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+
+select::-ms-expand {
+	display: none;
+}
+
+input,
+textarea {
+	font-family: "Microsoft Yahei", Arial;
+}
+
+
+/*****************inline-block与float等宽列表*******************/
+
+.inline_box {
+	font-size: 1em;
+	letter-spacing: -.25em;
+}
+
+.inline_one,
+.inline_two,
+.inline_three,
+.inline_four,
+.inline_five,
+.inline_six,
+.inline_any {
+	display: inline-block;
+	*display: inline;
+	letter-spacing: 0;
+	vertical-align: top;
+	*zoom: 1;
+}
+
+.float_two,
+.float_three,
+.float_four,
+.float_five,
+.float_six {
+	float: left;
+}
+
+.inline_two,
+.float_two {
+	width: 3.73rem;
+}
+
+
+/*二等分*/
+
+.inline_three,
+.float_three {
+	width: 33.3%;
+}
+
+
+/*三等分*/
+
+.inline_four,
+.float_four {
+	width: 24.9%;
+}
+
+
+/*四等分*/
+
+.inline_five,
+.float_five {
+	width: 19.9%;
+}
+
+
+/*五等分*/
+
+.inline_six,
+.float_six {
+	width: 16.6%;
+}
+
+
+/*六等分*/
+
+.inline_one {
+	width: 100%;
+}
+
+.justify_fix {
+	display: inline-block;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+}
+
+.left_fix {
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+}
+

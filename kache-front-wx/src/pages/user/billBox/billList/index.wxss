@@ -1,0 +1,33 @@
+@import "../../../../templates/list/list.wxss";
+
+.add {
+  display: none;
+}
+
+.info-desc .firstRowL {
+  font-size: 28rpx;
+  color: #000;
+}
+
+.info-desc .firstRowR {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.info-desc .secondRowL {
+  font-size: 22rpx;
+  color: #000;
+}
+
+.info-wrapper {
+  margin-left: 60rpx;
+}
+
+.product-content image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+  position: absolute;
+  top: 20rpx;
+  left: -20rpx;
+}

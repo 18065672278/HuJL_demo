@@ -1,0 +1,189 @@
+.login-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+	display: table;	
+}
+.login-logo {
+    position: absolute;
+    width: 11%;
+    top: 6%;
+    left: 8%;
+}
+.login-logo img {
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+}
+.login-wrapper .login-img {
+    height: 100%;
+    background-image: url(../images/login_bgimg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1000;
+}
+.login-name {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    color: #FFFFFF;
+    font-size: 48px;
+    /*margin-top: -32px;*/
+}
+.login-box {
+    position: absolute;
+    top: 16%;
+    left: 0;
+    right: 7%;
+    width: 504px;
+    margin-left: auto;
+    padding: 0 57px 80px;
+    box-sizing: border-box;
+    background:#FFFFFF;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #212139;
+    z-index: 2;
+}
+.login-box .logo-title {
+    padding: 60px 0;
+    text-align: center;
+    line-height: 44px;
+    color: #0D92F2;
+    font-size: 30px;
+}
+.login-box .login-form-group {
+    position: relative;
+    height: 51px;
+    line-height: 51px;
+    overflow: hidden;
+    background: #f4f7ff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 41px;
+}
+.login-box .icon {
+	font-family: "iconfont" !important;
+    font-size: 20px;
+    padding: 0 14px;
+    font-style: normal;
+    color:#000000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    float: left;
+}
+.login-form .login-form-group .form-input {
+    float: left;
+    width: calc(100% - 60px);
+    height: 51px;
+    line-height: 51px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    vertical-align: top;
+    background: #f4f7ff;
+}
+.login-form .login-form-group .yzm-input {
+	width: calc(100% - 190px);
+}
+.login-form .login-form-group .yzm-img {
+    float: left;
+    width: 130px;
+    height: 100%;
+    cursor: pointer;
+}
+.login-form .login-form-group .yzm-img img {
+	width: 100%;
+	height: 100%;
+}
+.login-button-group button {
+    width: 100%;
+    height: 51px;
+    line-height: 51px;
+    border: 0;
+    border-radius: 10px;
+    background: #0d92f2;
+    color: #FFFFff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.login-button-group button:hover {
+	background: #0282DF;
+}
+.footer {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+}
+.footer p:not(:last-child) {
+	margin-bottom: 10px;
+}
+.footer .copyright {
+	font-size: 12px;
+}
+.footer .support {
+	font-size: 10px;
+}
+@media screen and  (min-width: 1680px) {
+    .login-button-group button {
+	    margin-top: 51px;
+	}
+}
+@media screen and (max-width: 1680px){
+	.login-name {
+		font-size: 42px;
+	}
+	.login-box {
+	    width: 450px;
+    }
+    .login-box .logo-title {
+    	padding:50px 0;
+    }
+}
+@media screen and (max-width: 1680px){
+	.login-name {
+		font-size: 40px;
+	}
+}
+@media screen and (max-width: 1440px){
+	.login-name {
+	    font-size: 36px;
+	}
+}
+@media screen and (max-width: 1366px){
+	.login-name {
+	    font-size: 34px;
+	}
+    .login-box {
+        width: 370px;
+        padding: 0 45px 50px;
+    }
+    .login-box .logo-title {
+	    padding: 40px 0;
+	    font-size: 28px;
+	}
+	.login-box .login-form-group {
+	    height: 41px;
+	    line-height: 41px;
+	    margin-bottom: 31px;
+	}
+	.login-form .login-form-group .form-input {
+		height: 41px;
+		line-height: 41px;
+	}
+	.login-button-group button {
+		height: 41px;
+		line-height: 41px;
+	}
+}
+@media screen and (max-width: 1280px){
+	.login-name {
+	    font-size: 32px;
+	}
+}

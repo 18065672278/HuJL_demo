@@ -1,0 +1,56 @@
+.title {
+	background-color: #1D2339;
+}
+.content {
+	padding: 0.2rem 0.3rem 0;
+}
+.msg {
+	margin:0.3rem 0;
+	background-image: url(../img/important.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 0.14rem 0.16rem;
+}
+/*.msg img {
+	width: 0.14rem;
+	height: 0.16rem;
+	margin-right: 0.17rem;
+	vertical-align: middle;
+}*/
+.msg span {
+	font-size: 0.3rem;
+	color:#1D2339;
+	text-indent: 0.31rem;
+	vertical-align: middle;
+	display: block;
+}
+.usercard {
+	width: 6.9rem;
+	height: 4rem;
+	border: 0.02rem solid #9da0a9;
+}
+.usercard_img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.usercard_l {
+	max-width: 1.15rem;
+	margin-top: 1.34rem;
+}
+.usercard_img p {
+	font-size: 0.3rem;
+	color:#999999;
+	margin-top: 0.22rem;
+}
+
+.btn {
+	width: 5rem;
+	height: 0.9rem;
+	line-height: 0.9rem;
+	font-size: 0.36rem;
+	color:#FFFFFF;
+	text-align: center;
+	background-color: #28CEC3;
+	margin: 0.55rem auto 0.66rem;
+}

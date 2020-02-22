@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>语音解析</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../js/page/page.css">
+    <link rel="stylesheet" href="../../js/webuploader/webuploader.css" />
+    <style>
+    .webuploader-progress {
+	    width: 150px;
+	    height: 10px;
+	    display: inline-block;
+	    background: #ccc;
+	    vertical-align: middle;
+	    border:0;
+        border-radius: 20px;
+    }
+    .webuploader-progress-bar{
+       background: #fe4155;
+    }
+    .progressTxt {
+	    display: inline-block;
+	    margin-left: 10px;
+	}
+	.operate>a{
+        color:blue;
+        text-decoration:underline;
+        margin:0 5px;
+    }
+	.uploadProgressLayer{
+        display:none;
+        background:#000;
+        opacity:0.3;
+        width:100%;
+        height:100%;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:99;
+	}
+	.uploadProgress{
+		display:none;
+		width:300px;
+		height:10px;
+		position:absolute;
+		top:40%;
+		left:50%;
+		margin-left:-150px;
+	    background: #ccc;
+	    border-radius:10px;
+	    z-index:100;
+	}
+	.uploadProgress .progress-bar{
+		height:100%;
+		width:0;
+		margin:0;
+		background: #fe4155;
+		border-radius:10px;
+		transition: width 2s;
+		-moz-transition: width 0.5s; /* Firefox 4 */
+		-webkit-transition: width 0.5s; /* Safari 和 Chrome */
+		-o-transition: width 0.5s; /* Opera */
+	}
+    </style>
+</head>
+
+<body>
+    <div class="fixed-tab">
+        <blockquote class="admin-elem-quote">
+            <a>语音解析</a><span>/</span>
+            <a href="/html/speech/speech_list.html"><cite>语音识别工具</cite></a>
+        </blockquote>
+    </div>
+    <div class="main-wrapper">
+        <div class="tab-content">
+            <a href="javascript:void(0);" class="common-btn btn-danger">删除</a>
+            <a href="javascript:void(0);" class="common-btn btn-green" id="edit">编辑</a>
+            <a href="javascript:void(0);" class="common-btn btn-normal">转文字</a>
+            <a href="javascript:void(0);" class="common-btn btn-normal" id="tim">上传录音文件</a>
+        </div>
+        <div class="table-content">
+            <table class="table" id="uploadtable">
+                <thead>
+                    <tr>
+                        <th style="width:40px;" class="checkbox-row">
+                            <input class="checkAll" type="checkbox" id="checkAll" name="chk_list" value="">
+                            <label class="checkbox-shape" for="checkAll" id="checkAllBox"></label>
+                        </th>
+                        <th style="width:40px;">序号</th>
+                        <th>文件名称</th>
+                        <th>时长</th>
+                        <th>文件大小</th>
+                        <th>上传时间</th>
+                        <th>上传人</th>
+                        <th>状态</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <td>
+                        <input class="checkbox" type="checkbox" id="checkbox2" name="chk_list" value="">
+                        <label class="checkbox-shape" for="checkbox2"></label>
+                    </td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="checkbox" type="checkbox" id="checkbox3" name="chk_list" value="">
+                            <label class="checkbox-shape" for="checkbox3"></label>
+                        </td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="checkbox" type="checkbox" id="checkbox4" name="chk_list" value="">
+                            <label class="checkbox-shape" for="checkbox4"></label>
+                        </td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="checkbox" type="checkbox" id="checkbox5" name="chk_list" value="">
+                            <label class="checkbox-shape" for="checkbox5"></label>
+                        </td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="checkbox" type="checkbox" id="checkbox6" name="chk_list" value="">
+                            <label class="checkbox-shape" for="checkbox6"></label>
+                        </td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class='uploadProgressLayer'></div>
+    <div class="uploadProgress" id="uploadProgress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/layer/layer.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/webuploader/webuploader.js"></script>
+    <script src="../../js/createUploader.js"></script>
+    <script>
+        var ctp = "";
+        createUpload('addproject', '', '#tim');
+        // 单选选中时取消
+       
+        $("#edit").click(function () {
+            var length = $(".table tbody").find(".checkbox:checked").length;
+            if(length <= 0){
+                layer.msg('请选择一条记录');
+            }else if(length > 1){
+                layer.msg('只能选择一条记录');
+            }else{
+                layer.open({
+                    id: 'layer-role',
+                    type: 2,
+                    title: false,
+                    shade: 0.2,
+                    shadeClose: false,
+                    area: ['100%', '100%'],
+                    closeBtn: 0,
+                    anim: 0,
+                    content: '/html/speech/layer_speech.html'
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>

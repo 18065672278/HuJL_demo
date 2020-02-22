@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>USDT钱包</title>
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/wallet.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+	</head>
+	<body>
+		<div class="wallet w">
+			<div class="title">
+				<a href="javascript:void();" class="back"></a>
+				<div class="logo">USDT钱包</div>
+				<div class="fr back" id="details">明细</div>
+				<div class="clear"></div>
+			</div>
+			<div class="nav">
+				<ul class="tab clearfix">
+				    <li onclick="market(this)">BTC</li>
+				    <li onclick="market(this)" class="on">USDT</li>
+				    <li onclick="market(this)">BCH</li>
+				    <li onclick="market(this)">LTC</li>
+				    <li onclick="market(this)">ETH</li>
+				    <input type="hidden" name="currency" id="currency" value="USDT"/>
+				    <div class="clear"></div>
+				</ul>
+			</div>
+			<div class="content">
+				<img src="img/money.png" class="assets_img"/>
+				<p class="assets_title">我的总资产</p>
+				<p class="totalassets" id="totalassets">U0.00000000</p>
+				<div class="assets">
+					<div class="assets1">
+						<span>可用资产</span><span id="assets1">U0.00000000</span>
+					</div>
+					<div class="line"></div>
+					<div class="assets2">
+						<span>冻结资产</span><span id="assets2">U0.00000000</span>
+					</div>
+				</div>
+			</div>
+			<div class="btn">
+				<div class="recharge_btn">充值</div>
+				<div class="withdraw_btn">提现</div>
+			</div>
+			<div class="foot clearfix">
+				<li class="b_button1"><img src="img/transaction1.png" id="menu1"/><p id="transaction">交易</p></li>
+				<li class="b_button2"><img src="img/order1.png" id="menu2"/><p id="order">订单</p></li>
+				<li class="b_center"><img src="img/footerj.png"/></li>
+				<li class="b_button3 select"><img src="img/wallet2.png" id="menu3"/><p id="wallet">钱包</p></li>
+				<li class="b_button4"><img src="img/personal1.png" id="menu4"/><p id="personal">我的</p></li>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/footer.js" ></script>
+		<script type="text/javascript" src="js/url.js"></script>
+		<script type="text/javascript" src="js/rounding.js" ></script>
+		<script type="text/javascript" src="js/wallet.js"></script>
+		<script type="text/javascript">
+			//获取前一个页面的值并转换页面上的相关值
+			var currency=GetQueryString("currency")
+			console.log(currency);
+			if (currency != null){
+				$(".rcode").text(currency);
+				$("title").text(currency + "钱包");
+				$(".logo").text(currency + "钱包");
+				$("#currency").val(currency);
+				$(".tab li").each(function (index) {
+					if ($(this).text() == currency) {
+						$(this).attr("class", "on");
+						$(this).siblings().attr("class", "");
+					}
+		    	});
+			}
+			$("#details").click(function(){
+				currency = $("#currency").val();
+				location.href = "details.html?currency="+currency;
+			})
+			var currency;
+			$(".recharge_btn").click(function(){
+				currency = $("#currency").val();
+				location.href = "recharge.html?currency="+currency;
+			});
+			$(".withdraw_btn").click(function(){
+				currency = $("#currency").val();
+				location.href = "withdraw.html?currency="+currency;
+			});
+		</script>
+	</body>
+</html>

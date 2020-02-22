@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>忘记密码</title>
+		<meta name="format-detection" content="telephone=no" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/m-base.css" />
+		<link rel="stylesheet" href="css/script.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+	</head>
+	<body>
+		<div class="forgetpass w">
+			<div class="title">
+				<a href="login.html" class="back"></a>
+				<div class="logo">忘记密码</div>
+				<div class="clear"></div>
+			</div>
+			<div class="form">
+	    		<ul>
+	    			<li class="form_item">
+	    				<div class="form_item_input">
+	    					<img class="outline" src="img/loginname.png"/>
+	    				</div>
+	    				<div class="line"></div>
+	    				<input class="uname" id="fname" type="text" placeholder="请输入手机号"/>
+	    			</li>
+	    			<li class="form_item">
+	    				<div class="form_item_input">
+	    					<img class="outline" src="img/loginyzm.png"/>
+	    				</div>
+	    				<div class="line"></div>
+	    				<input class="uname" id="fcode" type="text" placeholder="请输入验证码"/>
+	    				<input type="button" class="code" value="获取验证码">
+	    			</li>
+	    			<li class="form_item">
+	    				<div class="form_item_input">
+	    					<img class="outline" src="img/loginpass.png"/>
+	    				</div>
+	    				<div class="line"></div>
+	    				<input class="uname" id="fnewpass1" type="password" placeholder="请输入新密码"/>
+	    			</li>
+	    			<li class="form_item">
+	    				<div class="form_item_input">
+	    					<img class="password" src="img/loginpass.png"/>
+	    				</div>
+	    				<div class="line"></div>
+	    				<input class="pass" id="fnewpass2" type="password" placeholder="请确认新密码"/>
+	    			</li>
+	    		</ul>
+	    		<button value="确定" class="loginBtn">确定</button>
+	    		<button value="稍后" class="wait" style="display: none;">请稍后...</button>
+	    		<div class="protocol"><input type="checkbox" name="protocol" id="protocol" value="" checked="checked"/><label for="protocol">我已同意并阅读《Egocoin用户注册协议》</label></div>
+	    	</div>
+		</div>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/rem_new.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>   
+		<script src="js/url.js"></script>
+		<script type="text/javascript">
+			$(".loginBtn").on("click",function(){
+				if($('#protocol').is(':checked')) {
+					var fname=$('#fname').val();//注册手机号
+					var fcode=$('#fcode').val();//验证码
+					var fnewpass1=$('#fnewpass1').val();//设置密码
+					var fnewpass2=$('#fnewpass2').val();//确认密码
+					if (fname == "") {
+						layer.msg("请输入手机号",{time:2000});
+					} else if(fcode == ""){
+						layer.msg("请输入验证码",{time:2000});
+					} else if(fnewpass1 == ""){
+						layer.msg("请输入新密码",{time:2000});
+					} else if(fnewpass2 == ""){
+						layer.msg("请确认新密码",{time:2000});
+					} else if(fnewpass2 != fnewpass2){
+						layer.msg("两次输入的密码不一致",{time:2000});
+					} else{
+						/*$.ajax({
+							type:"post",
+							url:"",
+							xhrFields: {
+				            	withCredentials: true
+					        },
+					        crossDomain: true,
+					        beforeSend: function() {
+								$(".loginBtn").hide();
+								$(".wait").show();
+	                  		},
+					        data:{
+					        	
+					        },
+					        success:function(data){
+					        	if (data.status == 200) {
+					        		
+					        	} else{
+									$(".wait").hide();
+									$(".loginBtn").show();
+									if (data.status == ) {
+										layer.msg("",{time:2000});
+									} else if (data.status == ) {
+										layer.msg("",{time:2000});
+									} else {
+										layer.msg(data.msg,{time:2000});
+									}
+					        	}
+					        }
+						});*/
+					}
+				}else{
+					layer.msg("请先同意《Egocoin用户注册协议》",{time:2000});
+				}
+			})
+			//获取验证码
+			$('.code').click(function() {
+                var regPhone = /^1\d{10}$/;
+                if (regPhone.test($('#fname').val())) {
+                    var _this = $(this)
+
+                    // if (data.status === 200) {
+                    _this.attr('disabled', true)
+
+                    // .css('background', '#e6e6e6').css('color', '#E0BB2C')
+                    var sTiem = 60;
+                    var stopT = setInterval(function() {
+                        sTiem--
+                        _this.val(sTiem);
+                        if (sTiem == 0) {
+                            sTiem = 60;
+                            clearInterval(stopT)
+                            _this.removeAttr('disabled').val('获取验证码')
+                                // .css('background', '#E0BB2C').css('color', '#fff')
+                        }
+                    }, 1000)
+                    setTimeout(function() {
+                            _this.removeAttr('disabled')
+                                // .css('background', '#E0BB2C')
+                        }, 60000)
+                    $.ajax({
+                        url: test_url + pro_name + "user/send/code ",
+                        //请求的url
+                        type:"post",
+                        xhrFields: {
+				            withCredentials: true
+				        },
+				        crossDomain: true,
+                        data: {
+                        	token:token,
+                        	type:1,
+                            "phone": parseInt($('#fname').val())
+                        },
+                        beforeSend: function() {
+                            console.log('加载中。。。。。')
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            if (data.status === 200) {
+                                layer.msg('获取成功,请查看手机验证码', {time: 2000});
+                            } else {
+                            	console.log(data);
+                            	if (data.status == 601) {
+                            		layer.msg("操作过于频繁，请一分钟后重试", {time: 2000});
+                            	} else{
+                            		layer.msg(data.msg,{time: 2000});
+                            	}
+                            }
+
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        	
+                        }
+                    }); //ajax end
+                } else {
+                    layer.msg('请输入正确的手机号', {
+                        icon: 5,
+                        shift: 6
+                    });
+                }
+            });
+		</script>
+	</body>
+</html>
+

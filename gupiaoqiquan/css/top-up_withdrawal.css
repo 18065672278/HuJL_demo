@@ -1,0 +1,338 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: #000000;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+}
+html{
+	width: 100%;
+    height: 100%;
+    font-size: 50px;
+    /* overflow: hidden; */
+}
+body{
+	width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+}
+.containers{
+    display: flex;
+	min-height: 100vh;
+	flex-direction: column;	
+}
+.head{
+	background-color: #000000;
+	color: #FFFFFF;
+	padding-top: 0.33rem;
+	padding-bottom: 0.33rem;
+}
+.head img{
+	margin-left: 0.27rem;
+	margin-right: 0.2rem;
+	width: 0.33rem;
+	height: 0.4rem;
+}
+#back{
+	color: #FFFFFF;
+	margin-right: 22%;
+	font-size: 17px;
+}
+.heads{
+	width: 1.93rem;
+	height: 0.53rem;
+	/*font-size: 1.6em;*/
+	font-size: 21px;
+}
+.title{
+	width: 100%;
+	height: 1.33rem;
+	background-color: #FFFFFF;	
+	font-size: 18px;
+}
+.lefts{
+	width: 50%;
+	height: 1.33rem;
+	line-height: 1.33rem;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #F5F5F5;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	color: rgb(153,153,153);
+}
+.rights{
+	width: 50%;
+	height: 1.33rem;
+	line-height: 1.33rem;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #F5F5F5;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	color: rgb(153,153,153);
+}
+.aa{
+	width: 100%;
+	height: 0.05rem;
+}
+/*充值*/
+.first{
+	display: block;
+}
+.online{
+	width: 100%;
+	height: 3.4rem;
+	background-color: #f5f5f5;
+}
+.btn{
+	text-align: center;
+}
+.online input{
+	width: 82%;
+	height: 1.13rem;
+	background-color: #f5f5f5;
+	border: 1px solid #ac825e;
+	color: #ac825e;
+	border-radius: 5px;
+	margin-top: 8%;
+	margin-bottom: 7%;
+}
+.online p{
+	width: 82%;
+	margin: 0 auto;
+	font-weight: 600;
+	font-size: 15px;
+}
+.forms table{
+	width: 100%;
+	/*height: 3.2rem;*/
+	background-color: #FFFFFF;
+	color: #333333;
+	text-align: center;
+}
+.forms th{
+	height: 1.33rem;	
+	font-size: 1.2em;
+	font-weight: 400;
+}
+.forms td{
+	height: 1.33rem;
+	border-bottom: 1px solid #F5F5F5;
+}
+/*提现*/
+.second{
+	display: none;
+}
+.withdrawal{
+	width: 100%;
+	height: 6.53rem;
+	background-color: #f5f5f5;
+}
+.tixian{
+	width: 64.6%;
+	height: 5.73rem;
+	margin: 0 auto;
+}
+.tixian span{
+	width: 2.26rem;
+	color: #ac825e;
+	line-height: 1.13rem;
+	font-size: 1.2em;
+}
+.one{
+	width: 100%;
+	height: 1.13rem;
+	padding-top: 0.8rem;
+}
+
+.remain_1{
+	width: 2.93rem;
+	height: 1.1rem;
+	text-align: left;
+	float: right;
+	border: none;
+	color: #AC825E;
+	background-color: #F5F5F5;
+}
+.remain_2{
+	width: 98px;
+	height: 0.8rem;
+	float: right;
+	text-align: left;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid rgb(169,169,169);
+}
+
+.remain_3{
+	width: 100px;
+	height: 0.8rem;
+	float: right;
+	text-align: left;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid rgb(169,169,169);
+}
+
+.three select{
+	width: 2.93rem;
+	height: 0.86rem;
+	float: right;
+	text-align: right;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.four input{
+	width: 100%;
+	height: 1.06rem;
+	background-color: #AC825E;
+	border: 1px solid #AC825E;
+	border-radius: 5px;
+	margin-top: 0.2rem;
+}
+.withdrawal p{
+	width: 82%;
+	margin: 0 auto;
+	font-weight: 600;
+	font-size: 15px;
+	margin-top: 0.2rem;
+}
+.forms table{
+	width: 100%;
+	height: 3.2rem;
+	background-color: #FFFFFF;
+	color: #333333;
+	text-align: center;
+}
+.forms th{
+	height: 1.33rem;	
+	font-size: 1.2em;
+	font-weight: 400;
+}
+.forms td{
+	border-bottom: 1px solid #F5F5F5;
+	height: 1.33rem;
+}
+/*底部*/
+.footer{
+	width: 100%;
+	height: 1.33rem;
+	background-color: #000000;
+	color: #FFFFFF;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 0.2rem;
+	font-size: 12px;
+}
+.shadow{
+	width: 100%;
+	flex: 1; /* 1 代表盡可能最大，會自動填滿除了 header footer 以外的空間 */
+	background-color: #FFFFFF;
+}
+.rows_1{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+}
+.rows_2{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+}
+.rows_3{
+	width: 33.3%;
+	float: left;
+	margin-top: 0.2rem;
+	
+}
+.rows_1 img{
+	width: 0.65rem;
+	height: 0.56rem;
+}
+.rows_2 img{
+	margin-left: 0.05rem;
+	width: 0.54rem;
+	height: 0.6rem;
+}
+.rows_3 img{
+	margin-left: 0.35rem;
+	width: 0.58rem;
+	height: 0.61rem;
+}
+@media screen and (min-width:768px){ 
+    #back{
+    	margin-right: 3.2rem;
+    }
+    .head{
+    	font-size: 24px;
+    }
+    .head img{
+    	height: 0.53rem;
+    }
+    .footer{
+		padding-left: 3rem;
+	}
+	.footer p{
+		margin-left: 0.1rem;
+	}
+	.rows_3 p{
+		margin-left: 0.2rem;
+	}
+}
+@media only screen and (max-height:567px){ 
+    .picture{
+		width: 100%;
+		height: 6rem;
+		text-align: center;
+	}
+	.picture img{
+		width: 6rem;
+		height: 6rem;
+	}
+
+}
+
+/*媒体查询，匹配分辨率*/
+
+@media only screen and (max-width: 376px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 377px) and (max-width: 450px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 525px) {
+    html {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 526px) and (max-width: 600px) {
+    html {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 675px) {
+    html {
+        font-size: 36px;
+    }
+}

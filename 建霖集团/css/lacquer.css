@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/* 良率预测模型 */
+
+.red {
+	color: #e23668;
+}
+
+.blue {
+	color: #0394fd;
+}
+
+.normal {
+	color: #fea25a;
+}
+
+.chart {
+	float: left;
+	width: 33.33333333%;
+	min-height: 254px;
+}
+
+.historyChart {
+	width: 100%;
+	min-height: 254px;
+}
+
+#chart4 {
+	width: 100%;
+	min-height: 254px;
+}
+
+.type-tabContent {
+	height: 254px;
+}
+
+.type-content {
+	height: 254px;
+}
+
+.type-content .type-item {
+	display: block;
+	position: relative;
+	float: left;
+	width: 50%;
+	padding: 10px 5%;
+	overflow: hidden;
+	color: #474747;
+	font-size: 14px;
+	line-height: 30px;
+	text-indent: 20px;
+	border-bottom: 1px solid #3d3d67;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #ffffff;
+}
+
+.type-content .type-item p {
+	position: relative;
+	line-height: 30px;
+}
+
+.type-content .type-item p:after {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-width: 8px 0 8px 8px;
+	border-style: solid;
+	border-color: transparent transparent transparent #0394fd;
+	/*透明 透明 透明 黄*/
+	position: absolute;
+	top: 6px;
+	left: 0px;
+	content: "";
+}
+
+.suggest-content .sugges-list .suggest-list-item {
+	padding: 10px 0;
+	border-bottom: 1px solid #3d3d67;
+	box-sizing: border-box;
+}
+
+.suggest-content .sugges-list .suggest-list-item.no-suggest {
+	text-align: center;
+	color: #ffffff;
+	font-size: 16px;
+	border-bottom: 0;
+}
+
+.suggest-content .sugges-list .suggest-list-item .suggest-list-title {
+	color: #0394fd;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.suggest-content .sugges-list .suggest-list-item .suggest-list-sys {
+	color: #a4a4ff;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.suggest-content .sugges-list .suggest-list-item .suggest-list-content {
+	position: relative;
+	padding: 0 10px;
+	color: #d6d6d6;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+.suggest-content .sugges-list .suggest-list-item .suggest-list-content:after {
+	position: absolute;
+	top: 8px;
+	left: 0;
+	width: 5px;
+	height: 5px;
+	background-color: #0394fd;
+	border-radius: 50%;
+	content: "";
+}
+
+.checkbox+.checkbox-txt i {
+	font-style: normal;
+}
+
+
+/*影响因素监测模型*/
+
+.changeicon {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	margin: 0 10px;
+	vertical-align: middle;
+}
+
+.histogram-change {
+	background: url(../images/histogramchange.png);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center center;
+}
+
+.form-change {
+	background: url(../images/formchange.png);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center center;
+}
+
+.echarts {
+	float: left;
+	width: 100%;
+	min-height: 400px;
+}

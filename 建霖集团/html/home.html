@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>建霖大数据平台</title>
+    <link rel="shortcut icon" href="../images/bitbug_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/font/iconfont.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- header -->
+        <div class="top-header">
+            <div class="top-logo">
+                <a href="javascript:void(0);" class="clearfix">
+                    <div class="login-img">
+                        <img src="../images/top_logo.png" alt="">
+                    </div>
+                    <div class="login-name">
+                        <p>建霖<i></i>大数据优化运行指导平台</p>
+                    </div>
+                </a>
+            </div>
+            <div class="top-nav-right">
+                <div class="top-nav-item timeBox">
+                    <p class="nav-name">admin,欢 迎 您</p>
+                    <p class="nav-box">
+                        <span class="nav-box-date"></span>
+                        <span class="nav-box-time"></span>
+                    </p>
+                </div>
+                <div class="top-nav-item power-close">
+                    <i class="iconfont icon-tuichu"></i>
+                </div>
+            </div>
+        </div>
+        <!-- leftside -->
+        <div class="left-side">
+            <div class="left-side-scroll">
+                <ul class="left-nav-tree"></ul>
+            </div>
+        </div>
+        <!-- 主体内容 -->
+        <div class="admin-body">
+            <div class="admin-content">
+                <iframe id="poIframe" src="" frameborder="0" style="width:100%;height:100%;border:none;outline:none;"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/layui/layui.all.js"></script>
+    <script src="../js/left.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        // 计时器
+		function systemTime(){
+		    var dateTime = new Date();
+		    var year = dateTime.getFullYear();//年份
+		    var month = dateTime.getMonth() + 1;//月份
+		    var day = dateTime.getDate();//天数
+		    var hh = dateTime.getHours();//小时
+		    var mm = dateTime.getMinutes();//分钟
+		    var ss = dateTime.getSeconds();//秒
+		    //分秒时间是一位数字，在数字前补0
+		    mm = extra(mm);
+		    ss = extra(ss);
+		    document.getElementsByClassName("nav-box-date")[0].innerText = year + "-" + month + "-" + day;
+		    document.getElementsByClassName("nav-box-time")[0].innerText = hh + ":" + mm + ":" + ss;
+		    setTimeout("systemTime()", 1000);
+		}
+		// 补位函数
+		function extra(x) {
+		    if (x < 10) {
+		        return "0" + x;
+		    } else{
+		        return x;
+		    };
+		}
+		systemTime();
+    </script>
+</body>
+</html>

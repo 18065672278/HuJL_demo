@@ -1,0 +1,66 @@
+/* src/pages/bindtel/index.wxss */
+
+page {
+  background: #efeff4;
+}
+
+.item-wrapper {
+  margin-top: 30rpx;
+  background: #fff;
+  border-width: 3px 0px;
+  border-style: solid;
+  border-color: #ededed;
+}
+
+.item_list {
+  margin-left: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #ededed;
+}
+
+.item_list:nth-child(2), .item_list:last-child {
+  border-bottom: 0px;
+}
+
+.item_list:nth-child(2) .value {
+  border-bottom: 1px solid #ededed;
+}
+
+.name {
+  color: #000;
+}
+
+input.value {
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 100rpx;
+  color: #828282;
+}
+
+.getcode {
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #ededed;
+  font-size: 30rpx;
+  color: #52cc38;
+  padding: 0 20rpx;
+  text-align: center;
+}
+
+.btn {
+  margin: 30rpx auto;
+}
+
+.item_list:first-child {
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.userimg {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin: 20rpx;
+}

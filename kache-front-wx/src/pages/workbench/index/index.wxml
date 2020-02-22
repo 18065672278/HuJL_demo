@@ -1,0 +1,52 @@
+<!--src/pages/workbench/imdex/index.wxml-->
+<!--src/pages/truck/index.wxml-->
+<view class="content">
+  <view class="title">
+    <view class="title_name">{{outletName?outletName:""}}</view>
+    <view class="msg_num" style="display:none">
+      <image src="{{msg_num?'/src/assets/images/icons/message.png':'/src/assets/images/icons/hasMessage.png'}}"></image>
+    </view>
+  </view>
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{status==1?'active':''}}" data-current="1" bindtap="clickTab">待处理</view>
+    <view class="swiper-tab-item {{status==2?'active':''}}" data-current="2" bindtap="clickTab">服务中</view>
+    <view class="swiper-tab-item {{status==3?'active':''}}" data-current="3" bindtap="clickTab">待确认</view>
+    <view class="swiper-tab-item {{status==4?'active':''}}" data-current="4" bindtap="clickTab">已完成</view>
+  </view>
+  <view class="item-wrapper {{status==1?' mb120':''}}">
+    <block wx:if='{{favorList && favorList.length > 0}}'>
+      <view class="item-list" wx:for="{{favorList}}" wx:for-item="item" wx:for-index="index" wx:key="that">
+        <view class="item-info" bindtap='editBtn' data-id="{{item.id}}">
+          <!-- <image class="info-img" src="/src/assets/images/icons/jd.png"></image> -->
+          <view class="info-wrapper">
+            <view class="info-desc">
+              <view class="name">订单号: {{item.orderNum}}{{item.orderType == 1?"(救援)":item.orderType == 2?"(到店服务)":""}}</view>
+              <!-- 网点 -->
+              <view class="time orderStatus">{{item.outletOrderStatus==1?'待处理':item.outletOrderStatus==2?'服务中':item.outletOrderStatus==4?'待结算':item.outletOrderStatus==7?'待确认':item.outletOrderStatus==8?'已完成':item.outletOrderStatus==10?'已取消':''}}</view>
+            </view>
+            <view class="info-desc">
+              <view class="carnum time">车牌号: {{item.carNum}}</view>
+              <view class="time">联系电话: {{item.mobile}}</view>
+            </view>
+            <view class="info-content">
+              车辆位置: {{item.address}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='none-box' style='display:flex;flex-direction:column;' wx:if="{{status!=1}}">
+        <image class='none-content' src='/src/assets/images/content_none.png'></image>
+        <view class='none-text'>暂无记录</view>
+      </view>
+      <view class='none-box process-box' style='display:flex;flex-direction:column;' wx:if="{{status==1}}">
+        <view class='none-text'>还没开始接单，赶快来接单吧</view>
+        <button class="goGrabOrder" bindtap="goGrabOrder">开始接单</button>
+      </view>
+    </block>
+  </view>
+  <view class="listBtn_box" wx:if="{{status==1 &&favorList&&favorList.length >0}}">
+    <view class="listBtn" bindtap="goGrabOrder">继续接单</view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<view class="credit-top">
+  <text class="credits"> {{integral}} </text>
+  <view class="name"> {{level}} </view>
+</view>
+
+<view class="credits-rule">
+  <view class="title">积分等级规则</view>
+  <block wx:for="{{integralRules}}"  wx:for-item="rule" wx:key="index">
+    <view class="item">
+      <text class="count">{{rule.start}} ~ {{rule.end}}</text>
+      <text class="name">{{rule.name}}</text>
+    </view>
+  </block>
+
+  <text class="info">购买商品可以快速获取积分哦。</text>
+</view>
+<navigator class="release-btn" open-type="switchTab" url="../../mall/index">马上下单</navigator>
